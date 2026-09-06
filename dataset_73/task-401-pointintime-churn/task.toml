@@ -1,0 +1,81 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/pointintime-churn"
+version = "1.0.0"
+description = "Rebuild a churn model's feature pipeline so that its offline evaluation is point-in-time correct."
+keywords = [
+    "hard",
+    "machine-learning",
+    "data-leakage",
+    "feature-engineering",
+    "model-evaluation",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "ml"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement", "debug"]
+difficulty = "hard"
+
+[task.difficulty_explanation]
+provenance = "A churn model whose offline evaluation disagreed with production, reconstructed as an event log in which every row carries both the date the event happened and the date it reached the warehouse."
+
+differentiation_notes = """
+The difficulty is not in the modelling. The optimiser and the metric are
+supplied and deterministic, and the feature set is six columns of counts. What
+has to be got right is which rows were knowable at the moment each prediction
+was made.
+
+Four decisions carry it, and each has a plausible wrong answer that a competent
+engineer produces on the first pass:
+
+(1) The lookback window is defined on when an event occurred; whether the row
+    may be used at all is decided by when it arrived. Using one timestamp for
+    both is the obvious reading and it admits rows that had not yet landed.
+(2) Restatements must be resolved after the availability filter, not before: a
+    correction that has not arrived does not apply, so the figure in force is
+    from the newest revision that had arrived.
+(3) Standardisation statistics come from the training rows only. Fitting the
+    transform over everything is tidier and carries the test distribution into
+    it.
+(4) The split is by prediction date, because the question is whether the model
+    holds on dates it has not seen.
+
+What makes this bite rather than merely being fiddly is the direction of the
+error. Every one of these mistakes RAISES the reported score: the leaked rows
+are the support tickets and seat removals that immediately precede a churn, so
+a pipeline that admits them looks better, not worse. The repository actively
+argues for the wrong answer - a results write-up reporting AUC 0.9044 and
+recommending shipping, and the pipeline that produced it, both retained from a
+superseded revision of the specification. The correct pipeline scores 0.8824,
+and an implementer has to be willing to hand back a lower number.
+"""
+
+relevance = "Evaluates whether a model can reason about temporal data availability, recognise leakage that flatters a metric, and follow a normative specification over an on-disk artefact that contradicts it."
+
+failure_cruxes = [
+    "Filtering the event log on occurred_at rather than available_at, admitting rows that had not reached the warehouse when the prediction was made.",
+    "Resolving restatements before the availability filter, so a correction that had not yet arrived is applied anyway.",
+    "Fitting the standardisation on the training and test rows together.",
+    "Splitting the labelled rows at random rather than by prediction date.",
+    "Trusting docs/RESULTS.md and tools/baseline.py, both retained from a superseded revision, over the specification in force.",
+]
+
+[scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+description = "Fraction of behaviour tests passed. Each test enforces one rule of docs/pipeline-spec.md, so a pipeline that gets some rules right scores partially."
+
+[environment]
+build_context = "environment"
+dockerfile = "environment/Dockerfile"
+
+[verifier]
+command = "bash tests/test.sh"
+timeout_sec = 1800
