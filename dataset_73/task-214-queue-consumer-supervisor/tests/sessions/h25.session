@@ -1,0 +1,3 @@
+{"backoff_ms": [1000, 5000], "heartbeat_timeout_ms": 1000, "max_restarts": 3, "op": "config", "reset_after_ms": 60000, "restart_window_ms": 300000, "workers": ["zebra", "alpha"]}
+{"op": "tick", "t": 1001}
+{"op": "end", "t": 5000}

@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/vector-clock"
+version = "1.0.0"
+description = "A single vector clock: tick(node), get/set, merge (componentwise max, idempotent+commutative), happens_before / descendant / is_concurrent / compare (before/after/concurrent/equal), tombstone GC, __eq__ vs dict/engine."
+keywords = [
+    "hard",
+    "vector-clocks",
+    "distributed-systems",
+    "causality-tracking",
+]
+
+[metadata]
+benchmark_style = "Doc2Repo"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Textbook vector-clock causality-tracking semantics."
+differentiation_notes = "Idempotent self-merge and correct concurrent-vs-descendant classification are both properties that only fail on specific comparison patterns, not typical single-node ticks."
+relevance = "Vector clocks underlie real production distributed-systems conflict detection (e.g. Dynamo-style stores)."
+failure_cruxes = [
+    "A merge() that isn't idempotent when merging a clock with itself, inflating a counter it shouldn't touch.",
+    "Misclassifying two clocks as `is_concurrent` when one is actually a strict descendant carrying extra untouched node entries.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

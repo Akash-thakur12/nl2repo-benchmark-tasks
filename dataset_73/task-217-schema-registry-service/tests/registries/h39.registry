@@ -1,0 +1,4 @@
+{"default_compatibility": "BACKWARD", "op": "config"}
+{"op": "register", "schema": [{"name": "id", "type": "int"}, {"name": "total", "type": "long"}], "subject": "t"}
+{"op": "delete_version", "subject": "t", "version": 7}
+{"op": "end"}

@@ -1,0 +1,3 @@
+{"op": "config"}
+{"name": "ordered", "op": "query", "sql": "SELECT created\nFROM events\nWHERE created > 0\nORDER BY created"}
+{"op": "end"}

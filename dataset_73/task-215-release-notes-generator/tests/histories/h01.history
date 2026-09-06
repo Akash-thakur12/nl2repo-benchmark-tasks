@@ -1,0 +1,9 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000001", "subject": "add pagination"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000002", "subject": "Feat: add pagination"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000003", "subject": "feat:add pagination"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000004", "subject": "feat:  add pagination"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000005", "subject": "feat: "}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000006", "subject": "feat2: add pagination"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000007", "subject": " feat: add pagination"}
+{"op": "end"}

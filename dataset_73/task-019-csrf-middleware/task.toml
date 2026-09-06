@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/csrf-middleware"
+version = "1.0.0"
+description = "Issue CSRF token. Verify double-submit cookie. Origin/Referer check. Exempt safe methods."
+keywords = [
+    "hard",
+    "csrf",
+    "web-security",
+    "double-submit-cookie",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models the real double-submit-cookie CSRF defense pattern used in production web frameworks."
+differentiation_notes = "Safe-method exemption and double-submit comparison are both individually simple but easy to omit together while still passing a basic same-origin test."
+relevance = "Double-submit-cookie CSRF defense is a real, widely deployed web-security pattern."
+failure_cruxes = [
+    "Not exempting safe methods (GET/HEAD) from the CSRF check, rejecting harmless requests that never need a token.",
+    "Accepting a request based on the cookie alone without comparing it against the double-submitted header/body token.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

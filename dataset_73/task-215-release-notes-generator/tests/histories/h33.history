@@ -1,0 +1,6 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000280", "subject": "feat(api): first"}
+{"author": "Bo Lindqvist", "body": "", "op": "commit", "sha": "b000281", "subject": "chore(deps): bump"}
+{"author": "Cai Wen", "body": "", "op": "commit", "sha": "b000282", "subject": "nothing conventional"}
+{"author": "Dee Okafor", "body": "", "op": "commit", "sha": "b000283", "subject": "feat(api): first"}
+{"op": "end"}

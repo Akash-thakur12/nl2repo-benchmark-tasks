@@ -1,0 +1,3 @@
+{"default_compatibility": "BACKWARD", "op": "config"}
+{"op": "delete_version", "subject": "nowhere", "version": 1}
+{"op": "end"}

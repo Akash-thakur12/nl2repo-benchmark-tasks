@@ -1,0 +1,12 @@
+{"environments": ["prod"], "grace_seconds": 50, "op": "config"}
+{"env": "prod", "id": "api", "op": "consumer", "t": 10}
+{"op": "rotate", "t": 100}
+{"consumer": "api", "op": "ack", "t": 110, "version": 2}
+{"op": "tick", "t": 200}
+{"op": "rotate", "t": 300}
+{"consumer": "api", "op": "ack", "t": 310, "version": 3}
+{"op": "tick", "t": 400}
+{"op": "rotate", "t": 500}
+{"consumer": "api", "op": "ack", "t": 510, "version": 4}
+{"op": "tick", "t": 600}
+{"op": "end", "t": 700}

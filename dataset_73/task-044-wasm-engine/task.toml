@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/wasm-engine"
+version = "1.0.0"
+description = "WebAssembly MVP interpreter: operand-stack VM with structured control flow (block/loop/if/else/end + br/br_if/return resolved to jump targets), i32/i64/f32/f64 ops with wraparound, local.get/set/tee, global.get/set, drop/select, call + call_indirect (Python or wasm functions), linear memory load/store, and WasmTrap on div0 / OOB / underflow / undefined func."
+keywords = [
+    "hard",
+    "webassembly",
+    "bytecode-interpreter",
+    "stack-machine",
+]
+
+[metadata]
+benchmark_style = "Doc2Repo"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models the real WebAssembly MVP instruction set and control-flow semantics."
+differentiation_notes = "The if/else jump-target logic only diverges from correct on a false condition, so a solution that only tests the true branch looks completely correct."
+relevance = "WebAssembly control-flow correctness is foundational to every real production WASM runtime."
+failure_cruxes = [
+    "On a false `if` condition, jumping to the matching `else` instruction instead of into the else body, skipping it entirely.",
+    "i32 arithmetic not wrapped modulo 2^32, producing a Python-native unbounded integer instead of the correct wrapped/signed result.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

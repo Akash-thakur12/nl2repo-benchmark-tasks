@@ -1,0 +1,8 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "abc", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "plan", "operator": "in", "rollout": [{"variant": "a", "weight": 3000}, {"variant": "b", "weight": 3000}, {"variant": "c", "weight": 4000}], "values": ["pro"]}], "salt": "s-abc", "variants": ["a", "b", "c", "off"]}, "op": "define", "t": 1}
+{"flag": "abc", "op": "evaluate", "t": 2, "user": {"key": "u1", "plan": "pro"}}
+{"flag": "abc", "op": "evaluate", "t": 3, "user": {"key": "u2", "plan": "pro"}}
+{"flag": "abc", "op": "evaluate", "t": 4, "user": {"key": "u3", "plan": "pro"}}
+{"flag": "abc", "op": "evaluate", "t": 5, "user": {"key": "u4", "plan": "pro"}}
+{"flag": "abc", "op": "evaluate", "t": 6, "user": {"key": "u5", "plan": "pro"}}
+{"flag": "abc", "op": "evaluate", "t": 7, "user": {"key": "u6", "plan": "pro"}}
+{"op": "end", "t": 8}

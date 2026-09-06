@@ -1,0 +1,11 @@
+{"op": "config", "salt": "2026-Q1"}
+{"key": "checkout-button", "op": "experiment", "state": "running", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "checkout-button", "op": "assign", "user": "u-0001"}
+{"experiment": "checkout-button", "op": "assign", "user": "u-0002"}
+{"experiment": "checkout-button", "op": "assign", "user": "u-0003"}
+{"experiment": "checkout-button", "op": "assign", "user": "u-0004"}
+{"experiment": "checkout-button", "op": "assign", "user": "u-0005"}
+{"experiment": "checkout-button", "op": "assign", "user": "u-0006"}
+{"experiment": "checkout-button", "op": "assign", "user": "u-0007"}
+{"experiment": "checkout-button", "op": "assign", "user": "u-0008"}
+{"op": "end"}

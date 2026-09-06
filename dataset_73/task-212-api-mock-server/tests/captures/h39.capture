@@ -1,0 +1,49 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/a",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ],
+      "query": [
+        {
+          "name": "page",
+          "type": "int",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/a",
+      "seq": 1000,
+      "query": {
+        "page": "+1"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/a",
+      "seq": 1001,
+      "query": {
+        "page": " 1"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/a",
+      "seq": 1002,
+      "query": {
+        "page": "1_0"
+      }
+    }
+  ]
+}

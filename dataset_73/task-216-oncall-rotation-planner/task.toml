@@ -1,0 +1,68 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/oncall-rotation-planner"
+version = "1.0.0"
+description = "Build an on-call rotation planner: inclusive unavailable ranges, a rotation that advances one engineer a day whatever happens, substitution by fewest days with a tie-break that starts after the candidate, a shift cap and a consecutive-day limit, and overrides that beat every rule but still count."
+keywords = [
+    "hard",
+    "oncall",
+    "scheduling",
+    "rotation",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "operations"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. The rotation lived in a spreadsheet and went wrong the same two ways: one week nobody was on call at all and a customer told us, and another week one engineer covered nine days running because every swap quietly handed it back to them."
+differentiation_notes = "The eight visible samples come from a team with nothing in the way: everybody available every day, no caps, no consecutive-day limit, no overrides, the rotation starting at the first engineer, engineers named in alphabetical order, and either one engineer for the whole window or a window that is an exact multiple of the rotation. Twenty-eight plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all twenty-eight and asserts each still reproduces the samples and is still caught by at least one of the forty held-out captures, so the difficulty is demonstrated rather than asserted."
+relevance = "Every on-call tool makes the same decisions, and they are the ones that get argued about after an incident: whose turn it actually was, what happens to the turn when somebody is away, how much any one person can be asked to carry, and what an override does to the weeks after it."
+failure_cruxes = [
+    "Reading an unavailable range as excluding one of its ends.",
+    "Letting an engineer work one day past their shift cap, or one day past the consecutive-day limit.",
+    "Counting the consecutive-day limit over the whole window rather than the run the engineer is currently on.",
+    "Treating an uncovered day as not interrupting a run.",
+    "Taking the next available engineer as the substitute instead of the one with the fewest days so far.",
+    "Breaking a tie among substitutes from the head of the rotation rather than from after the engineer whose turn it was.",
+    "Moving the rotation to whoever actually worked, so a substitution or an override shifts everybody's turn.",
+    "Ignoring the configured start index.",
+    "Letting an unavailable engineer or a capped one refuse an override, or not counting an override towards the caps afterwards.",
+    "Saying nothing about an override that names somebody who is not rostered, or a date outside the window, or a second override for a day that already has one.",
+    "Reading the window as one day longer when checking whether an override falls inside it.",
+    "Checking an override's date before its engineer, which changes which error a doubly-wrong override produces.",
+    "Letting a later override replace an earlier one for the same day.",
+    "Sorting the errors, or putting the planning errors before the override errors.",
+    "Leaving an uncovered day out of the plan, or leaving it in without recording that nobody was available.",
+    "Reporting a substitute as though it had been their turn.",
+    "Carrying the previous engineer across an uncovered day instead of recording a handoff either side of it.",
+    "Leaving an engineer who never came up out of the shift counts, or ordering those counts by days worked or by name rather than by the rotation.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

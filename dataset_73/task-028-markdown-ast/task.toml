@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/markdown-ast"
+version = "1.0.0"
+description = "Parse markdown to AST: document, heading(N), paragraph, code_block, list(ordered|unordered, items), text, emphasis(strong|em), link(href)."
+keywords = [
+    "hard",
+    "markdown",
+    "ast-construction",
+    "text-parsing",
+]
+
+[metadata]
+benchmark_style = "RepoZero"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models CommonMark's paragraph and line-joining rules at the AST level."
+differentiation_notes = "Soft-wrap joining and blank-line separation are the two rules most likely to be implemented backwards relative to each other."
+relevance = "AST-level markdown fidelity matters for real production documentation and static-site tooling."
+failure_cruxes = [
+    "Splitting a soft-wrapped multi-line paragraph into separate paragraph nodes instead of joining the lines into one.",
+    "Not detecting a blank line as the paragraph separator, merging two distinct paragraphs into one node.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

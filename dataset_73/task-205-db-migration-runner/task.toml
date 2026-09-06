@@ -1,0 +1,72 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/db-migration-runner"
+version = "1.0.0"
+description = "Build a schema migration replay tool: version ordering, normalized-body checksums and drift, deleted-file detection, a baseline that moves mid-session, targets in both directions, the dirty latch and the exact scope of repair, and repeatable migrations including one that fails."
+keywords = [
+    "hard",
+    "migrations",
+    "schema",
+    "checksum-drift",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "data-engineering"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 9
+
+[metadata.difficulty_explanation]
+provenance = "Open-source project initial requirement. Every migration tool grows a replay mode once a team has been bitten by a migration file edited after it was applied."
+differentiation_notes = "The seven visible samples come from a repository that has been looked after: single-digit versions applied in order with explicit step counts, every migration reversible and transactional, no repeatable migrations, no drift, no deleted files, no failures and no lock contention, and the one baseline record sitting where every reading of it agrees. Thirty-seven plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all thirty-seven and asserts each still reproduces the samples and is still caught by at least one held-out capture; two further near-misses are documented in that script as deliberately absent, one because it cannot differ from the specification and one because the visible samples already reject it. Four decisions are not stated anywhere in the spec and must be recovered from other artefacts shipped in environment/: the normalisation the checksum is taken over (pinned row by row, and uniquely, by samples/checksums.json, and actively misdirected by samples/NOTES.md); what a baseline that moves mid-session does and does not change (pinned by the capture-and-report pair in docs/incident-2025-03-14.md); the exact scope of repair; and what the runner records when a repeatable migration fails and has no version to name (both pinned by docs/runbook.md). tools/check_crux.py builds a complete candidate repository for nine wrong defaults across those four, runs the real behaviour suite against each, and shows every one reproducing the samples while scoring 16-20 of 22."
+relevance = "Mirrors the parts of a real migration tool that only misbehave once a repository has some history: a two-digit version, a squash that moves the baseline between two deploys, a file reformatted by a Windows checkout rather than actually changed, a half-applied migration outside a transaction, a repair that clears less than on-call assumes, and repeatable migrations that must run last and only when they change."
+failure_cruxes = [
+    "Hashing the bodies exactly as captured instead of as the runner stores them, so a reformatted file reports a false DRIFT and a reformatted repeatable re-runs.",
+    "Normalising the concatenation of the two bodies rather than each body before concatenating them.",
+    "Reading the baseline once from the config record and ignoring the baseline record that moves it mid-session.",
+    "Treating a baseline move as rewriting history, so the rows it covers leave state.applied, or letting current fall to null when the baseline rises above everything applied.",
+    "Keeping the old floor for down while adopting the new one for the exemptions, or continuing to report DRIFT or MISSING for a version the move has just put under the floor.",
+    "Dropping the applied rows whose definition has gone so that repair clears MISSING, or re-recording every repeatable digest so a required re-run is suppressed, or skipping the rows under the baseline.",
+    "Naming the repeatable in the version field of a FAILED entry, or omitting the key, instead of recording version null.",
+    "Continuing the repeatable phase after one fails, or never latching dirty for a non-transactional repeatable failure, or recording the failed repeatable digest so it never retries.",
+    "Ordering versions as text rather than as integers, so 10 is applied before 9.",
+    "Skipping the checksum drift check, or the deleted-file check, or reporting missing before drift.",
+    "Ignoring allow_out_of_order, or letting the baseline stop exempting drift and missing.",
+    "Rolling back past the baseline when history reaches below it.",
+    "Checking the dirty latch before the advisory lock.",
+    "Leaving dirty set after a repair, or putting repair behind the very preflight it exists to clear.",
+    "Stopping short of the target when moving forwards, or rolling back the target itself when moving backwards.",
+    "Treating a target of 0 as an unknown version rather than a full rollback to the baseline.",
+    "Defaulting down to every applied migration, or up to a single step.",
+    "Latching dirty after a transactional failure, or failing to latch it after a non-transactional one.",
+    "Undoing migrations that already succeeded in the same command when a later one fails.",
+    "Running repeatable migrations before the versioned ones, in definition order rather than name order, after a failure, or on a rollback.",
+    "Running repeatable migrations whether or not their checksum changed.",
+    "Latching dirty when a rollback is refused as irreversible.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

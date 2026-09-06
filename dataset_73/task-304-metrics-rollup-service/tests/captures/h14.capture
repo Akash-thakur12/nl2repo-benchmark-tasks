@@ -1,0 +1,30 @@
+{
+  "tiers": [
+    {
+      "name": "1m",
+      "seconds": 60
+    }
+  ],
+  "samples": [
+    {
+      "t": 0,
+      "name": "queue_depth",
+      "labels": {
+        "host": "h1",
+        "az": "a"
+      },
+      "type": "gauge",
+      "value": 1
+    },
+    {
+      "t": 10,
+      "name": "queue_depth",
+      "labels": {
+        "az": "a",
+        "host": "h1"
+      },
+      "type": "gauge",
+      "value": 3
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+# Bucketing regression fixture, exported from the live service (v3.0.1).
+# Columns: flag,salt,user,bucket
+# Every row is a real assignment the service served. An implementation that
+# reproduces all 24 rows has the reduction right; one that reproduces none of
+# them has picked a different reduction and every rollout will be misassigned.
+flag,salt,user,bucket
+rollout-half,s-rollout-half,u1,5729
+rollout-half,s-rollout-half,u2,3498
+rollout-half,s-rollout-half,u3,8547
+rollout-half,s-rollout-half,u4,2135
+rollout-half,s-rollout-half,u5,6290
+abc,s-abc,u1,2791
+abc,s-abc,u3,4239
+abc,s-abc,u6,4014
+flag-one,s-flag-one,user0,4736
+flag-two,s-flag-two,user0,9897
+flag-one,s-flag-one,user4,6319
+flag-two,s-flag-two,user4,80
+salted,alpha,erin,2340
+salted,omega,erin,7390
+salted,beta,erin,4779
+boundary,s-boundary,u1,937
+zero-weight,s-zero-weight,u1,3583
+mixed,s-mixed,u2,9147
+partial,s-partial,u1,822
+partial,s-partial,u2,3209
+partial,s-partial,u3,9071
+partial,s-partial,u4,7481
+partial,s-partial,u5,6812
+partial,s-partial,u10,4573

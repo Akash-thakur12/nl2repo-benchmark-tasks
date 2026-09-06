@@ -1,0 +1,8 @@
+{"allow_out_of_order": false, "baseline": 0, "op": "config"}
+{"down": "DOWN 1", "fails": false, "name": "m1", "op": "define", "transactional": true, "up": "UP 1", "version": 1}
+{"down": "DOWN 2", "fails": false, "name": "m2", "op": "define", "transactional": true, "up": "UP 2", "version": 2}
+{"fails": false, "name": "R__views", "op": "define", "transactional": true, "up": "SELECT 1"}
+{"cmd": "up", "op": "command"}
+{"fails": false, "name": "R__views", "op": "define", "transactional": true, "up": "SELECT 2"}
+{"cmd": "down", "op": "command"}
+{"op": "end"}

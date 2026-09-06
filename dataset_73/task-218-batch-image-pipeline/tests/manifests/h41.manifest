@@ -1,0 +1,7 @@
+{"min_source": 120, "op": "config", "pipeline": [{"height": 900, "op": "crop", "width": 900, "x": 0, "y": 0}, {"fit": "cover", "height": 400, "op": "resize", "width": 400}, {"format": "jpeg", "op": "convert", "quality": 90}]}
+{"alpha": true, "format": "gif", "frames": 4, "height": 800, "name": "a.gif", "op": "source", "orientation": 1, "width": 1000}
+{"alpha": true, "format": "png", "frames": 1, "height": 1000, "name": "b.png", "op": "source", "orientation": 8, "width": 300}
+{"alpha": false, "format": "webp", "frames": 1, "height": 900, "name": "c.webp", "op": "source", "orientation": 1, "width": 100}
+{"alpha": false, "format": "jpeg", "frames": 1, "height": 800, "name": "d.jpeg", "op": "source", "orientation": 1, "width": 1000}
+{"alpha": false, "format": "jpeg", "frames": 1, "height": 800, "name": "e.jpeg", "op": "source", "orientation": 1, "width": 1000}
+{"op": "end"}

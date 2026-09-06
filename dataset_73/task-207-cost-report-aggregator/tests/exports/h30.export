@@ -1,0 +1,33 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "beta"
+  ],
+  "lines": [
+    {
+      "id": "u1",
+      "kind": "usage",
+      "day": 5,
+      "team": "alpha",
+      "cents": 500
+    },
+    {
+      "id": "c1",
+      "kind": "credit",
+      "day": 6,
+      "team": "alpha",
+      "cents": 200
+    },
+    {
+      "id": "c2",
+      "kind": "credit",
+      "day": 7,
+      "team": "alpha",
+      "cents": 400
+    }
+  ]
+}

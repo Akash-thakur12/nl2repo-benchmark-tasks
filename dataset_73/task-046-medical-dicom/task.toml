@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/medical-dicom"
+version = "1.0.0"
+description = "DICOM Part 10 parser: 128-byte preamble + DICM, explicit-VR LE and implicit-VR LE (dictionary), the 8- vs 12-byte element header split, VR value decoding (PN/CS/DA/UI->str, US/UL->int), nested SQ sequences incl. undefined length with FFFE,E000/E00D/E0DD delimiters. ValueError on bad magic / truncation."
+keywords = [
+    "hard",
+    "dicom",
+    "medical-imaging",
+    "tag-value-decoding",
+]
+
+[metadata]
+benchmark_style = "SWE-Marathon"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct implementation of the DICOM Part 10 file format used in real medical imaging systems."
+differentiation_notes = "The 8-vs-12-byte element header split by VR type is a rule that's easy to apply uniformly (wrongly) unless every long-VR type is individually tested."
+relevance = "DICOM parsing correctness is a real requirement for production medical-imaging software interoperability."
+failure_cruxes = [
+    "Using the 8-byte short-form element header for a long-VR type that actually requires the 12-byte header (2 reserved + 4-byte length).",
+    "Not terminating an undefined-length SQ sequence at its FFFE,E0DD delimiter, consuming unrelated trailing elements into the sequence.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

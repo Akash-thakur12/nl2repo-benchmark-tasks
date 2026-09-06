@@ -1,0 +1,33 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "seq": 6144
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "seq": 6145
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "seq": 6146
+    }
+  ]
+}

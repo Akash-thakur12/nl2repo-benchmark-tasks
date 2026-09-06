@@ -1,0 +1,260 @@
+{
+  "r01": {
+    "matched": [
+      0,
+      0
+    ],
+    "responses": [
+      {
+        "body": {
+          "slot": "second"
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "slot": "first"
+        },
+        "headers": {},
+        "status": 200
+      }
+    ]
+  },
+  "r02": {
+    "matched": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "responses": [
+      {
+        "body": {
+          "n": "late"
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "n": "early"
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "n": "late"
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "n": "early"
+        },
+        "headers": {},
+        "status": 200
+      }
+    ]
+  },
+  "r03": {
+    "matched": [
+      0,
+      null,
+      null,
+      1
+    ],
+    "responses": [
+      {
+        "body": {
+          "era": "old"
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "error": "no_route"
+        },
+        "headers": {},
+        "status": 404
+      },
+      {
+        "body": {
+          "error": "no_route"
+        },
+        "headers": {},
+        "status": 404
+      },
+      {
+        "body": {
+          "era": "new"
+        },
+        "headers": {},
+        "status": 200
+      }
+    ]
+  },
+  "r04": {
+    "matched": [
+      0,
+      1,
+      1
+    ],
+    "responses": [
+      {
+        "body": {
+          "gen": "b-new"
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "gen": "b-old"
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "gen": "a-new"
+        },
+        "headers": {},
+        "status": 200
+      }
+    ]
+  },
+  "r05": {
+    "matched": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "responses": [
+      {
+        "body": {
+          "issued": 1
+        },
+        "headers": {},
+        "status": 201
+      },
+      {
+        "body": {
+          "error": "rate"
+        },
+        "headers": {},
+        "status": 429
+      },
+      {
+        "body": {
+          "issued": 1
+        },
+        "headers": {},
+        "status": 201
+      },
+      {
+        "body": {
+          "error": "rate"
+        },
+        "headers": {},
+        "status": 429
+      }
+    ]
+  },
+  "r06": {
+    "matched": [
+      0,
+      0
+    ],
+    "responses": [
+      {
+        "body": null,
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "page": 2
+        },
+        "headers": {},
+        "status": 200
+      }
+    ]
+  },
+  "r07": {
+    "matched": [
+      1,
+      null,
+      null,
+      null
+    ],
+    "responses": [
+      {
+        "body": null,
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "error": "method_not_allowed"
+        },
+        "headers": {
+          "allow": "GET, HEAD"
+        },
+        "status": 405
+      },
+      {
+        "body": {
+          "error": "method_not_allowed"
+        },
+        "headers": {
+          "allow": "GET, HEAD, PUT"
+        },
+        "status": 405
+      },
+      {
+        "body": {
+          "error": "method_not_allowed"
+        },
+        "headers": {
+          "allow": "POST, PUT"
+        },
+        "status": 405
+      }
+    ]
+  },
+  "r08": {
+    "matched": [
+      null,
+      0,
+      0,
+      1
+    ],
+    "responses": [
+      {
+        "body": null,
+        "headers": {},
+        "status": 404
+      },
+      {
+        "body": null,
+        "headers": {},
+        "status": 400
+      },
+      {
+        "body": null,
+        "headers": {},
+        "status": 400
+      },
+      {
+        "body": null,
+        "headers": {},
+        "status": 404
+      }
+    ]
+  }
+}

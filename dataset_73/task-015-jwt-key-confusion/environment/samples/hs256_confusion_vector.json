@@ -1,0 +1,32 @@
+{
+  "_comment": [
+    "One worked example of a token the verifier ACCEPTS while the pin has been set to",
+    "HS256 (the deliberately misconfigured server described in instruction.md section 2).",
+    "Both configured keys are reproduced below. They are different on purpose: exactly",
+    "one of them is the key this signature was produced with, and the signed input is",
+    "likewise one of a small number of obvious candidates built from the two segments.",
+    "signature_b64 = base64url(HMAC-SHA256(<one of the keys>, <the signing input>)).",
+    "Recover both by computation; there is only one combination that reproduces it."
+  ],
+  "pin": "HS256",
+  "config": {
+    "hmac_key_utf8": "hmac-secret",
+    "rsa_pub_utf8": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA\n-----END PUBLIC KEY-----\n"
+  },
+  "header_b64": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+  "payload_b64": "eyJzdWIiOiJhbGljZSIsInJvbGUiOiJhZG1pbiJ9",
+  "decoded_header": {
+    "alg": "HS256",
+    "typ": "JWT"
+  },
+  "decoded_payload": {
+    "sub": "alice",
+    "role": "admin"
+  },
+  "signature_b64": "qcUD91M73n3lLum8mVvXW8vq-QuSuBy8X0Og3UuhMgA",
+  "accepted": true,
+  "returns": {
+    "sub": "alice",
+    "role": "admin"
+  }
+}

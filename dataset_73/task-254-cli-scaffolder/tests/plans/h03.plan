@@ -1,0 +1,16 @@
+{
+  "answers": {},
+  "template": {
+    "files": [
+      {
+        "content": "x",
+        "path": "a.txt"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      }
+    ]
+  }
+}

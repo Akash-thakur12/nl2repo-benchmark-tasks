@@ -1,0 +1,23 @@
+{
+  "answers": {
+    "name": "acme"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "# {{name}}\n",
+        "path": "docs/overview.md"
+      }
+    ],
+    "hooks": [
+      {
+        "run": "echo done"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      }
+    ]
+  }
+}

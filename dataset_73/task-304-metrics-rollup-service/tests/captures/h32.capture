@@ -1,0 +1,49 @@
+{
+  "tiers": [
+    {
+      "name": "1m",
+      "seconds": 60
+    },
+    {
+      "name": "5m",
+      "seconds": 300
+    }
+  ],
+  "samples": [
+    {
+      "t": 0,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 1
+    },
+    {
+      "t": 60,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 2
+    },
+    {
+      "t": 120,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 3
+    },
+    {
+      "t": 180,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 4
+    },
+    {
+      "t": 240,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 5
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"op": "config"}
+{"name": "grouped", "op": "query", "sql": "SELECT region\nFROM sales\nWHERE region_id > 0\nGROUP BY region\nORDER BY region"}
+{"op": "end"}

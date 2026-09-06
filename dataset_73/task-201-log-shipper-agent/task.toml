@@ -1,0 +1,60 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/log-shipper-agent"
+version = "1.0.0"
+description = "Build an offline replay tool for a host log shipper: reconstruct delivered batches, dead letters, backpressure drops, the pending buffer and per-file offsets from a session capture."
+keywords = [
+    "hard",
+    "observability",
+    "log-shipping",
+    "backpressure",
+    "at-least-once",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "systems-programming"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Every fleet runs a log shipper, and when customers report missing log lines the session capture is the only evidence available; teams build exactly this replay tool rather than reason about the shipper by hand."
+differentiation_notes = "The six visible samples come from a well-behaved host: whole lines only, flushes driven purely by the line-count trigger, no rotation while lines are buffered, no restarts, every batch accepted first time, and a spool that never fills. Under those conditions twenty plausible readings of the specification reproduce expected.json byte for byte. tools/check_shortcuts.py enumerates all twenty and asserts each one still reproduces the samples and is still caught by at least one held-out capture, so the difficulty is demonstrated rather than asserted."
+relevance = "Mirrors the reasoning a platform engineer does about an at-least-once shipper: line framing across partial writes, three independent flush triggers, front-of-queue requeue on transient failure, retry exhaustion, backpressure that sheds the oldest data, and offset rewind on restart."
+failure_cruxes = [
+    "Flushing only on the line-count trigger and never on accumulated bytes or buffer age, which the samples never distinguish.",
+    "Measuring buffer age from the newest pending line instead of the oldest.",
+    "Consuming a trailing fragment that has no newline yet as though it were a complete line.",
+    "Requeueing a transiently failed batch at the back of the pending buffer instead of the front, silently reordering delivery.",
+    "Dead-lettering at attempts >= max_retries instead of strictly greater, dropping one delivery attempt.",
+    "Shedding the newest lines under backpressure rather than the oldest, or counting spool bytes as characters rather than UTF-8 bytes, or omitting the stripped newline from the byte count.",
+    "Keeping read_offset across a restart instead of rewinding to the acked offset, losing the at-least-once redelivery.",
+    "Letting an acknowledgement for lines read before a rotation advance the new stream's acked offset.",
+    "Emitting the whole buffer as a single batch instead of capping each batch at max_lines, or flushing what is pending when the session ends.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

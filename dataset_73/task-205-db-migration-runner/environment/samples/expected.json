@@ -1,0 +1,147 @@
+{
+  "s01": {
+    "applied": [
+      {
+        "direction": "up",
+        "version": 1
+      },
+      {
+        "direction": "up",
+        "version": 2
+      }
+    ],
+    "errors": [],
+    "state": {
+      "applied": [
+        1,
+        2
+      ],
+      "current": 2,
+      "dirty": false
+    }
+  },
+  "s02": {
+    "applied": [
+      {
+        "direction": "up",
+        "version": 1
+      },
+      {
+        "direction": "up",
+        "version": 2
+      }
+    ],
+    "errors": [],
+    "state": {
+      "applied": [
+        1,
+        2
+      ],
+      "current": 2,
+      "dirty": false
+    }
+  },
+  "s03": {
+    "applied": [
+      {
+        "direction": "up",
+        "version": 2
+      }
+    ],
+    "errors": [],
+    "state": {
+      "applied": [
+        1,
+        2
+      ],
+      "current": 2,
+      "dirty": false
+    }
+  },
+  "s04": {
+    "applied": [
+      {
+        "direction": "up",
+        "version": 1
+      },
+      {
+        "direction": "up",
+        "version": 2
+      },
+      {
+        "direction": "up",
+        "version": 3
+      }
+    ],
+    "errors": [],
+    "state": {
+      "applied": [
+        1,
+        2,
+        3
+      ],
+      "current": 3,
+      "dirty": false
+    }
+  },
+  "s05": {
+    "applied": [
+      {
+        "direction": "up",
+        "version": 1
+      },
+      {
+        "direction": "down",
+        "version": 1
+      }
+    ],
+    "errors": [],
+    "state": {
+      "applied": [],
+      "current": null,
+      "dirty": false
+    }
+  },
+  "s06": {
+    "applied": [
+      {
+        "direction": "up",
+        "version": 1
+      },
+      {
+        "direction": "up",
+        "version": 2
+      },
+      {
+        "direction": "up",
+        "version": 3
+      }
+    ],
+    "errors": [],
+    "state": {
+      "applied": [
+        1,
+        2,
+        3
+      ],
+      "current": 3,
+      "dirty": false
+    }
+  },
+  "s07": {
+    "applied": [
+      {
+        "direction": "up",
+        "version": 2
+      }
+    ],
+    "errors": [],
+    "state": {
+      "applied": [
+        2
+      ],
+      "current": 2,
+      "dirty": false
+    }
+  }
+}

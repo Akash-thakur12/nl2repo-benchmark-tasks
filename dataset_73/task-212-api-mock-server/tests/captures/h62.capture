@@ -1,0 +1,33 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/only",
+      "fixtures": [
+        {
+          "status": 201,
+          "body": {
+            "ok": true
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "HEAD",
+      "path": "/nothing",
+      "seq": 1000
+    },
+    {
+      "method": "HEAD",
+      "path": "/only",
+      "seq": 1001
+    },
+    {
+      "method": "POST",
+      "path": "/only",
+      "seq": 1002
+    }
+  ]
+}

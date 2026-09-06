@@ -1,0 +1,35 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/q/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "slot": "first"
+          },
+          "times": 1
+        },
+        {
+          "status": 200,
+          "body": {
+            "slot": "second"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/q/b",
+      "seq": 4102
+    },
+    {
+      "method": "GET",
+      "path": "/q/a",
+      "seq": 4101
+    }
+  ]
+}

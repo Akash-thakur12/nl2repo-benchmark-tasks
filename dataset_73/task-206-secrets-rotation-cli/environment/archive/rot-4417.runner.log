@@ -1,0 +1,33 @@
+# rot-4417 - the runner's own log for the capture beside this file.
+# Written by the runner as it ran, one line per event it emitted:
+#
+#     <runner clock> <event>
+#
+# Not a reconstruction and not a summary. Where any other document in
+# this repository disagrees with this file, this file is what the
+# runner did.
+
+100 stage dev v2
+250 complete dev v2
+250 stage staging v2
+260 complete staging v2
+260 stage prod v2
+260 rollback staging v2
+260 rollback dev v2
+260 rollback prod v2
+400 stage dev v3
+410 complete dev v3
+410 stage staging v3
+1000 complete staging v3
+1000 stage prod v3
+1000 complete prod v3
+1000 rotated v3
+1600 revoked v1 (granted 1000, window 600)
+1700 stage dev v4
+1710 complete dev v4
+1710 stage staging v4
+1720 complete staging v4
+1720 stage prod v4
+1790 complete prod v4
+1790 rotated v4
+1910 revoked v3 (granted 1790, window 120)

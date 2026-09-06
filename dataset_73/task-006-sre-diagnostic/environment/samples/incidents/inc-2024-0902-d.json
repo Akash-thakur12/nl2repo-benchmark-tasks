@@ -1,0 +1,27 @@
+{
+  "incident_id": "inc-2024-0902-d",
+  "host": "cache-09",
+  "note": "Reviewed and closed as no fault. The array was fine; this is what a busy-but-healthy host looks like on this fleet.",
+  "collector_note": "clean 60-second window, no restart, arrived in order",
+  "samples_in_arrival_order": [
+    {
+      "t": 1725235200,
+      "cpu_util_pct": 30,
+      "mem_util_pct": 55,
+      "disk_io_ops_total": 3000,
+      "net_bytes_total": 9000,
+      "gc_pause_ms_total": 2000
+    },
+    {
+      "t": 1725235260,
+      "cpu_util_pct": 86,
+      "mem_util_pct": 60,
+      "disk_io_ops_total": 3120,
+      "net_bytes_total": 9100,
+      "gc_pause_ms_total": 2260
+    }
+  ],
+  "recorded_verdict": {
+    "cause": "NO_FAULT"
+  }
+}

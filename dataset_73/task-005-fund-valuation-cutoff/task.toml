@@ -1,0 +1,50 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/fund-valuation-cutoff"
+version = "1.0.0"
+description = "Fund NAV valuation engine."
+keywords = [
+    "hard",
+    "finance",
+    "nav-calculation",
+    "temporal-logic",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Modeled on real fund-accounting NAV cutoff rules: forward pricing under SEC Rule 22c-1, a bitemporal vendor price master, corporate-action back-adjustment, and stale-price review."
+differentiation_notes = "The rules that decide the answer are not in the task statement; they are in the reference documents and reference data shipped in environment/, and one retired document plus a support tool on disk actively assert the opposite of the rules in force. Several of the rules are entangled: resolving the dealing day wrongly also corrupts the corporate-action restatement. The publication scales have to be recovered by reconciling the sample vectors, because the order of operations is written down nowhere."
+relevance = "NAV cutoff, vintage and restatement bugs directly cause real mispriced fund valuations and unreproducible published NAVs."
+failure_cruxes = [
+    "Implementing what the shipped comments, the retired 2019 pack and the support triage tool say, instead of what the pricing policy in force says.",
+    "Resolving a cutoff to a valuation date by the obvious reading rather than the fund's reading, and then compounding it downstream.",
+    "Treating a price master as one row per date, and a published figure as a single arithmetic expression.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

@@ -1,0 +1,15 @@
+{"id": "H001", "ref": "2026-01-01", "source": "lnav", "raw_week": 282, "tow_count": 0, "current_week": null, "expected_week": 1306, "expected_utc": "2024-09-07T23:59:36", "note": "tow wrap: last subframe of the week"}
+{"id": "H002", "ref": "2026-01-01", "source": "lnav", "raw_week": 282, "tow_count": 100799, "current_week": null, "expected_week": 1306, "expected_utc": "2024-09-07T23:59:30", "note": "highest legal tow count"}
+{"id": "H003", "ref": "2026-01-01", "source": "lnav", "raw_week": 351, "tow_count": 1, "current_week": null, "expected_week": 351, "expected_utc": "2006-05-13T23:59:46", "note": "era grace: era 0 wins by 4 days"}
+{"id": "H004", "ref": "2026-01-01", "source": "lnav", "raw_week": 348, "tow_count": 1, "current_week": null, "expected_week": 348, "expected_utc": "2006-04-22T23:59:46", "note": "era grace: first raw week era 0 claims"}
+{"id": "H005", "ref": "2026-01-01", "source": "lnav", "raw_week": 347, "tow_count": 1, "current_week": null, "expected_week": 1371, "expected_utc": "2025-11-29T23:59:42", "note": "one below: era 1"}
+{"id": "H006", "ref": "2026-01-01", "source": "cnav", "raw_week": 199, "tow_count": 1, "current_week": null, "expected_week": 199, "expected_utc": "2003-06-14T23:59:47", "note": "leap offset 13"}
+{"id": "H007", "ref": "2026-01-01", "source": "cnav", "raw_week": 500, "tow_count": 1, "current_week": null, "expected_week": 500, "expected_utc": "2009-03-21T23:59:45", "note": "leap offset 15"}
+{"id": "H008", "ref": "2026-01-01", "source": "cnav", "raw_week": 906, "tow_count": 1, "current_week": null, "expected_week": 906, "expected_utc": "2016-12-31T23:59:43", "note": "leap boundary, gps_effective column"}
+{"id": "H009", "ref": "2026-01-01", "source": "cnav", "raw_week": 906, "tow_count": 2, "current_week": null, "expected_week": 906, "expected_utc": "2016-12-31T23:59:49", "note": "one subframe later"}
+{"id": "H010", "ref": "2026-01-01", "source": "bdt", "raw_week": 500, "tow_count": 43200, "current_week": null, "expected_week": 500, "expected_utc": "2015-08-04T23:59:51", "note": "bdt epoch and scale offset"}
+{"id": "H011", "ref": "2026-01-01", "source": "bdt", "raw_week": 1000, "tow_count": 14400, "current_week": null, "expected_week": 1000, "expected_utc": "2025-03-02T23:59:50", "note": "bdt day boundary"}
+{"id": "H012", "ref": "2026-01-01", "source": "almanac", "raw_week": 100, "tow_count": 43200, "current_week": 1306, "expected_week": 1380, "expected_utc": "2026-02-03T23:59:36", "note": "WNa pivots forward on eph 1306"}
+{"id": "H013", "ref": "2026-01-01", "source": "almanac", "raw_week": 100, "tow_count": 43200, "current_week": 1140, "expected_week": 1124, "expected_utc": "2021-03-09T23:59:36", "note": "WNa pivots back on eph 1140"}
+{"id": "H014", "ref": "2026-01-01", "source": "almanac", "raw_week": 223, "tow_count": 43200, "current_week": 1375, "expected_week": 1247, "expected_utc": "2023-07-18T23:59:36", "note": "WNa tie at 128 weeks -> earlier"}
+{"id": "H015", "ref": "2026-01-01", "source": "almanac", "raw_week": 0, "tow_count": 1, "current_week": 1306, "expected_week": 1280, "expected_utc": "2024-03-02T23:59:42", "note": "WNa nearest congruent to 1306"}

@@ -1,0 +1,50 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/a",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ],
+      "body": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "age",
+          "type": "int",
+          "required": false
+        },
+        {
+          "name": "admin",
+          "type": "bool",
+          "required": false
+        },
+        {
+          "name": "meta",
+          "type": "object",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/a",
+      "seq": 1000,
+      "body": {
+        "name": "ada",
+        "zzz": 1,
+        "aaa": 2
+      }
+    }
+  ]
+}

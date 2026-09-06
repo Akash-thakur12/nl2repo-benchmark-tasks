@@ -1,0 +1,137 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/users/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "who": "one"
+          },
+          "when": {
+            "id": "1"
+          }
+        },
+        {
+          "status": 200,
+          "body": {
+            "who": "two"
+          },
+          "when": {
+            "id": "2"
+          }
+        },
+        {
+          "status": 404,
+          "body": {
+            "error": "not_found"
+          }
+        }
+      ],
+      "query": [
+        {
+          "name": "v",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users/me",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "who": "self"
+          }
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/users",
+      "fixtures": [
+        {
+          "status": 201,
+          "body": {
+            "created": true
+          },
+          "times": 1
+        }
+      ],
+      "body": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "age",
+          "type": "int",
+          "required": false
+        },
+        {
+          "name": "admin",
+          "type": "bool",
+          "required": false
+        },
+        {
+          "name": "meta",
+          "type": "object",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/users/me",
+      "seq": 1000
+    },
+    {
+      "method": "GET",
+      "path": "/users/1",
+      "seq": 1001,
+      "query": {
+        "v": "x"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/users/2",
+      "seq": 1002,
+      "query": {
+        "v": "true"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/users",
+      "seq": 1003,
+      "body": {
+        "name": "ada"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/users",
+      "seq": 1004,
+      "body": {
+        "name": "ada"
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/users/1",
+      "seq": 1005
+    },
+    {
+      "method": "GET",
+      "path": "/nope",
+      "seq": 1006
+    }
+  ]
+}

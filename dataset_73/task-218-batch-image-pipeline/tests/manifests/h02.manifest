@@ -1,0 +1,6 @@
+{"min_source": 200, "op": "config", "pipeline": [{"format": "auto", "op": "convert"}]}
+{"alpha": false, "format": "webp", "frames": 1, "height": 200, "name": "a.webp", "op": "source", "orientation": 1, "width": 200}
+{"alpha": false, "format": "webp", "frames": 1, "height": 400, "name": "b.webp", "op": "source", "orientation": 1, "width": 199}
+{"alpha": false, "format": "webp", "frames": 1, "height": 199, "name": "c.webp", "op": "source", "orientation": 1, "width": 400}
+{"alpha": false, "format": "webp", "frames": 1, "height": 201, "name": "d.webp", "op": "source", "orientation": 1, "width": 201}
+{"op": "end"}

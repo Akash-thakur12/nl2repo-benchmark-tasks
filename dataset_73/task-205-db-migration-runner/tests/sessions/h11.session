@@ -1,0 +1,5 @@
+{"allow_out_of_order": false, "baseline": 5, "op": "config"}
+{"down": "DOWN 6", "fails": false, "name": "m6", "op": "define", "transactional": true, "up": "UP 6", "version": 6}
+{"checksum": "e9d3fb0305260b3edc4b8f9ed19f27d3bbb2b893932d9197e1087a649b97d11a", "op": "history", "version": 3}
+{"cmd": "up", "op": "command"}
+{"op": "end"}

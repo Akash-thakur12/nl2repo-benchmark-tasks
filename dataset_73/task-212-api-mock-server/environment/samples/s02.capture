@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/users/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "name": "ada"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/users/1",
+      "seq": 2048
+    },
+    {
+      "method": "GET",
+      "path": "/users/2",
+      "seq": 2049
+    }
+  ]
+}

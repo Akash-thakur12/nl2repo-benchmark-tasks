@@ -1,0 +1,5 @@
+{"include_types": ["feat", "fix", "perf", "build", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000230", "subject": "perf(api): stream the rows"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000231", "subject": "feat(api): add pagination"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000232", "subject": "build(ci): cache the toolchain"}
+{"op": "end"}

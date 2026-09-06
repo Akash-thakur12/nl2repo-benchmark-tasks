@@ -1,0 +1,446 @@
+{
+  "_comment": "Captured from the production front end. `ast` is exactly what parse(query) returns. Normative; see docs/README.md.",
+  "cases": [
+    {
+      "query": "SELECT ID FROM Users",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "id",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "users",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT u.Total AS Grand FROM Orders AS U",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "total",
+              "table": "u"
+            },
+            "alias": "grand"
+          }
+        ],
+        "from": {
+          "table": "orders",
+          "alias": "u"
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM Sales ORDER BY Region DESC, Amount",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "sales",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [
+          {
+            "column": "region",
+            "direction": "DESC"
+          },
+          {
+            "column": "amount",
+            "direction": "ASC"
+          }
+        ],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t GROUP BY Dept, T.Region",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [
+          "dept",
+          "t.region"
+        ],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE Name LIKE 'A%'",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "like",
+          "left": {
+            "type": "column",
+            "name": "name",
+            "table": null
+          },
+          "right": {
+            "type": "literal",
+            "value": "A%"
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE City = 'New York'",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": "=",
+          "left": {
+            "type": "column",
+            "name": "city",
+            "table": null
+          },
+          "right": {
+            "type": "literal",
+            "value": "New York"
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE s = 'it''s'",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": "=",
+          "left": {
+            "type": "column",
+            "name": "s",
+            "table": null
+          },
+          "right": {
+            "type": "literal",
+            "value": "it's"
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT left FROM t",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "left",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT offset FROM t LIMIT 5 OFFSET 2",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "offset",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": 5,
+        "offset": 2
+      }
+    },
+    {
+      "query": "SELECT a FROM orders inner",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "orders",
+          "alias": "inner"
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM orders left JOIN u ON u.id = orders.id",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "orders",
+          "alias": null
+        },
+        "joins": [
+          {
+            "kind": "LEFT",
+            "table": "u",
+            "alias": null,
+            "on": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "id",
+                "table": "u"
+              },
+              "right": {
+                "type": "column",
+                "name": "id",
+                "table": "orders"
+              }
+            }
+          }
+        ],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t ORDER BY desc DESC",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [
+          {
+            "column": "desc",
+            "direction": "DESC"
+          }
+        ],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t ORDER BY asc",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [
+          {
+            "column": "asc",
+            "direction": "ASC"
+          }
+        ],
+        "limit": null,
+        "offset": null
+      }
+    }
+  ]
+}

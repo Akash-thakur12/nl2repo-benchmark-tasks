@@ -1,0 +1,130 @@
+{
+  "s01": {
+    "accepted": [
+      {
+        "order_id": "A-1",
+        "price": "10.5",
+        "qty": 2
+      }
+    ],
+    "extra_columns": [],
+    "quarantined": [],
+    "reject_reason": null,
+    "status": "ok",
+    "totals": {
+      "accepted": 1,
+      "data_rows": 1,
+      "quarantined": 0
+    }
+  },
+  "s02": {
+    "accepted": [
+      {
+        "order_id": "A-1",
+        "price": "10.5",
+        "qty": 2
+      },
+      {
+        "order_id": "A-2",
+        "price": "3.0",
+        "qty": 5
+      },
+      {
+        "order_id": "A-3",
+        "price": "99.99",
+        "qty": 6
+      }
+    ],
+    "extra_columns": [],
+    "quarantined": [],
+    "reject_reason": null,
+    "status": "ok",
+    "totals": {
+      "accepted": 3,
+      "data_rows": 3,
+      "quarantined": 0
+    }
+  },
+  "s03": {
+    "accepted": [],
+    "extra_columns": [],
+    "quarantined": [],
+    "reject_reason": null,
+    "status": "ok",
+    "totals": {
+      "accepted": 0,
+      "data_rows": 0,
+      "quarantined": 0
+    }
+  },
+  "s04": {
+    "accepted": [
+      {
+        "order_id": "B-1",
+        "price": "0.01",
+        "qty": 4
+      },
+      {
+        "order_id": "B-2",
+        "price": "1234.56",
+        "qty": 900
+      }
+    ],
+    "extra_columns": [],
+    "quarantined": [],
+    "reject_reason": null,
+    "status": "ok",
+    "totals": {
+      "accepted": 2,
+      "data_rows": 2,
+      "quarantined": 0
+    }
+  },
+  "s05": {
+    "accepted": [
+      {
+        "express": true,
+        "order_id": "C-1",
+        "price": "15.0",
+        "qty": 30,
+        "ship_date": "2026-03-01"
+      },
+      {
+        "express": false,
+        "order_id": "C-2",
+        "price": "20.0",
+        "qty": 40,
+        "ship_date": "2026-03-02"
+      }
+    ],
+    "extra_columns": [],
+    "quarantined": [],
+    "reject_reason": null,
+    "status": "ok",
+    "totals": {
+      "accepted": 2,
+      "data_rows": 2,
+      "quarantined": 0
+    }
+  },
+  "s06": {
+    "accepted": [
+      {
+        "express": true,
+        "order_id": "D-1",
+        "price": "7.77",
+        "qty": 7,
+        "ship_date": "2024-02-29"
+      }
+    ],
+    "extra_columns": [],
+    "quarantined": [],
+    "reject_reason": null,
+    "status": "ok",
+    "totals": {
+      "accepted": 1,
+      "data_rows": 1,
+      "quarantined": 0
+    }
+  }
+}

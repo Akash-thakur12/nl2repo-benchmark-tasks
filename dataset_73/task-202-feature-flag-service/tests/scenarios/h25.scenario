@@ -1,0 +1,5 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "mixed", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "segment", "operator": "in", "values": ["staff"], "variant": "beta"}, {"attribute": "plan", "operator": "in", "rollout": [{"variant": "on", "weight": 5000}, {"variant": "off", "weight": 5000}], "values": ["pro"]}], "salt": "s-mixed", "variants": ["on", "off", "beta"]}, "op": "define", "t": 1}
+{"flag": "mixed", "op": "evaluate", "t": 2, "user": {"key": "u1", "plan": "pro", "segment": "staff"}}
+{"flag": "mixed", "op": "evaluate", "t": 3, "user": {"key": "u2", "plan": "pro", "segment": "customer"}}
+{"flag": "mixed", "op": "evaluate", "t": 4, "user": {"key": "u3", "plan": "free", "segment": "customer"}}
+{"op": "end", "t": 5}

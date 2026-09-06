@@ -1,0 +1,26 @@
+{"environments": ["dev", "staging", "prod"], "grace_seconds": 600, "op": "config"}
+{"env": "dev", "id": "web-3", "op": "consumer", "t": 10}
+{"env": "staging", "id": "stg-1", "op": "consumer", "t": 14}
+{"env": "prod", "id": "billing-api", "op": "consumer", "t": 18}
+{"env": "prod", "ok": false, "op": "health", "t": 20}
+{"op": "rotate", "t": 100}
+{"op": "tick", "t": 250}
+{"consumer": "web-3", "op": "ack", "t": 180, "version": 2}
+{"consumer": "stg-1", "op": "ack", "t": 260, "version": 2}
+{"env": "prod", "ok": true, "op": "health", "t": 300}
+{"consumer": "billing-api", "op": "ack", "t": 350, "version": 3}
+{"op": "rotate", "t": 400}
+{"consumer": "web-3", "op": "ack", "t": 410, "version": 3}
+{"consumer": "stg-1", "op": "ack", "t": 1000, "version": 3}
+{"grace_seconds": 120, "op": "policy", "t": 1100}
+{"op": "tick", "t": 1220}
+{"op": "tick", "t": 1600}
+{"op": "rotate", "t": 1700}
+{"consumer": "web-3", "op": "ack", "t": 1710, "version": 4}
+{"env": "dev", "id": "stg-1", "op": "consumer", "t": 1720}
+{"env": "prod", "id": "checkout-7", "op": "consumer", "t": 1740}
+{"consumer": "billing-api", "op": "ack", "t": 1750, "version": 4}
+{"op": "tick", "t": 1780}
+{"consumer": "checkout-7", "op": "ack", "t": 1790, "version": 4}
+{"op": "tick", "t": 1910}
+{"op": "end", "t": 2000}

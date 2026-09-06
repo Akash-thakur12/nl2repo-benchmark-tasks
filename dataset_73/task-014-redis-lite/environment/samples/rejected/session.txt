@@ -1,0 +1,12 @@
+# transcript captured from the legacy service's command port, 2026-02-11
+> SET s 1
+OK
+> LPUSH s z
+ERR WRONGTYPE Operation against a key holding the wrong kind of value
+> GET s
+"1"
+> DEL missing
+(integer) 0
+> SET s 2
+OK
+> QUIT

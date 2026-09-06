@@ -1,0 +1,19 @@
+{
+  "answers": {
+    "v": ""
+  },
+  "template": {
+    "files": [
+      {
+        "content": "x",
+        "path": "a.txt",
+        "when": "v"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "v"
+      }
+    ]
+  }
+}

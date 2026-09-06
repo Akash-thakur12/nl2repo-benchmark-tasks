@@ -1,0 +1,62 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/partner-csv-validator"
+version = "1.0.0"
+description = "Build a partner CSV drop validator: RFC 4180 parsing, header reconciliation, strict per-column typing, quarantine reasons and duplicate detection, reported as an auditable reconciliation."
+keywords = [
+    "hard",
+    "csv",
+    "rfc4180",
+    "data-validation",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "data-engineering"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Every company that ingests partner files ends up building one validator both sides can run, because otherwise a half-rejected drop turns into an argument nobody can settle."
+differentiation_notes = "The six visible samples come from a partner who follows the template: header in schema order, no quoting, LF endings, no byte-order mark, every field populated and comfortably inside its range. Twenty-four plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all twenty-four and asserts each still reproduces the samples and is still caught by at least one held-out drop, so the difficulty is demonstrated rather than asserted."
+relevance = "Mirrors the work of real ingest pipelines: a conformant CSV reader, header reconciliation that tolerates reordering but not renaming, type parsing strict enough to catch a partner's spreadsheet export, and quarantine reasons precise enough to hand back."
+failure_cruxes = [
+    "Splitting on commas instead of reading RFC 4180, so a quoted comma, a doubled quote or an embedded newline breaks the row.",
+    "Treating a double quote as special anywhere in a field rather than only at its start.",
+    "Leaving the byte-order mark on the first header name, or treating a carriage return as part of the last field.",
+    "Counting interior blank lines as data rows, or skipping them without letting them consume a line number.",
+    "Matching header names case-insensitively, or matching columns by position instead of by name.",
+    "Turning a missing schema column into a per-row error instead of refusing the whole drop, or tolerating a duplicated header name.",
+    "Padding or truncating a ragged row to the header width instead of quarantining it.",
+    "Checking columns in header order rather than schema order, so the reported column is the wrong one.",
+    "Parsing ints with int() or through float, so \"+1\", \" 1\" or \"1.0\" are accepted, or treating range bounds as exclusive.",
+    "Parsing decimals as floats, so \"10.50\" and \"0100.100\" lose their original text.",
+    "Shape-checking a date without checking the calendar, so 2026-02-30 is accepted.",
+    "Checking for duplicate keys before the columns are validated, or letting a quarantined row reserve its key.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

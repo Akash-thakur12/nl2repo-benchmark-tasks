@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/http2-server"
+version = "1.0.0"
+description = "RFC 7540 framing: parse+build DATA/HEADERS/PRIORITY/RST_STREAM/SETTINGS/PUSH_PROMISE/PING/GOAWAY/WINDOW_UPDATE/CONTINUATION incl. HEADERS padding+priority; simplified RFC 7541 HPACK codec (static+dynamic table, indexed + literal fields, no Huffman)."
+keywords = [
+    "hard",
+    "http2",
+    "hpack",
+    "binary-framing",
+]
+
+[metadata]
+benchmark_style = "RepoZero"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct implementation of RFC 7540 framing and RFC 7541 HPACK header compression."
+differentiation_notes = "A HPACK dynamic-table size-update byte that's parsed but not applied is invisible until a later reference actually depends on the shrunk table size."
+relevance = "HTTP/2 framing and HPACK bugs are a real class of production web-server interoperability defects."
+failure_cruxes = [
+    "Parsing the HPACK dynamic-table size-update byte (0x20 prefix) but never actually applying the new size to the table's capacity.",
+    "Misreading the HEADERS frame's PADDED/PRIORITY flag combination, offsetting the header_block start position incorrectly.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

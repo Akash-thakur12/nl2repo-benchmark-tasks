@@ -1,0 +1,6 @@
+{"chunk_size": 100, "end": 800, "max_attempts": 3, "max_chunks_per_window": 10, "op": "config", "start": 200, "window_seconds": 60}
+{"at": 0, "cp": 0, "op": "boot", "t": 0}
+{"op": "attempt", "t": 0}
+{"at": 100, "cp": 150, "op": "boot", "t": 0}
+{"op": "attempt", "t": 0}
+{"op": "end", "t": 10}

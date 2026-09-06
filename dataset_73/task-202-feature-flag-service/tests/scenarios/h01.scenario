@@ -1,0 +1,3 @@
+{"flag": {"default_variant": "on", "enabled": false, "key": "kill-switch", "off_variant": "off", "prerequisites": [], "rules": [], "salt": "s-kill-switch", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "kill-switch", "op": "evaluate", "t": 2, "user": {"key": "u1"}}
+{"op": "end", "t": 3}

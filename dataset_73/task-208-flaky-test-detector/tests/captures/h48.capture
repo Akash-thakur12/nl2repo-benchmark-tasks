@@ -1,0 +1,148 @@
+{
+  "captured_at": "2026-04-14T09:00:00Z",
+  "min_commits": 5,
+  "threshold_percent": 60,
+  "policy_history": [
+    {
+      "effective_at": "2025-11-02T00:00:00Z",
+      "min_commits": 5,
+      "threshold_percent": 60
+    },
+    {
+      "effective_at": "2026-08-01T00:00:00Z",
+      "min_commits": 4,
+      "threshold_percent": 90
+    },
+    {
+      "effective_at": "2026-03-20T00:00:00Z",
+      "min_commits": 2,
+      "threshold_percent": 30
+    }
+  ],
+  "runs": [
+    {
+      "id": "r1",
+      "commit": "2feb8881cd2ee67ac3f00f3e3a0cc8033f50834d",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_flap",
+          "status": "passed"
+        },
+        {
+          "test": "t_sticky",
+          "status": "passed"
+        },
+        {
+          "test": "t_lifted",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "commit": "2feb8881cd2ee67ac3f00f3e3a0cc8033f50834d",
+      "outcome": "infra_error",
+      "results": [
+        {
+          "test": "t_flap",
+          "status": "failed"
+        },
+        {
+          "test": "t_ghost",
+          "status": "failed"
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "commit": "2feb888",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_flap",
+          "status": "passed"
+        },
+        {
+          "test": "t_sticky",
+          "status": "passed"
+        },
+        {
+          "test": "t_lifted",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "commit": "8cce1755b369aee1837595517c80861d76b61ea7",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_flap",
+          "status": "passed"
+        },
+        {
+          "test": "t_sticky",
+          "status": "passed"
+        },
+        {
+          "test": "t_lifted",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "r5",
+      "commit": "8CCE175",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_flap",
+          "status": "failed"
+        }
+      ]
+    },
+    {
+      "id": "r6",
+      "commit": "49e20506af50d25dafc7de87301f862eebc140bb",
+      "outcome": "agent_lost",
+      "results": [
+        {
+          "test": "t_flap",
+          "status": "vanished"
+        }
+      ]
+    },
+    {
+      "id": "r7",
+      "commit": "49e20506af50d25dafc7de87301f862eebc140bb",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_flap",
+          "status": "passed"
+        },
+        {
+          "test": "t_sticky",
+          "status": "failed"
+        },
+        {
+          "test": "t_lifted",
+          "status": "failed"
+        }
+      ]
+    }
+  ],
+  "quarantined": [
+    {
+      "test": "t_sticky",
+      "added_at": "2026-01-06T00:00:00Z"
+    },
+    {
+      "test": "t_lifted",
+      "added_at": "2025-12-01T00:00:00Z",
+      "lifted_at": "2026-02-02T00:00:00Z"
+    }
+  ]
+}

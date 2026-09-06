@@ -1,0 +1,560 @@
+{
+  "s01": {
+    "assignments": [
+      {
+        "date": "2026-03-02",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-03-03",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-03-04",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-03-05",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-03-06",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-03-07",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-03-08",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      }
+    ],
+    "errors": [],
+    "handoffs": [],
+    "shifts": [
+      {
+        "days": 7,
+        "engineer": "Ada"
+      }
+    ]
+  },
+  "s02": {
+    "assignments": [
+      {
+        "date": "2026-03-02",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-03-03",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-03-04",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-03-05",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      }
+    ],
+    "errors": [],
+    "handoffs": [
+      {
+        "date": "2026-03-03",
+        "from": "Ada",
+        "to": "Bo"
+      },
+      {
+        "date": "2026-03-04",
+        "from": "Bo",
+        "to": "Ada"
+      },
+      {
+        "date": "2026-03-05",
+        "from": "Ada",
+        "to": "Bo"
+      }
+    ],
+    "shifts": [
+      {
+        "days": 2,
+        "engineer": "Ada"
+      },
+      {
+        "days": 2,
+        "engineer": "Bo"
+      }
+    ]
+  },
+  "s03": {
+    "assignments": [
+      {
+        "date": "2026-06-01",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-02",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-03",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-04",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-05",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-06",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-07",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-08",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-09",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-10",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-11",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-12",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-13",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-06-14",
+        "engineer": "Nils",
+        "reason": "ROTATION"
+      }
+    ],
+    "errors": [],
+    "handoffs": [],
+    "shifts": [
+      {
+        "days": 14,
+        "engineer": "Nils"
+      }
+    ]
+  },
+  "s04": {
+    "assignments": [
+      {
+        "date": "2026-04-06",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-04-07",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-04-08",
+        "engineer": "Cai",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-04-09",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-04-10",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-04-11",
+        "engineer": "Cai",
+        "reason": "ROTATION"
+      }
+    ],
+    "errors": [],
+    "handoffs": [
+      {
+        "date": "2026-04-07",
+        "from": "Ada",
+        "to": "Bo"
+      },
+      {
+        "date": "2026-04-08",
+        "from": "Bo",
+        "to": "Cai"
+      },
+      {
+        "date": "2026-04-09",
+        "from": "Cai",
+        "to": "Ada"
+      },
+      {
+        "date": "2026-04-10",
+        "from": "Ada",
+        "to": "Bo"
+      },
+      {
+        "date": "2026-04-11",
+        "from": "Bo",
+        "to": "Cai"
+      }
+    ],
+    "shifts": [
+      {
+        "days": 2,
+        "engineer": "Ada"
+      },
+      {
+        "days": 2,
+        "engineer": "Bo"
+      },
+      {
+        "days": 2,
+        "engineer": "Cai"
+      }
+    ]
+  },
+  "s05": {
+    "assignments": [
+      {
+        "date": "2026-01-05",
+        "engineer": "Priya",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-01-06",
+        "engineer": "Priya",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-01-07",
+        "engineer": "Priya",
+        "reason": "ROTATION"
+      }
+    ],
+    "errors": [],
+    "handoffs": [],
+    "shifts": [
+      {
+        "days": 3,
+        "engineer": "Priya"
+      }
+    ]
+  },
+  "s06": {
+    "assignments": [
+      {
+        "date": "2026-09-07",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-09-08",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-09-09",
+        "engineer": "Cai",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-09-10",
+        "engineer": "Dee",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-09-11",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-09-12",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-09-13",
+        "engineer": "Cai",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-09-14",
+        "engineer": "Dee",
+        "reason": "ROTATION"
+      }
+    ],
+    "errors": [],
+    "handoffs": [
+      {
+        "date": "2026-09-08",
+        "from": "Ada",
+        "to": "Bo"
+      },
+      {
+        "date": "2026-09-09",
+        "from": "Bo",
+        "to": "Cai"
+      },
+      {
+        "date": "2026-09-10",
+        "from": "Cai",
+        "to": "Dee"
+      },
+      {
+        "date": "2026-09-11",
+        "from": "Dee",
+        "to": "Ada"
+      },
+      {
+        "date": "2026-09-12",
+        "from": "Ada",
+        "to": "Bo"
+      },
+      {
+        "date": "2026-09-13",
+        "from": "Bo",
+        "to": "Cai"
+      },
+      {
+        "date": "2026-09-14",
+        "from": "Cai",
+        "to": "Dee"
+      }
+    ],
+    "shifts": [
+      {
+        "days": 2,
+        "engineer": "Ada"
+      },
+      {
+        "days": 2,
+        "engineer": "Bo"
+      },
+      {
+        "days": 2,
+        "engineer": "Cai"
+      },
+      {
+        "days": 2,
+        "engineer": "Dee"
+      }
+    ]
+  },
+  "s07": {
+    "assignments": [
+      {
+        "date": "2026-11-02",
+        "engineer": "Sam",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-11-03",
+        "engineer": "Sam",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-11-04",
+        "engineer": "Sam",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-11-05",
+        "engineer": "Sam",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-11-06",
+        "engineer": "Sam",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-11-07",
+        "engineer": "Sam",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-11-08",
+        "engineer": "Sam",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-11-09",
+        "engineer": "Sam",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-11-10",
+        "engineer": "Sam",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-11-11",
+        "engineer": "Sam",
+        "reason": "ROTATION"
+      }
+    ],
+    "errors": [],
+    "handoffs": [],
+    "shifts": [
+      {
+        "days": 10,
+        "engineer": "Sam"
+      }
+    ]
+  },
+  "s08": {
+    "assignments": [
+      {
+        "date": "2026-02-02",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-02-03",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-02-04",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-02-05",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-02-06",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-02-07",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-02-08",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-02-09",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-02-10",
+        "engineer": "Ada",
+        "reason": "ROTATION"
+      },
+      {
+        "date": "2026-02-11",
+        "engineer": "Bo",
+        "reason": "ROTATION"
+      }
+    ],
+    "errors": [],
+    "handoffs": [
+      {
+        "date": "2026-02-03",
+        "from": "Ada",
+        "to": "Bo"
+      },
+      {
+        "date": "2026-02-04",
+        "from": "Bo",
+        "to": "Ada"
+      },
+      {
+        "date": "2026-02-05",
+        "from": "Ada",
+        "to": "Bo"
+      },
+      {
+        "date": "2026-02-06",
+        "from": "Bo",
+        "to": "Ada"
+      },
+      {
+        "date": "2026-02-07",
+        "from": "Ada",
+        "to": "Bo"
+      },
+      {
+        "date": "2026-02-08",
+        "from": "Bo",
+        "to": "Ada"
+      },
+      {
+        "date": "2026-02-09",
+        "from": "Ada",
+        "to": "Bo"
+      },
+      {
+        "date": "2026-02-10",
+        "from": "Bo",
+        "to": "Ada"
+      },
+      {
+        "date": "2026-02-11",
+        "from": "Ada",
+        "to": "Bo"
+      }
+    ],
+    "shifts": [
+      {
+        "days": 5,
+        "engineer": "Ada"
+      },
+      {
+        "days": 5,
+        "engineer": "Bo"
+      }
+    ]
+  }
+}

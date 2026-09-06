@@ -1,0 +1,4 @@
+{"op": "config", "pipeline": [{"fit": "contain", "height": 600, "op": "resize", "width": 800}]}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1200, "name": "hero.webp", "op": "source", "orientation": 1, "width": 1600}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1800, "name": "banner.webp", "op": "source", "orientation": 1, "width": 2400}
+{"op": "end"}

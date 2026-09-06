@@ -1,0 +1,23 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/users",
+      "fixtures": [
+        {
+          "status": 201,
+          "body": {
+            "created": true
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/users",
+      "seq": 4096
+    }
+  ]
+}

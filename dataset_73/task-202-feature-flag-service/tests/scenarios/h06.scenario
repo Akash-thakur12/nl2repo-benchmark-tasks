@@ -1,0 +1,4 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "multi", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "plan", "operator": "in", "values": ["pro"], "variant": "red"}, {"attribute": "country", "operator": "in", "values": ["IN"], "variant": "blue"}], "salt": "s-multi", "variants": ["red", "blue", "off"]}, "op": "define", "t": 1}
+{"flag": "multi", "op": "evaluate", "t": 2, "user": {"country": "IN", "key": "u1", "plan": "pro"}}
+{"flag": "multi", "op": "evaluate", "t": 3, "user": {"country": "IN", "key": "u2", "plan": "free"}}
+{"op": "end", "t": 4}

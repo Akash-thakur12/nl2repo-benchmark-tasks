@@ -1,0 +1,23 @@
+{
+  "ignore": [
+    "tags.*"
+  ],
+  "declared": [
+    {
+      "id": "w",
+      "body": {
+        "tags": {
+          "owner": "ada"
+        }
+      }
+    }
+  ],
+  "live": [
+    {
+      "id": "w",
+      "body": {
+        "tags": "none"
+      }
+    }
+  ]
+}

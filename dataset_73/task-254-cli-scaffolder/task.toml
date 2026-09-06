@@ -1,0 +1,64 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/cli-scaffolder"
+version = "1.0.0"
+description = "Build a project scaffolder's dry-run renderer in TypeScript: prompt resolution, brace-escaped interpolation, conditional files, path normalisation and safety, collisions and hooks."
+keywords = [
+    "hard",
+    "scaffolding",
+    "templating",
+    "cli",
+    "typescript",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "developer-tooling"
+language = "typescript"
+tier = "systems"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Open-source project initial requirement. Scaffolding CLIs are written constantly, and the first thing a reviewer asks for is a dry run that shows what would be written before anything touches the disk."
+differentiation_notes = "The six visible samples come from a template that is easy on its renderer: every prompt answered explicitly, no conditions, no escaped braces, no executable files, no collisions and nothing already in the target. A large set of plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates them and asserts each still reproduces the samples and is still caught by at least one held-out plan, so the difficulty is demonstrated rather than asserted."
+relevance = "Mirrors the parts of a real scaffolder that go wrong quietly: a template author writing a literal brace, a boolean answer rendered with the host language's formatting, a condition on the string \"false\", and a rendered path that escapes the target directory."
+failure_cruxes = [
+    "Trimming whitespace inside a reference, so {{ name }} resolves instead of failing as an unknown variable.",
+    "Rendering an unknown variable as an empty string rather than refusing the whole plan.",
+    "Treating {{{{ as the start of a reference instead of a literal brace.",
+    "Rendering a boolean or a number with the host language's own formatting rather than true/false and a bare integer.",
+    "Treating the strings \"false\" or \"0\" as falsy, or the number 0 as truthy.",
+    "Ignoring prompt defaults, failing to reject an answer that matches no prompt, or reporting an unknown answer before a missing one.",
+    "Interpolating file bodies but not file paths.",
+    "Judging a collision only against files actually written, so a second file landing on an already-skipped path is reported as EXISTS.",
+    "Letting force excuse a collision as well as an existing file.",
+    "Getting the mode wrong for an executable file, or not recording skipped files at all.",
+    "Failing to normalise repeated slashes and dot segments before comparing paths.",
+    "Allowing a path that escapes the target with .., an absolute path, or a path that normalises to nothing.",
+    "Running hooks even though an error was produced, or leaving hook strings uninterpolated.",
+    "Leaving files, skipped and hooks populated alongside an error instead of clearing them.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

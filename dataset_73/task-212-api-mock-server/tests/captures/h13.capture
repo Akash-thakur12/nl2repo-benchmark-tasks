@@ -1,0 +1,23 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/Users",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/users",
+      "seq": 1000
+    }
+  ]
+}

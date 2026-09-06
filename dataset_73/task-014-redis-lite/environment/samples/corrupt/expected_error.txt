@@ -1,0 +1,4 @@
+AOFCorruptError: aof: bad record at line 7 of 22; refusing to start
+
+The file is left exactly as it was found (22 lines, 490 bytes); nothing is
+replayed and no append handle is opened.

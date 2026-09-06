@@ -1,0 +1,23 @@
+2026-01-01T08:41:02Z INFO  boot: firmware 3.4.1-rc2, board rev G, serial 4471-0092
+2026-01-01T08:41:02Z INFO  boot: config ref=2026-01-01
+2026-01-01T08:41:03Z INFO  post: rtc ok, flash ok, antenna bias ok
+2026-01-01T08:41:03Z INFO  post: leap table loaded, 19 rows, newest 2017-01-01
+2026-01-01T08:41:03Z WARN  post: leap table age 3287 d exceeds 1095 d threshold
+2026-01-01T08:41:03Z INFO  post: continuing with loaded leap table
+2026-01-01T08:41:44Z INFO  acq: 9 sv tracked, first fix in 41 s
+2026-01-01T08:41:44Z INFO  nav: sv12 lnav wn_raw=282 tow=50000
+2026-01-01T08:41:44Z INFO  nav: sv12 ephemeris week resolved to 1306
+2026-01-01T08:41:50Z INFO  nav: sv12 lnav wn_raw=282 tow=50001
+2026-01-01T08:42:14Z INFO  nav: sv07 almanac page 25 wna=100 (carried on wn_raw=282)
+2026-01-01T08:42:14Z ERROR nav: sv07 almanac reference week resolved to 1124, which is
+2026-01-01T08:42:14Z ERROR nav: 182 weeks (about five years) from the ephemeris week 1306
+2026-01-01T08:42:14Z ERROR nav: that carried it; almanac rejected, falling back to broadcast
+2026-01-01T08:42:15Z INFO  nav: sv07 almanac fallback active, degraded acquisition expected
+2026-01-01T08:42:31Z INFO  nav: sv22 lnav wn_raw=282 tow=0
+2026-01-01T08:42:31Z WARN  nav: sv22 decoded utc 2024-08-31T23:59:42 is 7 d before the
+2026-01-01T08:42:31Z WARN  nav: previous subframe from the same sv; time jumped backwards
+2026-01-01T08:42:37Z INFO  nav: sv22 lnav wn_raw=282 tow=1
+2026-01-01T08:43:02Z INFO  ops: ticket FLD-2231 opened -- "receiver reports almanac dated
+2026-01-01T08:43:02Z INFO  ops: 2019 while ephemeris says 2024; suspect stale leap table
+2026-01-01T08:43:02Z INFO  ops: (see WARN at 08:41:03), please refresh and retest"
+2026-01-01T08:43:02Z INFO  ops: see AN-0611 rev C s7 before acting on the WARN

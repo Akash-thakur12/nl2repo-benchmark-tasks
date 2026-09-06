@@ -1,0 +1,18 @@
+{
+  "answers": {
+    "name": "acme"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "x",
+        "path": "src/{{name}}/index.ts"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+{"flag": {"default_variant": "off", "enabled": false, "key": "base", "off_variant": "off", "prerequisites": [], "rules": [], "salt": "s-base", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": {"default_variant": "on", "enabled": true, "key": "dependent", "off_variant": "off", "prerequisites": [{"flag": "base", "variant": "on"}], "rules": [], "salt": "s-dependent", "variants": ["on", "off"]}, "op": "define", "t": 2}
+{"flag": "dependent", "op": "evaluate", "t": 3, "user": {"key": "u1"}}
+{"op": "end", "t": 4}

@@ -1,0 +1,5 @@
+{"op": "config", "pipeline": [{"fit": "contain", "height": 600, "op": "resize", "width": 800}]}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1200, "name": "one.webp", "op": "source", "orientation": 1, "width": 1600}
+{"alpha": false, "format": "webp", "frames": 1, "height": 600, "name": "two.webp", "op": "source", "orientation": 1, "width": 800}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1500, "name": "three.webp", "op": "source", "orientation": 1, "width": 2000}
+{"op": "end"}

@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/side-channel-timing"
+version = "1.0.0"
+description = "Constant-time compare (hmac.compare_digest wrapper, mixed str/bytes never equal) + is_constant_time(fn) which times fn on equal vs differ-at-first-byte inputs and rejects early-exit comparators whose timing leaks the position of the first mismatch."
+keywords = [
+    "hard",
+    "timing-attacks",
+    "constant-time-comparison",
+    "side-channels",
+]
+
+[metadata]
+benchmark_style = "Doc2Repo"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models the real class of timing side-channel vulnerabilities in naive equality comparisons."
+differentiation_notes = "Detecting position-of-mismatch leakage (not just length leakage) requires actually varying where two inputs diverge, which a length-only test won't exercise."
+relevance = "Timing side-channels in comparison functions are a real, documented cryptographic vulnerability class."
+failure_cruxes = [
+    "is_constant_time() only detecting length-dependent timing leakage and missing position-of-first-mismatch leakage from an early-exit comparator.",
+    "A mixed str/bytes comparison returning True by implicit coercion instead of always being treated as unequal.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

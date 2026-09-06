@@ -1,0 +1,3 @@
+{"op": "config"}
+{"name": "nested_joins", "op": "query", "sql": "SELECT a.id\nFROM a\nINNER JOIN b ON b.a_id = a.id\nLEFT OUTER JOIN c ON c.b_id = b.id\nWHERE a.id > 0"}
+{"op": "end"}

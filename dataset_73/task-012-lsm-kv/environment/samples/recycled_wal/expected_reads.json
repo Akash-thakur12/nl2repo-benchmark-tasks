@@ -1,0 +1,17 @@
+{
+  "note": "captured immediately after a crash; get() for each key on a store opened on this directory",
+  "reads": {
+    "alpha": "a2",
+    "beta": "b2",
+    "delta": "d1",
+    "gamma": null,
+    "p1": null,
+    "p2": "seg-2",
+    "p3": "seg-3",
+    "epsilon": null,
+    "zeta": null,
+    "omega": null
+  },
+  "size": 5,
+  "segment_count": 1
+}

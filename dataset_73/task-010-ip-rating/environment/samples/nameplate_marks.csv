@@ -1,0 +1,51 @@
+mark,tested_on,solid,liquid,access,dust_tight,supplementary,edition,status,note
+IP00,,none,none,none,false,,IEC 60529:1989+A2:2013,decoded,plain two-numeral mark
+IP11,,solid-1,drip,back-of-hand,false,,IEC 60529:1989+A2:2013,decoded,
+IP20,,solid-2,none,finger,false,,IEC 60529:1989+A2:2013,decoded,
+IP34,,solid-3,splash,tool,false,,IEC 60529:1989+A2:2013,decoded,
+IP44,,solid-4,splash,wire,false,,IEC 60529:1989+A2:2013,decoded,
+IP55,,dust-protected,jet,wire,false,,IEC 60529:1989+A2:2013,decoded,
+IP66,,dust-tight,powerful-jet,wire,true,,IEC 60529:1989+A2:2013,decoded,
+IP68,,dust-tight,submerged,wire,true,,IEC 60529:1989+A2:2013,decoded,
+IPX7,,unspecified,immersion-1m,unspecified,false,,IEC 60529:1989+A2:2013,decoded,first characteristic not stated by the manufacturer
+IPX8,,unspecified,submerged,unspecified,false,,IEC 60529:1989+A2:2013,decoded,not dust-tight - the first characteristic was never established
+IP2X,,solid-2,unspecified,finger,false,,IEC 60529:1989+A2:2013,decoded,
+IP6X,,dust-tight,unspecified,wire,true,,IEC 60529:1989+A2:2013,decoded,
+IPXX,,unspecified,unspecified,unspecified,false,,IEC 60529:1989+A2:2013,decoded,neither characteristic stated
+IPXXB,,unspecified,unspecified,finger,false,,IEC 60529:1989+A2:2013,decoded,access letter only - typical of a terminal box
+IP1XB,,solid-1,unspecified,finger,false,,IEC 60529:1989+A2:2013,decoded,letter ranks above the access implied by the numeral
+IP4XD,,solid-4,unspecified,wire,false,,IEC 60529:1989+A2:2013,decoded,letter equal to the implied access - redundant but accepted
+IP20CS,,solid-2,none,tool,false,stationary-during-water-test,IEC 60529:1989+A2:2013,decoded,
+IP2XCH,,solid-2,unspecified,tool,false,high-voltage,IEC 60529:1989+A2:2013,decoded,
+IP44M,,solid-4,splash,wire,false,motion-during-water-test,IEC 60529:1989+A2:2013,decoded,supplementary letter with no additional letter
+IP54W,,dust-protected,splash,wire,false,weather-conditions,IEC 60529:1989+A2:2013,decoded,
+IP 65,,dust-tight,jet,wire,true,,IEC 60529:1989+A2:2013,decoded,spaces are not significant
+ip-65,,dust-tight,jet,wire,true,,IEC 60529:1989+A2:2013,decoded,lower case and a hyphen from the purchasing system
+65,,dust-tight,jet,wire,true,,IEC 60529:1989+A2:2013,decoded,prefix omitted on the works order
+IP65/IP68,,dust-tight,submerged,wire,true,,IEC 60529:1989+A2:2013,decoded,dual mark - each position takes the highest numeral present
+IP65/IPX7,,dust-tight,immersion-1m,wire,true,,IEC 60529:1989+A2:2013,decoded,dual mark - second code states no first characteristic
+IPX8/IP4X,,solid-4,submerged,wire,false,,IEC 60529:1989+A2:2013,decoded,dual mark - access comes from whichever code establishes it - here the second
+IP69,2011-04-02,dust-tight,unknown,wire,true,,IEC 60529:1989+A1:1999,decoded,second numeral has no meaning in the edition in force on the test date
+IP69,2013-08-01,dust-tight,high-pressure-jet,wire,true,,IEC 60529:1989+A2:2013,decoded,tested on the day the amendment came into force
+IP69,2016-06-30,dust-tight,high-pressure-jet,wire,true,,IEC 60529:1989+A2:2013,decoded,
+IP69,,dust-tight,high-pressure-jet,wire,true,,IEC 60529:1989+A2:2013,decoded,no test date on file - read against the current edition
+IP79,2005-01-01,unknown,unknown,unknown,false,,IEC 60529:1989+A1:1999,decoded,first numeral is not in any published table
+IP65,1995-03-10,dust-tight,jet,wire,true,,IEC 60529:1989,decoded,pre-amendment test date
+IP54,1999-11-01,dust-protected,splash,wire,false,,IEC 60529:1989+A1:1999,decoded,the 1999 amendment changed no table but is the edition in force
+,,,,,,,,refused,empty marking
+IP,,,,,,,,refused,fewer than two characteristic positions
+IP6,,,,,,,,refused,fewer than two characteristic positions
+IPX,,,,,,,,refused,fewer than two characteristic positions
+6Q,,,,,,,,refused,character not a numeral or X
+IPZ4,,,,,,,,refused,character not a numeral or X
+IP654,,,,,,,,refused,third numeral
+IP6X5,,,,,,,,refused,third numeral
+IP65SC,,,,,,,,refused,supplementary letter precedes additional letter
+IP20SC,,,,,,,,refused,supplementary letter precedes additional letter
+IP2XBC,,,,,,,,refused,two additional letters
+IP54MW,,,,,,,,refused,two supplementary letters
+IP65Z,,,,,,,,refused,letter is neither an additional nor a supplementary letter
+IP65C,,,,,,,,refused,additional letter lower than protection implied by first numeral
+IP54B,,,,,,,,refused,additional letter lower than protection implied by first numeral
+IP3XA,,,,,,,,refused,additional letter lower than protection implied by first numeral
+IP65/,,,,,,,,refused,empty code in a dual marking

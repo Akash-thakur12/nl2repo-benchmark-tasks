@@ -1,0 +1,8 @@
+{"backoff_ms": [1000, 5000], "dedup_window_ms": 600000, "max_attempts": 3, "op": "config", "retired": {"k1": 5000}, "secrets": {"k1": "sk_live_primary", "k2": "sk_live_rotated"}, "tolerance_ms": 100000}
+{"enabled": true, "events": ["order.created"], "id": "alpha", "op": "subscribe", "t": 10}
+{"body": "{}", "event_id": "e1", "event_type": "order.created", "op": "webhook", "signature": "t=5000,v1=79f36aaf6df6481838df17a1dcb788086ede40d6ee945817fcc5fa7c8ee6aa72", "t": 5400}
+{"delivery": 1, "op": "response", "status": 200, "t": 5500}
+{"body": "{}", "event_id": "e2", "event_type": "order.created", "op": "webhook", "signature": "t=5001,v1=44fb8d7f29d0a9e5f0ad1fe20e4641c5e3cf01028f4108cac9bb8dbaa0f4d935", "t": 5600}
+{"body": "{}", "event_id": "e3", "event_type": "order.created", "op": "webhook", "signature": "t=4999,v1=4d5eedaaab202231a8f94ecddb33b9a3b50d09ca7c79dad8f764cae8b6d08476", "t": 5700}
+{"delivery": 2, "op": "response", "status": 200, "t": 5800}
+{"op": "end", "t": 9000}

@@ -1,0 +1,122 @@
+{
+  "s01": {
+    "errors": [],
+    "events": [],
+    "workers": [
+      {
+        "crashes": 0,
+        "name": "a",
+        "restarts": 0,
+        "state": "running"
+      }
+    ]
+  },
+  "s02": {
+    "errors": [],
+    "events": [],
+    "workers": [
+      {
+        "crashes": 0,
+        "name": "a",
+        "restarts": 0,
+        "state": "running"
+      }
+    ]
+  },
+  "s03": {
+    "errors": [],
+    "events": [],
+    "workers": [
+      {
+        "crashes": 0,
+        "name": "a",
+        "restarts": 0,
+        "state": "running"
+      }
+    ]
+  },
+  "s04": {
+    "errors": [],
+    "events": [],
+    "workers": [
+      {
+        "crashes": 0,
+        "name": "a",
+        "restarts": 0,
+        "state": "running"
+      },
+      {
+        "crashes": 0,
+        "name": "b",
+        "restarts": 0,
+        "state": "running"
+      }
+    ]
+  },
+  "s05": {
+    "errors": [],
+    "events": [],
+    "workers": [
+      {
+        "crashes": 0,
+        "name": "a",
+        "restarts": 0,
+        "state": "running"
+      }
+    ]
+  },
+  "s06": {
+    "errors": [],
+    "events": [],
+    "workers": [
+      {
+        "crashes": 0,
+        "name": "a",
+        "restarts": 0,
+        "state": "running"
+      }
+    ]
+  },
+  "s07": {
+    "errors": [],
+    "events": [],
+    "workers": [
+      {
+        "crashes": 0,
+        "name": "ingest",
+        "restarts": 0,
+        "state": "running"
+      },
+      {
+        "crashes": 0,
+        "name": "notify",
+        "restarts": 0,
+        "state": "running"
+      },
+      {
+        "crashes": 0,
+        "name": "verify",
+        "restarts": 0,
+        "state": "running"
+      }
+    ]
+  },
+  "s08": {
+    "errors": [],
+    "events": [],
+    "workers": [
+      {
+        "crashes": 0,
+        "name": "primary",
+        "restarts": 0,
+        "state": "running"
+      },
+      {
+        "crashes": 0,
+        "name": "replica",
+        "restarts": 0,
+        "state": "running"
+      }
+    ]
+  }
+}

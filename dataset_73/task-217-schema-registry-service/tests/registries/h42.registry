@@ -1,0 +1,3 @@
+{"default_compatibility": "BACKWARD", "op": "config"}
+{"level": "FULL", "op": "set_compatibility", "subject": "fresh"}
+{"op": "end"}

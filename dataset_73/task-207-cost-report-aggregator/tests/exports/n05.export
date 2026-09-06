@@ -1,0 +1,25 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "zeta"
+  ],
+  "lines": [
+    {
+      "id": "h1",
+      "kind": "shared",
+      "day": 5,
+      "cents": 3
+    }
+  ],
+  "shared_weights": {
+    "aardvark": 1,
+    "alpha": 1
+  },
+  "renamed_from": {
+    "aardvark": "zeta"
+  }
+}

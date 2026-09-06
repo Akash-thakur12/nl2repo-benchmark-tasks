@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/cron-parser"
+version = "1.0.0"
+description = "Parse 5/6/7-field cron (minute hour dom month dow [year] with seconds when 6/7-field). Operators * / , - . Compute the next matching datetime after a reference time (Vixie dom-OR-dow, dow 0/7=Sunday)."
+keywords = [
+    "hard",
+    "cron-scheduling",
+    "calendar-arithmetic",
+    "vixie-semantics",
+]
+
+[metadata]
+benchmark_style = "RepoZero"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models the real Vixie cron dom/dow OR-semantics used by production job schedulers."
+differentiation_notes = "The dom-OR-dow rule only differs from a naive AND interpretation when both fields are restricted simultaneously, which most test schedules don't exercise."
+relevance = "Cron scheduling bugs directly cause real missed or duplicated production job runs."
+failure_cruxes = [
+    "Treating a restricted day-of-month AND restricted day-of-week as an AND instead of Vixie cron's OR semantics.",
+    "Not normalising day-of-week value 7 to mean Sunday (same as 0).",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

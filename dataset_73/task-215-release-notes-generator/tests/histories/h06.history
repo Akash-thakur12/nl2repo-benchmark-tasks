@@ -1,0 +1,6 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "breaking change: lowercase", "op": "commit", "sha": "b000040", "subject": "feat(api): one"}
+{"author": "Ana Ruiz", "body": "  BREAKING CHANGE: indented", "op": "commit", "sha": "b000041", "subject": "feat(api): two"}
+{"author": "Ana Ruiz", "body": "see BREAKING CHANGE: inline", "op": "commit", "sha": "b000042", "subject": "feat(api): three"}
+{"author": "Ana Ruiz", "body": "BREAKING CHANGE:no space", "op": "commit", "sha": "b000043", "subject": "feat(api): four"}
+{"op": "end"}

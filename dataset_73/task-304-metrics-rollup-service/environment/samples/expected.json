@@ -1,0 +1,105 @@
+{
+  "s01": {
+    "errors": [],
+    "rows": [
+      {
+        "delta": 45,
+        "series": "http_requests",
+        "tier": "1m",
+        "type": "counter",
+        "window": 0
+      }
+    ]
+  },
+  "s02": {
+    "errors": [],
+    "rows": [
+      {
+        "avg": 6,
+        "count": 3,
+        "last": 8,
+        "max": 8,
+        "min": 4,
+        "series": "queue_depth",
+        "sum": 18,
+        "tier": "1m",
+        "type": "gauge",
+        "window": 0
+      }
+    ]
+  },
+  "s03": {
+    "errors": [],
+    "rows": [
+      {
+        "boundaries": [
+          10,
+          50,
+          100
+        ],
+        "counts": [
+          5,
+          2,
+          4
+        ],
+        "series": "latency",
+        "tier": "1m",
+        "type": "histogram",
+        "window": 0
+      }
+    ]
+  },
+  "s04": {
+    "errors": [],
+    "rows": [
+      {
+        "delta": 4,
+        "series": "http_requests",
+        "tier": "1m",
+        "type": "counter",
+        "window": 0
+      }
+    ]
+  },
+  "s05": {
+    "errors": [],
+    "rows": [
+      {
+        "delta": 40,
+        "series": "http_requests",
+        "tier": "1m",
+        "type": "counter",
+        "window": 0
+      },
+      {
+        "avg": 15,
+        "count": 2,
+        "last": 20,
+        "max": 20,
+        "min": 10,
+        "series": "queue_depth",
+        "sum": 30,
+        "tier": "1m",
+        "type": "gauge",
+        "window": 0
+      }
+    ]
+  },
+  "s06": {
+    "errors": [],
+    "rows": [
+      {
+        "avg": 8,
+        "count": 2,
+        "last": 9,
+        "max": 9,
+        "min": 7,
+        "series": "queue_depth",
+        "sum": 16,
+        "tier": "1m",
+        "type": "gauge",
+        "window": 0
+      }
+    ]
+  }
+}

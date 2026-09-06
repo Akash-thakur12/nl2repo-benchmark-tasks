@@ -1,0 +1,40 @@
+{
+  "max_speed_kmh": 900,
+  "dedup_window_seconds": 300,
+  "locations": {
+    "london": {
+      "x": 0,
+      "y": 0
+    },
+    "berlin": {
+      "x": 900,
+      "y": 0
+    },
+    "cairo": {
+      "x": 1800,
+      "y": 0
+    },
+    "annexe": {
+      "x": 7,
+      "y": 13
+    }
+  },
+  "events": [
+    {
+      "id": "zz",
+      "t": 0,
+      "user": "ada",
+      "session": "s2",
+      "location": "cairo",
+      "outcome": "success"
+    },
+    {
+      "id": "aa",
+      "t": 0,
+      "user": "ada",
+      "session": "s1",
+      "location": "london",
+      "outcome": "success"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{"op": "config", "salt": "2026-Q1"}
+{"key": "old-banner", "op": "experiment", "state": "stopped", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "old-banner", "op": "assign", "user": "u-0001"}
+{"experiment": "old-banner", "op": "assign", "user": "u-0002"}
+{"experiment": "old-banner", "op": "assign", "user": "u-0003"}
+{"experiment": "old-banner", "op": "assign", "user": "u-0004"}
+{"experiment": "old-banner", "op": "assign", "user": "u-0005"}
+{"op": "end"}

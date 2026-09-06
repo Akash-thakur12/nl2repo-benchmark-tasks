@@ -1,0 +1,66 @@
+{
+  "tiers": [
+    {
+      "name": "1m",
+      "seconds": 60
+    },
+    {
+      "name": "5m",
+      "seconds": 300
+    }
+  ],
+  "samples": [
+    {
+      "t": 0,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 5
+    },
+    {
+      "t": 70,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 11
+    },
+    {
+      "t": 0,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 2
+    },
+    {
+      "t": 70,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 8
+    },
+    {
+      "t": 0,
+      "name": "latency",
+      "labels": {},
+      "type": "histogram",
+      "boundaries": [
+        5
+      ],
+      "counts": [
+        1
+      ]
+    },
+    {
+      "t": 70,
+      "name": "latency",
+      "labels": {},
+      "type": "histogram",
+      "boundaries": [
+        5
+      ],
+      "counts": [
+        2
+      ]
+    }
+  ]
+}

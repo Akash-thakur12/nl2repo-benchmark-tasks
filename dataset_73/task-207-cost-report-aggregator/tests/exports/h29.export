@@ -1,0 +1,19 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "beta"
+  ],
+  "lines": [
+    {
+      "id": "c1",
+      "kind": "credit",
+      "day": 6,
+      "team": "alpha",
+      "cents": 400
+    }
+  ]
+}

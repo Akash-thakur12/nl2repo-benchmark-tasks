@@ -1,0 +1,35 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/{a}/{b}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "which": "first"
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/{x}/{y}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "which": "second"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/one/two",
+      "seq": 1000
+    }
+  ]
+}

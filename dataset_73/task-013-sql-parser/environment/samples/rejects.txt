@@ -1,0 +1,22 @@
+# Queries the front end must reject with ParseError. One query per line.
+# Blank lines and #-comments are ignored. No explanations are attached: the
+# list is the boundary.
+DROP TABLE t
+UPDATE t SET a = 1
+DELETE FROM t
+SELECT FROM t
+SELECT a b c FROM t
+SELECT a FROM t WHERE
+SELECT a FROM t GROUP a
+SELECT a FROM
+SELECT a FROM t LIMIT
+SELECT a FROM t t2 t3
+SELECT select FROM t
+SELECT a FROM where
+SELECT a FROM t ORDER BY group
+SELECT a FROM t LIMIT 2.0
+SELECT a FROM t LIMIT -1
+SELECT a FROM t LIMIT 5 OFFSET -1
+SELECT a FROM t OFFSET 2
+SELECT a FROM t WHERE a - 1 > 0
+SELECT a FROM t WHERE a + 1 > 0

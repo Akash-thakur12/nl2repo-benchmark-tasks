@@ -1,0 +1,22 @@
+{
+  "answers": {
+    "name": "acme"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "x",
+        "path": "good.txt"
+      },
+      {
+        "content": "y",
+        "path": "../bad.txt"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      }
+    ]
+  }
+}

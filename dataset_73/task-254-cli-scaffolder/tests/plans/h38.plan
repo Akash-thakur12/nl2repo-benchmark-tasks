@@ -1,0 +1,23 @@
+{
+  "answers": {
+    "name": "acme"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "x",
+        "path": "a.txt"
+      }
+    ],
+    "hooks": [
+      {
+        "run": "echo {{nope}}"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      }
+    ]
+  }
+}

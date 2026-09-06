@@ -1,0 +1,26 @@
+{
+  "answers": {
+    "author": "Dana",
+    "name": "acme"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "{\"name\":\"{{name}}\"}",
+        "path": "package.json"
+      },
+      {
+        "content": "{{author}}\n",
+        "path": "AUTHORS"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      },
+      {
+        "name": "author"
+      }
+    ]
+  }
+}

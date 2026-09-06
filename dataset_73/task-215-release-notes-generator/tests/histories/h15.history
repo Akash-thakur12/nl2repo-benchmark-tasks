@@ -1,0 +1,7 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000100", "subject": "feat(api): add pagination"}
+{"author": "Bo Lindqvist", "body": "", "op": "commit", "sha": "b000101", "subject": "feat(api): add pagination"}
+{"author": "Cai Wen", "body": "", "op": "commit", "sha": "b000102", "subject": "feat(cli): add pagination"}
+{"author": "Dee Okafor", "body": "", "op": "commit", "sha": "b000103", "subject": "fix(api): add pagination"}
+{"author": "Eli Moss", "body": "", "op": "commit", "sha": "b000104", "subject": "feat(api): add pagination twice"}
+{"op": "end"}

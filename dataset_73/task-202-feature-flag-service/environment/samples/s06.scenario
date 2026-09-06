@@ -1,0 +1,4 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "search-v3", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "tier", "operator": "in", "values": ["gold"], "variant": "on"}], "salt": "s-search-v3", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "search-v3", "op": "evaluate", "t": 2, "user": {"key": "u9", "tier": "gold"}}
+{"flag": "search-v3", "op": "evaluate", "t": 3, "user": {"key": "u9", "tier": "gold"}}
+{"op": "end", "t": 4}

@@ -1,0 +1,7 @@
+{"flag": {"default_variant": "on", "enabled": true, "key": "gate", "off_variant": "off", "prerequisites": [], "rules": [], "salt": "s-gate", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": {"default_variant": "on", "enabled": true, "key": "a", "off_variant": "a-off", "prerequisites": [{"flag": "gate", "variant": "on"}, {"flag": "b", "variant": "on"}], "rules": [], "salt": "s-a", "variants": ["on", "a-off"]}, "op": "define", "t": 2}
+{"flag": {"default_variant": "on", "enabled": true, "key": "b", "off_variant": "b-off", "prerequisites": [{"flag": "a", "variant": "on"}], "rules": [], "salt": "s-b", "variants": ["on", "b-off"]}, "op": "define", "t": 3}
+{"flag": {"default_variant": "on", "enabled": true, "key": "early", "off_variant": "e-off", "prerequisites": [{"flag": "gate", "variant": "off"}, {"flag": "b", "variant": "on"}], "rules": [], "salt": "s-early", "variants": ["on", "e-off"]}, "op": "define", "t": 4}
+{"flag": "a", "op": "evaluate", "t": 5, "user": {"key": "u1"}}
+{"flag": "early", "op": "evaluate", "t": 6, "user": {"key": "u1"}}
+{"op": "end", "t": 7}

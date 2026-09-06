@@ -1,0 +1,119 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/queue-consumer-supervisor"
+version = "1.0.0"
+description = "Build a queue-worker supervision replay: a strictly-greater heartbeat timeout, restart backoff indexed by consecutive restarts, a crash-loop limit inside a moving window, a healthy spell that forgives the backoff but not the history, and graceful drain around work in hand."
+keywords = [
+    "hard",
+    "supervisor",
+    "backoff",
+    "health-check",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "systems"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+solution_explanation = """
+Treat `/app/docs/supervisor-spec.md` as a specification and implement it literally, then
+parse the record stream described by `/app/docs/session-format.md` and drive the model
+with it.
+
+State is one record per configured worker: its state, when it last sent a heartbeat, when
+it last started, whether it holds work, how many restarts it has had in a row, the times
+of the crashes it has had, and when its next restart falls due.
+
+After every record the fleet is swept twice, both times in configuration order. The first
+pass brings up any worker whose restart is due at or before the current time; that restart
+credits the worker a heartbeat, which is why the second pass does not immediately declare
+it dead again. The second pass zeroes the consecutive restart count of any worker that has
+been up for at least `reset_after_ms`, then declares unhealthy any worker whose last
+heartbeat is strictly older than the timeout and treats it exactly as a crash.
+
+A crash drops whatever work the worker held, appends the current time to its crash history
+and prunes that history to the restart window. More entries than `max_restarts` inside the
+window and the worker fails for good and is never looked at again; otherwise the next
+restart is scheduled at now plus `backoff_ms` indexed by the consecutive restart count,
+with the last entry of the table repeating once the table runs out.
+
+Draining is the one place where work in hand matters: an idle worker stops at once and
+records `drained`, a busy one becomes `draining` and records `drained` only when its work
+finishes. A draining worker is still swept for health, so it can crash out of a drain, and
+a stopped worker is never touched again.
+"""
+
+verification_explanation = """
+Eight atomic tests, one per numbered success criterion in `instruction.md`.
+
+Ground truth is not hardcoded. `tests/reference_supervisor.py` replays the thirty-five
+held-out sessions in `tests/sessions` at verify time and the expected report is derived
+from that run, so a reviewer can follow the derivation rather than trust a literal. Both
+the reference model and the held-out sessions are removed from `/tests` before the
+candidate's tool is invoked, and the tool is run from a temporary directory over a copy of
+the sessions, so it cannot read the answers out of the verifier's own files.
+
+The candidate is exercised only through its documented command line. Nothing in the tests
+imports its code, so the repository may be laid out however its author likes.
+
+Every comparison is exact equality. There is no tolerance to calibrate and none would be
+appropriate: every value in the report is a discrete integer, name or state fully
+determined by the rules in `/app/docs/supervisor-spec.md`, and the replay involves no
+floating point, no randomness and no iteration order that could legitimately vary between
+correct implementations.
+
+The corpus itself is checked by `tools/check_shortcuts.py`, which mutates the reference
+model into thirty plausible near-miss implementations and asserts that each one still
+reproduces `samples/expected.json` exactly and is still caught by at least one held-out
+session. `tools/make_sessions.py` regenerates the whole corpus, including
+`expected.json`, from the reference model, so the samples can never drift from it.
+Neither script ships in the agent image.
+"""
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. The supervisor that keeps our queue consumers alive kept no log worth reading, and twice it made an outage worse: once it restarted a worker every second against a database that was already struggling, once it gave up on one and nobody noticed for four hours."
+differentiation_notes = "The eight visible samples come from a fleet that behaved: every worker heartbeats well inside its timeout, nothing crashes, nothing drains, no worker holds work and no record names a worker that was not configured, so the report is quiet and thirty plausible readings of the specification reproduce expected.json exactly. tools/check_shortcuts.py enumerates all thirty and asserts each still reproduces the samples and is still caught by at least one of the thirty-five held-out captures, so the difficulty is demonstrated rather than asserted."
+relevance = "Every restart supervisor in production turns on the same handful of decisions: when a missed heartbeat counts as death, how fast to back off, how many crashes in what window mean stop trying, when a worker has been up long enough to deserve a clean slate, and what happens to the work in its hands when it is asked to stop."
+failure_cruxes = [
+    "Treating the heartbeat timeout as inclusive, so a worker exactly at the limit is declared dead a sweep early.",
+    "Indexing the backoff table by restart number rather than by how many restarts came before, so the first restart already waits the second delay.",
+    "Wrapping around the backoff table instead of repeating its last entry, so a worker in a long crash loop goes back to restarting immediately.",
+    "Failing the worker on reaching max_restarts rather than passing it.",
+    "Dropping a crash that is exactly one window old, or never pruning the window at all.",
+    "Measuring the healthy spell from the last heartbeat rather than from when the worker last started.",
+    "Reading the healthy spell as forgiving the crash history as well as the backoff, so a worker in a crash loop never fails.",
+    "Restarting a worker without crediting it a heartbeat, so the same sweep declares it dead again.",
+    "Visiting workers in name order rather than configuration order, so two workers that die in the same sweep report their crashes swapped.",
+    "Letting a heartbeat from a worker that is down count as proof it is back.",
+    "Carrying work in hand across a crash, so a drain after a restart waits forever.",
+    "Recording drained the moment a drain is asked for, or the moment any work finishes, rather than when a draining worker's work finishes.",
+    "Leaving a draining worker out of the health check, or going on checking one that has already stopped.",
+    "Reporting each unknown worker once rather than once per record.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

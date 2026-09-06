@@ -1,0 +1,23 @@
+{
+  "ignore": [
+    "size"
+  ],
+  "declared": [
+    {
+      "id": "w",
+      "body": {
+        "size": "a",
+        "zone": "1"
+      }
+    }
+  ],
+  "live": [
+    {
+      "id": "w",
+      "body": {
+        "size": "b",
+        "zone": "2"
+      }
+    }
+  ]
+}

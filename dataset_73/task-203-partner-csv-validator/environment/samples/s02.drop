@@ -1,0 +1,27 @@
+{
+  "captured_at": "2026-05-02T08:15:00Z",
+  "csv": "order_id,qty,price\nA-1,2,10.5\nA-2,5,3.0\nA-3,6,99.99\n",
+  "partner": "P-14",
+  "schema": {
+    "columns": [
+      {
+        "name": "order_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "max": 1000,
+        "min": 1,
+        "name": "qty",
+        "required": true,
+        "type": "int"
+      },
+      {
+        "name": "price",
+        "required": true,
+        "type": "decimal"
+      }
+    ],
+    "key": "order_id"
+  }
+}

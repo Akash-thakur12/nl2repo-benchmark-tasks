@@ -1,0 +1,6 @@
+{"environments": ["prod"], "grace_seconds": 300, "op": "config"}
+{"consumer": "api", "op": "ack", "t": 10, "version": 2}
+{"env": "prod", "id": "api", "op": "consumer", "t": 20}
+{"op": "rotate", "t": 100}
+{"op": "tick", "t": 900}
+{"op": "end", "t": 1000}

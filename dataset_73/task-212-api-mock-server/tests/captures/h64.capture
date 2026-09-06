@@ -1,0 +1,98 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/m1",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/m1",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/m2",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/m2",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/m3",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ]
+    },
+    {
+      "method": "HEAD",
+      "path": "/m3",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "DELETE",
+      "path": "/m1",
+      "seq": 1000
+    },
+    {
+      "method": "GET",
+      "path": "/m2",
+      "seq": 1001
+    },
+    {
+      "method": "DELETE",
+      "path": "/m3",
+      "seq": 1002
+    },
+    {
+      "method": "HEAD",
+      "path": "/m2",
+      "seq": 1003
+    }
+  ]
+}

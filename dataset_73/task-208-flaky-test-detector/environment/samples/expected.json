@@ -1,0 +1,108 @@
+{
+  "s01": {
+    "errors": [],
+    "recommend": [],
+    "tests": [
+      {
+        "commits": 3,
+        "flaky_commits": 0,
+        "name": "t_login",
+        "quarantine": false,
+        "rate": 0
+      }
+    ]
+  },
+  "s02": {
+    "errors": [],
+    "recommend": [],
+    "tests": [
+      {
+        "commits": 3,
+        "flaky_commits": 0,
+        "name": "t_a",
+        "quarantine": false,
+        "rate": 0
+      },
+      {
+        "commits": 3,
+        "flaky_commits": 0,
+        "name": "t_b",
+        "quarantine": false,
+        "rate": 0
+      }
+    ]
+  },
+  "s03": {
+    "errors": [],
+    "recommend": [],
+    "tests": [
+      {
+        "commits": 3,
+        "flaky_commits": 0,
+        "name": "t_broken",
+        "quarantine": false,
+        "rate": 0
+      }
+    ]
+  },
+  "s04": {
+    "errors": [],
+    "recommend": [],
+    "tests": [
+      {
+        "commits": 3,
+        "flaky_commits": 0,
+        "name": "t_bad",
+        "quarantine": false,
+        "rate": 0
+      },
+      {
+        "commits": 3,
+        "flaky_commits": 0,
+        "name": "t_good",
+        "quarantine": false,
+        "rate": 0
+      }
+    ]
+  },
+  "s05": {
+    "errors": [],
+    "recommend": [],
+    "tests": [
+      {
+        "commits": 4,
+        "flaky_commits": 0,
+        "name": "t_x",
+        "quarantine": false,
+        "rate": 0
+      }
+    ]
+  },
+  "s06": {
+    "errors": [],
+    "recommend": [],
+    "tests": [
+      {
+        "commits": 2,
+        "flaky_commits": 0,
+        "name": "t_one",
+        "quarantine": false,
+        "rate": 0
+      },
+      {
+        "commits": 2,
+        "flaky_commits": 0,
+        "name": "t_three",
+        "quarantine": false,
+        "rate": 0
+      },
+      {
+        "commits": 2,
+        "flaky_commits": 0,
+        "name": "t_two",
+        "quarantine": false,
+        "rate": 0
+      }
+    ]
+  }
+}

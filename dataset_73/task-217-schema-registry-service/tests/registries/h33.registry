@@ -1,0 +1,4 @@
+{"default_compatibility": "NONE", "op": "config"}
+{"op": "register", "schema": [{"default": null, "name": "a", "type": "int"}], "subject": "t"}
+{"op": "register", "schema": [{"name": "a", "type": "int"}], "subject": "t"}
+{"op": "end"}

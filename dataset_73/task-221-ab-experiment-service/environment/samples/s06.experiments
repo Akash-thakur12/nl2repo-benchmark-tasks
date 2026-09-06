@@ -1,0 +1,9 @@
+{"op": "config", "salt": "2026-Q1"}
+{"exclude": ["u-0002", "u-0003"], "key": "staff-free", "op": "experiment", "state": "running", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "staff-free", "op": "assign", "user": "u-0001"}
+{"experiment": "staff-free", "op": "assign", "user": "u-0002"}
+{"experiment": "staff-free", "op": "assign", "user": "u-0003"}
+{"experiment": "staff-free", "op": "assign", "user": "u-0004"}
+{"experiment": "staff-free", "op": "assign", "user": "u-0005"}
+{"experiment": "staff-free", "op": "assign", "user": "u-0006"}
+{"op": "end"}

@@ -1,0 +1,10 @@
+{"record": "header", "gateway_version": "4.3", "trace": "trace-04-window-boundary", "config": {}, "note": "window expiry probed either side of the window edge"}
+{"record": "decision", "op": "window", "t": 1000.0, "key": "w:exact", "window_sec": 10, "max_reqs": 1, "decision": true}
+{"record": "decision", "op": "window", "t": 1010.0, "key": "w:exact", "window_sec": 10, "max_reqs": 1, "decision": true}
+{"record": "decision", "op": "window", "t": 1000.0, "key": "w:hair", "window_sec": 10, "max_reqs": 1, "decision": true}
+{"record": "decision", "op": "window", "t": 1009.999999, "key": "w:hair", "window_sec": 10, "max_reqs": 1, "decision": false}
+{"record": "decision", "op": "window", "t": 500.0, "key": "w:multi", "window_sec": 20, "max_reqs": 2, "decision": true}
+{"record": "decision", "op": "window", "t": 505.0, "key": "w:multi", "window_sec": 20, "max_reqs": 2, "decision": true}
+{"record": "decision", "op": "window", "t": 520.0, "key": "w:multi", "window_sec": 20, "max_reqs": 2, "decision": true}
+{"record": "decision", "op": "window", "t": 524.999999, "key": "w:multi", "window_sec": 20, "max_reqs": 2, "decision": false}
+{"record": "decision", "op": "window", "t": 525.0, "key": "w:multi", "window_sec": 20, "max_reqs": 2, "decision": true}

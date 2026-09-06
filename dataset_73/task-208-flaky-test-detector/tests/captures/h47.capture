@@ -1,0 +1,91 @@
+{
+  "captured_at": "2026-04-14T09:00:00Z",
+  "min_commits": 5,
+  "threshold_percent": 60,
+  "policy_history": [
+    {
+      "effective_at": "2025-11-02T00:00:00Z",
+      "min_commits": 5,
+      "threshold_percent": 60
+    }
+  ],
+  "runs": [
+    {
+      "id": "a1",
+      "commit": "86dace2efdaf22792cff214cf3a27f3f4368cb37",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_legacy",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "commit": "d98ae4a318b26c5effeb68701be28449e26cbbfe",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_legacy",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "commit": "99688794223c39ce07a242044955d77ffc448b23",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_legacy",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "b1",
+      "commit": "92c4eabe74b70610842c0f5298afbf93eaf99517",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_gone",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "b2",
+      "commit": "8defbc8de5ade926be29af6da2a03aab9334a357",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_gone",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "b3",
+      "commit": "5f1e9440874917744743fcf0fd843cbeaee907c0",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_gone",
+          "status": "passed"
+        }
+      ]
+    }
+  ],
+  "quarantined": [
+    {
+      "test": "t_legacy",
+      "added_at": "2026-01-06T00:00:00Z"
+    },
+    {
+      "test": "t_gone",
+      "added_at": "2026-01-06T00:00:00Z",
+      "lifted_at": "2026-02-02T00:00:00Z"
+    }
+  ]
+}

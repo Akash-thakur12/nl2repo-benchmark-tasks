@@ -1,0 +1,4 @@
+{"default_compatibility": "FULL", "op": "config"}
+{"op": "register", "schema": [{"name": "id", "type": "int"}, {"name": "total", "type": "long"}], "subject": "t"}
+{"op": "register", "schema": [{"name": "id", "type": "int"}, {"name": "total", "type": "long"}, {"name": "note", "type": "string"}], "subject": "t"}
+{"op": "end"}

@@ -1,0 +1,40 @@
+{
+  "declared": [
+    {
+      "id": "zeta",
+      "body": {
+        "size": "m5.large",
+        "zone": "eu-1"
+      }
+    },
+    {
+      "id": "alpha",
+      "body": {
+        "net": {
+          "cidr": "10.0.0.0/8",
+          "gw": "10.0.0.1"
+        },
+        "size": "a"
+      }
+    }
+  ],
+  "live": [
+    {
+      "id": "alpha",
+      "body": {
+        "net": {
+          "cidr": "10.0.0.0/8",
+          "gw": "10.0.0.1"
+        },
+        "size": "a"
+      }
+    },
+    {
+      "id": "zeta",
+      "body": {
+        "size": "m5.large",
+        "zone": "eu-1"
+      }
+    }
+  ]
+}

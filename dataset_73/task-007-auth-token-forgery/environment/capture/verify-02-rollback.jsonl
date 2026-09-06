@@ -1,0 +1,6 @@
+{"kid": "tokend-2021h", "captured_at": 1669852800, "msg_b64": "UE9TVCAvdjEvdHJhbnNmZXIAYWNjdD01MQBhbXQ9MTA=", "tag_hex": "6d8d3d4600000000", "verdict": "ok", "note": "exact instant of CHG-9032; back to 4 octets"}
+{"kid": "tokend-2021h", "captured_at": 1670000000, "msg_b64": "TVRSIDQ0MTAgcmVhZD0xMTg=", "tag_hex": "186966a400000000", "verdict": "ok", "note": "inside the rollback week"}
+{"kid": "tokend-2021h", "captured_at": 1670371199, "msg_b64": "TVRSIDQ0MTAgcmVhZD0xMTk=", "tag_hex": "d572e94800000000", "verdict": "ok", "note": "last second of the rollback week"}
+{"kid": "tokend-2021h", "captured_at": 1670371200, "msg_b64": "UE9TVCAvdjEvdHJhbnNmZXIAYWNjdD01MQBhbXQ9MTE=", "tag_hex": "66e39f3ca0dc2b74", "verdict": "ok", "note": "exact instant of CHG-9048; widened again"}
+{"kid": "tokend-2021h", "captured_at": 1670457600, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9OA==", "tag_hex": "7fc02c434523981b", "verdict": "ok", "note": "after the revert"}
+{"kid": "tokend-2021h", "captured_at": 1670000000, "msg_b64": "TVRSIDQ0MTAgcmVhZD0xMjA=", "tag_hex": "3bda96b5f52c4b4c", "verdict": "malformed", "note": "un-downgraded client wrote 8 octets during the 4-octet rollback week; pad region is not zero"}

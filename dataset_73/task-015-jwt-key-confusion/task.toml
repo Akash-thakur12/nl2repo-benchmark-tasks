@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/jwt-key-confusion"
+version = "1.0.0"
+description = "Server must reject tokens where alg switches from RS256 to HS256 (asymmetric->HMAC attack)."
+keywords = [
+    "hard",
+    "jwt",
+    "algorithm-confusion",
+    "public-key-crypto",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models a well-documented real JWT algorithm-confusion attack (RS256-to-HS256 key reuse)."
+differentiation_notes = "The attack only manifests when the public key is reused as an HMAC secret, which a naive 'just check alg matches' implementation won't catch."
+relevance = "RS256/HS256 key-confusion is a real, previously-exploited class of JWT library vulnerability."
+failure_cruxes = [
+    "Accepting a token whose header claims HS256 but was actually verified using the server's RSA public key as the raw HMAC secret.",
+    "Pinning the algorithm too loosely, so a header-declared alg switch from RS256 to HS256 is silently accepted instead of rejected.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

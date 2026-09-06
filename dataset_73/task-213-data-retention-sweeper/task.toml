@@ -1,0 +1,62 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/data-retention-sweeper"
+version = "1.0.0"
+description = "Build a data retention sweep replay: per-table retention with an inclusive boundary, legal holds that lapse, cascade ordering with blocking children, a batch limit and dry runs."
+keywords = [
+    "hard",
+    "retention",
+    "legal-hold",
+    "cascade",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "data-engineering"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Retention sweeps are a compliance requirement, and the replay appears the first time one deletes something it should not have."
+differentiation_notes = "The six visible samples come from a sweep with nothing in its way: one table with no parent and no children, every row either comfortably inside its retention or comfortably past it, no holds, no batch limit, no dry run, and both the rows and the tables already in the order the specification would sort them into. Eighteen plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all eighteen and asserts each still reproduces the samples and is still caught by at least one held-out capture, so the difficulty is demonstrated rather than asserted."
+relevance = "Mirrors the two ways a retention sweep actually causes an incident: it takes something a legal hold covered, or it takes a parent whose children are still there. Both come down to ordering and to what counts as a row that survived, including one the batch limit merely postponed."
+failure_cruxes = [
+    "Treating the retention boundary as exclusive, so a row exactly at its limit survives another day.",
+    "Sweeping parents before children, or ordering tables by name alone, or in the order they were declared.",
+    "Sweeping a table that has no retention at all, as though the absence meant zero.",
+    "Ignoring a hold expiry, or letting a lapsed hold keep protecting.",
+    "Letting a hold on an id in one table protect the same id in another.",
+    "Letting a held child, or one the batch limit held back, stop blocking its parent.",
+    "Counting a held or blocked row toward pending, which are three different outcomes.",
+    "Stopping the sweep once the limit is reached, so the rows past it are never counted.",
+    "Letting a dry run ignore the batch limit, or report nothing at all rather than what would have happened.",
+    "Tolerating a parent table that does not exist without recording it.",
+    "Taking rows in the order the dump was written rather than by id, which changes what a limit takes.",
+    "Letting a child that was deleted in this very sweep still block its parent.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

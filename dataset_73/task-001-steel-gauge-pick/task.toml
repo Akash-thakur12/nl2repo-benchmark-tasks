@@ -1,0 +1,50 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/steel-gauge-pick"
+version = "1.0.0"
+description = "Select the W-shape required by the firm's structural design standard."
+keywords = [
+    "hard",
+    "structural-engineering",
+    "spec-compliance",
+    "beam-design",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Replacement of a retired in-house sizing spreadsheet with an engine that implements the firm's current structural design standard."
+differentiation_notes = "The task statement is an API contract only. The rules live in environment/docs/ and environment/data/, alongside superseded material that contradicts them, so the work is reading the shipped evidence and deciding which of it is in force rather than transcribing a spec."
+relevance = "Mirrors real engineering software work where the specification is a controlled document with a revision history and the repository still carries constants from the method it replaced."
+failure_cruxes = [
+    "Taking the shipped reference tables and source constants at face value instead of reconciling them against the governing document.",
+    "Implementing coupled design rules as if they were independent, so a quantity that depends on the candidate being evaluated is computed once up front.",
+    "Fitting a historical log of recorded outputs without establishing which entries were produced under the process currently in force.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

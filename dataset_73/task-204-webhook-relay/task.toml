@@ -1,0 +1,64 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/webhook-relay"
+version = "1.0.0"
+description = "Build an offline webhook relay replay tool: HMAC signature verification with key rotation, replay and duplicate windows, wildcard fan-out, and retry scheduling with dead-lettering."
+keywords = [
+    "hard",
+    "webhooks",
+    "hmac",
+    "fan-out",
+    "retry",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "backend-services"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 7
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Any company that both receives and re-publishes webhooks ends up owning a relay, and the first thing it needs is a way to replay a capture when a downstream team says an event never arrived."
+differentiation_notes = "The six visible samples come from a quiet hour: one secret, one signature per request, header timestamps equal to arrival time, exact event patterns, every subscriber enabled and registered in id order, and every delivery accepted first time. Twenty-three plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all twenty-three and asserts each still reproduces the samples and is still caught by at least one held-out capture, so the difficulty is demonstrated rather than asserted. Mutating the signature scheme itself is deliberately excluded, because a wrong scheme cannot verify a correctly signed payload and the samples reject it immediately."
+relevance = "Mirrors the parts of a real relay that go wrong quietly: key rotation during a deploy, a replay window that is off by one at the boundary, wildcard subscriptions that match one segment too many, and a retry schedule that either gives up a delivery early or dispatches it at the wrong moment."
+failure_cruxes = [
+    "Checking only the first v1 value in the header, or only one configured secret, so a rotated key stops verifying.",
+    "Reporting a malformed signature header as a bad signature, or checking staleness before the signature.",
+    "Treating the replay window as exclusive at the boundary, or comparing without an absolute value so a future timestamp is never stale.",
+    "Treating the duplicate window as exclusive, letting a suppressed duplicate refresh it, or remembering rejected webhooks for suppression.",
+    "Matching order.* against orders.created by dropping the dot, or against the bare order.",
+    "Delivering to a subscriber once per matching pattern instead of once per event.",
+    "Fanning out in subscriber id order rather than registration order, or moving a re-registered subscriber to the end.",
+    "Delivering to a subscriber that is disabled at the moment of fan-out.",
+    "Indexing the backoff table by the attempt number, or restarting the table instead of repeating its last entry.",
+    "Dispatching a retry only strictly after its due time, or ignoring Retry-After in favour of the backoff table.",
+    "Counting max_attempts as retries rather than including the first delivery.",
+    "Dispatching due retries in delivery id order instead of oldest due time first.",
+    "Retrying a permanent failure, or letting a response reopen a delivery that has already completed.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

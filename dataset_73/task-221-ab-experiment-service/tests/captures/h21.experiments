@@ -1,0 +1,5 @@
+{"op": "config", "salt": "2026-Q1"}
+{"experiment": "ghost", "op": "assign", "user": "u-0001"}
+{"experiment": "ghost", "op": "assign", "user": "u-0002"}
+{"experiment": "ghost", "op": "assign", "user": "u-0003"}
+{"op": "end"}

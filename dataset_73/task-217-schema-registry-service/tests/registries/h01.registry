@@ -1,0 +1,4 @@
+{"default_compatibility": "BACKWARD", "op": "config"}
+{"op": "register", "schema": [{"name": "n", "type": "int"}], "subject": "t"}
+{"op": "register", "schema": [{"name": "n", "type": "long"}], "subject": "t"}
+{"op": "end"}

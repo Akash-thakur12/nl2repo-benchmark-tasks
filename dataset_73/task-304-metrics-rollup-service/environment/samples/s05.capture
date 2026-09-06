@@ -1,0 +1,38 @@
+{
+  "tiers": [
+    {
+      "name": "1m",
+      "seconds": 60
+    }
+  ],
+  "samples": [
+    {
+      "t": 0,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 10
+    },
+    {
+      "t": 10,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 20
+    },
+    {
+      "t": 0,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 100
+    },
+    {
+      "t": 50,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 140
+    }
+  ]
+}

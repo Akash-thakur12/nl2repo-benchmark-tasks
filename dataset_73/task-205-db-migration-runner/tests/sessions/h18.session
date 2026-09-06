@@ -1,0 +1,8 @@
+{"allow_out_of_order": false, "baseline": 0, "op": "config"}
+{"down": "DOWN 1", "fails": false, "name": "m1", "op": "define", "transactional": true, "up": "UP 1", "version": 1}
+{"checksum": "12a9c48155f06b1e0d1e760805e71aa502a6d56375190714ec4f72c5cb487e6f", "op": "history", "version": 1}
+{"held": true, "op": "lock"}
+{"cmd": "up", "op": "command"}
+{"held": false, "op": "lock"}
+{"cmd": "up", "op": "command"}
+{"op": "end"}

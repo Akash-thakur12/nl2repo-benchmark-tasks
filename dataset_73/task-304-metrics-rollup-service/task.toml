@@ -1,0 +1,63 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/metrics-rollup-service"
+version = "1.0.0"
+description = "Build a metrics rollup replay tool in Go: counter deltas with reset handling, gauge aggregation with half-to-even averaging, histogram merging, and retention tiers rolled from the tier below."
+keywords = [
+    "hard",
+    "metrics",
+    "rollup",
+    "time-series",
+    "go",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "observability"
+language = "go"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 7
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Every metrics platform grows a dry-run roller the first time a rolled-up dashboard disagrees with the raw data and nobody can reproduce the rollup offline."
+differentiation_notes = "The six visible samples come from a collector having a quiet day: a single tier, every series inside one window, counters that only go up, gauges whose averages divide exactly, no labels at all and no histogram disagreement. Eighteen plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all eighteen and asserts each still reproduces the samples and is still caught by at least one held-out capture, so the difficulty is demonstrated rather than asserted. Three of them are the arithmetic a Go implementation reaches for by reflex, and one only separates from the specification when a tier is not a multiple of the tier below it."
+relevance = "Mirrors the parts of a real rollup pipeline that go wrong silently: a counter that resets during a deploy, a boundary sample landing in the wrong minute, an average recomputed from averages, and a retention tier whose window does not divide evenly into the one above it."
+failure_cruxes = [
+    "Rounding an average with the language default rather than to the even neighbour: math.Round sends halves away from zero and integer division truncates toward it, and neither matches the specification.",
+    "Closing a window on a boundary sample instead of starting a new one with it.",
+    "Building the series key from label insertion order, or leaving labels out of it entirely.",
+    "Reporting a counter window as last minus first, which is right only while the counter never resets and never spans a window.",
+    "Restarting the counter baseline at every window instead of carrying it across.",
+    "Treating a counter reset as contributing nothing, or treating an unchanged counter as a reset.",
+    "Taking gauge min, max and last in the order the capture happens to list its samples rather than in time order.",
+    "Checking histogram boundaries only within a window rather than across the whole series.",
+    "Computing a higher tier from the raw samples again instead of from the tier below it, which only shows up when one tier is not a multiple of the next.",
+    "Averaging the lower averages at a higher tier instead of recomputing from the totals.",
+    "Taking a higher-tier last from the earliest lower window rather than the latest.",
+    "Taking the last lower delta at a higher tier instead of their sum.",
+    "Ordering rows by window before series, or not grouping them by tier first.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

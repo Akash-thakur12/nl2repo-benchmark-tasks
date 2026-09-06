@@ -1,0 +1,95 @@
+{
+  "export": "kms-tokend",
+  "export_version": 3,
+  "generated_at": 1735689600,
+  "note": "Offline KMS export. Revoked secrets are retained deliberately so that historical collector captures stay replayable by the audit tool.",
+  "keys": [
+    {
+      "kid": "tokend-2021h",
+      "label": "tokend request signer (primary)",
+      "status": "revoked",
+      "revoked_at": 1690848000,
+      "secret_hex": "746f6b656e642d32303231682d736563726574",
+      "mac_bytes": 8,
+      "width_history": [
+        {
+          "mac_bytes": 8,
+          "from": 1656633600,
+          "note": "SEC-118 hardening: widen tag 4 -> 8"
+        },
+        {
+          "mac_bytes": 4,
+          "from": 1609459200,
+          "note": "initial rollout (row backfilled 2022-08-14 from the change log)"
+        },
+        {
+          "mac_bytes": 4,
+          "from": 1669852800,
+          "note": "CHG-9032 emergency rollback: meter-fleet interop"
+        },
+        {
+          "mac_bytes": 8,
+          "from": 1670371200,
+          "note": "CHG-9048 rollback reverted"
+        }
+      ]
+    },
+    {
+      "kid": "tokend-2019m",
+      "label": "legacy meter fleet signer",
+      "status": "revoked",
+      "revoked_at": 1567296000,
+      "secret_hex": "dd0db189cac1385b5df1770adbf57352",
+      "mac_bytes": 2,
+      "width_history": [
+        {
+          "mac_bytes": 2,
+          "from": 1546300800,
+          "note": "meter fleet rollout; 2-octet tag, constrained frame budget"
+        }
+      ]
+    },
+    {
+      "kid": "tokend-eu1",
+      "label": "tokend request signer (eu-west-1 listing)",
+      "status": "active",
+      "secret_hex": "746f6b656e642d65752d7368617265642d736563726574",
+      "mac_bytes": 8,
+      "width_history": [
+        {
+          "mac_bytes": 8,
+          "from": 1656633600,
+          "note": "regional rollout"
+        }
+      ]
+    },
+    {
+      "kid": "tokend-eu2",
+      "label": "tokend request signer (eu-central-1 listing, same material as tokend-eu1)",
+      "status": "active",
+      "secret_hex": "746f6b656e642d65752d7368617265642d736563726574",
+      "mac_bytes": 8,
+      "width_history": [
+        {
+          "mac_bytes": 8,
+          "from": 1656633600,
+          "note": "regional rollout"
+        }
+      ]
+    },
+    {
+      "kid": "tokend-2023r",
+      "label": "tokend request signer (current)",
+      "status": "active",
+      "secret_hex": "746f6b656e642d32303233722d736563726574",
+      "mac_bytes": 8,
+      "width_history": [
+        {
+          "mac_bytes": 8,
+          "from": 1672531200,
+          "note": "post-4417 reissue"
+        }
+      ]
+    }
+  ]
+}

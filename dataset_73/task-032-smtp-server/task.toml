@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/smtp-server"
+version = "1.0.0"
+description = "RFC 5321 SMTP session state machine. feed(line)->(code,text). HELO/EHLO, MAIL FROM, RCPT TO (multiple), DATA mode with dot-termination + dot-unstuffing, RSET/NOOP/QUIT/VRFY, 250/354/221/500/501/502/503 replies, bad-sequence enforcement."
+keywords = [
+    "hard",
+    "smtp",
+    "rfc5321",
+    "state-machine",
+]
+
+[metadata]
+benchmark_style = "RepoZero"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct implementation of the RFC 5321 SMTP session state machine."
+differentiation_notes = "RSET's INIT-vs-GREETED target state and dot-unstuffing's single-leading-dot rule are both easy off-by-one-transition mistakes."
+relevance = "SMTP state-machine bugs are a real class of production mail-server interoperability defects."
+failure_cruxes = [
+    "RSET issued from the INIT state incorrectly advancing to GREETED instead of staying in INIT.",
+    "Dot-unstuffing applied to every leading-dot occurrence in a DATA line instead of only the very first character.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

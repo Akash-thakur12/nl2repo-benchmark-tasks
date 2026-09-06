@@ -1,0 +1,29 @@
+{
+  "captured_at": "2026-04-14T09:00:00Z",
+  "min_commits": 5,
+  "threshold_percent": 60,
+  "policy_history": [
+    {
+      "effective_at": "2025-11-02T00:00:00Z",
+      "min_commits": 5,
+      "threshold_percent": 60
+    }
+  ],
+  "runs": [
+    {
+      "id": "r1",
+      "commit": "97bbba74a7415360fc6ba5d2382598a375080bac",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t",
+          "status": "passed"
+        },
+        {
+          "test": "t",
+          "status": "error"
+        }
+      ]
+    }
+  ]
+}

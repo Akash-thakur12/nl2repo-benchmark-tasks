@@ -1,0 +1,3 @@
+["set", "greeting", "hello"]
+["lpush", "jobs", "a"]
+["lpush", "jobs", "b"]

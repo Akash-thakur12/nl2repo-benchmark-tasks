@@ -1,0 +1,3 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "checkout-v2", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "plan", "operator": "in", "values": ["pro"], "variant": "on"}], "salt": "s-checkout-v2", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "checkout-v2", "op": "evaluate", "t": 2, "user": {"key": "u1", "plan": "free"}}
+{"op": "end", "t": 3}

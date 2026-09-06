@@ -1,0 +1,16 @@
+{
+  "note": "get() for each key on a store opened on this directory",
+  "reads": {
+    "k1": "A001",
+    "k2": "B000",
+    "k3": "C000",
+    "k4": "D001",
+    "k5": "E000",
+    "k6": null,
+    "k7": null,
+    "k8": "H001"
+  },
+  "size": 6,
+  "segment_count": 4,
+  "next_segment_file": "sst_000002.json"
+}

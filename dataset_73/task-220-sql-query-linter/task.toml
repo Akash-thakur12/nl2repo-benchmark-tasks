@@ -1,0 +1,118 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/sql-query-linter"
+version = "1.0.0"
+description = "Build a SQL linter: a lexer that skips strings and comments, nine rules each with its own reporting position, statements split at semicolons and at the next SELECT, configurable severities, and noqa suppression by line."
+keywords = [
+    "hard",
+    "linter",
+    "sql",
+    "static-analysis",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "developer-tooling"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 7
+
+solution_explanation = """
+Treat `/app/docs/lint-spec.md` as a specification and implement it literally, then parse
+the capture described by `/app/docs/query-format.md` and lint each query in it.
+
+The lexer is the whole game. Each line is scanned once: a single quote opens a string that
+two quotes in a row do not close, a double dash outside a string opens a comment that runs
+to the end of the line, and only what is left outside both becomes tokens. A word is a
+keyword when it matches one of fifteen names ignoring case, which is what makes a
+lower-case keyword both a keyword and a violation. Statements begin at a `SELECT` and end
+at the semicolon before the next one, or at the next `SELECT` if there is no semicolon.
+
+Each of the nine rules reports at its own position, and the boundary of each is where the
+work is: a star only between `SELECT` and the first `FROM`, a comma only between that
+`FROM` and the next clause keyword, an `ON` that has to belong to its own join rather than
+a later one, a number only where the `ORDER BY` list expects an item, and a `LIMIT` only in
+a statement with no `ORDER`. Two rules deliberately ignore the lexer and read the raw line,
+because trailing whitespace and a tab in the indent are facts about the text rather than
+about the SQL.
+
+Severity comes from a table the configuration may override, a rule set to `off` reports
+nothing, and a rule name or severity the tool does not recognise is an error that changes
+nothing. A `noqa` comment suppresses the violations reported on its own line - all of them,
+or the named ones, matched exactly. Suppressed and switched-off violations are neither
+reported nor counted, and what is left is ordered by line, then column, then rule.
+"""
+
+verification_explanation = """
+Nine atomic tests, one per numbered success criterion in `instruction.md`.
+
+Ground truth is not hardcoded. `tests/reference_lint.py` lints the fifty-two held-out
+captures in `tests/lints` at verify time and the expected report is derived from that run.
+Both the reference model and the held-out captures are removed from `/tests` before the
+candidate's tool is invoked, and the tool is run from a temporary directory over a copy of
+the captures, so it cannot read the answers out of the verifier's own files.
+
+The candidate is exercised only through its documented command line. Nothing in the tests
+imports its code, so the repository may be laid out however its author likes.
+
+Every comparison is exact equality, and one test additionally checks the report against
+itself: that the queries are the ones the capture names, that every line and column falls
+inside the query text, that the counts agree with the violations listed, and that the
+totals add up. There is no tolerance to calibrate and none would be appropriate: a line and
+a column are discrete positions fully determined by the lexer described in
+`/app/docs/lint-spec.md`.
+
+The corpus itself is checked by `tools/check_shortcuts.py`, which mutates the reference
+model into thirty-two plausible near-miss implementations and asserts that each one still
+reproduces `samples/expected.json` exactly and is still caught by at least one held-out
+capture. `tools/make_lints.py` regenerates the whole corpus, including `expected.json`,
+from the reference model. Neither script ships in the agent image.
+"""
+
+[metadata.difficulty_explanation]
+provenance = "Open source. A few thousand hand-written analytics queries, and review comments about them are always the same four things: a SELECT * somebody will regret, a join written with a comma, a LIMIT with nothing to order by, and a statement with no WHERE at all."
+differentiation_notes = "The eight visible samples come from queries that are already clean: keywords in upper case, one named column, a WHERE on every statement, every JOIN with its ON, no commas anywhere, no LIMIT, no ordering by position, no trailing whitespace, no tabs, no comments, no string literals and no configured severities. They report nothing at all, which is what makes them agree with thirty-two plausible readings of the specification. tools/check_shortcuts.py enumerates all thirty-two and asserts each still reproduces the samples and is still caught by at least one of the fifty-two held-out captures, so the difficulty is demonstrated rather than asserted."
+relevance = "A linter is only useful if it is exactly right about where a violation is and exactly quiet about the things it should not flag. Both come down to the lexer and to the boundary of each rule, which is where every linter that gets abandoned went wrong."
+failure_cruxes = [
+    "Flagging every star rather than only the ones in the select list, or only the one that is the whole select list.",
+    "Flagging a statement with no WHERE even when a LIMIT excuses it, or reporting it somewhere other than at the SELECT.",
+    "Accepting an ON that belongs to a later join.",
+    "Flagging every comma in the statement rather than the ones in the FROM list, or reporting the FROM list only once.",
+    "Flagging a keyword only when it is entirely lower case, or failing to recognise a lower-case keyword as a keyword at all.",
+    "Looking only at the first thing ordered by, reading the ORDER BY list as running to the end of the statement, or treating GROUP BY the same way.",
+    "Flagging every LIMIT rather than the ones with nothing to order by.",
+    "Reporting trailing whitespace at the end of the line rather than where the run begins, or not counting a trailing tab.",
+    "Flagging a tab anywhere in the line rather than in the indent, or only when the line begins with one.",
+    "Linting the text of a comment or the inside of a string as though it were SQL.",
+    "Taking any comment that mentions noqa as a blanket suppression, reading a noqa list as one, or matching the rule names without regard to case.",
+    "Suppressing a whole statement because one of its lines carries a noqa.",
+    "Counting a violation that was suppressed, or one whose rule is switched off.",
+    "Ignoring a severity set for a rule that does not exist, applying one the tool does not recognise, or checking the severity before the rule name.",
+    "Reporting the violations in the order the rules found them, or grouped by rule.",
+    "Starting a new statement only after a semicolon.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

@@ -1,0 +1,47 @@
+{
+  "ignore": [
+    "tags.*"
+  ],
+  "declared": [
+    {
+      "id": "api",
+      "body": {
+        "tier": "gold",
+        "tags": {
+          "o": "a"
+        },
+        "ports": [
+          80,
+          443
+        ]
+      }
+    },
+    {
+      "id": "gone",
+      "body": {
+        "x": "1"
+      }
+    }
+  ],
+  "live": [
+    {
+      "id": "api",
+      "body": {
+        "tier": "silver",
+        "tags": {
+          "o": "b"
+        },
+        "ports": [
+          80
+        ],
+        "extra": true
+      }
+    },
+    {
+      "id": "new",
+      "body": {
+        "y": "2"
+      }
+    }
+  ]
+}

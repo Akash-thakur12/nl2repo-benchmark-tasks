@@ -1,0 +1,31 @@
+{
+  "tiers": [
+    {
+      "name": "1m",
+      "seconds": 60
+    }
+  ],
+  "samples": [
+    {
+      "t": 40,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 3
+    },
+    {
+      "t": 0,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 9
+    },
+    {
+      "t": 20,
+      "name": "queue_depth",
+      "labels": {},
+      "type": "gauge",
+      "value": 1
+    }
+  ]
+}

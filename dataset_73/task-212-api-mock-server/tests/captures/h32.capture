@@ -1,0 +1,26 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/users/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "who": "one"
+          },
+          "when": {
+            "id": "1"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/users/9",
+      "seq": 1000
+    }
+  ]
+}

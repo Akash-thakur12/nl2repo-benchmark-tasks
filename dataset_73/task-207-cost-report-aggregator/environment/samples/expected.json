@@ -1,0 +1,128 @@
+{
+  "s01": {
+    "errors": [],
+    "teams": {
+      "alpha": {
+        "amortised": 0,
+        "credit": 0,
+        "shared": 0,
+        "total": 1000,
+        "usage": 1000
+      },
+      "beta": {
+        "amortised": 0,
+        "credit": 0,
+        "shared": 0,
+        "total": 500,
+        "usage": 500
+      }
+    },
+    "unallocated": 0,
+    "unused_credit": 0
+  },
+  "s02": {
+    "errors": [],
+    "teams": {
+      "alpha": {
+        "amortised": 0,
+        "credit": 0,
+        "shared": 200,
+        "total": 200,
+        "usage": 0
+      },
+      "beta": {
+        "amortised": 0,
+        "credit": 0,
+        "shared": 200,
+        "total": 200,
+        "usage": 0
+      }
+    },
+    "unallocated": 0,
+    "unused_credit": 0
+  },
+  "s03": {
+    "errors": [],
+    "teams": {
+      "alpha": {
+        "amortised": 1000,
+        "credit": 0,
+        "shared": 0,
+        "total": 1000,
+        "usage": 0
+      },
+      "beta": {
+        "amortised": 0,
+        "credit": 0,
+        "shared": 0,
+        "total": 250,
+        "usage": 250
+      }
+    },
+    "unallocated": 0,
+    "unused_credit": 0
+  },
+  "s04": {
+    "errors": [],
+    "teams": {
+      "alpha": {
+        "amortised": 0,
+        "credit": 0,
+        "shared": 100,
+        "total": 1100,
+        "usage": 1000
+      },
+      "beta": {
+        "amortised": 0,
+        "credit": 0,
+        "shared": 100,
+        "total": 1100,
+        "usage": 1000
+      }
+    },
+    "unallocated": 0,
+    "unused_credit": 0
+  },
+  "s05": {
+    "errors": [],
+    "teams": {
+      "alpha": {
+        "amortised": 0,
+        "credit": 0,
+        "shared": 100,
+        "total": 400,
+        "usage": 300
+      },
+      "beta": {
+        "amortised": 0,
+        "credit": 0,
+        "shared": 100,
+        "total": 400,
+        "usage": 300
+      }
+    },
+    "unallocated": 0,
+    "unused_credit": 0
+  },
+  "s06": {
+    "errors": [],
+    "teams": {
+      "alpha": {
+        "amortised": 800,
+        "credit": 0,
+        "shared": 0,
+        "total": 800,
+        "usage": 0
+      },
+      "beta": {
+        "amortised": 400,
+        "credit": 0,
+        "shared": 0,
+        "total": 400,
+        "usage": 0
+      }
+    },
+    "unallocated": 0,
+    "unused_credit": 0
+  }
+}

@@ -1,0 +1,3 @@
+{"op": "config", "pipeline": [{"format": "auto", "op": "convert"}]}
+{"alpha": false, "format": "webp", "frames": 1, "height": 600, "name": "a.b.c.webp", "op": "source", "orientation": 1, "width": 800}
+{"op": "end"}

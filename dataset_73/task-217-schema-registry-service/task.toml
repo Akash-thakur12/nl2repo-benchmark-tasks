@@ -1,0 +1,122 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/schema-registry-service"
+version = "1.0.0"
+description = "Build a schema registry replay: an asymmetric type promotion table, backward and forward compatibility and their transitive forms, soft-deleted versions that are never checked against, version numbers that are never reused, and schema ids shared across subjects."
+keywords = [
+    "hard",
+    "schema-registry",
+    "compatibility",
+    "versioning",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "data-engineering"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 7
+
+solution_explanation = """
+Treat `/app/docs/registry-spec.md` as a specification and implement it literally, then
+parse the record stream described by `/app/docs/registry-format.md` and drive the model
+with it.
+
+A schema's identity is its ordered list of fields, each with its name, its type, and its
+default if it has one - where having no default and having a default of null are different
+things. Field order is part of that identity, so the same fields in a different order are a
+different schema.
+
+Compatibility rests on one asymmetric promotion table and one rule. A schema R can read
+data written with W when every field they share promotes from W's type to R's, and every
+field R has that W does not carries a default; a field W has that R does not is simply
+skipped. `BACKWARD` asks that the new schema can read the old data, `FORWARD` that the old
+schema can read the new, `FULL` both, and `NONE` nothing. The transitive forms ask the same
+thing of every version rather than only the latest.
+
+Versions are soft-deleted: a deleted version keeps its number, is never checked against, is
+not listed, and cannot be looked up or deleted again - and because numbers are never
+reused, registering the same schema again after a delete creates a new version rather than
+returning the old one. Schema ids, unlike version numbers, belong to the whole registry, so
+the same schema registered under a second subject carries the id it already has.
+"""
+
+verification_explanation = """
+Eight atomic tests, one per numbered success criterion in `instruction.md`.
+
+Ground truth is not hardcoded. `tests/reference_registry.py` replays the forty-eight
+held-out sessions in `tests/registries` at verify time and the expected report is derived
+from that run. Both the reference model and the held-out sessions are removed from `/tests`
+before the candidate's tool is invoked, and the tool is run from a temporary directory over
+a copy of the sessions, so it cannot read the answers out of the verifier's own files.
+
+The candidate is exercised only through its documented command line. Nothing in the tests
+imports its code, so the repository may be laid out however its author likes.
+
+Every comparison is exact equality, and one test additionally checks the report against
+itself: that version numbers within a subject increase and never repeat, that every version
+listed was returned by a registration on that subject, and that one id never names two
+different schemas. There is no tolerance to calibrate and none would be appropriate: every
+value is a discrete integer, name or boolean fully determined by the rules in
+`/app/docs/registry-spec.md`.
+
+The corpus itself is checked by `tools/check_shortcuts.py`, which mutates the reference
+model into thirty-seven plausible near-miss implementations and asserts that each one still
+reproduces `samples/expected.json` exactly and is still caught by at least one held-out
+session. `tools/make_registries.py` regenerates the whole corpus, including
+`expected.json`, from the reference model. Neither script ships in the agent image.
+"""
+
+[metadata.difficulty_explanation]
+provenance = "Open source. The registry twice let through a schema that broke every consumer downstream: once a field went from long to int and the registry called it fine, once a required field appeared and the old readers had nothing to fill it with."
+differentiation_notes = "The eight visible samples come from a registry used the way everybody agrees on: one subject per session, every new version adding a single field that carries a default, which every level accepts against every earlier version, so the transitive forms agree with the plain ones. Nothing is deleted, nothing is registered twice, no type changes and no field moves. Thirty-seven plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all thirty-seven and asserts each still reproduces the samples and is still caught by at least one of the forty-eight held-out captures, so the difficulty is demonstrated rather than asserted."
+relevance = "This is the decision a schema registry exists to make, and the one that breaks a pipeline when it is made wrongly: whether a new version can be deployed without the readers or the writers already in production falling over."
+failure_cruxes = [
+    "Treating the type promotions as symmetric, so a long may be read as an int.",
+    "Promoting only one step up the ladder, so an int cannot be read as a double.",
+    "Not knowing that string and bytes read each other, or letting a boolean be read as a number.",
+    "Letting the reader add a field without a default.",
+    "Insisting the reader carry every field the writer wrote, when an unknown field is simply skipped.",
+    "Treating a default of null as no default at all, which changes both compatibility and schema identity.",
+    "Calling two schemas the same when their fields are in a different order, or when only their defaults differ.",
+    "Registering a new version for a schema the subject already has.",
+    "Matching a registration against versions that have been deleted.",
+    "Numbering the next version after the ones that are left, so a number is reused once something is deleted.",
+    "Handing out schema ids per subject rather than across the registry, or a fresh id for a schema that already has one.",
+    "Reading a transitive level as checking only the latest version, or checking every version when the level is not transitive.",
+    "Checking only one direction for FULL, or having the two directions the wrong way round.",
+    "Reading NONE as leaving the default in force rather than as checking nothing.",
+    "Checking against versions that have been deleted, or listing them among a subject's versions.",
+    "Letting a version be deleted twice, or saying nothing when a delete names something that is not there.",
+    "Treating a lookup that finds nothing as an unknown subject, or finding a version that has been deleted.",
+    "Calling a check against a subject that does not exist incompatible, or creating the subject while checking it.",
+    "Applying a compatibility level the registry does not recognise, or ignoring it silently.",
+    "Refusing to create a subject when somebody sets its level before registering anything.",
+    "Listing the subjects by name rather than in the order they first appeared.",
+    "Refusing a registration without recording why, or recording the error and storing the schema anyway.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

@@ -1,0 +1,37 @@
+{
+  "incident_id": "inc-2024-0318-c",
+  "host": "db-04",
+  "note": "The agent was OOM-killed and restarted partway through the window; every counter it emits restarts with it.",
+  "collector_note": "agent process restart between t+60 and t+120",
+  "samples_in_arrival_order": [
+    {
+      "t": 1710720000,
+      "cpu_util_pct": 22,
+      "mem_util_pct": 60,
+      "disk_io_ops_total": 1000,
+      "net_bytes_total": 5000,
+      "gc_pause_ms_total": 5000
+    },
+    {
+      "t": 1710720060,
+      "cpu_util_pct": 70,
+      "mem_util_pct": 62,
+      "disk_io_ops_total": 1250,
+      "net_bytes_total": 5150,
+      "gc_pause_ms_total": 5400
+    },
+    {
+      "t": 1710720120,
+      "cpu_util_pct": 92,
+      "mem_util_pct": 63,
+      "disk_io_ops_total": 90,
+      "net_bytes_total": 60,
+      "gc_pause_ms_total": 200
+    }
+  ],
+  "recorded_verdict": {
+    "cause": "DISK_IO_SATURATION",
+    "secondary": "GC_PRESSURE",
+    "cpu_suspect": false
+  }
+}

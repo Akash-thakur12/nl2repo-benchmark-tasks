@@ -1,0 +1,6 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000010", "subject": "feat: no scope at all"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000011", "subject": "feat(): empty scope"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000012", "subject": "feat(a/b,c): punctuation in the scope"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000013", "subject": "fix(deps)!: drop node 18"}
+{"op": "end"}

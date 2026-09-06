@@ -1,0 +1,3 @@
+{"op": "config"}
+{"name": "q", "op": "query", "sql": "SELECT a\nFROM t\tWHERE a > 0"}
+{"op": "end"}

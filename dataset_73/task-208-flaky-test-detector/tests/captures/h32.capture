@@ -1,0 +1,33 @@
+{
+  "captured_at": "2026-04-14T09:00:00Z",
+  "min_commits": 1,
+  "threshold_percent": 0,
+  "policy_history": [
+    {
+      "effective_at": "2025-11-02T00:00:00Z",
+      "min_commits": 1,
+      "threshold_percent": 0
+    }
+  ],
+  "runs": [
+    {
+      "id": "r1",
+      "commit": "97bbba74a7415360fc6ba5d2382598a375080bac",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "zebra",
+          "status": "passed"
+        },
+        {
+          "test": "zebra",
+          "status": "failed"
+        },
+        {
+          "test": "alpha",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/lsm-kv"
+version = "1.0.0"
+description = "Memtable, immutable SST on flush, level-0 compaction. Get/Put/Delete. Crash-recovery via WAL."
+keywords = [
+    "hard",
+    "lsm-tree",
+    "key-value-store",
+    "write-ahead-log",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Modeled on real LSM-tree storage engines (LevelDB/RocksDB-style)."
+differentiation_notes = "Read-path recency ordering across the memtable and multiple SSTable levels is easy to get backwards while still passing a single-write-then-read test."
+relevance = "LSM-tree read/write-path bugs directly affect real production key-value stores."
+failure_cruxes = [
+    "Reading from an older SSTable/segment before the memtable or a newer segment, returning a stale value instead of the most recent write.",
+    "WAL replay not correctly reconstructing tombstone deletes, resurrecting a key that was deleted before the crash.",
+    "Treating the 6-digit segment filename as the recency order instead of manifest.json, which is wrong once the counter has wrapped past 999999.",
+    "Dropping tombstones in a minor compaction whose output still shadows older level-1 segments, resurrecting a deleted key.",
+    "Replaying the whole WAL file instead of the contiguous sequence prefix, applying records left over from an earlier epoch of the recycled log.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

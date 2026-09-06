@@ -1,0 +1,4 @@
+{"min_source": 300, "op": "config", "pipeline": [{"format": "auto", "op": "convert"}]}
+{"alpha": false, "format": "webp", "frames": 1, "height": 250, "name": "turned.webp", "op": "source", "orientation": 6, "width": 1000}
+{"alpha": false, "format": "webp", "frames": 1, "height": 250, "name": "upright.webp", "op": "source", "orientation": 1, "width": 1000}
+{"op": "end"}

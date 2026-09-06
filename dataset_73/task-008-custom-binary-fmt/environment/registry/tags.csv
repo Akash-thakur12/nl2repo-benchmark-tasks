@@ -1,0 +1,7 @@
+tag,from_rev,encoding,name_hint,notes
+0x14,1,delta,cpu.load,per-host sampled series; delta since the format shipped
+0x15,1,absolute,mem.free,instantaneous gauge; never delta coded
+0x20,1,absolute,disk.temp,instantaneous gauge
+0x22,1,absolute,io.bytes,byte counter; stored absolute in early archives
+0x22,7,delta,io.bytes,switched to delta coding at rev 7 to shrink captures
+0x30,9,delta,net.packets,new series tag introduced at rev 9

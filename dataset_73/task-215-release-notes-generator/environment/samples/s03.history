@@ -1,0 +1,3 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.9.7", "sections": [{"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "a000004", "subject": "fix(db): close the cursor on an empty result"}
+{"op": "end"}

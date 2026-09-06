@@ -1,0 +1,8 @@
+solution/
+tests/
+tools/
+.git/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+*.zip

@@ -1,0 +1,64 @@
+{
+  "source": "standards-register export (compliance-tools)",
+  "exported": "2026-08-14",
+  "note": "One entry per edition or amendment of IEC 60529. An amendment entry carries only the table entries it changes and names the entry it extends. Entries are exported in register-record order, which is not the order they came into force.",
+  "editions": [
+    {
+      "id": "IEC 60529:1989+A1:1999",
+      "effective": "1999-11-01",
+      "extends": "IEC 60529:1989",
+      "first_numeral": {},
+      "second_numeral": {},
+      "additional_letter": {},
+      "supplementary_letter": {}
+    },
+    {
+      "id": "IEC 60529:1989+A2:2013",
+      "effective": "2013-08-01",
+      "extends": "IEC 60529:1989+A1:1999",
+      "first_numeral": {},
+      "second_numeral": {
+        "9": "high-pressure-jet"
+      },
+      "additional_letter": {},
+      "supplementary_letter": {}
+    },
+    {
+      "id": "IEC 60529:1989",
+      "effective": "1989-11-15",
+      "extends": null,
+      "first_numeral": {
+        "0": "none",
+        "1": "solid-1",
+        "2": "solid-2",
+        "3": "solid-3",
+        "4": "solid-4",
+        "5": "dust-protected",
+        "6": "dust-tight"
+      },
+      "second_numeral": {
+        "0": "none",
+        "1": "drip",
+        "2": "drip-15",
+        "3": "spray",
+        "4": "splash",
+        "5": "jet",
+        "6": "powerful-jet",
+        "7": "immersion-1m",
+        "8": "submerged"
+      },
+      "additional_letter": {
+        "A": "back-of-hand",
+        "B": "finger",
+        "C": "tool",
+        "D": "wire"
+      },
+      "supplementary_letter": {
+        "H": "high-voltage",
+        "M": "motion-during-water-test",
+        "S": "stationary-during-water-test",
+        "W": "weather-conditions"
+      }
+    }
+  ]
+}

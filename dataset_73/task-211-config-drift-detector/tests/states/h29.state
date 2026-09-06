@@ -1,0 +1,39 @@
+{
+  "ignore": [
+    "disks[*].serial"
+  ],
+  "declared": [
+    {
+      "id": "w",
+      "body": {
+        "disks": [
+          {
+            "serial": "a",
+            "size": 10
+          },
+          {
+            "serial": "b",
+            "size": 20
+          }
+        ]
+      }
+    }
+  ],
+  "live": [
+    {
+      "id": "w",
+      "body": {
+        "disks": [
+          {
+            "serial": "x",
+            "size": 10
+          },
+          {
+            "serial": "y",
+            "size": 99
+          }
+        ]
+      }
+    }
+  ]
+}

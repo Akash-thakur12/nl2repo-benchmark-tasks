@@ -1,0 +1,10 @@
+{"backoff_ms": [250, 1000, 4000], "heartbeat_timeout_ms": 8000, "max_restarts": 5, "op": "config", "reset_after_ms": 20000, "restart_window_ms": 120000, "workers": ["primary", "replica"]}
+{"op": "heartbeat", "t": 2000, "worker": "primary"}
+{"op": "heartbeat", "t": 3000, "worker": "replica"}
+{"op": "tick", "t": 4000}
+{"op": "heartbeat", "t": 9000, "worker": "primary"}
+{"op": "heartbeat", "t": 9500, "worker": "replica"}
+{"op": "tick", "t": 12000}
+{"op": "heartbeat", "t": 16000, "worker": "primary"}
+{"op": "heartbeat", "t": 16000, "worker": "replica"}
+{"op": "end", "t": 20000}

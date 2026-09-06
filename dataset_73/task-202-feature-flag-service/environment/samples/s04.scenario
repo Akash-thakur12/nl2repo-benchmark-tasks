@@ -1,0 +1,3 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "beta-banner", "off_variant": "off", "prerequisites": [], "rules": [], "salt": "s-beta-banner", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "beta-banner", "op": "evaluate", "t": 2, "user": {"key": "u1", "plan": "pro"}}
+{"op": "end", "t": 3}

@@ -1,0 +1,4 @@
+{"include_types": ["feat", "fix"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000220", "subject": "feat(api): add pagination"}
+{"author": "Ana Ruiz", "body": "Reverts: b000220", "op": "commit", "sha": "b000221", "subject": "revert: drop pagination"}
+{"op": "end"}

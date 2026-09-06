@@ -1,0 +1,23 @@
+{
+  "answers": {
+    "name": "acme"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "#!/bin/sh\n",
+        "executable": true,
+        "path": "bin/run"
+      },
+      {
+        "content": "x",
+        "path": "plain.txt"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      }
+    ]
+  }
+}

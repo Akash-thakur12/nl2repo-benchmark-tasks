@@ -1,0 +1,19 @@
+# Broadcast week fields handled by the decoder.
+#
+# source              identifier passed to the decoder
+# week_bits           width of the transmitted week field
+# absolute            yes -> the field already carries the full week number and
+#                     needs no disambiguation; no -> the field is truncated
+# truncation_modulus  2**week_bits, for convenience
+# week_epoch          calendar date of day 0 of week 0 for this source
+# seconds_behind_gps  constant offset of this constellation's time scale
+#                     behind GPS time; add it to reach the GPS scale
+# pivot               what a truncated field is resolved against
+#
+# The GPS sources share the receiver's internal week numbering, whose week 0 is
+# the era-0 anchor in epoch_anchors.csv. BDT carries its own epoch.
+source,week_bits,absolute,truncation_modulus,week_epoch,seconds_behind_gps,pivot
+lnav,10,no,1024,1999-08-22,0,reference date (era rule)
+cnav,13,yes,8192,1999-08-22,0,none
+almanac,8,no,256,1999-08-22,0,the ephemeris week of the carrying subframe
+bdt,13,yes,8192,2006-01-01,14,none

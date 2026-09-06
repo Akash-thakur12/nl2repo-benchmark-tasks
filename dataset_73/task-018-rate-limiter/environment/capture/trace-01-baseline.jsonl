@@ -1,0 +1,12 @@
+{"record": "header", "gateway_version": "4.3", "trace": "trace-01-baseline", "config": {"capacity": 10, "rate": 1.0}, "note": "single fixed policy; no control-plane rows, no clock corrections"}
+{"record": "decision", "op": "allow", "t": 1735689600.0, "key": "acme:10.0.0.1", "cost": 1, "decision": true, "tokens_after": 9.0}
+{"record": "decision", "op": "allow", "t": 1735689600.0, "key": "acme:10.0.0.1", "cost": 4, "decision": true, "tokens_after": 5.0}
+{"record": "probe", "op": "tokens", "t": 1735689603.0, "key": "acme:10.0.0.1", "tokens_after": 8.0}
+{"record": "decision", "op": "allow", "t": 1735689606.0, "key": "acme:10.0.0.1", "cost": 9, "decision": true, "tokens_after": 1.0}
+{"record": "decision", "op": "allow", "t": 1735689606.0, "key": "acme:10.0.0.1", "cost": 2, "decision": false, "tokens_after": 1.0}
+{"record": "decision", "op": "allow", "t": 1735689610.0, "key": "acme:10.0.0.1", "cost": 5, "decision": true, "tokens_after": 0.0}
+{"record": "decision", "op": "window", "t": 1735689600.0, "key": "globex:10.0.0.2", "window_sec": 10, "max_reqs": 3, "decision": true}
+{"record": "decision", "op": "window", "t": 1735689601.0, "key": "globex:10.0.0.2", "window_sec": 10, "max_reqs": 3, "decision": true}
+{"record": "decision", "op": "window", "t": 1735689602.0, "key": "globex:10.0.0.2", "window_sec": 10, "max_reqs": 3, "decision": true}
+{"record": "decision", "op": "window", "t": 1735689603.0, "key": "globex:10.0.0.2", "window_sec": 10, "max_reqs": 3, "decision": false}
+{"record": "decision", "op": "window", "t": 1735689612.0, "key": "globex:10.0.0.2", "window_sec": 10, "max_reqs": 3, "decision": true}

@@ -1,0 +1,10 @@
+{"op": "config", "pipeline": [{"format": "auto", "op": "convert"}]}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1200, "name": "o1.webp", "op": "source", "orientation": 1, "width": 1600}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1200, "name": "o2.webp", "op": "source", "orientation": 2, "width": 1600}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1200, "name": "o3.webp", "op": "source", "orientation": 3, "width": 1600}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1200, "name": "o4.webp", "op": "source", "orientation": 4, "width": 1600}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1200, "name": "o5.webp", "op": "source", "orientation": 5, "width": 1600}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1200, "name": "o6.webp", "op": "source", "orientation": 6, "width": 1600}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1200, "name": "o7.webp", "op": "source", "orientation": 7, "width": 1600}
+{"alpha": false, "format": "webp", "frames": 1, "height": 1200, "name": "o8.webp", "op": "source", "orientation": 8, "width": 1600}
+{"op": "end"}

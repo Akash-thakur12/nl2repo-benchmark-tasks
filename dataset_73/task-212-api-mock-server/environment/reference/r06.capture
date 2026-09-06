@@ -1,0 +1,35 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/report",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "page": 1
+          },
+          "times": 1
+        },
+        {
+          "status": 200,
+          "body": {
+            "page": 2
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "HEAD",
+      "path": "/report",
+      "seq": 10
+    },
+    {
+      "method": "GET",
+      "path": "/report",
+      "seq": 11
+    }
+  ]
+}

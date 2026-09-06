@@ -1,0 +1,4 @@
+{"default_revoke": false, "op": "config", "separation_of_duties": []}
+{"entitlements": ["ledger.read"], "members": [], "name": "finance", "op": "group"}
+{"entitlements": [], "groups": ["finance"], "name": "ada", "op": "user", "terminated": false}
+{"op": "end"}

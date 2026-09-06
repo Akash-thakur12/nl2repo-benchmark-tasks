@@ -1,0 +1,16 @@
+# algorithm register - crypto board change log
+# snapshot_date: 2026-09-01   (see ../docs/alg-register.md for the in-force rule)
+# rows are appended in minute order, NOT in date order
+alg,effective,status,ticket,note
+HS384,2023-04-01,permitted,SEC-140,"added for the legacy batch importer"
+RS256,2021-01-01,permitted,SEC-101,"primary signing algorithm since launch"
+RS512,2020-02-01,permitted,SEC-088,"inherited from the pre-launch prototype"
+PS256,2023-11-06,proposed,SEC-233,"board asked for an interop trial first"
+RS384,2022-05-01,permitted,SEC-112,"secondary signing algorithm for the reporting tier"
+HS256,2022-07-15,permitted,SEC-118,"kept on purpose: the misconfiguration drill pins HS256"
+ES512,2026-03-09,proposed,SEC-380,"tabled pending HSM support; no effective decision"
+RS512,2024-09-01,revoked,SEC-291,"withdrawn with the 2024 signature hardening"
+PS256,2024-02-14,permitted,SEC-233,"interop trial passed"
+ES256,2026-11-01,permitted,SEC-402,"approved migration target; takes effect after the snapshot"
+HS384,2025-03-01,revoked,SEC-355,"batch importer retired; algorithm withdrawn"
+RS384,2026-12-01,revoked,SEC-411,"withdrawal minuted early; takes effect after the snapshot"

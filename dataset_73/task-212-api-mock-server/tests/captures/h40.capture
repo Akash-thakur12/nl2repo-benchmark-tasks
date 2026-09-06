@@ -1,0 +1,40 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/{org}/config/db/host",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 0
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/acme/{a}/{b}/{c}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 1
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/acme/config/db/host",
+      "seq": 1000
+    },
+    {
+      "method": "GET",
+      "path": "/globex/config/db/host",
+      "seq": 1001
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "tiers": [
+    {
+      "name": "1m",
+      "seconds": 60
+    }
+  ],
+  "samples": [
+    {
+      "t": 0,
+      "name": "latency",
+      "labels": {
+        "route": "/a"
+      },
+      "type": "histogram",
+      "boundaries": [
+        10,
+        50
+      ],
+      "counts": [
+        1,
+        1
+      ]
+    },
+    {
+      "t": 10,
+      "name": "latency",
+      "labels": {
+        "route": "/a"
+      },
+      "type": "histogram",
+      "boundaries": [
+        10,
+        100
+      ],
+      "counts": [
+        2,
+        2
+      ]
+    },
+    {
+      "t": 20,
+      "name": "latency",
+      "labels": {
+        "route": "/b"
+      },
+      "type": "histogram",
+      "boundaries": [
+        10,
+        50
+      ],
+      "counts": [
+        3,
+        3
+      ]
+    }
+  ]
+}

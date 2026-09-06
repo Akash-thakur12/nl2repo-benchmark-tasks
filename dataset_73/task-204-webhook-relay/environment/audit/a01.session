@@ -1,0 +1,14 @@
+{"backoff_ms": [1000, 5000], "dedup_window_ms": 600000, "max_attempts": 3, "op": "config", "secrets": {"k1": "sk_live_primary"}, "tolerance_ms": 1000}
+{"enabled": true, "events": ["order.created"], "id": "alpha", "op": "subscribe", "t": 10}
+{"body": "{}", "event_id": "evt_a", "event_type": "order.created", "op": "webhook", "signature": "t=5000,v1=79f36aaf6df6481838df17a1dcb788086ede40d6ee945817fcc5fa7c8ee6aa72", "t": 5000}
+{"delivery": 1, "op": "response", "status": 200, "t": 5200}
+{"body": "{}", "event_id": "evt_b", "event_type": "order.created", "op": "webhook", "signature": "t=4400,v1=78f25cb7e362ae89b2ab640c48bac126e6d129387dd3a59a66131550c11b9b7e", "t": 4400}
+{"delivery": 2, "op": "response", "status": 200, "t": 5300}
+{"body": "{}", "event_id": "evt_c", "event_type": "order.created", "op": "webhook", "signature": "t=4000,v1=105b646b768f63c5ce28fbd47a19800cdd757de66726fc66308b2f35734dd814", "t": 4000}
+{"body": "{}", "event_id": "evt_d", "event_type": "order.created", "op": "webhook", "signature": "t=5300,v1=7cc0a30b8ea644d09ef6b34c4f62f6ec686fa29832d66334cba097182a770c88", "t": 6300}
+{"delivery": 3, "op": "response", "status": 200, "t": 6400}
+{"body": "{}", "event_id": "evt_e", "event_type": "order.created", "op": "webhook", "signature": "t=5399,v1=426fa17c12b785fb75ef5ed15fa34c29649b39cb0bce79984c7dafd7e2706dba", "t": 6400}
+{"body": "{}", "event_id": "evt_f", "event_type": "order.created", "op": "webhook", "signature": "t=7501,v1=e52732d733e46e5b733432cbae530a8d76b64f80ac7fcb60a49dac3fff7b0ff1", "t": 6500}
+{"body": "{}", "event_id": "evt_g", "event_type": "order.created", "op": "webhook", "signature": "t=7600,v1=30a3d2d3e499320f6c0e6766b51085f0fecddb29f872a07503d8eaf4cfa9b146", "t": 6600}
+{"delivery": 4, "op": "response", "status": 200, "t": 6700}
+{"op": "end", "t": 7000}

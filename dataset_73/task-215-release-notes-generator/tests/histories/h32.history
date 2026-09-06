@@ -1,0 +1,5 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Zoe Adler", "body": "", "op": "commit", "sha": "b000270", "subject": "feat(api): first"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000271", "subject": "fix(api): second"}
+{"author": "Zoe Adler", "body": "", "op": "commit", "sha": "b000272", "subject": "feat(cli): third"}
+{"op": "end"}

@@ -1,0 +1,9 @@
+{"include_types": ["feat", "fix", "perf", "revert", "build"], "op": "config", "previous_version": "0.9.9", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}, {"title": "Performance", "type": "perf"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000310", "subject": "feat(api): add pagination (#12)"}
+{"author": "Bo Lindqvist", "body": "", "op": "commit", "sha": "b000311", "subject": "perf(api): stream the rows"}
+{"author": "Cai Wen", "body": "", "op": "commit", "sha": "b000312", "subject": "build(ci): cache the toolchain"}
+{"author": "Ana Ruiz", "body": "BREAKING CHANGE: the X-Legacy header is gone", "op": "commit", "sha": "b000313", "subject": "fix(api)!: drop the legacy header"}
+{"author": "Dee Okafor", "body": "", "op": "commit", "sha": "b000314", "subject": "feat(api): add pagination"}
+{"author": "Eli Moss", "body": "Reverts: b000313", "op": "commit", "sha": "b000315", "subject": "revert: undo the header change"}
+{"author": "Fay Ito", "body": "", "op": "commit", "sha": "b000316", "subject": "docs(readme): tidy"}
+{"op": "end"}

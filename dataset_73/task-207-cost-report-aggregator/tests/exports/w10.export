@@ -1,0 +1,53 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "beta"
+  ],
+  "lines": [
+    {
+      "id": "r1",
+      "kind": "reservation",
+      "day": 0,
+      "term_days": 10,
+      "team": "alpha",
+      "cents": 1000
+    },
+    {
+      "id": "u1",
+      "kind": "usage",
+      "day": 20,
+      "team": "beta",
+      "cents": 400
+    },
+    {
+      "id": "h1",
+      "kind": "shared",
+      "day": 20,
+      "cents": 101
+    },
+    {
+      "id": "c1",
+      "kind": "credit",
+      "day": 21,
+      "team": "alpha",
+      "cents": 300
+    }
+  ],
+  "shared_weights": {
+    "alpha": 3,
+    "beta": 1
+  },
+  "weight_changes": [
+    {
+      "day": 15,
+      "weights": {
+        "alpha": 1,
+        "beta": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/custom-binary-fmt"
+version = "1.0.0"
+description = "BIN1 compact binary record serializer: reimplement the retired C++ codec from the wire spec, the versioned tag registry and the golden blobs shipped in the working tree."
+keywords = [
+    "hard",
+    "binary-serialization",
+    "reverse-engineering",
+    "custom-protocol",
+    "schema-versioning",
+    "delta-encoding",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Synthetic binary wire-format modeling common length-prefixed record encodings, name compression, ZigZag delta series and versioned schema registries."
+differentiation_notes = "The format's real rules -- reserved sentinels, name interning, per-tag delta series and a versioned registry -- are recoverable only from the documents and golden blobs in environment/, not from the task statement."
+relevance = "Length-prefix and byte-order bugs are a recurring class of real binary-protocol vulnerabilities."
+failure_cruxes = [
+    "Reading each unsigned field's all-ones encoding as a magnitude instead of as the reserved sentinel it is, and so getting both representable bounds wrong.",
+    "Repeating a name that already appeared in the blob instead of referring back to its first appearance, producing non-canonical bytes no archived reader accepts.",
+    "Writing every value field directly, instead of delta coding the tags the registry marks as series.",
+    "Interpreting an archived blob under the registry's newest rows rather than the rows in force at the revision the blob was written under.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

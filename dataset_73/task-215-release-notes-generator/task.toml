@@ -1,0 +1,123 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/release-notes-generator"
+version = "1.0.0"
+description = "Build a release notes generator: strict conventional commit parsing, two breaking-change footers, the unstable 0.x bump rule, deduplication on type, scope and description, reverts that take their entry and the bump with them, and a leftover section that always comes last."
+keywords = [
+    "hard",
+    "release-notes",
+    "semver",
+    "conventional-commits",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "developer-tooling"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+solution_explanation = """
+Treat `/app/docs/release-notes-spec.md` as a specification and implement it literally,
+then parse the record stream described by `/app/docs/history-format.md` and drive the
+model with it.
+
+A commit's subject is matched against one strict pattern: a lower-case type, an optional
+scope in parentheses, an optional bang, then a colon and exactly one space. Anything else
+is not conventional and takes no part in anything. A pull request reference is stripped
+from the description only when it sits at the very end; a merged pull request named by the
+record wins over it.
+
+Exclusion is decided before everything else, so a type the configuration does not include
+is neither breaking nor a revert. A commit is breaking if its subject carries the bang or
+if any line of its body begins with one of the two footer spellings, matched exactly and
+case-sensitively; that line's remainder is the note, and a commit breaking only by its
+bang uses its description instead.
+
+Entries are collected in history order and deduplicated on the triple of type, scope and
+description. A `revert` commit is never an entry: it removes the entry whose sha its
+footer names, at the moment it is read, and both commits are then skipped. That is why the
+bump is computed from the entries that survive rather than from the commits as read -
+reverting the only breaking change turns a major release back into a minor one.
+
+Sections are emitted in configuration order, empty ones omitted, and any surviving entry
+whose type has no section of its own is collected into a final `Other`. The version
+arithmetic is ordinary semver with one exception: while the major number is zero, a
+breaking change is only a minor bump.
+"""
+
+verification_explanation = """
+Ten atomic tests, one per numbered success criterion in `instruction.md`.
+
+Ground truth is not hardcoded. `tests/reference_notes.py` replays the thirty-six held-out
+histories in `tests/histories` at verify time and the expected report is derived from that
+run. Both the reference model and the held-out histories are removed from `/tests` before
+the candidate's tool is invoked, and the tool is run from a temporary directory over a copy
+of the histories, so it cannot read the answers out of the verifier's own files.
+
+The candidate is exercised only through its documented command line. Nothing in the tests
+imports its code, so the repository may be laid out however its author likes.
+
+Every comparison is exact equality, and one test additionally checks the report against
+itself: that every sha it mentions came from the capture, that no sha is both an entry and
+a skip, and that the bump follows from the entries listed. There is no tolerance to
+calibrate and none would be appropriate: every value is a discrete string or integer fully
+determined by the rules in `/app/docs/release-notes-spec.md`.
+
+The corpus itself is checked by `tools/check_shortcuts.py`, which mutates the reference
+model into forty-three plausible near-miss implementations and asserts that each one still
+reproduces `samples/expected.json` exactly and is still caught by at least one held-out
+history. `tools/make_histories.py` regenerates the whole corpus, including
+`expected.json`, from the reference model. Neither script ships in the agent image.
+"""
+
+[metadata.difficulty_explanation]
+provenance = "Open source. Two releases went out with the wrong version number: one shipped a breaking change as a patch, and one announced a feature that had been reverted three commits later. Nobody noticed until a customer did."
+differentiation_notes = "The eight visible samples come from a repository that behaved: every subject conventional and scoped, every configured section filled with exactly one entry, authors distinct and already in the order they first appear, no breaking changes, no reverts, no duplicates, no excluded types, no pull request references, and a previous version well clear of 0.x with its patch number already zero wherever the bump is a minor one. Forty-three plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all forty-three and asserts each still reproduces the samples and is still caught by at least one of the thirty-six held-out captures, so the difficulty is demonstrated rather than asserted."
+relevance = "Every project that generates its changelog from commit messages makes the same decisions: what counts as a conventional subject, what counts as a breaking change, what a revert does to the release that would have announced it, and what version number falls out of all that. Getting any of them wrong ships the wrong number."
+failure_cruxes = [
+    "Accepting a capitalised type, a type with digits, a missing space after the colon or two spaces after it, all of which are not conventional subjects.",
+    "Matching the subject pattern anywhere in the line rather than at its start.",
+    "Reporting an absent scope as an empty string rather than null, or letting an empty pair of parentheses count as a scope.",
+    "Matching the breaking footer case insensitively, anywhere in a line, on an indented line, or without the space after the colon.",
+    "Knowing only one of the two footer spellings.",
+    "Leaving the note empty for a commit that is breaking only by its bang, instead of using its description.",
+    "Treating a breaking change on a 0.x version as a major bump.",
+    "Raising the minor number without clearing the patch number.",
+    "Issuing a patch release when nothing survived at all.",
+    "Taking a pull request reference from the middle of a description, or reading it without removing it, or letting it beat the merged pull request the capture names.",
+    "Calling two commits duplicates on their descriptions alone, or ignoring the scope, or letting the later duplicate replace the first.",
+    "Listing the revert commit itself in the notes, or dropping the reverted entry without saying why it went.",
+    "Deciding the bump from the commits as read rather than from the entries that survived the reverts.",
+    "Resolving a revert against the whole range rather than against what had been read when it appeared.",
+    "Letting an excluded type still count as breaking, or still act as a revert.",
+    "Losing entries whose type has no configured section, or putting that leftover section first, or emitting a configured section that is empty.",
+    "Ordering sections by where their first entry appeared rather than by the configuration.",
+    "Crediting the author of a commit that was skipped, or of a revert, or listing an author once per entry, or sorting the names.",
+    "Listing skipped commits in the order their reasons were decided rather than in history order.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

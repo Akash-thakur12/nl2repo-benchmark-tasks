@@ -1,0 +1,5 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000290", "subject": "feat(api): first"}
+{"author": "Bo Lindqvist", "body": "", "op": "commit", "sha": "b000291", "subject": "fix(api): second"}
+{"author": "Cai Wen", "body": "Reverts: b000290", "op": "commit", "sha": "b000292", "subject": "revert: undo the first"}
+{"op": "end"}

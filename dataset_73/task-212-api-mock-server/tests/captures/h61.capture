@@ -1,0 +1,45 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/res/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "by": "get"
+          }
+        }
+      ]
+    },
+    {
+      "method": "HEAD",
+      "path": "/{a}/{b}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "by": "head"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "HEAD",
+      "path": "/res/5",
+      "seq": 1000
+    },
+    {
+      "method": "GET",
+      "path": "/res/5",
+      "seq": 1001
+    },
+    {
+      "method": "HEAD",
+      "path": "/other/5",
+      "seq": 1002
+    }
+  ]
+}

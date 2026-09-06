@@ -1,0 +1,3 @@
+{"op": "config"}
+{"name": "q", "op": "query", "sql": "SELECT a FROM t WHERE a > 0 GROUP BY 1"}
+{"op": "end"}

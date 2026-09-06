@@ -1,0 +1,6 @@
+{"backoff_ms": [1000, 5000], "heartbeat_timeout_ms": 1000000, "max_restarts": 3, "op": "config", "reset_after_ms": 60000, "restart_window_ms": 300000, "workers": ["a"]}
+{"op": "heartbeat", "t": 1000, "worker": "ghost"}
+{"op": "crash", "t": 2000, "worker": "ghost"}
+{"op": "drain", "t": 3000, "worker": "ghost"}
+{"op": "work", "t": 4000, "worker": "ghost"}
+{"op": "end", "t": 5000}

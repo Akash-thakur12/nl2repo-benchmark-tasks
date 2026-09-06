@@ -1,0 +1,50 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "beta"
+  ],
+  "lines": [
+    {
+      "id": "h1",
+      "kind": "shared",
+      "day": 5,
+      "cents": 101
+    },
+    {
+      "id": "h2",
+      "kind": "shared",
+      "day": 15,
+      "cents": 101
+    },
+    {
+      "id": "h3",
+      "kind": "shared",
+      "day": 25,
+      "cents": 101
+    }
+  ],
+  "shared_weights": {
+    "alpha": 3,
+    "beta": 1
+  },
+  "weight_changes": [
+    {
+      "day": 20,
+      "weights": {
+        "alpha": 1,
+        "beta": 3
+      }
+    },
+    {
+      "day": 12,
+      "weights": {
+        "alpha": 1,
+        "beta": 1
+      }
+    }
+  ]
+}

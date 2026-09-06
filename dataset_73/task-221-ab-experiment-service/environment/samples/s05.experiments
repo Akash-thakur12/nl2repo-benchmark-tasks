@@ -1,0 +1,23 @@
+{"op": "config", "salt": "2026-Q2"}
+{"key": "half-traffic", "op": "experiment", "state": "running", "traffic": 50, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0001"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0002"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0003"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0004"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0005"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0006"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0007"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0008"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0009"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0010"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0011"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0012"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0013"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0014"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0015"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0016"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0017"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0018"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0019"}
+{"experiment": "half-traffic", "op": "assign", "user": "u-0020"}
+{"op": "end"}

@@ -1,0 +1,23 @@
+{"op": "config", "salt": "2026-Q1"}
+{"exclude": ["u-0001", "u-0002", "u-0003", "u-0004", "u-0005", "u-0006", "u-0007", "u-0008", "u-0009", "u-0010", "u-0011", "u-0012", "u-0013", "u-0014", "u-0015", "u-0016", "u-0017", "u-0018", "u-0019", "u-0020"], "key": "everyone-out", "op": "experiment", "state": "running", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0001"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0002"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0003"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0004"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0005"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0006"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0007"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0008"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0009"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0010"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0011"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0012"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0013"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0014"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0015"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0016"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0017"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0018"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0019"}
+{"experiment": "everyone-out", "op": "assign", "user": "u-0020"}
+{"op": "end"}

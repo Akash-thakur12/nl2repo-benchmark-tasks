@@ -1,0 +1,7 @@
+{"environments": ["dev", "staging", "prod"], "grace_seconds": 300, "op": "config"}
+{"env": "dev", "id": "d", "op": "consumer", "t": 10}
+{"op": "rotate", "t": 100}
+{"op": "rotate", "t": 150}
+{"consumer": "d", "op": "ack", "t": 200, "version": 2}
+{"op": "tick", "t": 900}
+{"op": "end", "t": 1000}

@@ -1,0 +1,141 @@
+{
+  "_comment": "Captured from the production front end. `ast` is exactly what parse(query) returns. Normative; see docs/README.md.",
+  "cases": [
+    {
+      "query": "SELECT a FROM t GROUP BY a, b HAVING cnt > 1",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [
+          "a",
+          "b"
+        ],
+        "having": {
+          "type": "binary",
+          "op": ">",
+          "left": {
+            "type": "column",
+            "name": "cnt",
+            "table": null
+          },
+          "right": {
+            "type": "literal",
+            "value": 1
+          }
+        },
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t ORDER BY name DESC, id",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [
+          {
+            "column": "name",
+            "direction": "DESC"
+          },
+          {
+            "column": "id",
+            "direction": "ASC"
+          }
+        ],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t LIMIT 5 OFFSET 10",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": 5,
+        "offset": 10
+      }
+    },
+    {
+      "query": "SELECT a FROM t LIMIT 0",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": 0,
+        "offset": null
+      }
+    }
+  ]
+}

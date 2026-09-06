@@ -1,0 +1,62 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/config-drift-detector"
+version = "1.0.0"
+description = "Build an infrastructure drift detector: recursive comparison with exact path rendering, type-strict scalars, segment-wise ignore rules with wildcards, and a deterministic finding order."
+keywords = [
+    "hard",
+    "infrastructure",
+    "drift",
+    "diff",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "infrastructure"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Every platform team that declares infrastructure eventually writes one of these, and it only gets read once the ignore rules work properly."
+differentiation_notes = "The six visible samples come from an estate that is fully in order: both sides carry the same resource ids and identical bodies, so nothing is reported. The bodies still nest, hold lists and mix scalar types, so a traversal that goes wrong still shows up as a finding that should not exist, but nothing about how a finding is rendered can show up, because there are none. Sixteen plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all sixteen and asserts each still reproduces the samples and is still caught by at least one held-out capture. Four further near-misses are documented there as deliberately absent because they cannot be told apart from the specification: a loose scalar comparison never sees a pair that rule 3.4 has not already settled; two variations on how an ignore rule is inherited are both implied by the recursion; and seeding the counts with zeros could only agree on a corpus where all five kinds occur."
+relevance = "Mirrors why drift dashboards go unread: the noise has to be prunable without hiding a resource that vanished, a field that changed type has to be one finding rather than a subtree of them, and the path has to be exact enough to paste into a console."
+failure_cruxes = [
+    "Rendering a top-level path with a leading dot, or joining a list index with one.",
+    "Treating an ignore rule as a string prefix rather than matching it segment by segment.",
+    "Letting a rule ending in a wildcard also match the parent it names.",
+    "Letting an ignore rule suppress a resource that is missing or unmanaged.",
+    "Refusing to let a wildcard stand for a list index.",
+    "Reporting two lists of different length as one whole change instead of element by element.",
+    "Descending into a value whose type changed instead of reporting one finding and stopping.",
+    "Treating an empty object as an absent key, which loses the difference between a value and an absence.",
+    "Letting the later of two resources with the same id win, or skipping it without recording the duplicate.",
+    "Ordering findings by path before resource, or leaving them in traversal order so index ten sorts before index two.",
+    "Swapping missing and unmanaged, or reporting resources in the order they were read rather than sorted.",
+    "Leaving the declared and live values off a changed finding.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

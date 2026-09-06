@@ -1,0 +1,62 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/cost-report-aggregator"
+version = "1.0.0"
+description = "Build a chargeback aggregator: reservation amortisation, weighted shared-cost splits with exact remainder handling, untagged spend and credits that clamp at zero, all in whole cents."
+keywords = [
+    "hard",
+    "billing",
+    "chargeback",
+    "amortisation",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "data-engineering"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Every platform team that bills other teams ends up writing this, and it only becomes trustworthy once both sides can run it on the same export and get the same number."
+differentiation_notes = "The six visible samples come from a month where the numbers happen to be kind: shared costs that divide exactly by the weights, reservations whose term sits inside the period and whose cost divides exactly by it, every team charged something, no untagged usage, no duplicate ids, no unknown teams and no credits at all. Eighteen plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all eighteen and asserts each still reproduces the samples and is still caught by at least one held-out export. Two further near-misses are documented there as deliberately absent because they cannot be observed: a zero-weight team can never reach the front of the remainder queue, and an over-long reservation term is either clipped back to the period end or slices past the end of the daily amounts, which comes to the same list."
+relevance = "Mirrors what a chargeback pipeline has to get right before anyone trusts it: a shared cost that does not divide evenly, a reservation bought last month, a resource nobody tagged, and a credit larger than the bill it was meant to offset."
+failure_cruxes = [
+    "Handing a shared remainder to the lightest weight, or by team name alone, or all of it to one team, or dropping it so the split loses cents.",
+    "Treating weights that total zero as an error rather than sending the line to unallocated.",
+    "Letting a weight for a team the report does not cover inflate the total weight.",
+    "Putting a reservation remainder on the latest days of the term rather than the earliest.",
+    "Splitting a reservation across only the days inside the period instead of across its whole term and then clipping.",
+    "Applying the period filter to a reservation, so one that started before the month contributes nothing.",
+    "Dropping untagged usage instead of leaving it unallocated.",
+    "Letting the later of two lines with the same id win, or skipping it without recording the duplicate.",
+    "Skipping a line for an unknown team without recording it.",
+    "Applying credits as they are read rather than after every charge is totalled.",
+    "Letting a credit push a team below zero, or forgetting the part of a credit that could not be applied.",
+    "Leaving a team with nothing charged out of the report, or reporting a total that does not subtract the credit.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

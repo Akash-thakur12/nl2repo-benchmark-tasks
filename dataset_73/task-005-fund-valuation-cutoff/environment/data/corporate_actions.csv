@@ -1,0 +1,5 @@
+ex_date,announced_on,action_type,factor,note
+2025-03-17,2025-02-28,SPLIT,2.0,Two-for-one split
+2025-04-01,2025-03-12,SPLIT,2.0,Two-for-one split
+2025-05-01,2025-04-10,REVERSE_SPLIT,0.2,One-for-five reverse split
+2026-02-02,2025-12-15,SPLIT,3.0,Announced; not yet effective

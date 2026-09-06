@@ -1,0 +1,43 @@
+{"op": "config", "salt": "2026-Q1"}
+{"key": "repeat-me", "op": "experiment", "state": "running", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0001"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0002"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0003"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0004"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0005"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0006"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0007"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0008"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0009"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0010"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0011"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0012"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0013"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0014"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0015"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0016"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0017"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0018"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0019"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0020"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0001"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0002"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0003"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0004"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0005"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0006"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0007"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0008"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0009"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0010"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0011"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0012"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0013"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0014"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0015"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0016"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0017"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0018"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0019"}
+{"experiment": "repeat-me", "op": "assign", "user": "u-0020"}
+{"op": "end"}

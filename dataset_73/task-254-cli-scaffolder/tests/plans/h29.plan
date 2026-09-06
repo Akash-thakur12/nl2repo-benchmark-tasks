@@ -1,0 +1,22 @@
+{
+  "answers": {
+    "name": "acme"
+  },
+  "existing": [
+    "README.md"
+  ],
+  "template": {
+    "files": [
+      {
+        "content": "new",
+        "force": true,
+        "path": "README.md"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      }
+    ]
+  }
+}

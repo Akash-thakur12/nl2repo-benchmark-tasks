@@ -1,0 +1,7 @@
+# These tasks are built and graded inside Linux containers. A shell script
+# checked out with CRLF fails there with a confusing "bad interpreter" error,
+# so the whole tree is pinned to LF regardless of the machine cloning it.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.zip binary

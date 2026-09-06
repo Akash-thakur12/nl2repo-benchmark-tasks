@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/lisp-interpreter"
+version = "1.0.0"
+description = "Scheme-ish interpreter: whole-program reader, lexical closures, define (+shorthand), lambda, if/cond(else), let/let*/letrec, set!, begin, and/or, quote, quasiquote/unquote, defmacro macros. LispError on unbound/arity/syntax."
+keywords = [
+    "hard",
+    "lisp",
+    "interpreters",
+    "lexical-scoping",
+]
+
+[metadata]
+benchmark_style = "Doc2Repo"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Textbook Scheme-style lexical-scoping interpreter design."
+differentiation_notes = "Lexical vs dynamic scoping only diverges when a closure is called from a different environment than it was defined in, which a shallow test suite can easily miss."
+relevance = "Lexical scoping correctness is foundational to every real production language interpreter/compiler."
+failure_cruxes = [
+    "A lambda's closure capturing the *calling* environment (dynamic scope) instead of the environment where it was defined (lexical scope).",
+    "quasiquote/unquote not distinguishing a spliced sub-form from a quoted literal one, corrupting the result list.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

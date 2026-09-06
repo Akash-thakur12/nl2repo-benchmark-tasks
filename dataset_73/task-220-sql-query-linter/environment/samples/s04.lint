@@ -1,0 +1,3 @@
+{"op": "config"}
+{"name": "two_statements", "op": "query", "sql": "SELECT id FROM a WHERE id > 0;\nSELECT id FROM b WHERE id > 0"}
+{"op": "end"}

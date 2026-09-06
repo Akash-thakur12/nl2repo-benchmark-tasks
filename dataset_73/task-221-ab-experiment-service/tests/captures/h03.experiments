@@ -1,0 +1,33 @@
+{"op": "config", "salt": "2026-Q1"}
+{"key": "draft-one", "op": "experiment", "state": "draft", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "draft-one", "op": "assign", "user": "u-0001"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0002"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0003"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0004"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0005"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0006"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0007"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0008"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0009"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0010"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0011"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0012"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0013"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0014"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0015"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0016"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0017"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0018"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0019"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0020"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0021"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0022"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0023"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0024"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0025"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0026"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0027"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0028"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0029"}
+{"experiment": "draft-one", "op": "assign", "user": "u-0030"}
+{"op": "end"}

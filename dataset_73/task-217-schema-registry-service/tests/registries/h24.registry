@@ -1,0 +1,6 @@
+{"default_compatibility": "BACKWARD", "op": "config"}
+{"op": "register", "schema": [{"name": "n", "type": "double"}], "subject": "t"}
+{"op": "register", "schema": [{"name": "n", "type": "double"}, {"default": 0, "name": "m", "type": "int"}], "subject": "t"}
+{"op": "delete_version", "subject": "t", "version": 2}
+{"op": "register", "schema": [{"name": "n", "type": "double"}, {"name": "m", "type": "int"}], "subject": "t"}
+{"op": "end"}

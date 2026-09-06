@@ -1,0 +1,19 @@
+{
+  "answers": {
+    "license": "Apache-2.0"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "{{license}}\n",
+        "path": "LICENSE"
+      }
+    ],
+    "prompts": [
+      {
+        "default": "MIT",
+        "name": "license"
+      }
+    ]
+  }
+}

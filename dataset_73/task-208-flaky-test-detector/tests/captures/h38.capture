@@ -1,0 +1,40 @@
+{
+  "captured_at": "2026-04-14T09:00:00Z",
+  "min_commits": 1,
+  "threshold_percent": 50,
+  "policy_history": [
+    {
+      "effective_at": "2025-11-02T00:00:00Z",
+      "min_commits": 1,
+      "threshold_percent": 50
+    }
+  ],
+  "runs": [
+    {
+      "id": "r1",
+      "commit": "72bff22ac10f1520e72d0390f43c34e41d640061",
+      "outcome": "agent_lost",
+      "results": [
+        {
+          "test": "t",
+          "status": "aborted"
+        },
+        {
+          "test": "t",
+          "status": "failed"
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "commit": "72bff22ac10f1520e72d0390f43c34e41d640061",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

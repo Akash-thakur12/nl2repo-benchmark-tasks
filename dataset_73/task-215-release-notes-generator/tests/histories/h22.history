@@ -1,0 +1,5 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000170", "subject": "feat(api): add pagination"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000171", "subject": "feat(api): add pagination"}
+{"author": "Ana Ruiz", "body": "Reverts: b000171", "op": "commit", "sha": "b000172", "subject": "revert: drop the duplicate"}
+{"op": "end"}

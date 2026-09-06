@@ -1,0 +1,16 @@
+{"backoff_ms": [1000, 5000], "dedup_window_ms": 600000, "max_attempts": 3, "op": "config", "secrets": {"k1": "sk_live_primary"}, "tolerance_ms": 1000}
+{"enabled": true, "events": ["order.created"], "id": "alpha", "op": "subscribe", "t": 10}
+{"body": "{}", "event_id": "evt_r", "event_type": "order.created", "op": "webhook", "signature": "v1=0000000000000000000000000000000000000000000000000000000000000000", "t": 1000}
+{"body": "{}", "event_id": "evt_s", "event_type": "order.created", "op": "webhook", "signature": "t=1001", "t": 1001}
+{"body": "{}", "event_id": "evt_t", "event_type": "order.created", "op": "webhook", "signature": "t=abc,v1=0000000000000000000000000000000000000000000000000000000000000000", "t": 1002}
+{"body": "{}", "event_id": "evt_u", "event_type": "order.created", "op": "webhook", "signature": "garbage", "t": 1003}
+{"body": "{}", "event_id": "evt_v", "event_type": "order.created", "op": "webhook", "signature": "", "t": 1004}
+{"body": "{}", "event_id": "evt_w", "event_type": "order.created", "op": "webhook", "signature": "t=1005,v1=0000000000000000000000000000000000000000000000000000000000000000", "t": 1005}
+{"body": "{}", "event_id": "evt_x", "event_type": "order.created", "op": "webhook", "signature": "t=1,v1=0000000000000000000000000000000000000000000000000000000000000000", "t": 1006}
+{"body": "{}", "event_id": "evt_w", "event_type": "order.created", "op": "webhook", "signature": "t=1007,v1=3b435b6809d588a7a769b6f79c6e1f8bdd7b8aaa58da396e9ab718f6c88dfa0a", "t": 1007}
+{"body": "{}", "event_id": "evt_y", "event_type": "order.created", "op": "webhook", "signature": "t=1008,v1=0000000000000000000000000000000000000000000000000000000000000000,v1=905976a1abcade51a34059f8c06a5ee346ba516fc08e613e0d1e49aa297f0c91", "t": 1008}
+{"body": "{}", "event_id": "evt_z", "event_type": "order.created", "op": "webhook", "signature": "v0=x,t=1009,v1=21d14c802edc76f3200a4cb14536952d918ba944f12bee6d35e16a4ee376c864,scheme=hmac", "t": 1009}
+{"delivery": 1, "op": "response", "status": 200, "t": 1100}
+{"delivery": 2, "op": "response", "status": 200, "t": 1101}
+{"delivery": 3, "op": "response", "status": 200, "t": 1102}
+{"op": "end", "t": 2000}

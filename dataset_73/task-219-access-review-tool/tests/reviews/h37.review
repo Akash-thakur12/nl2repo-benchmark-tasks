@@ -1,0 +1,14 @@
+{"default_revoke": true, "op": "config", "separation_of_duties": [["ledger.write", "audit.read"]]}
+{"entitlements": ["ledger.write"], "members": ["readers", "ghost"], "name": "finance", "op": "group"}
+{"entitlements": ["ledger.read", "audit.read"], "members": ["finance"], "name": "readers", "op": "group"}
+{"entitlements": ["billing.admin"], "groups": ["finance"], "name": "ada", "op": "user", "terminated": false}
+{"entitlements": ["ledger.read"], "groups": ["readers"], "name": "bo", "op": "user", "terminated": true}
+{"entitlements": ["ledger.write", "audit.read"], "groups": [], "name": "cai", "op": "user", "terminated": false}
+{"entitlement": "billing.admin", "op": "decision", "user": "ada", "verdict": "revoke"}
+{"entitlement": "ledger.write", "op": "decision", "user": "ada", "verdict": "revoke"}
+{"entitlement": "ledger.read", "op": "decision", "user": "bo", "verdict": "approve"}
+{"entitlement": "ledger.write", "op": "decision", "user": "cai", "verdict": "approve"}
+{"entitlement": "audit.read", "op": "decision", "user": "cai", "verdict": "approve"}
+{"entitlement": "audit.read", "op": "decision", "user": "cai", "verdict": "revoke"}
+{"entitlement": "audit.read", "op": "decision", "user": "zed", "verdict": "approve"}
+{"op": "end"}

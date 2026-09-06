@@ -1,0 +1,40 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/{a}/docs/{c}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "r": "param-first"
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/site/{b}/{c}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "r": "literal-first"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "HEAD",
+      "path": "/site/docs/9",
+      "seq": 1000
+    },
+    {
+      "method": "GET",
+      "path": "/site/docs/9",
+      "seq": 1001
+    }
+  ]
+}

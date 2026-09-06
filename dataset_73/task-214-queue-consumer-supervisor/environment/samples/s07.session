@@ -1,0 +1,15 @@
+{"backoff_ms": [1000, 5000], "heartbeat_timeout_ms": 15000, "max_restarts": 3, "op": "config", "reset_after_ms": 60000, "restart_window_ms": 300000, "workers": ["ingest", "notify", "verify"]}
+{"op": "heartbeat", "t": 5000, "worker": "ingest"}
+{"op": "heartbeat", "t": 5000, "worker": "notify"}
+{"op": "heartbeat", "t": 5000, "worker": "verify"}
+{"op": "heartbeat", "t": 10000, "worker": "ingest"}
+{"op": "heartbeat", "t": 10000, "worker": "notify"}
+{"op": "heartbeat", "t": 10000, "worker": "verify"}
+{"op": "heartbeat", "t": 15000, "worker": "ingest"}
+{"op": "heartbeat", "t": 15000, "worker": "notify"}
+{"op": "heartbeat", "t": 15000, "worker": "verify"}
+{"op": "heartbeat", "t": 20000, "worker": "ingest"}
+{"op": "heartbeat", "t": 20000, "worker": "notify"}
+{"op": "heartbeat", "t": 20000, "worker": "verify"}
+{"op": "tick", "t": 25000}
+{"op": "end", "t": 30000}

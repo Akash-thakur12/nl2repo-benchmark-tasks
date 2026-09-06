@@ -1,0 +1,6 @@
+{"default_compatibility": "FULL", "op": "config"}
+{"op": "register", "schema": [{"name": "n", "type": "int"}], "subject": "t"}
+{"op": "delete_version", "subject": "t", "version": 1}
+{"op": "check", "schema": [{"name": "q", "type": "boolean"}], "subject": "t"}
+{"op": "register", "schema": [{"name": "q", "type": "boolean"}], "subject": "t"}
+{"op": "end"}

@@ -1,0 +1,62 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/backfill-job-runner"
+version = "1.0.0"
+description = "Build a chunked backfill replay tool: half-open chunking with a short final chunk, a checkpoint that only advances on success, a sliding rate limit, retry-to-halt and pause semantics."
+keywords = [
+    "hard",
+    "backfill",
+    "checkpointing",
+    "rate-limit",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "data-engineering"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Any team that has had a backfill die halfway ends up writing a replay so the next person can tell what was durably processed."
+differentiation_notes = "The six visible samples come from a backfill that went smoothly: a range that divides evenly into chunks, an explicit outcome for every attempt so nothing reads past the end of the list, every attempt succeeding, the rate limit far out of reach, no pause, no resume point, and a final percentage that is exact so rounding and flooring agree. Seventeen plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all seventeen and asserts each still reproduces the samples and is still caught by at least one held-out capture, so the difficulty is demonstrated rather than asserted."
+relevance = "Mirrors the parts of a resumable batch job that decide whether it is safe to restart: a checkpoint that must only move on success, a short final chunk, a sliding rate limit that retries rather than skips, and a halt that a resume must not quietly undo."
+failure_cruxes = [
+    "Letting a chunk run past the end of the range instead of shortening the last one.",
+    "Taking a resume point at face value when it sits below the start of the range.",
+    "Advancing the checkpoint after a failed attempt, which is what makes a resumed job skip data.",
+    "Treating the rate window as inclusive at its boundary, or allowing one attempt more than the limit.",
+    "Leaving failed attempts out of the rate accounting.",
+    "Not counting a wait, or skipping the chunk that was rate-limited instead of retrying it.",
+    "Halting one attempt later than max_attempts allows.",
+    "Never resetting the failure count after a success, so unrelated failures accumulate into a halt.",
+    "Letting resume clear a halt, or letting pause clear the failure count.",
+    "Counting an attempt made while paused as a wait.",
+    "Rounding the percentage instead of flooring it, or reporting nought per cent for an empty range instead of a hundred.",
+    "Treating an attempt past the end of the outcomes list as a failure, or letting a retry re-read the entry the previous attempt consumed.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

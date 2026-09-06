@@ -1,0 +1,15 @@
+{"op": "config", "salt": "2026-Q1"}
+{"key": "search-ranking", "op": "experiment", "state": "running", "traffic": 100, "variants": [{"name": "a", "weight": 33}, {"name": "b", "weight": 33}, {"name": "c", "weight": 34}]}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0001"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0002"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0003"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0004"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0005"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0006"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0007"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0008"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0009"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0010"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0011"}
+{"experiment": "search-ranking", "op": "assign", "user": "u-0012"}
+{"op": "end"}

@@ -1,0 +1,57 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/jwt-alg-none"
+version = "1.1.0"
+description = "JWT security gateway. Reject alg=none and algorithm switching, verify HMAC over a rotating keyring."
+keywords = [
+    "hard",
+    "jwt",
+    "authentication",
+    "hmac",
+    "security",
+    "key-rotation",
+    "clock-skew",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "JWT alg=none and algorithm-confusion are documented real-world vulnerability classes in JWT libraries; the keyring, rollback and NTP-skew behaviour is ordinary production key-rotation work."
+differentiation_notes = "The instruction states the API surface, the token format and the coarse exception split, but not the selection rules. Which secret verifies a token, how `alg` is matched, which digest a pin implies, where clock skew applies and which exception class each rejection uses are all recoverable only from environment/config, environment/docs and environment/samples. A shipped triage tool names the wrong exception class for three rejection classes and a stale in-repo comment claims the alg pin is compared case-insensitively; the instruction names the corpus as authoritative over both."
+relevance = "Directly mirrors production JWT-library CVEs where alg=none bypasses were exploited in the wild, plus the rotation-window bug class where a leaked retired key still mints valid tokens."
+failure_cruxes = [
+    "Selecting the verification key by what is in force now, or by kid alone, instead of by the key in force as of the token's `iat` -- the first breaks every pre-rotation token, the second lets a leaked retired secret mint fresh ones.",
+    "Collapsing the keyring into a dict keyed by `kid`, which silently discards one of the two disjoint windows owned by the kid that was retired and later rolled back.",
+    "Normalising both sides of the `alg` pin comparison after seeing `NONE` rejected, which then accepts `alg=\"hs256\"` -- the algorithm-confusion bypass the gateway exists to stop.",
+    "Coercing `alg` with `str(...).lower()`, which classifies a JSON null `alg` as the unsigned algorithm rather than as a pin mismatch.",
+    "Hard-coding SHA-256 so an HS384 or HS512 pin issues a token whose header lies about its own MAC.",
+    "Hoisting the +/-60s NTP tolerance into one constant applied to every timestamp comparison, which silently extends the lifetime of every expired token.",
+    "Taking the reason-to-exception mapping from the shipped triage tool, which files expired and unknown-kid rejections as ValidationError and folds the algorithm-pin rejection into sig_mismatch.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

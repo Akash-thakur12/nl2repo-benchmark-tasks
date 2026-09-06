@@ -1,0 +1,54 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/ip-rating"
+version = "1.0.0"
+description = "Decode IEC 60529 IP nameplate markings against the edition in force on the test date, and decide whether a marking meets a purchasing requirement."
+keywords = [
+    "hard",
+    "ingress-protection",
+    "standards-decoding",
+    "grammar-parsing",
+    "effective-dating",
+    "corpus-inference",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct decode of the IEC 60529 ingress-protection rating standard."
+differentiation_notes = "The instruction states the API and points at the shipped standard, register and inspection corpora; the decoding grammar, the edition-as-of rule and the coverage relation have to be recovered from those files rather than transcribed from the spec."
+relevance = "IP-rating decoding appears in real industrial/embedded hardware compliance tooling."
+failure_cruxes = [
+    "Treating the liquid ladder as monotonic, so an immersion-only mark is accepted against a water-jet requirement.",
+    "Rejecting the X placeholder and the additional/supplementary letters as malformed instead of decoding them.",
+    "Decoding every mark against the current edition instead of the one in force on the date of test.",
+    "Reading a dual marking code-by-code rather than as a union over each characteristic position.",
+    "Treating the additional letter as cosmetic, so access protection implied by the first numeral is never derived.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

@@ -1,0 +1,115 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/api-mock-server"
+version = "1.1.0"
+description = "Build a contract-driven mock server replay: path template matching with gateway precedence, 405 handling, strict query and body validation in schema order, fixture selection with limits, replay in request-counter order across a 16-bit wrap, the contract in force at each request, and implicit HEAD."
+keywords = [
+    "hard",
+    "api",
+    "mock-server",
+    "contract",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "developer-tooling"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 9
+
+[metadata.difficulty_explanation]
+provenance = "Open-source project initial requirement. Contract-driven mocks are standard tooling, and the dry run is what makes one trustworthy enough to develop against."
+differentiation_notes = """
+Four decisions are deliberately not spelled out in docs/mock-spec.md, and each
+is settled instead by an artifact that ships in the image and that the
+specification names as normative.
+
+1. Route precedence. Section 2.4 defers to docs/gateway-routing.md, a ten-row
+   dump of the gateway team's routing conformance suite. Two overlapping
+   templates are compared segment by segment from the left and the leftmost
+   segment where one is a literal and the other a parameter decides; only two
+   templates of identical shape fall through to declaration order. Rows 1 to 3
+   individually rule out a count of literal segments, a count with a
+   declaration-order tie-break, and the length of a leading run of literals;
+   row 4 pins the tie-break. tools/check_crux.py asserts that no competing
+   specificity score reproduces the whole table.
+2. Replay order. A capture is written in the order the collector's workers
+   flushed it. Every request carries `seq`, the 16-bit request counter, which
+   can wrap inside one capture. All mock state evolves in counter order while
+   the report stays in file order.
+3. The contract in force. The mock hot-reloads its contract, so a capture can
+   carry several. A request is answered by the newest reload at or before its
+   own counter value - not the last contract in the file, and not the one the
+   loop has reached - and `matched` indexes the list that was loaded then.
+4. HEAD. A GET route answers HEAD, the fixture is consumed, a declared HEAD
+   route wins over the implicit one, every HEAD response carries a null body
+   whatever the status, and the allow header lists the methods the candidates
+   answer, so a GET candidate puts HEAD in it.
+
+environment/devtools/contract_lint.py is the platform team's overlap warner. It
+computes specificity as a count of literal segments and prints that as the
+reason one route shadows another, and its comment about replay order is stale.
+It is a convenience script; mock-spec.md section 8.3 says nothing under
+devtools/ is normative, and section 8.1 makes the recordings in reference/ the
+record where the document is silent, so the authority ordering is explicit.
+
+The six visible samples come from a contract with nothing tricky in it, and
+nineteen plausible readings of the written specification reproduce
+expected.json exactly under those conditions; tools/check_shortcuts.py
+enumerates all nineteen and asserts each is still caught by a held-out capture.
+tools/check_crux.py does the same for the fourteen wrong defaults of the four
+unwritten decisions, running the real test suite against each: the full
+spec-transcription engine scores 0.31, single-crux misses score 0.62 to 0.85,
+and the golden repository scores 1.00.
+"""
+relevance = "Mirrors the ways a mock drifts from the service it stands in for: a 404 where the real API would say 405, a route that wins because someone counted its literal segments rather than reading them left to right, a capture replayed in the order it was written down rather than the order it happened, a request answered by a contract that was not deployed yet, and a HEAD the mock has never heard of."
+failure_cruxes = [
+    "Scoring route specificity by counting literal segments instead of comparing the templates segment by segment from the left.",
+    "Breaking a precedence tie by declaration order between templates that do not have identical shapes.",
+    "Replaying capture['requests'] in file order and ignoring seq.",
+    "Sorting requests by the raw seq value, which is wrong for any capture whose run crosses 65535 to 0.",
+    "Emitting the report in handling order rather than in the order the capture lists the requests.",
+    "Serving every request from the last contract in the file, or from the first, instead of the one in force at its counter value.",
+    "Applying a reload when the replay loop reaches it in file order.",
+    "Reporting matched against the contract the capture opens with rather than the one that answered.",
+    "Carrying fixture tallies across a reload that replaced the whole route list.",
+    "Treating HEAD as an unknown method, so a HEAD against a GET route is a 405 or a 404.",
+    "Answering HEAD from the GET route but leaving the body in, or suppressing it only on a 2xx.",
+    "Leaving HEAD out of the allow header when a GET candidate exists, or duplicating it when a HEAD route is declared.",
+    "Filtering routes by method before matching the path, which turns every method mismatch into a 404.",
+    "Leaving the allow header off a 405, or building it in declaration order rather than sorted.",
+    "Matching path literals case-insensitively, or stripping a trailing slash before matching.",
+    "Validating the body before the query.",
+    "Parsing an int query parameter with int(), which quietly accepts a leading plus or surrounding space.",
+    "Accepting yes, no, 1 or 0 for a bool query parameter.",
+    "Letting a bool count as an int in the body, or a number count as a string.",
+    "Rejecting unknown fields before the declared ones are checked, reporting them in insertion order, or allowing them when the route did not say to.",
+    "Matching a fixture when any of its conditions holds rather than all of them.",
+    "Sharing fixture exhaustion across routes, or letting a rejected request consume a fixture.",
+    "Answering 500 rather than 404 when no fixture matches.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

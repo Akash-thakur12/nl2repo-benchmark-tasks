@@ -1,0 +1,6 @@
+{"days": 12, "engineers": [{"max_shifts": 4, "name": "Ada", "unavailable": [{"from": "2026-03-05", "to": "2026-03-07"}]}, {"name": "Bo", "unavailable": [{"from": "2026-03-06", "to": "2026-03-06"}]}, {"name": "Cai", "unavailable": [{"from": "2026-03-06", "to": "2026-03-08"}]}, {"name": "Dee", "unavailable": [{"from": "2026-03-06", "to": "2026-03-06"}]}], "max_consecutive": 2, "op": "config", "start": "2026-03-02", "start_index": 1}
+{"date": "2026-03-06", "engineer": "Cai", "op": "override"}
+{"date": "2026-03-06", "engineer": "Ada", "op": "override"}
+{"date": "2026-03-20", "engineer": "Bo", "op": "override"}
+{"date": "2026-03-09", "engineer": "Nobody", "op": "override"}
+{"op": "end"}

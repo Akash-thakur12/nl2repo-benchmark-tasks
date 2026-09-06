@@ -1,0 +1,27 @@
+{
+  "captured_at": "2025-11-03T09:00:00Z",
+  "csv": "order_id,qty,price\n\"has\r\nnewline\",2,10.50\nA-2,zz,1.00\n",
+  "partner": "P-14",
+  "schema": {
+    "columns": [
+      {
+        "name": "order_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "max": 1000,
+        "min": 1,
+        "name": "qty",
+        "required": true,
+        "type": "int"
+      },
+      {
+        "name": "price",
+        "required": true,
+        "type": "decimal"
+      }
+    ],
+    "key": "order_id"
+  }
+}

@@ -1,0 +1,33 @@
+{"op": "config", "salt": "2026-Q1"}
+{"key": "stopped-one", "op": "experiment", "state": "stopped", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0001"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0002"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0003"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0004"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0005"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0006"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0007"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0008"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0009"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0010"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0011"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0012"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0013"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0014"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0015"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0016"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0017"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0018"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0019"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0020"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0021"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0022"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0023"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0024"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0025"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0026"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0027"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0028"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0029"}
+{"experiment": "stopped-one", "op": "assign", "user": "u-0030"}
+{"op": "end"}

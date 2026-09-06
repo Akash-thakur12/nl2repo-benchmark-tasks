@@ -1,0 +1,35 @@
+{
+  "incident_id": "inc-2025-0207-e",
+  "host": "worker-21",
+  "note": "Five-minute capture. Steady background I/O across the whole window; the CPU climb is the real story.",
+  "collector_note": "clean 300-second window, no restart, arrived in order",
+  "samples_in_arrival_order": [
+    {
+      "t": 1738886400,
+      "cpu_util_pct": 25,
+      "mem_util_pct": 50,
+      "disk_io_ops_total": 100,
+      "net_bytes_total": 1000,
+      "gc_pause_ms_total": 100
+    },
+    {
+      "t": 1738886550,
+      "cpu_util_pct": 60,
+      "mem_util_pct": 55,
+      "disk_io_ops_total": 250,
+      "net_bytes_total": 1200,
+      "gc_pause_ms_total": 400
+    },
+    {
+      "t": 1738886700,
+      "cpu_util_pct": 93,
+      "mem_util_pct": 58,
+      "disk_io_ops_total": 400,
+      "net_bytes_total": 1400,
+      "gc_pause_ms_total": 700
+    }
+  ],
+  "recorded_verdict": {
+    "cause": "CPU_BOTTLENECK"
+  }
+}

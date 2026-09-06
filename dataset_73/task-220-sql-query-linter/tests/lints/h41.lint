@@ -1,0 +1,3 @@
+{"op": "config", "rules": {"L001": "error", "L002": "style"}}
+{"name": "q", "op": "query", "sql": "SELECT * FROM t"}
+{"op": "end"}

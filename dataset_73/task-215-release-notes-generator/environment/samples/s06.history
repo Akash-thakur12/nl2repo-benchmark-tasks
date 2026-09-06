@@ -1,0 +1,5 @@
+{"include_types": ["feat", "fix", "perf", "revert"], "op": "config", "previous_version": "4.4.0", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}, {"title": "Performance", "type": "perf"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "a000007", "subject": "feat(report): group rows by tenant"}
+{"author": "Bo Lindqvist", "body": "", "op": "commit", "sha": "a000008", "subject": "fix(report): round the totals once"}
+{"author": "Cai Wen", "body": "", "op": "commit", "sha": "a000009", "subject": "perf(report): stream the rows instead of buffering"}
+{"op": "end"}

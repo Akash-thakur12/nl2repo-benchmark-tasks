@@ -1,0 +1,25 @@
+{
+  "now": 100,
+  "tables": [
+    {
+      "name": "zebra",
+      "retain_days": 30
+    },
+    {
+      "name": "alpha",
+      "retain_days": 30
+    }
+  ],
+  "rows": [
+    {
+      "table": "zebra",
+      "id": 1,
+      "created": 10
+    },
+    {
+      "table": "alpha",
+      "id": 1,
+      "created": 10
+    }
+  ]
+}

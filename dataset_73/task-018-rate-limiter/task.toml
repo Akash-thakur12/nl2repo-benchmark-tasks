@@ -1,0 +1,52 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/rate-limiter"
+version = "1.0.0"
+description = "Per-key bucket: capacity, refill rate. Allow/detect. Distributed-aware (Redis-like) and sliding window variants."
+keywords = [
+    "hard",
+    "rate-limiting",
+    "token-bucket",
+    "sliding-window",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models real token-bucket and sliding-window rate-limiting algorithms used in production API gateways."
+differentiation_notes = "Capacity and rate come from a control-plane export whose rows are effective-dated, backfilled, amended and future-scheduled; the bucket must integrate refill piecewise across those edges while the host clock is free to step backwards. A shipped triage tool and a stale postmortem both name the wrong rule, and the machine captures contradict them."
+relevance = "Rate-limiter correctness bugs directly cause real production API throttling incidents."
+failure_cruxes = [
+    "Resolving a tenant's policy to the newest row in the export rather than the row in force at the request instant (backfilled, amended and future-scheduled rows all defeat the obvious rule).",
+    "Refilling with one flat elapsed*rate against the current policy instead of integrating segment by segment across the policy edges an idle span crosses, clamping to each segment's capacity.",
+    "Rewinding the refill anchor when the NTP-disciplined clock steps backwards, so the replayed span is credited twice.",
+    "Pruning the sliding-window timeline by peeling a prefix off the front, which strands expired entries behind an out-of-order arrival.",
+    "The sliding-window variant counting a request that lands exactly on the window boundary.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

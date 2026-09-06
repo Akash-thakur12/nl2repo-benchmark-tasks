@@ -1,0 +1,40 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/blob/{b}/meta/{k}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 0
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/blob/cold/{a}/{b}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 1
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/blob/cold/meta/z",
+      "seq": 1000
+    },
+    {
+      "method": "GET",
+      "path": "/blob/warm/meta/z",
+      "seq": 1001
+    }
+  ]
+}

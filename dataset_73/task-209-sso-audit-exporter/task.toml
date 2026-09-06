@@ -1,0 +1,61 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/sso-audit-exporter"
+version = "1.0.0"
+description = "Build an SSO audit exporter: per-session duplicate suppression, integer distance and speed arithmetic, and impossible-travel detection measured against the previous successful sign-in."
+keywords = [
+    "hard",
+    "sso",
+    "audit",
+    "impossible-travel",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "platform-security"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 5
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Every company with SSO eventually owes its security team this export, and the impossible-travel column is the only part anyone reads."
+differentiation_notes = "The six visible samples come from a quiet log: events already in ascending time order with no two sharing a timestamp, every session seen once, every location known, every sign-in successful, every distance a whole number of kilometres and every journey comfortably inside the speed limit. Fourteen plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all fourteen and asserts each still reproduces the samples and is still caught by at least one held-out capture, so the difficulty is demonstrated rather than asserted."
+relevance = "Mirrors what an impossible-travel check has to get right before anyone trusts its alerts: retry rows that are not really two sign-ins, failed attempts that say nothing about where someone was, a journey exactly at the limit, and a distance that does not come out to a whole number."
+failure_cruxes = [
+    "Rounding or rounding up the distance instead of taking the integer square root, which changes both the verdict and the reported kilometres.",
+    "Making the speed test inclusive, so a journey exactly at the limit is reported as impossible.",
+    "Dividing to compare speeds, which needs a special case for a zero-second gap and gets it wrong.",
+    "Treating a zero-second gap as never impossible, when any distance covered in no time is exactly what the check exists to find.",
+    "Taking events in the order the log was written rather than by time, or ordering them by id.",
+    "Treating the duplicate window as exclusive at its boundary.",
+    "Judging duplicates per user rather than per user and session, so two genuine sessions collapse into one.",
+    "Keeping a session pinned to its first timestamp instead of letting a later accepted event become the new baseline.",
+    "Letting a suppressed duplicate establish the location the next sign-in is measured against.",
+    "Letting a failed sign-in establish a location, or checking a failed sign-in for travel.",
+    "Leaving a flagged sign-in out of the history, so the next one is measured against where the user was two sign-ins ago.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

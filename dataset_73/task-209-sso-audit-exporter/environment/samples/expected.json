@@ -1,0 +1,77 @@
+{
+  "s01": {
+    "accepted": [
+      "e1"
+    ],
+    "duplicates": [],
+    "errors": [],
+    "impossible": []
+  },
+  "s02": {
+    "accepted": [
+      "e1",
+      "e2"
+    ],
+    "duplicates": [],
+    "errors": [],
+    "impossible": []
+  },
+  "s03": {
+    "accepted": [
+      "e1",
+      "e2",
+      "e3"
+    ],
+    "duplicates": [],
+    "errors": [],
+    "impossible": []
+  },
+  "s04": {
+    "accepted": [
+      "e1",
+      "e2"
+    ],
+    "duplicates": [],
+    "errors": [],
+    "impossible": []
+  },
+  "s05": {
+    "accepted": [
+      "e1",
+      "e2"
+    ],
+    "duplicates": [],
+    "errors": [],
+    "impossible": []
+  },
+  "s06": {
+    "accepted": [
+      "e1",
+      "e2",
+      "e3",
+      "e4"
+    ],
+    "duplicates": [],
+    "errors": [],
+    "impossible": []
+  },
+  "s07": {
+    "accepted": [
+      "e1",
+      "e2"
+    ],
+    "duplicates": [],
+    "errors": [],
+    "impossible": []
+  },
+  "s08": {
+    "accepted": [
+      "e1",
+      "e2",
+      "e3"
+    ],
+    "duplicates": [],
+    "errors": [],
+    "impossible": []
+  }
+}

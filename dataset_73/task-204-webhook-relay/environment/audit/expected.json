@@ -1,0 +1,450 @@
+{
+  "a01": {
+    "accepted": [
+      "evt_a",
+      "evt_b",
+      "evt_d",
+      "evt_g"
+    ],
+    "attempts": [
+      {
+        "at": 5000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_a",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 5200,
+        "attempt": 1,
+        "delivery": 2,
+        "event_id": "evt_b",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 6300,
+        "attempt": 1,
+        "delivery": 3,
+        "event_id": "evt_d",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 6600,
+        "attempt": 1,
+        "delivery": 4,
+        "event_id": "evt_g",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "dlq": [],
+    "rejected": [
+      {
+        "event_id": "evt_c",
+        "reason": "STALE_TIMESTAMP"
+      },
+      {
+        "event_id": "evt_e",
+        "reason": "STALE_TIMESTAMP"
+      },
+      {
+        "event_id": "evt_f",
+        "reason": "STALE_TIMESTAMP"
+      }
+    ]
+  },
+  "a02": {
+    "accepted": [
+      "evt_h",
+      "evt_h",
+      "evt_h",
+      "evt_i"
+    ],
+    "attempts": [
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_h",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 2001,
+        "attempt": 1,
+        "delivery": 2,
+        "event_id": "evt_h",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 3100,
+        "attempt": 1,
+        "delivery": 3,
+        "event_id": "evt_h",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 3200,
+        "attempt": 1,
+        "delivery": 4,
+        "event_id": "evt_i",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [
+      1,
+      2,
+      3
+    ],
+    "dlq": [],
+    "rejected": [
+      {
+        "event_id": "evt_h",
+        "reason": "DUPLICATE"
+      }
+    ]
+  },
+  "a03": {
+    "accepted": [
+      "evt_j",
+      "evt_l",
+      "evt_m",
+      "evt_n"
+    ],
+    "attempts": [
+      {
+        "at": 5400,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_j",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 5700,
+        "attempt": 1,
+        "delivery": 2,
+        "event_id": "evt_l",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 5900,
+        "attempt": 1,
+        "delivery": 3,
+        "event_id": "evt_m",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 6100,
+        "attempt": 1,
+        "delivery": 4,
+        "event_id": "evt_n",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "dlq": [],
+    "rejected": [
+      {
+        "event_id": "evt_k",
+        "reason": "BAD_SIGNATURE"
+      }
+    ]
+  },
+  "a04": {
+    "accepted": [
+      "evt_o"
+    ],
+    "attempts": [
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_o",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 2100,
+        "attempt": 2,
+        "delivery": 1,
+        "event_id": "evt_o",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 7200,
+        "attempt": 3,
+        "delivery": 1,
+        "event_id": "evt_o",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 12300,
+        "attempt": 4,
+        "delivery": 1,
+        "event_id": "evt_o",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [],
+    "dlq": [
+      {
+        "delivery": 1,
+        "event_id": "evt_o",
+        "reason": "EXHAUSTED",
+        "subscriber": "alpha"
+      }
+    ],
+    "rejected": []
+  },
+  "a05": {
+    "accepted": [
+      "evt_p",
+      "evt_q"
+    ],
+    "attempts": [
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_p",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 2,
+        "event_id": "evt_p",
+        "subscriber": "beta"
+      },
+      {
+        "at": 2400,
+        "attempt": 2,
+        "delivery": 2,
+        "event_id": "evt_p",
+        "subscriber": "beta"
+      },
+      {
+        "at": 2400,
+        "attempt": 2,
+        "delivery": 1,
+        "event_id": "evt_p",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 3000,
+        "attempt": 1,
+        "delivery": 3,
+        "event_id": "evt_q",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 3000,
+        "attempt": 1,
+        "delivery": 4,
+        "event_id": "evt_q",
+        "subscriber": "beta"
+      },
+      {
+        "at": 4100,
+        "attempt": 2,
+        "delivery": 3,
+        "event_id": "evt_q",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 5100,
+        "attempt": 3,
+        "delivery": 3,
+        "event_id": "evt_q",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [
+      1,
+      2,
+      3
+    ],
+    "dlq": [],
+    "rejected": []
+  },
+  "a06": {
+    "accepted": [
+      "evt_w",
+      "evt_y",
+      "evt_z"
+    ],
+    "attempts": [
+      {
+        "at": 1007,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_w",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 1008,
+        "attempt": 1,
+        "delivery": 2,
+        "event_id": "evt_y",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 1009,
+        "attempt": 1,
+        "delivery": 3,
+        "event_id": "evt_z",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [
+      1,
+      2,
+      3
+    ],
+    "dlq": [],
+    "rejected": [
+      {
+        "event_id": "evt_r",
+        "reason": "MALFORMED_SIGNATURE"
+      },
+      {
+        "event_id": "evt_s",
+        "reason": "MALFORMED_SIGNATURE"
+      },
+      {
+        "event_id": "evt_t",
+        "reason": "MALFORMED_SIGNATURE"
+      },
+      {
+        "event_id": "evt_u",
+        "reason": "MALFORMED_SIGNATURE"
+      },
+      {
+        "event_id": "evt_v",
+        "reason": "MALFORMED_SIGNATURE"
+      },
+      {
+        "event_id": "evt_w",
+        "reason": "BAD_SIGNATURE"
+      },
+      {
+        "event_id": "evt_x",
+        "reason": "BAD_SIGNATURE"
+      }
+    ]
+  },
+  "a07": {
+    "accepted": [
+      "evt_aa",
+      "evt_ab",
+      "evt_ac",
+      "evt_ad",
+      "evt_ae"
+    ],
+    "attempts": [
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_aa",
+        "subscriber": "zeta"
+      },
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 2,
+        "event_id": "evt_aa",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 1001,
+        "attempt": 1,
+        "delivery": 3,
+        "event_id": "evt_ab",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 1002,
+        "attempt": 1,
+        "delivery": 4,
+        "event_id": "evt_ac",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 1003,
+        "attempt": 1,
+        "delivery": 5,
+        "event_id": "evt_ad",
+        "subscriber": "zeta"
+      },
+      {
+        "at": 1003,
+        "attempt": 1,
+        "delivery": 6,
+        "event_id": "evt_ad",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 1004,
+        "attempt": 1,
+        "delivery": 7,
+        "event_id": "evt_ae",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [
+      1,
+      2
+    ],
+    "dlq": [],
+    "rejected": []
+  },
+  "a08": {
+    "accepted": [
+      "evt_af"
+    ],
+    "attempts": [
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_af",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 2,
+        "event_id": "evt_af",
+        "subscriber": "beta"
+      },
+      {
+        "at": 8100,
+        "attempt": 2,
+        "delivery": 1,
+        "event_id": "evt_af",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [
+      1
+    ],
+    "dlq": [
+      {
+        "delivery": 2,
+        "event_id": "evt_af",
+        "reason": "PERMANENT",
+        "subscriber": "beta"
+      }
+    ],
+    "rejected": []
+  }
+}

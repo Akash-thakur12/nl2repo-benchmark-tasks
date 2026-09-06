@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/midi-parser"
+version = "1.0.0"
+description = "SMF parser: MThd/MTrk chunks, PPQ + SMPTE division decode, VLQ delta times, running status, channel-voice messages (1 or 2 data bytes, decoded message name + channel), meta events with tempo/time-sig/key-sig/text decoding, SysEx. ValueError on bad magic / truncation / oversized VLQ."
+keywords = [
+    "hard",
+    "midi",
+    "smf-format",
+    "byte-stream-parsing",
+]
+
+[metadata]
+benchmark_style = "Doc2Repo"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct implementation of the Standard MIDI File (SMF) format."
+differentiation_notes = "Running-status validation and honoring MThd's declared chunk length are both invisible on well-formed, standard-length files."
+relevance = "SMF parsing correctness matters for real production music-production and notation software."
+failure_cruxes = [
+    "Reusing running status without ever validating that a prior status byte actually exists, silently misparsing the first event.",
+    "Not honouring the MThd chunk's declared length field, drifting the track-chunk boundary on a non-standard 6-byte header.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

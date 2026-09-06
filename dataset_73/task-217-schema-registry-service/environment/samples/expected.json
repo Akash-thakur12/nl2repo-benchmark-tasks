@@ -1,0 +1,320 @@
+{
+  "s01": {
+    "errors": [],
+    "results": [
+      {
+        "created": true,
+        "id": 1,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 1
+      }
+    ],
+    "subjects": [
+      {
+        "compatibility": "BACKWARD",
+        "name": "orders-value",
+        "versions": [
+          {
+            "id": 1,
+            "version": 1
+          }
+        ]
+      }
+    ]
+  },
+  "s02": {
+    "errors": [],
+    "results": [
+      {
+        "created": true,
+        "id": 1,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 1
+      },
+      {
+        "created": true,
+        "id": 2,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 2
+      }
+    ],
+    "subjects": [
+      {
+        "compatibility": "BACKWARD",
+        "name": "orders-value",
+        "versions": [
+          {
+            "id": 1,
+            "version": 1
+          },
+          {
+            "id": 2,
+            "version": 2
+          }
+        ]
+      }
+    ]
+  },
+  "s03": {
+    "errors": [],
+    "results": [
+      {
+        "created": true,
+        "id": 1,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 1
+      },
+      {
+        "created": true,
+        "id": 2,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 2
+      },
+      {
+        "created": true,
+        "id": 3,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 3
+      }
+    ],
+    "subjects": [
+      {
+        "compatibility": "BACKWARD",
+        "name": "orders-value",
+        "versions": [
+          {
+            "id": 1,
+            "version": 1
+          },
+          {
+            "id": 2,
+            "version": 2
+          },
+          {
+            "id": 3,
+            "version": 3
+          }
+        ]
+      }
+    ]
+  },
+  "s04": {
+    "errors": [],
+    "results": [
+      {
+        "created": true,
+        "id": 1,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 1
+      },
+      {
+        "compatible": true,
+        "op": "check",
+        "subject": "orders-value"
+      }
+    ],
+    "subjects": [
+      {
+        "compatibility": "BACKWARD",
+        "name": "orders-value",
+        "versions": [
+          {
+            "id": 1,
+            "version": 1
+          }
+        ]
+      }
+    ]
+  },
+  "s05": {
+    "errors": [],
+    "results": [
+      {
+        "created": true,
+        "id": 1,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 1
+      },
+      {
+        "created": true,
+        "id": 2,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 2
+      },
+      {
+        "id": 1,
+        "op": "lookup",
+        "subject": "orders-value",
+        "version": 1
+      }
+    ],
+    "subjects": [
+      {
+        "compatibility": "BACKWARD",
+        "name": "orders-value",
+        "versions": [
+          {
+            "id": 1,
+            "version": 1
+          },
+          {
+            "id": 2,
+            "version": 2
+          }
+        ]
+      }
+    ]
+  },
+  "s06": {
+    "errors": [],
+    "results": [
+      {
+        "level": "BACKWARD",
+        "op": "set_compatibility",
+        "subject": "orders-value"
+      },
+      {
+        "created": true,
+        "id": 1,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 1
+      },
+      {
+        "created": true,
+        "id": 2,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 2
+      }
+    ],
+    "subjects": [
+      {
+        "compatibility": "BACKWARD",
+        "name": "orders-value",
+        "versions": [
+          {
+            "id": 1,
+            "version": 1
+          },
+          {
+            "id": 2,
+            "version": 2
+          }
+        ]
+      }
+    ]
+  },
+  "s07": {
+    "errors": [],
+    "results": [
+      {
+        "created": true,
+        "id": 1,
+        "op": "register",
+        "subject": "shipments-value",
+        "version": 1
+      },
+      {
+        "compatible": true,
+        "op": "check",
+        "subject": "shipments-value"
+      },
+      {
+        "created": true,
+        "id": 2,
+        "op": "register",
+        "subject": "shipments-value",
+        "version": 2
+      },
+      {
+        "id": 2,
+        "op": "lookup",
+        "subject": "shipments-value",
+        "version": 2
+      }
+    ],
+    "subjects": [
+      {
+        "compatibility": "BACKWARD",
+        "name": "shipments-value",
+        "versions": [
+          {
+            "id": 1,
+            "version": 1
+          },
+          {
+            "id": 2,
+            "version": 2
+          }
+        ]
+      }
+    ]
+  },
+  "s08": {
+    "errors": [],
+    "results": [
+      {
+        "created": true,
+        "id": 1,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 1
+      },
+      {
+        "created": true,
+        "id": 2,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 2
+      },
+      {
+        "created": true,
+        "id": 3,
+        "op": "register",
+        "subject": "orders-value",
+        "version": 3
+      },
+      {
+        "id": 3,
+        "op": "lookup",
+        "subject": "orders-value",
+        "version": 3
+      },
+      {
+        "compatible": true,
+        "op": "check",
+        "subject": "orders-value"
+      }
+    ],
+    "subjects": [
+      {
+        "compatibility": "BACKWARD",
+        "name": "orders-value",
+        "versions": [
+          {
+            "id": 1,
+            "version": 1
+          },
+          {
+            "id": 2,
+            "version": 2
+          },
+          {
+            "id": 3,
+            "version": 3
+          }
+        ]
+      }
+    ]
+  }
+}

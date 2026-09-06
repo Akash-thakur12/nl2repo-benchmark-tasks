@@ -1,0 +1,93 @@
+{
+  "s01": {
+    "errors": [],
+    "files": [
+      {
+        "content": "# acme\n",
+        "mode": "644",
+        "path": "README.md"
+      }
+    ],
+    "hooks": [],
+    "skipped": []
+  },
+  "s02": {
+    "errors": [],
+    "files": [
+      {
+        "content": "{\"name\":\"acme\"}",
+        "mode": "644",
+        "path": "package.json"
+      },
+      {
+        "content": "Dana\n",
+        "mode": "644",
+        "path": "AUTHORS"
+      }
+    ],
+    "hooks": [],
+    "skipped": []
+  },
+  "s03": {
+    "errors": [],
+    "files": [
+      {
+        "content": "export const n = \"acme\";\n",
+        "mode": "644",
+        "path": "src/index.js"
+      }
+    ],
+    "hooks": [
+      "npm install"
+    ],
+    "skipped": []
+  },
+  "s04": {
+    "errors": [],
+    "files": [
+      {
+        "content": "one",
+        "mode": "644",
+        "path": "a.txt"
+      },
+      {
+        "content": "two",
+        "mode": "644",
+        "path": "b.txt"
+      },
+      {
+        "content": "three",
+        "mode": "644",
+        "path": "c.txt"
+      }
+    ],
+    "hooks": [],
+    "skipped": []
+  },
+  "s05": {
+    "errors": [],
+    "files": [
+      {
+        "content": "no variables here",
+        "mode": "644",
+        "path": "static.txt"
+      }
+    ],
+    "hooks": [],
+    "skipped": []
+  },
+  "s06": {
+    "errors": [],
+    "files": [
+      {
+        "content": "# acme\n",
+        "mode": "644",
+        "path": "docs/overview.md"
+      }
+    ],
+    "hooks": [
+      "echo done"
+    ],
+    "skipped": []
+  }
+}

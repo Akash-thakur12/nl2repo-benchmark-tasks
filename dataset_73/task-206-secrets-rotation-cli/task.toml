@@ -1,0 +1,68 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/secrets-rotation-cli"
+version = "1.0.0"
+description = "Build an offline replay tool for staged secret rotation: rollout order, per-environment acknowledgement, rollback in reverse, version numbering and grace-period revocation."
+keywords = [
+    "hard",
+    "secrets",
+    "rotation",
+    "staged-rollout",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "platform-security"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 7
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Staged credential rotation is standard practice, and the replay tool appears the first time an on-call engineer has to reconstruct a half-finished rotation from a capture."
+differentiation_notes = "The six visible samples come from a fleet with one environment, every consumer registered before the rotation starts and never moved, every acknowledgement arriving after its stage has begun, every timestamp at or after the one before it, no policy change, nothing ever unhealthy, no dry runs, no second rotation, and a capture that stops before the grace period expires. Twenty-two plausible readings of the specification reproduce expected.json exactly under those conditions, including the three cruxes: copying a record's t into the clock instead of clamping it, measuring a running grace countdown against the current policy rather than the window it was granted, and snapshotting stage membership when the stage begins. tools/check_shortcuts.py enumerates all twenty-two and asserts each still reproduces the samples and is still caught by at least one held-out capture; tools/check_crux.py patches the reference repository with the three wrong defaults and runs the real suite against each. The specification no longer states the answers to those three, nor the rollback order, the grace boundary, version reuse after a rollback or whether an early acknowledgement counts: environment/archive/rot-4417.runner.log, the live runner's own log for the capture beside it, is named authoritative over every other document and settles all of them. environment/docs/postmortem-4417.md and the runnable environment/tools/quicklook.py argue confidently for the wrong readings. One further near-miss, keeping a rolled-back version's acknowledgements, is documented in check_shortcuts.py as deliberately absent: acknowledgements are keyed by consumer and version and version numbers are never reused, so it cannot be observed."
+relevance = "Mirrors what a staged credential rotation actually has to get right: a fleet that acknowledges early, an environment with nothing deployed in it, a health check that fails halfway through prod, and an old secret that must not outlive its grace period or survive the next rotation."
+failure_cruxes = [
+    "Letting a dry run consume a version number, or refusing a dry run while a rotation is in flight.",
+    "Silently restarting a rotation that is already in flight instead of refusing it.",
+    "Staging environments in sorted name order rather than the configured rollout order.",
+    "Waiting for an acknowledgement from an environment that has no consumers in it.",
+    "Ignoring an acknowledgement that arrived before its environment began staging.",
+    "Treating an acknowledgement for a version that does not exist as an error, or dropping one from an unknown consumer without recording it.",
+    "Skipping an unhealthy environment instead of rolling the whole rotation back.",
+    "Rolling back in rollout order rather than in reverse, or leaving out the environment that was staging when it failed.",
+    "Starting a grace period after a rollback, or handing the rolled-back version number back to the next rotation.",
+    "Treating the grace boundary as exclusive, so a version outlives its deadline by a second.",
+    "Letting a grace period survive a new rotation, so three versions are live at once.",
+    "Revoking a version without recording the event, or without dropping it from the live set.",
+    "Clearing a consumer's acknowledgements when it is re-registered into another environment.",
+    "Stamping events with a record's own t rather than with the runner's clock, so a merged out-of-order acknowledgement drags the timeline backwards.",
+    "Recomputing a grace period already counting down against a mid-session policy change, instead of the window it was granted.",
+    "Ignoring the policy record altogether, so a retention change never takes effect.",
+    "Snapshotting the set of consumers a stage is waiting for when the stage begins, so a consumer registered or moved mid-rollout is not seen.",
+    "Believing docs/postmortem-4417.md and tools/quicklook.py over the runner's own log.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

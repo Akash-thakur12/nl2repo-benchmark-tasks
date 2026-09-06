@@ -1,0 +1,37 @@
+{
+  "captured_at": "2025-09-14T11:30:00Z",
+  "csv": "order_id,qty,price,ship_date,express\nC-1,30,15.0,2026-03-01,true\nC-2,40,20.0,2026-03-02,false\n",
+  "partner": "P-22",
+  "schema": {
+    "columns": [
+      {
+        "name": "order_id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "max": 1000,
+        "min": 1,
+        "name": "qty",
+        "required": true,
+        "type": "int"
+      },
+      {
+        "name": "price",
+        "required": true,
+        "type": "decimal"
+      },
+      {
+        "name": "ship_date",
+        "required": false,
+        "type": "date"
+      },
+      {
+        "name": "express",
+        "required": false,
+        "type": "bool"
+      }
+    ],
+    "key": "order_id"
+  }
+}

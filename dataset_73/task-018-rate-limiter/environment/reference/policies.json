@@ -1,0 +1,19 @@
+{
+  "export": "control-plane/rate-limit-policies",
+  "exported_at": 1735693200,
+  "gateway_version": "4.3",
+  "ordering": "revision ascending",
+  "policies": [
+    {"tenant": "*",       "capacity": 10,  "rate": 1.0,  "effective_at": 1704067200, "revision": 1,  "note": "platform default at launch"},
+    {"tenant": "acme",    "capacity": 20,  "rate": 2.0,  "effective_at": 1704067200, "revision": 2,  "note": "acme onboarding, negotiated burst"},
+    {"tenant": "globex",  "capacity": 8,   "rate": 0.5,  "effective_at": 1704067200, "revision": 3,  "note": "globex onboarding"},
+    {"tenant": "acme",    "capacity": 12,  "rate": 0.05, "effective_at": 1735690800, "revision": 4,  "note": "acme post-incident settings"},
+    {"tenant": "*",       "capacity": 4,   "rate": 0.25, "effective_at": 1735689900, "revision": 5,  "note": "platform default tightened"},
+    {"tenant": "globex",  "capacity": 9,   "rate": 0.5,  "effective_at": 1735690200, "revision": 6,  "note": "globex burst bump"},
+    {"tenant": "globex",  "capacity": 6,   "rate": 0.2,  "effective_at": 1735691400, "revision": 7,  "note": "globex Q1 plan"},
+    {"tenant": "initech", "capacity": 5,   "rate": 0.1,  "effective_at": 1735690200, "revision": 8,  "note": "initech onboarding"},
+    {"tenant": "globex",  "capacity": 3,   "rate": 0.2,  "effective_at": 1735691400, "revision": 9,  "note": "globex Q1 plan, amended: capacity was mis-keyed in r7"},
+    {"tenant": "acme",    "capacity": 5,   "rate": 0.02, "effective_at": 1735690000, "revision": 10, "note": "backfill: settings acme actually ran under from 1735690000; row was lost in the r4 migration"},
+    {"tenant": "acme",    "capacity": 100, "rate": 5.0,  "effective_at": 1735696800, "revision": 11, "note": "scheduled: acme enterprise upgrade, signed 1735692900"}
+  ]
+}

@@ -1,0 +1,2 @@
+{"days": 5, "engineers": [{"name": "Zed", "unavailable": []}, {"name": "Ada", "unavailable": [{"from": "2026-03-03", "to": "2026-03-03"}]}, {"name": "Mo", "unavailable": []}], "op": "config", "start": "2026-03-02"}
+{"op": "end"}

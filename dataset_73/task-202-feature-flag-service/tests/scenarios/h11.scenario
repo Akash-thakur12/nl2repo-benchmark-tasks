@@ -1,0 +1,6 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "f", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "age", "operator": "gt", "values": [18], "variant": "on"}], "salt": "s-f", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "f", "op": "evaluate", "t": 2, "user": {"age": 19, "key": "u1"}}
+{"flag": "f", "op": "evaluate", "t": 3, "user": {"age": 18, "key": "u2"}}
+{"flag": "f", "op": "evaluate", "t": 4, "user": {"age": true, "key": "u3"}}
+{"flag": "f", "op": "evaluate", "t": 5, "user": {"age": "99", "key": "u4"}}
+{"op": "end", "t": 6}

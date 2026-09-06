@@ -1,0 +1,326 @@
+{
+  "max_speed_kmh": 900,
+  "speed_policy": [
+    {
+      "from_t": 0,
+      "kmh": 900
+    },
+    {
+      "from_t": 600000,
+      "kmh": 80
+    }
+  ],
+  "dedup_window_seconds": 300,
+  "locations": {
+    "london": {
+      "x": 0,
+      "y": 0
+    },
+    "berlin": {
+      "x": 900,
+      "y": 0
+    },
+    "cairo": {
+      "x": 1800,
+      "y": 0
+    },
+    "annexe": {
+      "x": 7,
+      "y": 13
+    },
+    "harbour": [
+      {
+        "from_t": 400000,
+        "x": 1800,
+        "y": 0
+      },
+      {
+        "from_t": 0,
+        "x": 0,
+        "y": 0
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "a1",
+      "t": 0,
+      "user": "alice",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "b1",
+      "t": 0,
+      "user": "bob",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "c1",
+      "t": 100,
+      "user": "carol",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "d2",
+      "t": 200,
+      "user": "dan",
+      "session": "q2",
+      "location": "berlin",
+      "outcome": "success"
+    },
+    {
+      "id": "e3",
+      "t": 2000,
+      "user": "erin",
+      "session": "q2",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "f2",
+      "t": 5400,
+      "user": "frank",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "g2",
+      "t": 399960,
+      "user": "gina",
+      "session": "q2",
+      "location": "cairo",
+      "outcome": "success"
+    },
+    {
+      "id": "h2",
+      "t": 690000,
+      "user": "hank",
+      "session": "q2",
+      "location": "berlin",
+      "outcome": "success"
+    },
+    {
+      "id": "j1",
+      "t": 400,
+      "user": "jane",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "k1",
+      "t": 800,
+      "user": "kate",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "m2",
+      "t": 3600,
+      "user": "mia",
+      "session": "q2",
+      "location": "berlin",
+      "outcome": "success"
+    },
+    {
+      "id": "n2",
+      "t": 1200,
+      "user": "ned",
+      "session": "q1",
+      "location": "london",
+      "outcome": "failure"
+    },
+    {
+      "id": "a2",
+      "t": 10,
+      "user": "alice",
+      "session": "q2",
+      "location": "annexe",
+      "outcome": "success"
+    },
+    {
+      "id": "b2",
+      "t": 3600,
+      "user": "bob",
+      "session": "q2",
+      "location": "berlin",
+      "outcome": "success"
+    },
+    {
+      "id": "c2",
+      "t": 100,
+      "user": "carol",
+      "session": "q2",
+      "location": "cairo",
+      "outcome": "success"
+    },
+    {
+      "id": "e1",
+      "t": 1000,
+      "user": "erin",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "e4",
+      "t": 2301,
+      "user": "erin",
+      "session": "q2",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "f3",
+      "t": 5650,
+      "user": "frank",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "g3",
+      "t": 400100,
+      "user": "gina",
+      "session": "q3",
+      "location": "harbour",
+      "outcome": "success"
+    },
+    {
+      "id": "i1",
+      "t": 300,
+      "user": "ivan",
+      "session": "q1",
+      "location": "atlantis",
+      "outcome": "success"
+    },
+    {
+      "id": "j2",
+      "t": 460,
+      "user": "jane",
+      "session": "q2",
+      "location": "cairo",
+      "outcome": "failure"
+    },
+    {
+      "id": "k2",
+      "t": 8000,
+      "user": "kate",
+      "session": "q2",
+      "location": "berlin",
+      "outcome": "success"
+    },
+    {
+      "id": "m3",
+      "t": 7200,
+      "user": "mia",
+      "session": "q3",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "n3",
+      "t": 1600,
+      "user": "ned",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "a3",
+      "t": 80,
+      "user": "alice",
+      "session": "q3",
+      "location": "cairo",
+      "outcome": "success"
+    },
+    {
+      "id": "b3",
+      "t": 7199,
+      "user": "bob",
+      "session": "q3",
+      "location": "cairo",
+      "outcome": "success"
+    },
+    {
+      "id": "d1",
+      "t": 200,
+      "user": "dan",
+      "session": "q1",
+      "location": "berlin",
+      "outcome": "success"
+    },
+    {
+      "id": "e2",
+      "t": 1300,
+      "user": "erin",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "f1",
+      "t": 5000,
+      "user": "frank",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "g1",
+      "t": 399900,
+      "user": "gina",
+      "session": "q1",
+      "location": "harbour",
+      "outcome": "success"
+    },
+    {
+      "id": "h1",
+      "t": 650000,
+      "user": "hank",
+      "session": "q1",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "i2",
+      "t": 310,
+      "user": "ivan",
+      "session": "q2",
+      "location": "london",
+      "outcome": "success"
+    },
+    {
+      "id": "j3",
+      "t": 3900,
+      "user": "jane",
+      "session": "q3",
+      "location": "berlin",
+      "outcome": "success"
+    },
+    {
+      "id": "m1",
+      "t": 0,
+      "user": "mia",
+      "session": "q1",
+      "location": "cairo",
+      "outcome": "success"
+    },
+    {
+      "id": "n1",
+      "t": 1000,
+      "user": "ned",
+      "session": "q1",
+      "location": "london",
+      "outcome": "failure"
+    }
+  ]
+}

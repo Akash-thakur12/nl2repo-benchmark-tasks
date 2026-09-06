@@ -1,0 +1,4 @@
+{"environments": ["dev", "staging", "prod"], "grace_seconds": 300, "op": "config"}
+{"dry_run": true, "op": "rotate", "t": 50}
+{"dry_run": true, "op": "rotate", "t": 60}
+{"op": "end", "t": 100}

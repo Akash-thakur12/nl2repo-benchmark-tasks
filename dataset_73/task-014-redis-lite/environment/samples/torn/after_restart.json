@@ -1,0 +1,6 @@
+{
+  "aof_bytes_on_disk_before_load": 396,
+  "aof_bytes_on_disk_after_load": 380,
+  "last_good_record_ends_at": 380,
+  "note": "captured with `stat -c %s aof.log` immediately before and immediately after the service came up. The service resumed normally; the operator log line for this restart is quoted in docs/aof-recovery.md."
+}

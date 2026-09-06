@@ -1,0 +1,13 @@
+{
+  "strings": {
+    "session:2": "beta",
+    "snapshot:etag": "4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4"
+  },
+  "lists": {
+    "queue": [
+      "job-3",
+      "job-2"
+    ]
+  },
+  "note": "the trailing fragment contributes nothing: z is absent"
+}

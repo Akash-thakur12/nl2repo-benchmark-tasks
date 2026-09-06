@@ -1,0 +1,4 @@
+{"max_age_ms": 100000, "max_bytes": 4096, "max_lines": 3, "max_retries": 3, "op": "config", "spool_max_bytes": 65536}
+{"data": "boot ok\nlistening on 8080\nready\n", "file": "app.log", "op": "append", "t": 10}
+{"batch": 1, "op": "response", "status": 200, "t": 20}
+{"op": "end", "t": 30}

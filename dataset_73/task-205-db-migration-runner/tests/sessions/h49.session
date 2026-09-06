@@ -1,0 +1,11 @@
+{"allow_out_of_order": false, "baseline": 0, "op": "config"}
+{"down": "DOWN 1", "fails": false, "name": "m1", "op": "define", "transactional": true, "up": "UP 1", "version": 1}
+{"down": "DOWN 2", "fails": false, "name": "m2", "op": "define", "transactional": true, "up": "UP 2", "version": 2}
+{"down": "DOWN 3", "fails": false, "name": "m3", "op": "define", "transactional": true, "up": "UP 3", "version": 3}
+{"down": "DOWN 4", "fails": false, "name": "m4", "op": "define", "transactional": true, "up": "UP 4", "version": 4}
+{"cmd": "up", "op": "command", "steps": 3}
+{"op": "baseline", "version": 3}
+{"cmd": "down", "op": "command", "steps": 5}
+{"cmd": "up", "op": "command"}
+{"cmd": "to", "op": "command", "target": 0}
+{"op": "end"}

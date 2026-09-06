@@ -1,0 +1,6 @@
+{"default_revoke": false, "op": "config", "separation_of_duties": [["pay.approve", "pay.request"]]}
+{"entitlements": ["pay.approve"], "members": [], "name": "g", "op": "group"}
+{"entitlements": ["pay.request"], "groups": ["g"], "name": "ada", "op": "user", "terminated": false}
+{"entitlement": "pay.approve", "op": "decision", "user": "ada", "verdict": "revoke"}
+{"entitlement": "pay.request", "op": "decision", "user": "ada", "verdict": "revoke"}
+{"op": "end"}

@@ -1,0 +1,27 @@
+{
+  "ignore": [
+    "net"
+  ],
+  "declared": [
+    {
+      "id": "w",
+      "body": {
+        "net": {
+          "cidr": "a",
+          "gw": "b"
+        }
+      }
+    }
+  ],
+  "live": [
+    {
+      "id": "w",
+      "body": {
+        "net": {
+          "cidr": "c",
+          "gw": "d"
+        }
+      }
+    }
+  ]
+}

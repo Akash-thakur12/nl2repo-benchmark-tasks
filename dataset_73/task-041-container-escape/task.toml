@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/container-escape"
+version = "1.0.0"
+description = "Container runtime spec auditor: audit(spec)->{safe,risks,score} flagging dangerous caps, privileged, sensitive bind-mounts (/ /proc /sys docker.sock), no-new-privileges disabled, root user, host network/pid. harden(spec)->sanitised spec (idempotent, passes audit). Single authoritative DANGEROUS_CAPS set."
+keywords = [
+    "hard",
+    "container-security",
+    "docker-hardening",
+    "capability-auditing",
+]
+
+[metadata]
+benchmark_style = "Doc2Repo"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models real container-runtime hardening practices (CIS Docker Benchmark style checks)."
+differentiation_notes = "The unset/empty-user case is easy to miss because the obvious test case for 'reject root' only tries the literal string \"root\"."
+relevance = "Container hardening misconfigurations are a real, documented class of production container-escape vulnerabilities."
+failure_cruxes = [
+    "harden() only replacing the literal string \"root\" and not also an unset or empty-string `user`, both of which default to root.",
+    "Flagging `running_as_root` even when `privileged` is already set, double-counting what should be a single risk.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

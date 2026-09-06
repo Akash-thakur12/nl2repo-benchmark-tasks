@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/ping",
+      "fixtures": [
+        {
+          "status": 201,
+          "body": {
+            "n": 1
+          },
+          "times": 1
+        },
+        {
+          "status": 202,
+          "body": {
+            "n": 2
+          },
+          "times": 1
+        },
+        {
+          "status": 203,
+          "body": {
+            "n": 3
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/ping",
+      "seq": 0
+    },
+    {
+      "method": "GET",
+      "path": "/ping",
+      "seq": 65535
+    },
+    {
+      "method": "GET",
+      "path": "/ping",
+      "seq": 1
+    },
+    {
+      "method": "GET",
+      "path": "/ping",
+      "seq": 65534
+    }
+  ]
+}

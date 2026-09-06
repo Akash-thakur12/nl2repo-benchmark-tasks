@@ -1,0 +1,54 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/sre-diagnostic"
+version = "1.0.0"
+description = "Classify an SRE incident telemetry window into a root cause. The rules, the dated threshold table, the UDP arrival-order/retransmit semantics and the cumulative-counter conventions are specified only by the documents and reviewed captures shipped in environment/."
+keywords = [
+    "hard",
+    "sre",
+    "root-cause-analysis",
+    "rule-engine",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Modeled on real SRE root-cause playbooks that layer specific-before-general diagnostic rules."
+differentiation_notes = "Nothing numeric is in the instruction. The answer is recoverable only by joining four documents in environment/docs (a dated threshold table, a metric-naming convention, a collector transport note, and the in-force runbook) against six reviewed captures -- while a retired runbook and a legacy triage script on disk both confidently assert the wrong answer."
+relevance = "Mirrors real incident-response automation where rule-priority bugs misroute on-call diagnosis."
+failure_cruxes = [
+    "Stale authority (I): compiling in the newest row of the dated threshold table -- or the oldest row scraped from the retired runbook -- instead of the revision whose effective_from was in force at the timestamp of the window's FIRST sample.",
+    "Ordering (E): treating add() arrival order as time order. The forwarder is best-effort UDP, so a retransmit lands after newer samples and carries a duplicate timestamp that supersedes the original; the window must be deduplicated last-write-wins and sorted by timestamp before the endpoints mean anything.",
+    "Admissibility guards run on the raw buffer rather than the reconstructed window: counting raw samples instead of DISTINCT timestamps, and omitting the 30-second minimum-span check entirely.",
+    "Counter resets (D): disk/net/gc are `_total` cumulative counters that reset to zero on agent restart. A raw last-minus-first goes strongly negative across a restart and silently deletes the disk cascade; the rival reading 'skip the decreasing step' also under-counts. The restart step contributes the post-restart reading itself.",
+    "Rate normalisation (B): counter thresholds are per-minute rates over the window span, not raw window differences. Every worked example and every legacy test uses a 60-second window, where the two coincide exactly.",
+    "Misdirection (C): mirroring environment/tools/triage_report.py, which embodies all three wrong defaults at once and confidently names CPU_BOTTLENECK on a shipped capture labelled DISK_IO_SATURATION; or implementing environment/docs/retired/runbook-v1.md, which is marked RETIRED and specifies the CPU rule before the disk cascade.",
+    "Entanglement (H): MEM_PRESSURE carries `secondary: GC_PRESSURE` only when the gc RATE crossed, and NET_SATURATION computes `cpu_suspect` from the last gauge reading rather than emitting the constant False the disk cascade emits.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

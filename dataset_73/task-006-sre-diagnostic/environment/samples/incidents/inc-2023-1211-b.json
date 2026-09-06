@@ -1,0 +1,43 @@
+{
+  "incident_id": "inc-2023-1211-b",
+  "host": "api-13",
+  "note": "Recorded exactly as the collector delivered it. Note the arrival order and the repeated timestamp.",
+  "collector_note": "t+120 was retransmitted; the second copy carries the settled readings and supersedes the first",
+  "samples_in_arrival_order": [
+    {
+      "t": 1702252860,
+      "cpu_util_pct": 88,
+      "mem_util_pct": 50,
+      "disk_io_ops_total": 2100,
+      "net_bytes_total": 8050,
+      "gc_pause_ms_total": 1100
+    },
+    {
+      "t": 1702252800,
+      "cpu_util_pct": 20,
+      "mem_util_pct": 50,
+      "disk_io_ops_total": 2000,
+      "net_bytes_total": 8000,
+      "gc_pause_ms_total": 1000
+    },
+    {
+      "t": 1702252920,
+      "cpu_util_pct": 45,
+      "mem_util_pct": 55,
+      "disk_io_ops_total": 2150,
+      "net_bytes_total": 8100,
+      "gc_pause_ms_total": 1150
+    },
+    {
+      "t": 1702252920,
+      "cpu_util_pct": 94,
+      "mem_util_pct": 60,
+      "disk_io_ops_total": 2160,
+      "net_bytes_total": 8110,
+      "gc_pause_ms_total": 1160
+    }
+  ],
+  "recorded_verdict": {
+    "cause": "CPU_BOTTLENECK"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "now": 100,
+  "tables": [
+    {
+      "name": "orders",
+      "retain_days": 30
+    }
+  ],
+  "rows": [
+    {
+      "table": "orders",
+      "id": 1,
+      "created": 10
+    },
+    {
+      "table": "orders",
+      "id": 2,
+      "created": 10
+    },
+    {
+      "table": "orders",
+      "id": 3,
+      "created": 10
+    }
+  ],
+  "batch_limit": 2,
+  "dry_run": true
+}

@@ -1,0 +1,86 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/legacy/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "era": "v1"
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/shared",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "era": "v1-shared"
+          }
+        }
+      ]
+    }
+  ],
+  "reloads": [
+    {
+      "at": 1202,
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/shared",
+          "fixtures": [
+            {
+              "status": 200,
+              "body": {
+                "era": "v2-shared"
+              }
+            }
+          ]
+        },
+        {
+          "method": "GET",
+          "path": "/modern/{id}",
+          "fixtures": [
+            {
+              "status": 200,
+              "body": {
+                "era": "v2"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/shared",
+      "seq": 1200
+    },
+    {
+      "method": "GET",
+      "path": "/legacy/7",
+      "seq": 1201
+    },
+    {
+      "method": "GET",
+      "path": "/shared",
+      "seq": 1202
+    },
+    {
+      "method": "GET",
+      "path": "/legacy/7",
+      "seq": 1203
+    },
+    {
+      "method": "GET",
+      "path": "/modern/7",
+      "seq": 1204
+    }
+  ]
+}

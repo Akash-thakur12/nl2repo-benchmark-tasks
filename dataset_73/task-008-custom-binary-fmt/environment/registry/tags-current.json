@@ -1,0 +1,12 @@
+{
+  "_generated": "flat snapshot of registry/tags.csv as of revision 9",
+  "_warning": "Generated convenience file. One entry per tag, history discarded. Do NOT use this to interpret historical blobs -- read tags.csv.",
+  "revision": 9,
+  "tags": {
+    "0x14": {"encoding": "delta", "name_hint": "cpu.load"},
+    "0x15": {"encoding": "absolute", "name_hint": "mem.free"},
+    "0x20": {"encoding": "absolute", "name_hint": "disk.temp"},
+    "0x22": {"encoding": "delta", "name_hint": "io.bytes"},
+    "0x30": {"encoding": "delta", "name_hint": "net.packets"}
+  }
+}

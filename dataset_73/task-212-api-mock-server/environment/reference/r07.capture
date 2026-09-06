@@ -1,0 +1,98 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/a/{x}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "r": "get-a"
+          }
+        }
+      ]
+    },
+    {
+      "method": "HEAD",
+      "path": "/a/{x}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "r": "head-a"
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/b",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "r": "get-b"
+          }
+        }
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/b",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "r": "put-b"
+          }
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/c",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "r": "post-c"
+          }
+        }
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/c",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "r": "put-c"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "HEAD",
+      "path": "/a/1",
+      "seq": 700
+    },
+    {
+      "method": "POST",
+      "path": "/a/1",
+      "seq": 701
+    },
+    {
+      "method": "POST",
+      "path": "/b",
+      "seq": 702
+    },
+    {
+      "method": "GET",
+      "path": "/c",
+      "seq": 703
+    }
+  ]
+}

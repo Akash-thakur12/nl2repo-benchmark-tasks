@@ -1,0 +1,13 @@
+{"kid": "tokend-2021h", "captured_at": 1612137600, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9MTAwMQ==", "tag_hex": "864c872600000000", "verdict": "ok", "note": "2021-02, 4-octet era"}
+{"kid": "tokend-2021h", "captured_at": 1656633600, "msg_b64": "UE9TVCAvdjEvdHJhbnNmZXIAYWNjdD00MTAyAGFtdD05MA==", "tag_hex": "06488981240c7db4", "verdict": "ok", "note": "first second of the SEC-118 8-octet era"}
+{"kid": "tokend-2021h", "captured_at": 1656633599, "msg_b64": "UE9TVCAvdjEvdHJhbnNmZXIAYWNjdD00MTAyAGFtdD05MA==", "tag_hex": "0648898100000000", "verdict": "ok", "note": "last second of the 4-octet era"}
+{"kid": "tokend-2021h", "captured_at": 1667260800, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9Nzc=", "tag_hex": "d65572ea2081535f", "verdict": "ok", "note": "2022-11, 8-octet era"}
+{"kid": "tokend-2021h", "captured_at": 1612137600, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9MTAwMg==", "tag_hex": "7f5e64b500000000", "verdict": "bad-tag", "note": "4-octet era, tag lifted from another request"}
+{"kid": "tokend-2019m", "captured_at": 1545264000, "msg_b64": "TVRSIDAwMDcgcmVhZD00MTgyMg==", "tag_hex": "1dff000000000000", "verdict": "no-epoch", "note": "2018-12, collector clock skew; no width in force yet"}
+{"kid": "tokend-2019m", "captured_at": 1546300800, "msg_b64": "TVRSIDAwMDcgcmVhZD00MTgyMg==", "tag_hex": "1dff000000000000", "verdict": "ok", "note": "first second of the meter epoch"}
+{"kid": "tokend-2019m", "captured_at": 1560000000, "msg_b64": "TVRSIDAwMzEgcmVhZD05MDI=", "tag_hex": "6be8000000000000", "verdict": "ok", "note": "2019-06, 2-octet meter era"}
+{"kid": "tokend-9999x", "captured_at": 1612137600, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9NQ==", "tag_hex": "0000000000000000", "verdict": "unknown-kid", "note": "kid absent from the KMS export"}
+{"kid": "tokend-eu1", "captured_at": 1672617600, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9NDI0Mg==", "tag_hex": "9db8af3647a7f530", "verdict": "ok", "note": "eu-west-1 listing"}
+{"kid": "tokend-eu2", "captured_at": 1672617600, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9NDI0Mg==", "tag_hex": "9db8af3647a7f530", "verdict": "ok", "note": "eu-central-1 listing, same material"}
+{"kid": "tokend-9999x", "captured_at": 1545264000, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9NQ==", "tag_hex": "abcd", "verdict": "unknown-kid", "note": "precedence: unknown kid outranks the short frame and the missing epoch"}
+{"kid": "tokend-2019m", "captured_at": 1545264000, "msg_b64": "TVRSIDAwMDcgcmVhZD00MTgyMg==", "tag_hex": "zzzz", "verdict": "no-epoch", "note": "precedence: missing epoch outranks the unparsable frame"}

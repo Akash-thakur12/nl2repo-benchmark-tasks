@@ -1,0 +1,43 @@
+{"op": "config", "salt": "2026-Q1"}
+{"key": "open", "op": "experiment", "state": "running", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "open", "op": "assign", "user": "u-0001"}
+{"experiment": "open", "op": "assign", "user": "u-0002"}
+{"experiment": "open", "op": "assign", "user": "u-0003"}
+{"experiment": "open", "op": "assign", "user": "u-0004"}
+{"experiment": "open", "op": "assign", "user": "u-0005"}
+{"experiment": "open", "op": "assign", "user": "u-0006"}
+{"experiment": "open", "op": "assign", "user": "u-0007"}
+{"experiment": "open", "op": "assign", "user": "u-0008"}
+{"experiment": "open", "op": "assign", "user": "u-0009"}
+{"experiment": "open", "op": "assign", "user": "u-0010"}
+{"experiment": "open", "op": "assign", "user": "u-0011"}
+{"experiment": "open", "op": "assign", "user": "u-0012"}
+{"experiment": "open", "op": "assign", "user": "u-0013"}
+{"experiment": "open", "op": "assign", "user": "u-0014"}
+{"experiment": "open", "op": "assign", "user": "u-0015"}
+{"experiment": "open", "op": "assign", "user": "u-0016"}
+{"experiment": "open", "op": "assign", "user": "u-0017"}
+{"experiment": "open", "op": "assign", "user": "u-0018"}
+{"experiment": "open", "op": "assign", "user": "u-0019"}
+{"experiment": "open", "op": "assign", "user": "u-0020"}
+{"experiment": "open", "op": "assign", "user": "u-0021"}
+{"experiment": "open", "op": "assign", "user": "u-0022"}
+{"experiment": "open", "op": "assign", "user": "u-0023"}
+{"experiment": "open", "op": "assign", "user": "u-0024"}
+{"experiment": "open", "op": "assign", "user": "u-0025"}
+{"experiment": "open", "op": "assign", "user": "u-0026"}
+{"experiment": "open", "op": "assign", "user": "u-0027"}
+{"experiment": "open", "op": "assign", "user": "u-0028"}
+{"experiment": "open", "op": "assign", "user": "u-0029"}
+{"experiment": "open", "op": "assign", "user": "u-0030"}
+{"experiment": "open", "op": "assign", "user": "u-0031"}
+{"experiment": "open", "op": "assign", "user": "u-0032"}
+{"experiment": "open", "op": "assign", "user": "u-0033"}
+{"experiment": "open", "op": "assign", "user": "u-0034"}
+{"experiment": "open", "op": "assign", "user": "u-0035"}
+{"experiment": "open", "op": "assign", "user": "u-0036"}
+{"experiment": "open", "op": "assign", "user": "u-0037"}
+{"experiment": "open", "op": "assign", "user": "u-0038"}
+{"experiment": "open", "op": "assign", "user": "u-0039"}
+{"experiment": "open", "op": "assign", "user": "u-0040"}
+{"op": "end"}

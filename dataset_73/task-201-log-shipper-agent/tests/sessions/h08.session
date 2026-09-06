@@ -1,0 +1,6 @@
+{"max_age_ms": 100000, "max_bytes": 4096, "max_lines": 5, "max_retries": 3, "op": "config", "spool_max_bytes": 65536}
+{"data": "keep1\nkeep2\n", "file": "app.log", "op": "append", "t": 10}
+{"file": "app.log", "op": "rotate", "t": 20}
+{"data": "new1\nnew2\nnew3\n", "file": "app.log", "op": "append", "t": 30}
+{"batch": 1, "op": "response", "status": 200, "t": 40}
+{"op": "end", "t": 50}

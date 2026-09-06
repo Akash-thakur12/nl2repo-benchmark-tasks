@@ -1,0 +1,14 @@
+{
+  "strings": {
+    "keep": "1"
+  },
+  "lists": {},
+  "exists": {
+    "keep": true,
+    "L": false
+  },
+  "llen": {
+    "L": 0
+  },
+  "note": "the RPOP emptied L; after recovery L is not present in either keyspace"
+}

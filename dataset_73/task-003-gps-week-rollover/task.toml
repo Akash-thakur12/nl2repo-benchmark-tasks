@@ -1,0 +1,47 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/gps-week-rollover"
+version = "1.0.0"
+description = "Decode GPS and BeiDou broadcast week and time-of-week fields to absolute UTC."
+keywords = [
+    "hard",
+    "gps",
+    "leap-seconds",
+    "time-decoding",
+    "epoch-rollover",
+    "embedded-systems",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Modeled on the real GPS week-number rollover events (1999, 2019, 2038) that have caused documented device failures."
+differentiation_notes = "The resolution rules, field widths, time-scale offsets and leap-second history live only in the shipped receiver documentation and data tables; a retired application note and a field diagnostic on disk recommend a different, plausible and wrong reading."
+relevance = "GPS week rollover bugs have caused real navigation and timing-system outages in deployed hardware."
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

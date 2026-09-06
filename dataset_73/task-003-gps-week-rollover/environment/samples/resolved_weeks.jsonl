@@ -1,0 +1,8 @@
+{"ref": "2026-01-01", "source": "lnav", "raw_week": 2330, "dow": 0, "resolved_week": 1306, "resolved_date": "2024-09-01", "note": "to_date() takes the untruncated internal week index (0..65535); resolve_week() rejects anything wider than the source field, so 2330 is legal here but not as a 10-bit lnav raw week -- see the raw_week 282 row below for the same result"}
+{"ref": "2019-04-07", "source": "lnav", "raw_week": 0, "dow": 0, "resolved_week": 0, "resolved_date": "1999-08-22", "note": "reference date sitting exactly on the era-1 anchor"}
+{"ref": "2020-01-01", "source": "lnav", "raw_week": 0, "dow": 0, "resolved_week": 1024, "resolved_date": "2019-04-07", "note": "same raw week, one era later"}
+{"ref": "2039-01-01", "source": "lnav", "raw_week": 0, "dow": 0, "resolved_week": 2048, "resolved_date": "2038-11-21", "note": "era 2"}
+{"ref": "2019-04-13", "source": "lnav", "raw_week": 0, "dow": 6, "resolved_week": 0, "resolved_date": "1999-08-28", "note": "day-of-week offset"}
+{"ref": "2026-01-01", "source": "lnav", "raw_week": 282, "dow": 0, "resolved_week": 1306, "resolved_date": "2024-09-01", "note": "ephemeris week for the almanac rows"}
+{"ref": "2026-01-01", "source": "lnav", "raw_week": 116, "dow": 0, "resolved_week": 1140, "resolved_date": "2021-06-27", "note": "an older ephemeris week"}
+{"ref": "2026-01-01", "source": "lnav", "raw_week": 346, "dow": 0, "resolved_week": 1370, "resolved_date": "2025-11-23", "note": "ephemeris week 1370"}

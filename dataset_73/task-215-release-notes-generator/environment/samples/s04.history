@@ -1,0 +1,3 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "5.1.0", "sections": [{"title": "Features", "type": "feat"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "a000010", "subject": "feat(queue): acknowledge in batches"}
+{"op": "end"}

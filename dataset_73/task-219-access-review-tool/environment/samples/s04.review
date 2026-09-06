@@ -1,0 +1,6 @@
+{"default_revoke": false, "op": "config", "separation_of_duties": []}
+{"entitlements": ["audit.read", "billing.read", "ledger.read"], "groups": [], "name": "cai", "op": "user", "terminated": false}
+{"entitlement": "audit.read", "op": "decision", "user": "cai", "verdict": "approve"}
+{"entitlement": "billing.read", "op": "decision", "user": "cai", "verdict": "approve"}
+{"entitlement": "ledger.read", "op": "decision", "user": "cai", "verdict": "approve"}
+{"op": "end"}

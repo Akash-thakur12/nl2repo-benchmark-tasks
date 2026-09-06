@@ -1,0 +1,31 @@
+{"chunk_size": 100, "end": 1000, "format": 3, "max_attempts": 3, "max_chunks_per_window": 10, "op": "config", "outcomes": ["fail", "ok", "ok", "fail", "fail", "fail", "fail", "fail"], "start": 0, "window_seconds": 60}
+{"at": 600, "cp": 0, "op": "boot", "t": 0}
+{"op": "attempt", "t": 0}
+{"chunk_size": 40, "op": "policy", "t": 10}
+{"op": "attempt", "t": 20}
+{"op": "attempt", "t": 30}
+{"op": "attempt", "t": 40}
+{"at": 700, "cp": 140, "op": "boot", "t": 0}
+{"chunk_size": 60, "op": "policy", "t": 5}
+{"op": "attempt", "t": 10}
+{"at": 800, "cp": 140, "op": "boot", "t": 0}
+{"op": "attempt", "t": 10}
+{"at": 900, "cp": 140, "op": "boot", "t": 0}
+{"op": "attempt", "t": 10}
+{"at": 1000, "cp": 140, "op": "boot", "t": 0}
+{"op": "attempt", "t": 10}
+{"op": "attempt", "t": 20}
+{"chunk_size": 100, "op": "policy", "t": 25}
+{"op": "attempt", "t": 30}
+{"at": 1100, "cp": 200, "op": "boot", "t": 0}
+{"op": "attempt", "t": 10}
+{"at": 1200, "cp": 600, "op": "boot", "t": 0}
+{"op": "attempt", "t": 10}
+{"op": "pause", "t": 20}
+{"op": "attempt", "t": 30}
+{"op": "resume", "t": 40}
+{"op": "attempt", "t": 50}
+{"max_chunks_per_window": 1, "op": "policy", "t": 55, "window_seconds": 5}
+{"op": "attempt", "t": 60}
+{"op": "attempt", "t": 62}
+{"op": "end", "t": 70}

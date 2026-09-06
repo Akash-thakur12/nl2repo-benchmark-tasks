@@ -1,0 +1,31 @@
+{
+  "answers": {
+    "name": "acme"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "x",
+        "path": "a.txt"
+      }
+    ],
+    "hooks": [
+      {
+        "run": "npm install",
+        "when": "ts"
+      },
+      {
+        "run": "echo {{name}}"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      },
+      {
+        "default": true,
+        "name": "ts"
+      }
+    ]
+  }
+}

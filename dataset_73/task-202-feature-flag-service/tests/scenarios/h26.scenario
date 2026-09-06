@@ -1,0 +1,5 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "f", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "verified", "operator": "gt", "values": [0], "variant": "on"}], "salt": "s-f", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "f", "op": "evaluate", "t": 2, "user": {"key": "u1", "verified": true}}
+{"flag": "f", "op": "evaluate", "t": 3, "user": {"key": "u2", "verified": 1}}
+{"flag": "f", "op": "evaluate", "t": 4, "user": {"key": "u3", "verified": false}}
+{"op": "end", "t": 5}

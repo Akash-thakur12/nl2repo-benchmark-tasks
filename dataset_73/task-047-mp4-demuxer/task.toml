@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/mp4-demuxer"
+version = "1.0.0"
+description = "ISOBMFF/MP4 box demuxer: walk the box hierarchy (containers recurse), handle 8-byte / 64-bit / size-0-to-EOF headers, decode ftyp/mvhd/tkhd/hdlr fields and the four sample tables (stts/stsc/stsz/stco/co64) into structured entries. Defensive against truncated children. Returns {boxes: [...]}."
+keywords = [
+    "hard",
+    "mp4",
+    "isobmff",
+    "box-demuxing",
+]
+
+[metadata]
+benchmark_style = "SWE-Marathon"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct implementation of the ISOBMFF/MP4 box format, including its version-0/version-1 field-width variants."
+differentiation_notes = "mvhd/tkhd version-1's 64-bit fields are structurally identical in shape to version-0's, so a version check that's skipped or wrong produces a plausible-looking but incorrect parse."
+relevance = "MP4 box-parsing correctness underlies real production video processing and streaming tooling."
+failure_cruxes = [
+    "Parsing an mvhd/tkhd version-1 box (64-bit duration, 8-byte timestamps) with the version-0 (32-bit) field layout.",
+    "A size==0 (extends-to-end-of-parent) box not being clamped correctly, over-reading past its actual parent boundary.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

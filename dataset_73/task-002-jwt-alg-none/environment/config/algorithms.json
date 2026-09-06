@@ -1,0 +1,17 @@
+{
+  "_comment": [
+    "Algorithm vocabulary for the edge JWT gateway. Owned by platform-security;",
+    "pushed to the fleet with the rest of the gateway config. `pinnable` is the",
+    "complete set of algorithms an operator is allowed to pin, and for each one",
+    "the digest it means and the length in bytes of the MAC that digest produces.",
+    "`never_accept` lists header `alg` values that are refused before anything",
+    "else is looked at."
+  ],
+  "pinnable": {
+    "HS256": {"digest": "sha256", "mac_bytes": 32},
+    "HS384": {"digest": "sha384", "mac_bytes": 48},
+    "HS512": {"digest": "sha512", "mac_bytes": 64}
+  },
+  "default_pin": "HS256",
+  "never_accept": ["none"]
+}

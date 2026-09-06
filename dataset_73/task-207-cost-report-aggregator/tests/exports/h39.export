@@ -1,0 +1,20 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "beta"
+  ],
+  "lines": [
+    {
+      "id": "r1",
+      "kind": "reservation",
+      "day": 27,
+      "term_days": 4,
+      "team": "alpha",
+      "cents": 10
+    }
+  ]
+}

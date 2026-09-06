@@ -1,0 +1,110 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/p",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "v": "p-old"
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/q",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "v": "q-old"
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/r",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "v": "r-old"
+          }
+        }
+      ]
+    }
+  ],
+  "reloads": [
+    {
+      "at": 55,
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/r",
+          "fixtures": [
+            {
+              "status": 200,
+              "body": {
+                "v": "r-new"
+              }
+            }
+          ]
+        },
+        {
+          "method": "GET",
+          "path": "/q",
+          "fixtures": [
+            {
+              "status": 200,
+              "body": {
+                "v": "q-new"
+              }
+            }
+          ]
+        },
+        {
+          "method": "GET",
+          "path": "/p",
+          "fixtures": [
+            {
+              "status": 200,
+              "body": {
+                "v": "p-new"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/p",
+      "seq": 53
+    },
+    {
+      "method": "GET",
+      "path": "/r",
+      "seq": 54
+    },
+    {
+      "method": "GET",
+      "path": "/p",
+      "seq": 55
+    },
+    {
+      "method": "GET",
+      "path": "/r",
+      "seq": 56
+    },
+    {
+      "method": "GET",
+      "path": "/q",
+      "seq": 57
+    }
+  ]
+}

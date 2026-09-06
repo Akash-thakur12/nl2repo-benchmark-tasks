@@ -1,0 +1,272 @@
+{
+  "s01": {
+    "breaking": [],
+    "bump": "minor",
+    "contributors": [
+      "Ana Ruiz",
+      "Bo Lindqvist"
+    ],
+    "errors": [],
+    "sections": [
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "add cursor pagination",
+            "pr": null,
+            "scope": "api",
+            "sha": "a000001",
+            "type": "feat"
+          }
+        ],
+        "title": "Features"
+      },
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "refresh the token before it expires",
+            "pr": null,
+            "scope": "auth",
+            "sha": "a000002",
+            "type": "fix"
+          }
+        ],
+        "title": "Bug Fixes"
+      }
+    ],
+    "skipped": [],
+    "version": "1.5.0"
+  },
+  "s02": {
+    "breaking": [],
+    "bump": "minor",
+    "contributors": [
+      "Ana Ruiz"
+    ],
+    "errors": [],
+    "sections": [
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "read the profile from the environment",
+            "pr": null,
+            "scope": "cli",
+            "sha": "a000003",
+            "type": "feat"
+          }
+        ],
+        "title": "Features"
+      }
+    ],
+    "skipped": [],
+    "version": "2.1.0"
+  },
+  "s03": {
+    "breaking": [],
+    "bump": "patch",
+    "contributors": [
+      "Ana Ruiz"
+    ],
+    "errors": [],
+    "sections": [
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "close the cursor on an empty result",
+            "pr": null,
+            "scope": "db",
+            "sha": "a000004",
+            "type": "fix"
+          }
+        ],
+        "title": "Bug Fixes"
+      }
+    ],
+    "skipped": [],
+    "version": "1.9.8"
+  },
+  "s04": {
+    "breaking": [],
+    "bump": "minor",
+    "contributors": [
+      "Ana Ruiz"
+    ],
+    "errors": [],
+    "sections": [
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "acknowledge in batches",
+            "pr": null,
+            "scope": "queue",
+            "sha": "a000010",
+            "type": "feat"
+          }
+        ],
+        "title": "Features"
+      }
+    ],
+    "skipped": [],
+    "version": "5.2.0"
+  },
+  "s05": {
+    "breaking": [],
+    "bump": "minor",
+    "contributors": [
+      "Ana Ruiz",
+      "Bo Lindqvist"
+    ],
+    "errors": [],
+    "sections": [
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "resume from the last acknowledged offset",
+            "pr": null,
+            "scope": "sync",
+            "sha": "a000005",
+            "type": "feat"
+          }
+        ],
+        "title": "Features"
+      },
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "stop retrying a permanent failure",
+            "pr": null,
+            "scope": "sync",
+            "sha": "a000006",
+            "type": "fix"
+          }
+        ],
+        "title": "Bug Fixes"
+      }
+    ],
+    "skipped": [],
+    "version": "1.1.0"
+  },
+  "s06": {
+    "breaking": [],
+    "bump": "minor",
+    "contributors": [
+      "Ana Ruiz",
+      "Bo Lindqvist",
+      "Cai Wen"
+    ],
+    "errors": [],
+    "sections": [
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "group rows by tenant",
+            "pr": null,
+            "scope": "report",
+            "sha": "a000007",
+            "type": "feat"
+          }
+        ],
+        "title": "Features"
+      },
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "round the totals once",
+            "pr": null,
+            "scope": "report",
+            "sha": "a000008",
+            "type": "fix"
+          }
+        ],
+        "title": "Bug Fixes"
+      },
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "stream the rows instead of buffering",
+            "pr": null,
+            "scope": "report",
+            "sha": "a000009",
+            "type": "perf"
+          }
+        ],
+        "title": "Performance"
+      }
+    ],
+    "skipped": [],
+    "version": "4.5.0"
+  },
+  "s07": {
+    "breaking": [],
+    "bump": "patch",
+    "contributors": [
+      "Ana Ruiz"
+    ],
+    "errors": [],
+    "sections": [
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "pin the toolchain",
+            "pr": null,
+            "scope": "build",
+            "sha": "a00000a",
+            "type": "fix"
+          }
+        ],
+        "title": "Bug Fixes"
+      }
+    ],
+    "skipped": [],
+    "version": "10.0.4"
+  },
+  "s08": {
+    "breaking": [],
+    "bump": "minor",
+    "contributors": [
+      "Ana Ruiz",
+      "Bo Lindqvist"
+    ],
+    "errors": [],
+    "sections": [
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "match on the tenant prefix",
+            "pr": null,
+            "scope": "search",
+            "sha": "a00000b",
+            "type": "feat"
+          }
+        ],
+        "title": "Features"
+      },
+      {
+        "entries": [
+          {
+            "breaking": false,
+            "description": "cache the compiled matcher",
+            "pr": null,
+            "scope": "search",
+            "sha": "a00000c",
+            "type": "perf"
+          }
+        ],
+        "title": "Performance"
+      }
+    ],
+    "skipped": [],
+    "version": "1.5.0"
+  }
+}

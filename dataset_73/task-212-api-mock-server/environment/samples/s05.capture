@@ -1,0 +1,23 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/orders/{id}/lines/{line}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "line": 1
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/orders/7/lines/2",
+      "seq": 5120
+    }
+  ]
+}

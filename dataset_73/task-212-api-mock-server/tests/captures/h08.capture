@@ -1,0 +1,35 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/users/me",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "by": "literal"
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "by": "param"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/users/me",
+      "seq": 1000
+    }
+  ]
+}

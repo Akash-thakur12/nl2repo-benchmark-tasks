@@ -1,0 +1,27 @@
+case_id,prices,cutoff,units,max_price_age_sessions,expected_nav,note
+cal-01,2025-01-03:102.00|2025-01-06:105.00,2025-01-04,10,,1050.00,Saturday cutoff
+cal-02,2025-01-06:105.00|2025-01-07:108.25,2025-01-06T16:00:00-05:00,100,,10500.00,exactly at the deadline
+cal-03,2025-01-06:105.00|2025-01-07:108.25,2025-01-06T16:00:01-05:00,100,,10825.00,one second after the deadline
+cal-04,2025-07-03:50.00|2025-07-07:52.00,2025-07-03T13:30:00-04:00,10,,520.00,early-close session
+cal-05,2025-07-03:50.00|2025-07-07:52.00,2025-07-03T13:00:00-04:00,10,,500.00,"early-close session, at the deadline"
+cal-06,2025-07-07:52.00|2025-07-08:60.00,2025-07-07T20:30:00+00:00,10,,600.00,instruction sent in UTC
+cal-07,2025-11-26:90.00|2025-11-28:91.00,2025-11-27,10,,910.00,Thanksgiving
+vin-01,master,2025-01-06,100,,10500.00,the day's own close
+vin-02,master,2025-01-07,100,,10600.00,replay of the 07 strike
+vin-03,master,2025-01-09,100,,10750.00,after the 08 correction
+vin-04,master,2025-01-02,10,,1000.00,before the back-dated restatement
+vin-05,master,2025-01-13,10,,1075.00,later dealing point; a newer price date is in force
+vin-06,master,2025-02-14,10,,800.00,vendor outage over Presidents' Day
+vin-07,master,2025-02-19,10,,840.00,"same engine, later dealing point"
+ca-01,master,2025-03-15,100,,3000.00,Saturday cutoff across an ex-date
+ca-02,master,2025-03-14,100,,6000.00,"same price, before the ex-date"
+ca-03,master,2025-04-01,100,,3050.00,price dated on the ex-date
+ca-04,master,2025-05-15,10,,1525.00,across a reverse split
+ca-05,master,2025-07-08,10,,600.00,announced action not yet effective
+rnd-01,master,2025-06-10,1000,,2718.30,publication scales
+rnd-02,master,2025-06-11,20000,,140002.00,publication scales
+rnd-03,master,2025-06-12,40000,,2222224.00,publication scales
+rnd-04,master,2025-06-13,10,,12.35,publication scales
+stale-01,master,2025-12-02,10,5,1200.00,age limit 5 sessions
+stale-02,master,2025-12-04,10,5,STALE,age limit 5 sessions
+stale-03,master,2024-12-27,10,,STALE,before the first record

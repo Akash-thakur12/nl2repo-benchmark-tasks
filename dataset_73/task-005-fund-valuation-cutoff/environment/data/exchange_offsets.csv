@@ -1,0 +1,6 @@
+start_date,end_date,utc_offset,note
+2024-03-10,2024-11-02,-04:00,Daylight saving in force
+2024-11-03,2025-03-08,-05:00,Standard time
+2025-03-09,2025-11-01,-04:00,Daylight saving in force
+2025-11-02,2026-03-07,-05:00,Standard time
+2026-03-08,2026-10-31,-04:00,Daylight saving in force

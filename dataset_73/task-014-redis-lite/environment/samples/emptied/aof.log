@@ -1,0 +1,3 @@
+["set", "keep", "1"]
+["lpush", "L", "x"]
+["rpop", "L"]

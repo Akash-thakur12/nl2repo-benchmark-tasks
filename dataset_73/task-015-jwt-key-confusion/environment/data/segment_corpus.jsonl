@@ -1,0 +1,25 @@
+{"segment": "eyJhbGciOiJSUzI1NiJ9", "verdict": "accept", "note": "canonical unpadded base64url header segment"}
+{"segment": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9", "verdict": "accept", "note": "canonical header, alg HS256; the encoding is fine, authorization is a later and separate check"}
+{"segment": "eyJzdWIiOiJ4In0", "verdict": "accept", "note": "canonical payload segment"}
+{"segment": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImF-In0", "verdict": "accept", "note": "urlsafe alphabet: contains '-', which is legal base64url"}
+{"segment": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImE_Yj5jIn0", "verdict": "accept", "note": "urlsafe alphabet: contains '_', which is legal base64url"}
+{"segment": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImF-Yj9jfmQ_In0", "verdict": "accept", "note": "several '-' and '_' characters, all legal"}
+{"segment": "__79_P_-_fz__v38__79_P_-_fw", "verdict": "accept", "note": "binary signature bytes, 20 bytes -> length 27, 27 mod 4 == 3"}
+{"segment": "c2ln", "verdict": "accept", "note": "4-character segment, length mod 4 == 0"}
+{"segment": "c2k", "verdict": "accept", "note": "3-character segment, length mod 4 == 3"}
+{"segment": "cw", "verdict": "accept", "note": "2-character segment, length mod 4 == 2"}
+{"segment": "", "verdict": "accept", "note": "empty segment: length 0, alphabet vacuously satisfied; it decodes to b'' and fails the later JSON check, which is a different rule"}
+{"segment": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImF+In0", "verdict": "reject-malformed", "note": "standard-alphabet encoding of the very same header: contains '+', which is not in the base64url alphabet"}
+{"segment": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImE/Yj5jIn0", "verdict": "reject-malformed", "note": "standard-alphabet encoding: contains '/', which is not in the base64url alphabet"}
+{"segment": "eyJhbGci*OiJSUzI1NiJ9", "verdict": "reject-malformed", "note": "'*' is not an alphabet character; a lax decoder silently discards it and yields a well-formed RS256 header"}
+{"segment": "eyJhbGciOiJSUzI1NiJ9=", "verdict": "reject-malformed", "note": "trailing '=' padding: segments are unpadded"}
+{"segment": "eyJhbGciOiJSUzI1Nn0==", "verdict": "reject-malformed", "note": "two trailing '=' padding characters"}
+{"segment": "eyJhbGciOiJSUzI1NiJ9\n", "verdict": "reject-malformed", "note": "trailing newline: segments are byte-exact, nothing is stripped"}
+{"segment": " eyJhbGciOiJSUzI1NiJ9", "verdict": "reject-malformed", "note": "leading space"}
+{"segment": "eyJhbGciOiJSUzI1 NiJ9", "verdict": "reject-malformed", "note": "embedded space"}
+{"segment": "eyJhbGciOiJSUzI1NiJ9\t", "verdict": "reject-malformed", "note": "trailing tab"}
+{"segment": "eyJhbGciOiJSUzI1NiJ9x", "verdict": "reject-malformed", "note": "length mod 4 == 1: no base64 encoding of any byte string has such a length"}
+{"segment": "QQQQQ", "verdict": "reject-malformed", "note": "length 5, i.e. mod 4 == 1"}
+{"segment": "eyJhbGci.OiJSUzI1NiJ9", "verdict": "reject-malformed", "note": "'.' is not an alphabet character"}
+{"segment": "eyJhbGciOiJSUzI1NiJ9%0A", "verdict": "reject-malformed", "note": "percent-encoding is not decoded; '%' is not an alphabet character"}
+{"segment": "aGVsbG8gd29ybGQh", "verdict": "accept", "note": "plain 16-character segment, length mod 4 == 0"}

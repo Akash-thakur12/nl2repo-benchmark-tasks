@@ -1,0 +1,5 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "new-nav", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "country", "operator": "in", "values": ["IN", "SG"], "variant": "on"}], "salt": "s-new-nav", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "new-nav", "op": "evaluate", "t": 2, "user": {"country": "IN", "key": "u1"}}
+{"flag": "new-nav", "op": "evaluate", "t": 3, "user": {"country": "SG", "key": "u2"}}
+{"flag": "new-nav", "op": "evaluate", "t": 4, "user": {"country": "US", "key": "u3"}}
+{"op": "end", "t": 5}

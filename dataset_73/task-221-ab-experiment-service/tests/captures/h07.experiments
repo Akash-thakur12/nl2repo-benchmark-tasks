@@ -1,0 +1,33 @@
+{"op": "config", "salt": "2026-Q1"}
+{"exclude": ["staff-0001", "staff-0002", "staff-0003", "staff-0004", "staff-0005", "staff-0006", "staff-0007", "staff-0008", "staff-0009", "staff-0010"], "key": "no-staff", "op": "experiment", "state": "running", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "no-staff", "op": "assign", "user": "staff-0001"}
+{"experiment": "no-staff", "op": "assign", "user": "staff-0002"}
+{"experiment": "no-staff", "op": "assign", "user": "staff-0003"}
+{"experiment": "no-staff", "op": "assign", "user": "staff-0004"}
+{"experiment": "no-staff", "op": "assign", "user": "staff-0005"}
+{"experiment": "no-staff", "op": "assign", "user": "staff-0006"}
+{"experiment": "no-staff", "op": "assign", "user": "staff-0007"}
+{"experiment": "no-staff", "op": "assign", "user": "staff-0008"}
+{"experiment": "no-staff", "op": "assign", "user": "staff-0009"}
+{"experiment": "no-staff", "op": "assign", "user": "staff-0010"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0001"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0002"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0003"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0004"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0005"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0006"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0007"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0008"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0009"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0010"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0011"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0012"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0013"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0014"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0015"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0016"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0017"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0018"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0019"}
+{"experiment": "no-staff", "op": "assign", "user": "u-0020"}
+{"op": "end"}

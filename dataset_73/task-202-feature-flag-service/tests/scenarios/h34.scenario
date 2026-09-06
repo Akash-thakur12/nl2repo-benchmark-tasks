@@ -1,0 +1,5 @@
+{"flag": {"default_variant": "on", "enabled": true, "key": "a", "off_variant": "shut", "prerequisites": [{"flag": "b", "variant": "on"}], "rules": [], "salt": "s-a", "variants": ["on", "shut"]}, "op": "define", "t": 1}
+{"flag": {"default_variant": "on", "enabled": true, "key": "b", "off_variant": "on", "prerequisites": [{"flag": "a", "variant": "on"}], "rules": [], "salt": "s-b", "variants": ["on", "off"]}, "op": "define", "t": 2}
+{"flag": "a", "op": "evaluate", "t": 3, "user": {"key": "u1"}}
+{"flag": "b", "op": "evaluate", "t": 4, "user": {"key": "u1"}}
+{"op": "end", "t": 5}

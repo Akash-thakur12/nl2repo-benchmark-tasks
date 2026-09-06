@@ -1,0 +1,13 @@
+# Rollover era anchors used by this receiver family.
+#
+# era_base_week  the week index at which the era begins, in the receiver's
+#                internal (untruncated) week numbering
+# anchor_date    the calendar date of day 0 of that week. Day 0 of a GPS week
+#                is a Sunday, and every anchor date below is a Sunday.
+# spacing        eras tile at exactly 1024 weeks (7168 days)
+#
+# The receiver's internal week 0 is the era-0 anchor, NOT the 1980 GPS epoch.
+era_base_week,anchor_date,day_of_week,note
+0,1999-08-22,Sunday,first modelled 10-bit rollover
+1024,2019-04-07,Sunday,second 10-bit rollover
+2048,2038-11-21,Sunday,third 10-bit rollover (projected)

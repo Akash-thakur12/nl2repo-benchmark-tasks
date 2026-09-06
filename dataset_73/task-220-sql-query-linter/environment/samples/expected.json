@@ -1,0 +1,163 @@
+{
+  "s01": {
+    "errors": [],
+    "queries": [
+      {
+        "counts": {
+          "error": 0,
+          "style": 0,
+          "warning": 0
+        },
+        "name": "orders",
+        "violations": []
+      }
+    ],
+    "totals": {
+      "error": 0,
+      "style": 0,
+      "warning": 0
+    }
+  },
+  "s02": {
+    "errors": [],
+    "queries": [
+      {
+        "counts": {
+          "error": 0,
+          "style": 0,
+          "warning": 0
+        },
+        "name": "joined",
+        "violations": []
+      }
+    ],
+    "totals": {
+      "error": 0,
+      "style": 0,
+      "warning": 0
+    }
+  },
+  "s03": {
+    "errors": [],
+    "queries": [
+      {
+        "counts": {
+          "error": 0,
+          "style": 0,
+          "warning": 0
+        },
+        "name": "grouped",
+        "violations": []
+      }
+    ],
+    "totals": {
+      "error": 0,
+      "style": 0,
+      "warning": 0
+    }
+  },
+  "s04": {
+    "errors": [],
+    "queries": [
+      {
+        "counts": {
+          "error": 0,
+          "style": 0,
+          "warning": 0
+        },
+        "name": "two_statements",
+        "violations": []
+      }
+    ],
+    "totals": {
+      "error": 0,
+      "style": 0,
+      "warning": 0
+    }
+  },
+  "s05": {
+    "errors": [],
+    "queries": [
+      {
+        "counts": {
+          "error": 0,
+          "style": 0,
+          "warning": 0
+        },
+        "name": "wide",
+        "violations": []
+      }
+    ],
+    "totals": {
+      "error": 0,
+      "style": 0,
+      "warning": 0
+    }
+  },
+  "s06": {
+    "errors": [],
+    "queries": [
+      {
+        "counts": {
+          "error": 0,
+          "style": 0,
+          "warning": 0
+        },
+        "name": "nested_joins",
+        "violations": []
+      }
+    ],
+    "totals": {
+      "error": 0,
+      "style": 0,
+      "warning": 0
+    }
+  },
+  "s07": {
+    "errors": [],
+    "queries": [
+      {
+        "counts": {
+          "error": 0,
+          "style": 0,
+          "warning": 0
+        },
+        "name": "one",
+        "violations": []
+      },
+      {
+        "counts": {
+          "error": 0,
+          "style": 0,
+          "warning": 0
+        },
+        "name": "two",
+        "violations": []
+      }
+    ],
+    "totals": {
+      "error": 0,
+      "style": 0,
+      "warning": 0
+    }
+  },
+  "s08": {
+    "errors": [],
+    "queries": [
+      {
+        "counts": {
+          "error": 0,
+          "style": 0,
+          "warning": 0
+        },
+        "name": "ordered",
+        "violations": []
+      }
+    ],
+    "totals": {
+      "error": 0,
+      "style": 0,
+      "warning": 0
+    }
+  }
+}

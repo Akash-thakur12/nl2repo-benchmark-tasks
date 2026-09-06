@@ -1,0 +1,11 @@
+{
+  "note": "sst_000011 is the output of a minor compaction that ran while sst_000007 was already the base of the store; a=1 lives in the base",
+  "reads": {
+    "a": null,
+    "b": "2",
+    "c": "3",
+    "z": "26"
+  },
+  "size": 3,
+  "segment_count": 2
+}

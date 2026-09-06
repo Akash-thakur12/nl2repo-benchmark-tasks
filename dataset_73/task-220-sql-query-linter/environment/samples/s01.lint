@@ -1,0 +1,3 @@
+{"op": "config"}
+{"name": "orders", "op": "query", "sql": "SELECT total\nFROM orders\nWHERE total > 0"}
+{"op": "end"}

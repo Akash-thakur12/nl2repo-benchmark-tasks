@@ -1,0 +1,28 @@
+from __future__ import annotations
+
+TAG_PATIENT_NAME = (0x0010, 0x0010)
+TAG_STUDY_DATE = (0x0008, 0x0020)
+TAG_MODALITY = (0x0008, 0x0060)
+TAG_STUDY_UID = (0x0020, 0x000D)
+
+# Friendly names for the tags this parser surfaces.
+TAG_NAMES = {
+    (0x0008, 0x0020): "study_date",
+    (0x0008, 0x0030): "study_time",
+    (0x0008, 0x0060): "modality",
+    (0x0010, 0x0010): "patient_name",
+    (0x0010, 0x0020): "patient_id",
+    (0x0010, 0x0030): "patient_birth_date",
+    (0x0020, 0x000D): "study_uid",
+    (0x0020, 0x000E): "series_uid",
+    (0x0028, 0x0010): "rows",
+    (0x0028, 0x0011): "columns",
+}
+
+# Implicit-VR fallback dictionary (a small, representative subset).
+IMPLICIT_VR = {
+    (0x0008, 0x0020): "DA", (0x0008, 0x0030): "TM", (0x0008, 0x0060): "CS",
+    (0x0010, 0x0010): "PN", (0x0010, 0x0020): "LO", (0x0010, 0x0030): "DA",
+    (0x0020, 0x000D): "UI", (0x0020, 0x000E): "UI",
+    (0x0028, 0x0010): "US", (0x0028, 0x0011): "US",
+}

@@ -1,0 +1,4 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "zero-weight", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "plan", "operator": "in", "rollout": [{"variant": "on", "weight": 0}, {"variant": "off", "weight": 10000}], "values": ["pro"]}], "salt": "s-zero-weight", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "zero-weight", "op": "evaluate", "t": 2, "user": {"key": "u1", "plan": "pro"}}
+{"flag": "zero-weight", "op": "evaluate", "t": 3, "user": {"key": "u2", "plan": "pro"}}
+{"op": "end", "t": 4}

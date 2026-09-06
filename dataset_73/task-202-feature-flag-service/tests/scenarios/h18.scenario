@@ -1,0 +1,5 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "swap", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "plan", "operator": "in", "values": ["pro"], "variant": "on"}], "salt": "s-swap", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "swap", "op": "evaluate", "t": 2, "user": {"key": "u1", "plan": "pro"}}
+{"flag": {"default_variant": "off", "enabled": false, "key": "swap", "off_variant": "off", "prerequisites": [], "rules": [], "salt": "s-swap", "variants": ["on", "off"]}, "op": "update", "t": 3}
+{"flag": "swap", "op": "evaluate", "t": 4, "user": {"key": "u1", "plan": "pro"}}
+{"op": "end", "t": 5}

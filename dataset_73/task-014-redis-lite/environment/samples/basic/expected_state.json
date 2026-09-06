@@ -1,0 +1,12 @@
+{
+  "strings": {
+    "greeting": "hello"
+  },
+  "lists": {
+    "jobs": [
+      "b",
+      "a"
+    ]
+  },
+  "note": "captured from the legacy service with `redis-lite dump` after a clean restart"
+}

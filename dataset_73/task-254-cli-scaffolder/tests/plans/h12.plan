@@ -1,0 +1,22 @@
+{
+  "answers": {
+    "count": 0,
+    "flag": false
+  },
+  "template": {
+    "files": [
+      {
+        "content": "{{flag}}|{{count}}",
+        "path": "a.txt"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "flag"
+      },
+      {
+        "name": "count"
+      }
+    ]
+  }
+}

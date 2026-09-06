@@ -1,0 +1,29 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "beta"
+  ],
+  "lines": [
+    {
+      "id": "u1",
+      "kind": "usage",
+      "day": 5,
+      "team": "omega",
+      "cents": 250
+    },
+    {
+      "id": "u2",
+      "kind": "usage",
+      "day": 5,
+      "team": "alpha",
+      "cents": 100
+    }
+  ],
+  "renamed_from": {
+    "omega": "delta"
+  }
+}

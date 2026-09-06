@@ -1,0 +1,17 @@
+{"record": "header", "gateway_version": "4.3", "trace": "trace-05-downgrade", "config": {"policies": "reference/policies.json"}, "note": "buckets left idle across control-plane edges in both directions"}
+{"record": "decision", "op": "allow", "t": 1735690740.0, "key": "acme:10.0.0.30", "cost": 4, "decision": true, "tokens_after": 1.0}
+{"record": "probe", "op": "tokens", "t": 1735690830.0, "key": "acme:10.0.0.30", "tokens_after": 3.7}
+{"record": "decision", "op": "allow", "t": 1735690700.0, "key": "acme:10.0.0.33", "cost": 5, "decision": true, "tokens_after": 0.0}
+{"record": "probe", "op": "tokens", "t": 1735690900.0, "key": "acme:10.0.0.33", "tokens_after": 7.0}
+{"record": "decision", "op": "allow", "t": 1735690900.0, "key": "acme:10.0.0.33", "cost": 20, "decision": false, "tokens_after": 7.0}
+{"record": "decision", "op": "allow", "t": 1735689960.0, "key": "acme:10.0.0.31", "cost": 6, "decision": true, "tokens_after": 14.0}
+{"record": "probe", "op": "tokens", "t": 1735690820.0, "key": "acme:10.0.0.31", "tokens_after": 6.0}
+{"record": "decision", "op": "allow", "t": 1735689960.0, "key": "acme:10.0.0.32", "cost": 6, "decision": true, "tokens_after": 14.0}
+{"record": "probe", "op": "tokens", "t": 1735690860.0, "key": "acme:10.0.0.32", "tokens_after": 8.0}
+{"record": "decision", "op": "allow", "t": 1735691300.0, "key": "globex:10.0.0.40", "cost": 8, "decision": true, "tokens_after": 1.0}
+{"record": "probe", "op": "tokens", "t": 1735691500.0, "key": "globex:10.0.0.40", "tokens_after": 3.0}
+{"record": "decision", "op": "allow", "t": 1735691500.0, "key": "globex:10.0.0.42", "cost": 10, "decision": false, "tokens_after": 3.0}
+{"record": "decision", "op": "allow", "t": 1735689890.0, "key": "zeta:9", "cost": 9, "decision": true, "tokens_after": 1.0}
+{"record": "probe", "op": "tokens", "t": 1735689910.0, "key": "zeta:9", "tokens_after": 4.0}
+{"record": "probe", "op": "tokens", "t": 1735689890.0, "key": "zeta:11", "tokens_after": 10.0}
+{"record": "probe", "op": "tokens", "t": 1735689900.0, "key": "zeta:11", "tokens_after": 4.0}

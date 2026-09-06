@@ -1,0 +1,5 @@
+{"chunk_size": 100, "end": 1300, "max_attempts": 3, "max_chunks_per_window": 10, "op": "config", "outcomes": ["ok", "ok", "ok"], "start": 1000, "window_seconds": 60}
+{"op": "attempt", "t": 10}
+{"op": "attempt", "t": 20}
+{"op": "attempt", "t": 30}
+{"op": "end", "t": 100}

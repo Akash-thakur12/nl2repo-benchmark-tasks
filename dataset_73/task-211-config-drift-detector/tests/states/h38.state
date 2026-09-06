@@ -1,0 +1,30 @@
+{
+  "declared": [
+    {
+      "id": "zebra",
+      "body": {
+        "k": "1"
+      }
+    },
+    {
+      "id": "alpha",
+      "body": {
+        "k": "1"
+      }
+    }
+  ],
+  "live": [
+    {
+      "id": "zebra",
+      "body": {
+        "k": "2"
+      }
+    },
+    {
+      "id": "alpha",
+      "body": {
+        "k": "2"
+      }
+    }
+  ]
+}

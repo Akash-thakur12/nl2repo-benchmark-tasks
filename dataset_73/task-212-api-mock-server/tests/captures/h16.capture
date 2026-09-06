@@ -1,0 +1,38 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/a",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          }
+        }
+      ],
+      "query": [
+        {
+          "name": "page",
+          "type": "int",
+          "required": true
+        },
+        {
+          "name": "verbose",
+          "type": "bool",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/a",
+      "seq": 1000,
+      "query": {
+        "page": "1.5"
+      }
+    }
+  ]
+}

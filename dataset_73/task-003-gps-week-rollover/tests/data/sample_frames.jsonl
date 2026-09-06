@@ -1,0 +1,24 @@
+{"id": "F001", "ref": "2026-01-01", "source": "lnav", "raw_week": 282, "tow_count": 1, "current_week": null, "expected_utc": "2024-08-31T23:59:42", "note": "mid-corpus ephemeris frame"}
+{"id": "F002", "ref": "2026-01-01", "source": "lnav", "raw_week": 282, "tow_count": 0, "current_week": null, "expected_utc": "2024-09-07T23:59:36", "note": "HOW count wraps to zero"}
+{"id": "F003", "ref": "2026-01-01", "source": "lnav", "raw_week": 282, "tow_count": 50000, "current_week": null, "expected_utc": "2024-09-04T11:19:36", "note": "adjacent subframe A"}
+{"id": "F004", "ref": "2026-01-01", "source": "lnav", "raw_week": 282, "tow_count": 50001, "current_week": null, "expected_utc": "2024-09-04T11:19:42", "note": "adjacent subframe B"}
+{"id": "F005", "ref": "2026-01-01", "source": "lnav", "raw_week": 282, "tow_count": 14400, "current_week": null, "expected_utc": "2024-09-01T23:59:36", "note": "day boundary"}
+{"id": "F006", "ref": "2026-01-01", "source": "lnav", "raw_week": 351, "tow_count": 43200, "current_week": null, "expected_utc": "2006-05-16T23:59:40", "note": "era grace boundary"}
+{"id": "F007", "ref": "2019-04-07", "source": "lnav", "raw_week": 0, "tow_count": 1, "current_week": null, "expected_utc": "1999-08-21T23:59:47", "note": "era-0 anchor, ref on the era-1 anchor"}
+{"id": "F008", "ref": "2026-01-01", "source": "cnav", "raw_week": 199, "tow_count": 1, "current_week": null, "expected_utc": "2003-06-14T23:59:47", "note": "cnav 2003"}
+{"id": "F009", "ref": "2026-01-01", "source": "cnav", "raw_week": 500, "tow_count": 1, "current_week": null, "expected_utc": "2009-03-21T23:59:45", "note": "cnav 2009"}
+{"id": "F010", "ref": "2026-01-01", "source": "cnav", "raw_week": 906, "tow_count": 1, "current_week": null, "expected_utc": "2016-12-31T23:59:43", "note": "cnav leap boundary"}
+{"id": "F011", "ref": "2026-01-01", "source": "bdt", "raw_week": 500, "tow_count": 43200, "current_week": null, "expected_utc": "2015-08-04T23:59:51", "note": "bdt mid-week"}
+{"id": "F012", "ref": "2026-01-01", "source": "almanac", "raw_week": 20, "tow_count": 43200, "current_week": 1370, "expected_utc": "2024-07-23T23:59:36", "note": "almanac, floor and nearest agree"}
+{"id": "F013", "ref": "2026-01-01", "source": "lnav", "raw_week": 100, "tow_count": 43200, "current_week": null, "expected_utc": "2021-03-09T23:59:36", "note": "lnav mid-week"}
+{"id": "F014", "ref": "2026-01-01", "source": "lnav", "raw_week": 200, "tow_count": 30000, "current_week": null, "expected_utc": "2023-02-07T01:59:36", "note": "lnav mid-week"}
+{"id": "F015", "ref": "2026-01-01", "source": "lnav", "raw_week": 300, "tow_count": 60000, "current_week": null, "expected_utc": "2025-01-09T03:59:36", "note": "lnav mid-week"}
+{"id": "F016", "ref": "2026-01-01", "source": "cnav", "raw_week": 199, "tow_count": 14403, "current_week": null, "expected_utc": "2003-06-15T23:59:59", "note": "cnav first day boundary"}
+{"id": "F017", "ref": "2026-01-01", "source": "lnav", "raw_week": 340, "tow_count": 12345, "current_week": null, "expected_utc": "2025-10-12T20:34:06", "note": "lnav mid-week"}
+{"id": "F018", "ref": "2026-01-01", "source": "cnav", "raw_week": 1200, "tow_count": 43200, "current_week": null, "expected_utc": "2022-08-23T23:59:36", "note": "cnav mid-week"}
+{"id": "F019", "ref": "2026-01-01", "source": "cnav", "raw_week": 1301, "tow_count": 21600, "current_week": null, "expected_utc": "2024-07-29T11:59:36", "note": "cnav mid-week"}
+{"id": "F020", "ref": "2026-01-01", "source": "bdt", "raw_week": 300, "tow_count": 50000, "current_week": null, "expected_utc": "2011-10-05T11:19:53", "note": "bdt mid-week"}
+{"id": "F021", "ref": "2026-01-01", "source": "bdt", "raw_week": 700, "tow_count": 20000, "current_week": null, "expected_utc": "2019-06-03T09:19:50", "note": "bdt mid-week"}
+{"id": "F022", "ref": "2026-01-01", "source": "almanac", "raw_week": 20, "tow_count": 7200, "current_week": 1300, "expected_utc": "2024-07-21T11:59:36", "note": "almanac benign"}
+{"id": "F023", "ref": "2026-01-01", "source": "lnav", "raw_week": 282, "tow_count": 7200, "current_week": null, "expected_utc": "2024-09-01T11:59:36", "note": "lnav mid-week"}
+{"id": "F024", "ref": "2026-01-01", "source": "lnav", "raw_week": 282, "tow_count": 90000, "current_week": null, "expected_utc": "2024-09-07T05:59:36", "note": "lnav late week"}

@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/png-decoder"
+version = "1.0.0"
+description = "ISO 15948 PNG decoder: 8-byte signature, chunk dissection with per-chunk CRC-32, IHDR field parse, IDAT concat + zlib inflate, undo the 5 scanline filters (None/Sub/Up/Average/Paeth) and reconstruct pixels for 8-bit grey/RGB/RGBA non-interlaced images. Enforces IHDR-first / IEND-last / contiguous-IDAT ordering."
+keywords = [
+    "hard",
+    "png",
+    "scanline-filters",
+    "chunk-validation",
+]
+
+[metadata]
+benchmark_style = "SWE-Marathon"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct implementation of the ISO 15948 PNG format, including all five scanline filter types."
+differentiation_notes = "Average/Paeth filter reconstruction at row/column boundaries and chunk-ordering enforcement are both rules that well-behaved test images never exercise by accident."
+relevance = "PNG decoder robustness is a real security and correctness requirement given how widely PNG parsers process untrusted image data."
+failure_cruxes = [
+    "Average/Paeth filter reconstruction using an undefined prior-pixel value at the first row/column instead of treating it as zero.",
+    "Not enforcing IHDR-first / IEND-last / contiguous-IDAT chunk ordering, silently accepting a structurally invalid PNG stream.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

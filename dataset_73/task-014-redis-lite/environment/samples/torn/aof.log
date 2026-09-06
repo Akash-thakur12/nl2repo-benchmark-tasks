@@ -1,0 +1,9 @@
+["set", "session:1", "alpha"]
+["lpush", "queue", "job-1"]
+["lpush", "queue", "job-2"]
+["rpop", "queue"]
+["set", "session:2", "beta"]
+["del", "session:1"]
+["lpush", "queue", "job-3"]
+["set", "snapshot:etag", "4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4f8a1c4"]
+["set", "z", "12

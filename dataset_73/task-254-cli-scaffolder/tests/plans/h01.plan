@@ -1,0 +1,22 @@
+{
+  "answers": {
+    "name": "acme"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "{{license}} for {{name}}\n",
+        "path": "LICENSE"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      },
+      {
+        "default": "MIT",
+        "name": "license"
+      }
+    ]
+  }
+}

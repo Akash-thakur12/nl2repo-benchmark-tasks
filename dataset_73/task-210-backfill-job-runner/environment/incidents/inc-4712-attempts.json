@@ -1,0 +1,95 @@
+{
+  "incident": "INC-4712",
+  "job": "orders.enriched_at backfill",
+  "source": "api-gateway chunk-attempt log, exported 2026-03-14",
+  "note": "Every chunk attempt the gateway saw for this job, in order. t is the wall-second: the gateway has one clock and does not care which runner process was asking. throttle_events is how many requests it refused for rate. The gateway never sees an attempt the runner decided not to make.",
+  "attempts": [
+    {
+      "t": 600,
+      "from": 0,
+      "to": 100,
+      "outcome": "fail"
+    },
+    {
+      "t": 620,
+      "from": 0,
+      "to": 100,
+      "outcome": "ok"
+    },
+    {
+      "t": 630,
+      "from": 100,
+      "to": 140,
+      "outcome": "ok"
+    },
+    {
+      "t": 640,
+      "from": 140,
+      "to": 180,
+      "outcome": "fail"
+    },
+    {
+      "t": 710,
+      "from": 140,
+      "to": 200,
+      "outcome": "fail"
+    },
+    {
+      "t": 810,
+      "from": 140,
+      "to": 200,
+      "outcome": "fail"
+    },
+    {
+      "t": 910,
+      "from": 140,
+      "to": 200,
+      "outcome": "fail"
+    },
+    {
+      "t": 1010,
+      "from": 140,
+      "to": 200,
+      "outcome": "fail"
+    },
+    {
+      "t": 1020,
+      "from": 140,
+      "to": 200,
+      "outcome": "ok"
+    },
+    {
+      "t": 1030,
+      "from": 200,
+      "to": 300,
+      "outcome": "ok"
+    },
+    {
+      "t": 1110,
+      "from": 300,
+      "to": 400,
+      "outcome": "ok"
+    },
+    {
+      "t": 1210,
+      "from": 600,
+      "to": 700,
+      "outcome": "ok"
+    },
+    {
+      "t": 1250,
+      "from": 700,
+      "to": 800,
+      "outcome": "ok"
+    },
+    {
+      "t": 1260,
+      "from": 800,
+      "to": 900,
+      "outcome": "ok"
+    }
+  ],
+  "throttle_events": 1,
+  "final_checkpoint": 900,
+  "halted": false
+}

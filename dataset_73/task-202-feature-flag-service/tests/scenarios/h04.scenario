@@ -1,0 +1,3 @@
+{"flag": {"default_variant": "on", "enabled": true, "key": "dependent", "off_variant": "off", "prerequisites": [{"flag": "absent", "variant": "on"}], "rules": [], "salt": "s-dependent", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "dependent", "op": "evaluate", "t": 2, "user": {"key": "u1"}}
+{"op": "end", "t": 3}

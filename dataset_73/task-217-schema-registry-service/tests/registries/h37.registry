@@ -1,0 +1,6 @@
+{"default_compatibility": "NONE", "op": "config"}
+{"op": "register", "schema": [{"name": "id", "type": "int"}, {"name": "total", "type": "long"}], "subject": "t"}
+{"op": "register", "schema": [{"name": "id", "type": "int"}, {"name": "total", "type": "long"}, {"default": "", "name": "note", "type": "string"}], "subject": "t"}
+{"op": "delete_version", "subject": "t", "version": 1}
+{"op": "lookup", "schema": [{"name": "id", "type": "int"}, {"name": "total", "type": "long"}], "subject": "t"}
+{"op": "end"}

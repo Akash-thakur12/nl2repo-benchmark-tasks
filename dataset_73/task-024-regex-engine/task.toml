@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/regex-engine"
+version = "1.0.0"
+description = "Recursive-descent regex parser -> Thompson NFA -> linear-time NFA simulation (no catastrophic backtracking). Literals, ., classes [a-z]/[^..], groups, alternation |, quantifiers *+?, anchors ^$. Unanchored search."
+keywords = [
+    "hard",
+    "regex-engine",
+    "nfa-simulation",
+    "parser-construction",
+]
+
+[metadata]
+benchmark_style = "RepoZero"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models the real Thompson-NFA construction technique used to avoid catastrophic regex backtracking."
+differentiation_notes = "A backtracking implementation passes every normal test case identically to an NFA-based one, and only diverges (via a timeout) on a specifically adversarial pattern."
+relevance = "Catastrophic regex backtracking (ReDoS) is a real, documented denial-of-service vulnerability class."
+failure_cruxes = [
+    "A backtracking implementation instead of Thompson-NFA simulation, causing catastrophic exponential blowup on a pattern like `(a*)*b`.",
+    "Treating an escaped metacharacter (`\\.`, `\\*`) as its special regex meaning instead of a literal character.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

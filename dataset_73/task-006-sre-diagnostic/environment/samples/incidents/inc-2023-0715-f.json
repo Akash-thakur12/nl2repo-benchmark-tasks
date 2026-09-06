@@ -1,0 +1,27 @@
+{
+  "incident_id": "inc-2023-0715-f",
+  "host": "batch-02",
+  "note": "Pager fired, on-call grabbed a window, but the capture was cut short when the host was cordoned.",
+  "collector_note": "only 18 seconds of coverage",
+  "samples_in_arrival_order": [
+    {
+      "t": 1689379200,
+      "cpu_util_pct": 20,
+      "mem_util_pct": 50,
+      "disk_io_ops_total": 500,
+      "net_bytes_total": 2000,
+      "gc_pause_ms_total": 300
+    },
+    {
+      "t": 1689379218,
+      "cpu_util_pct": 95,
+      "mem_util_pct": 60,
+      "disk_io_ops_total": 700,
+      "net_bytes_total": 2100,
+      "gc_pause_ms_total": 900
+    }
+  ],
+  "recorded_verdict": {
+    "cause": "INSUFFICIENT_DATA"
+  }
+}

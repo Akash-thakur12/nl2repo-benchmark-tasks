@@ -1,0 +1,26 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "beta"
+  ],
+  "lines": [
+    {
+      "id": "h1",
+      "kind": "shared",
+      "day": 5,
+      "cents": 101
+    }
+  ],
+  "shared_weights": {
+    "alpha": 1,
+    "bravo": 2,
+    "beta": 1
+  },
+  "renamed_from": {
+    "bravo": "beta"
+  }
+}

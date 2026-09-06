@@ -1,0 +1,118 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/batch-image-pipeline"
+version = "1.0.0"
+description = "Build a batch image pipeline planner: EXIF orientation settled before anything else, three fits with half-up rounding and a one-pixel floor, an all-or-nothing no-upscale rule, crops that trim or fall off the edge, alpha, frames and quality warnings, and output names that can collide."
+keywords = [
+    "hard",
+    "images",
+    "pipeline",
+    "exif",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "media-processing"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+solution_explanation = """
+Treat `/app/docs/pipeline-spec.md` as a specification and implement it literally, then
+parse the manifest described by `/app/docs/manifest-format.md` and drive the model with it.
+No image data is read; every decision comes from the manifest.
+
+A source's EXIF orientation is settled before anything else: four of the eight values mean
+the stored width and height are the wrong way round, and everything after that - the
+minimum size check, the crop, the resize - works on the corrected lengths. A source below
+the configured minimum in either direction is skipped there and then, before the pipeline
+can record anything about it.
+
+The operations run in order, each on the size the one before produced. A crop is trimmed to
+the edge when it overhangs, but if its origin is at or past an edge there is nothing left
+and the source is dropped. A resize with both lengths given either takes them as they are
+for `fill`, or scales by the smaller or larger of the two ratios for `contain` and `cover`;
+with one length given the other follows the current aspect ratio. Every derived length is
+rounded to the nearest pixel with a half going up and is never less than one. The
+no-upscale rule is all or nothing: if either derived length would grow, the resize does not
+happen at all rather than happening in one dimension.
+
+A convert resolves `auto` to the source's own format, then loses alpha to JPEG once,
+drops frames to anything but GIF once, and warns about a quality setting only when the
+target format is lossless. The output name is the source's stem, the final size, and the
+extension of the final format - `jpg` for JPEG. A name already taken means the later source
+is dropped, and the warnings it recorded before that still stand.
+"""
+
+verification_explanation = """
+Nine atomic tests, one per numbered success criterion in `instruction.md`.
+
+Ground truth is not hardcoded. `tests/reference_pipeline.py` replays the forty-two held-out
+manifests in `tests/manifests` at verify time and the expected report is derived from that
+run. Both the reference model and the held-out manifests are removed from `/tests` before
+the candidate's tool is invoked, and the tool is run from a temporary directory over a copy
+of the manifests, so it cannot read the answers out of the verifier's own files.
+
+The candidate is exercised only through its documented command line. Nothing in the tests
+imports its code, so the repository may be laid out however its author likes.
+
+Every comparison is exact equality, and one test additionally checks the report against
+itself: that each source is accounted for at most once across the outputs and the skips,
+that no two outputs share a name, and that every width and height is a positive integer.
+There is no tolerance to calibrate and none would be appropriate: every length is a whole
+number of pixels fully determined by the rounding rule in `/app/docs/pipeline-spec.md`.
+
+The corpus itself is checked by `tools/check_shortcuts.py`, which mutates the reference
+model into thirty-two plausible near-miss implementations and asserts that each one still
+reproduces `samples/expected.json` exactly and is still caught by at least one held-out
+manifest. `tools/make_manifests.py` regenerates the whole corpus, including
+`expected.json`, from the reference model. Neither script ships in the agent image.
+"""
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. The asset pipeline reprocesses a few hundred thousand images a night and we learn it is wrong from the website: once every portrait photograph came out stretched because something measured them before reading the EXIF orientation, once two products shared a thumbnail because their filenames differed only by extension."
+differentiation_notes = "The eight visible samples come from batches of well-behaved photographs: upright, opaque, single-frame WebP, all four by three, resized into a smaller box of exactly the same shape, with no crop, no conversion, no minimum size and no two names that could collide. Under those conditions no length is ever rounded, nothing is ever enlarged, every fit agrees, and the extension is the format's own name. Thirty-two plausible readings of the specification reproduce expected.json exactly. tools/check_shortcuts.py enumerates all thirty-two and asserts each still reproduces the samples and is still caught by at least one of the forty-two held-out captures, so the difficulty is demonstrated rather than asserted."
+relevance = "Deciding what an image becomes before touching a pixel is how these pipelines are actually built: it is what makes a dry run possible, what makes a name collision findable, and what turns an EXIF orientation bug from a re-encode of the whole library into a one-line fix."
+failure_cruxes = [
+    "Taking the stored dimensions as they are, or turning the wrong set of EXIF orientations.",
+    "Reading the minimum source size as a size to exceed, or requiring both dimensions to be under it, or checking it after the pipeline has already recorded warnings.",
+    "Taking a crop box past the edge instead of trimming it, or calling any overhanging box out of bounds, or letting the origin sit exactly on the far edge.",
+    "Applying every operation to the size the source arrived at rather than to what the operation before produced.",
+    "Having contain and cover the wrong way round, or refusing to distort for fill.",
+    "Truncating instead of rounding, rounding a half to the even neighbour, always rounding up, or letting a length round down to nothing.",
+    "Holding back only the dimension that would grow, rather than abandoning the whole resize.",
+    "Ignoring the upscale flag altogether.",
+    "Reading auto as a fixed format rather than the source's own.",
+    "Warning about the alpha channel more than once, or for a target that keeps it.",
+    "Warning about frames when the target is a format that keeps them, or warning again after they have already been dropped.",
+    "Deciding whether quality applies from the format the image arrived in rather than the one it is going to.",
+    "Naming the file after the format, so a JPEG ends in .jpeg.",
+    "Cutting the name at its first dot, or assuming every name has an extension.",
+    "Letting a later output overwrite an earlier one of the same name, or writing both, or skipping it without recording the collision.",
+    "Throwing away the warnings a source recorded before a later step skipped it.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

@@ -1,0 +1,24 @@
+date,status,note
+2024-01-01,HOLIDAY,New Year's Day
+2024-07-03,EARLY,Day before Independence Day
+2024-07-04,HOLIDAY,Independence Day
+2024-11-28,HOLIDAY,Thanksgiving
+2024-11-29,EARLY,Day after Thanksgiving
+2024-12-24,EARLY,Christmas Eve
+2024-12-25,HOLIDAY,Christmas Day
+2025-01-01,HOLIDAY,New Year's Day
+2025-01-20,HOLIDAY,Martin Luther King Jr. Day
+2025-02-17,HOLIDAY,Presidents' Day
+2025-04-18,HOLIDAY,Good Friday
+2025-05-26,HOLIDAY,Memorial Day
+2025-06-19,HOLIDAY,Juneteenth
+2025-07-03,EARLY,Day before Independence Day
+2025-07-04,HOLIDAY,Independence Day
+2025-09-01,HOLIDAY,Labor Day
+2025-11-27,HOLIDAY,Thanksgiving
+2025-11-28,EARLY,Day after Thanksgiving
+2025-12-24,EARLY,Christmas Eve
+2025-12-25,HOLIDAY,Christmas Day
+2026-01-01,HOLIDAY,New Year's Day
+2026-01-19,HOLIDAY,Martin Luther King Jr. Day
+2026-02-16,HOLIDAY,Presidents' Day

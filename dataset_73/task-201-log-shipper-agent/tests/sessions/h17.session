@@ -1,0 +1,4 @@
+{"max_age_ms": 100000, "max_bytes": 100000, "max_lines": 100, "max_retries": 3, "op": "config", "spool_max_bytes": 8}
+{"data": "ee1\nee2\n", "file": "app.log", "op": "append", "t": 10}
+{"data": "ee3\n", "file": "app.log", "op": "append", "t": 20}
+{"op": "end", "t": 30}

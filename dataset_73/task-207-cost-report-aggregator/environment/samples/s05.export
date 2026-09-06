@@ -1,0 +1,36 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "beta"
+  ],
+  "lines": [
+    {
+      "id": "u1",
+      "kind": "usage",
+      "day": 1,
+      "team": "alpha",
+      "cents": 300
+    },
+    {
+      "id": "h1",
+      "kind": "shared",
+      "day": 2,
+      "cents": 200
+    },
+    {
+      "id": "u2",
+      "kind": "usage",
+      "day": 3,
+      "team": "beta",
+      "cents": 300
+    }
+  ],
+  "shared_weights": {
+    "alpha": 1,
+    "beta": 1
+  }
+}

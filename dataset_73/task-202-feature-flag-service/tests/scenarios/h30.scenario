@@ -1,0 +1,8 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "partial", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "plan", "operator": "in", "rollout": [{"variant": "on", "weight": 3000}, {"variant": "off", "weight": 3000}], "values": ["pro"]}, {"attribute": "country", "operator": "in", "values": ["IN"], "variant": "blue"}], "salt": "s-partial", "variants": ["on", "off", "blue"]}, "op": "define", "t": 1}
+{"flag": "partial", "op": "evaluate", "t": 2, "user": {"country": "IN", "key": "u1", "plan": "pro"}}
+{"flag": "partial", "op": "evaluate", "t": 3, "user": {"country": "IN", "key": "u2", "plan": "pro"}}
+{"flag": "partial", "op": "evaluate", "t": 4, "user": {"country": "IN", "key": "u10", "plan": "pro"}}
+{"flag": "partial", "op": "evaluate", "t": 5, "user": {"country": "IN", "key": "u3", "plan": "pro"}}
+{"flag": "partial", "op": "evaluate", "t": 6, "user": {"country": "IN", "key": "u5", "plan": "pro"}}
+{"flag": "partial", "op": "evaluate", "t": 7, "user": {"country": "US", "key": "u4", "plan": "pro"}}
+{"op": "end", "t": 8}

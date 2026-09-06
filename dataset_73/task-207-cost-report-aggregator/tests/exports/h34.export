@@ -1,0 +1,12 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "beta",
+    "gamma"
+  ],
+  "lines": []
+}

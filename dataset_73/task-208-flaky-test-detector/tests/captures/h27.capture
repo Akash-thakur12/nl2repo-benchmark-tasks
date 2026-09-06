@@ -1,0 +1,92 @@
+{
+  "captured_at": "2026-04-14T09:00:00Z",
+  "min_commits": 2,
+  "threshold_percent": 30,
+  "policy_history": [
+    {
+      "effective_at": "2025-11-02T00:00:00Z",
+      "min_commits": 2,
+      "threshold_percent": 30
+    }
+  ],
+  "runs": [
+    {
+      "id": "r1",
+      "commit": "97bbba74a7415360fc6ba5d2382598a375080bac",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_a",
+          "status": "passed"
+        },
+        {
+          "test": "t_a",
+          "status": "failed"
+        },
+        {
+          "test": "t_b",
+          "status": "passed"
+        },
+        {
+          "test": "t_c",
+          "status": "skipped"
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "commit": "97bbba74a7415360fc6ba5d2382598a375080bac",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_b",
+          "status": "error"
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "commit": "bd0de3c2a53643289d049cc86fed9e2560294d38",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_a",
+          "status": "passed"
+        },
+        {
+          "test": "t_b",
+          "status": "passed"
+        },
+        {
+          "test": "t_c",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "commit": "89d9309f1ae5a2bf502a3bc9606c06abba7fb325",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t_a",
+          "status": "failed"
+        },
+        {
+          "test": "t_b",
+          "status": "passed"
+        },
+        {
+          "test": "t_c",
+          "status": "nope"
+        }
+      ]
+    }
+  ],
+  "quarantined": [
+    {
+      "test": "t_c",
+      "added_at": "2026-01-06T00:00:00Z"
+    }
+  ]
+}

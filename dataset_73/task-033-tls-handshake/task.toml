@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/tls-handshake"
+version = "1.0.0"
+description = "RFC 8446 TLS 1.3 handshake FSM: full 1-RTT server-auth, HelloRetryRequest retry, mutual client-certificate auth, and PSK/0-RTT resumption branches. Out-of-order message -> terminal ERROR + unexpected_message alert. feed() takes a dict or a message-name string. key_update, transcript hash."
+keywords = [
+    "hard",
+    "tls13",
+    "handshake-fsm",
+    "mutual-auth",
+]
+
+[metadata]
+benchmark_style = "RepoZero"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct implementation of the RFC 8446 TLS 1.3 handshake state machine."
+differentiation_notes = "HelloRetryRequest and mutual-client-auth are the two branches most likely to be under-implemented, since the straight-line 1-RTT path alone already passes most naive tests."
+relevance = "TLS 1.3 handshake correctness is foundational to real production secure-transport implementations."
+failure_cruxes = [
+    "The HelloRetryRequest branch accepting only a single ClientHello instead of requiring the mandatory second one.",
+    "Reporting `is_connected()` as True after the server's Finished message even though mutual-auth still owes the client's own Certificate/Finished.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

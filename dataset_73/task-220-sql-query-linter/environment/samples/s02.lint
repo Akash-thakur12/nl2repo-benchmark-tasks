@@ -1,0 +1,3 @@
+{"op": "config"}
+{"name": "joined", "op": "query", "sql": "SELECT o.id\nFROM orders AS o\nJOIN customers AS c ON c.id = o.customer_id\nWHERE o.total > 0"}
+{"op": "end"}

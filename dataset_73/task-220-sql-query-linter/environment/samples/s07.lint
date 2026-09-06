@@ -1,0 +1,4 @@
+{"op": "config"}
+{"name": "one", "op": "query", "sql": "SELECT id FROM t WHERE id > 0"}
+{"name": "two", "op": "query", "sql": "SELECT name FROM u WHERE name_id > 0"}
+{"op": "end"}

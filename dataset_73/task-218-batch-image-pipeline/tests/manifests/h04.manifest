@@ -1,0 +1,3 @@
+{"min_source": 500, "op": "config", "pipeline": [{"format": "jpeg", "op": "convert", "quality": 80}]}
+{"alpha": true, "format": "png", "frames": 1, "height": 100, "name": "small.png", "op": "source", "orientation": 1, "width": 100}
+{"op": "end"}

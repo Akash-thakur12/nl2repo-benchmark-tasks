@@ -1,0 +1,357 @@
+{
+  "streamed-fleet-01.bin": {
+    "note": "Captured from the retired collector. Writers never produce this form; readers must accept it.",
+    "writer_reproducible": false,
+    "decodes_to": [
+      {
+        "tag": 21,
+        "name": "fleet.alpha",
+        "value": 120
+      },
+      {
+        "tag": 21,
+        "name": "fleet.beta",
+        "value": 121
+      },
+      {
+        "tag": 21,
+        "name": "fleet.alpha",
+        "value": 130
+      }
+    ]
+  },
+  "intern-firstref-02.bin": {
+    "note": "A name recurs after an intervening different name.",
+    "writer_reproducible": true,
+    "encodes_from": [
+      {
+        "tag": 32,
+        "name": "disk.temp",
+        "value": 41
+      },
+      {
+        "tag": 21,
+        "name": "mem.free",
+        "value": 8192
+      },
+      {
+        "tag": 32,
+        "name": "disk.temp",
+        "value": 43
+      },
+      {
+        "tag": 32,
+        "name": "disk.temp",
+        "value": 44
+      }
+    ],
+    "decodes_to": [
+      {
+        "tag": 32,
+        "name": "disk.temp",
+        "value": 41
+      },
+      {
+        "tag": 21,
+        "name": "mem.free",
+        "value": 8192
+      },
+      {
+        "tag": 32,
+        "name": "disk.temp",
+        "value": 43
+      },
+      {
+        "tag": 32,
+        "name": "disk.temp",
+        "value": 44
+      }
+    ]
+  },
+  "intern-ordinal-03.bin": {
+    "note": "Two distinct names, each repeated once.",
+    "writer_reproducible": true,
+    "encodes_from": [
+      {
+        "tag": 21,
+        "name": "node.x",
+        "value": 1
+      },
+      {
+        "tag": 21,
+        "name": "node.x",
+        "value": 2
+      },
+      {
+        "tag": 21,
+        "name": "node.y",
+        "value": 3
+      },
+      {
+        "tag": 21,
+        "name": "node.y",
+        "value": 4
+      }
+    ],
+    "decodes_to": [
+      {
+        "tag": 21,
+        "name": "node.x",
+        "value": 1
+      },
+      {
+        "tag": 21,
+        "name": "node.x",
+        "value": 2
+      },
+      {
+        "tag": 21,
+        "name": "node.y",
+        "value": 3
+      },
+      {
+        "tag": 21,
+        "name": "node.y",
+        "value": 4
+      }
+    ]
+  },
+  "series-twoname-04.bin": {
+    "note": "One registered series tag carrying two different names.",
+    "writer_reproducible": true,
+    "encodes_from": [
+      {
+        "tag": 20,
+        "name": "cpu",
+        "value": 100
+      },
+      {
+        "tag": 20,
+        "name": "mem",
+        "value": 4000
+      },
+      {
+        "tag": 20,
+        "name": "cpu",
+        "value": 105
+      }
+    ],
+    "decodes_to": [
+      {
+        "tag": 20,
+        "name": "cpu",
+        "value": 100
+      },
+      {
+        "tag": 20,
+        "name": "mem",
+        "value": 4000
+      },
+      {
+        "tag": 20,
+        "name": "cpu",
+        "value": 105
+      }
+    ]
+  },
+  "series-wrap-05.bin": {
+    "note": "A 32-bit counter that rolls over between the second and third sample.",
+    "writer_reproducible": true,
+    "encodes_from": [
+      {
+        "tag": 20,
+        "name": "ticks",
+        "value": 4294967264
+      },
+      {
+        "tag": 20,
+        "name": "ticks",
+        "value": 4294967280
+      },
+      {
+        "tag": 20,
+        "name": "ticks",
+        "value": 14
+      }
+    ],
+    "decodes_to": [
+      {
+        "tag": 20,
+        "name": "ticks",
+        "value": 4294967264
+      },
+      {
+        "tag": 20,
+        "name": "ticks",
+        "value": 4294967280
+      },
+      {
+        "tag": 20,
+        "name": "ticks",
+        "value": 14
+      }
+    ]
+  },
+  "rev6-archive-06.bin": {
+    "note": "Archive written while registry revision 6 was in force.",
+    "writer_reproducible": true,
+    "encodes_from": [
+      {
+        "tag": 14,
+        "name": "__rev",
+        "value": 6
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 500
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 520
+      }
+    ],
+    "decodes_to": [
+      {
+        "tag": 14,
+        "name": "__rev",
+        "value": 6
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 500
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 520
+      }
+    ]
+  },
+  "rev9-live-07.bin": {
+    "note": "Live capture, no in-band marker: the registry's newest revision applies.",
+    "writer_reproducible": true,
+    "encodes_from": [
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 500
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 520
+      }
+    ],
+    "decodes_to": [
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 500
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 520
+      }
+    ]
+  },
+  "series-crosstag-08.bin": {
+    "note": "One name carried by two different delta tags in the same blob.",
+    "writer_reproducible": true,
+    "encodes_from": [
+      {
+        "tag": 20,
+        "name": "host7",
+        "value": 100
+      },
+      {
+        "tag": 34,
+        "name": "host7",
+        "value": 900
+      },
+      {
+        "tag": 20,
+        "name": "host7",
+        "value": 112
+      }
+    ],
+    "decodes_to": [
+      {
+        "tag": 20,
+        "name": "host7",
+        "value": 100
+      },
+      {
+        "tag": 34,
+        "name": "host7",
+        "value": 900
+      },
+      {
+        "tag": 20,
+        "name": "host7",
+        "value": 112
+      }
+    ]
+  },
+  "rev-switch-09.bin": {
+    "note": "A blob whose in-band marker changes the revision half way through, while one series spans the change.",
+    "writer_reproducible": true,
+    "encodes_from": [
+      {
+        "tag": 14,
+        "name": "__rev",
+        "value": 1
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 100
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 150
+      },
+      {
+        "tag": 14,
+        "name": "__rev",
+        "value": 9
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 200
+      }
+    ],
+    "decodes_to": [
+      {
+        "tag": 14,
+        "name": "__rev",
+        "value": 1
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 100
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 150
+      },
+      {
+        "tag": 14,
+        "name": "__rev",
+        "value": 9
+      },
+      {
+        "tag": 34,
+        "name": "io",
+        "value": 200
+      }
+    ]
+  }
+}

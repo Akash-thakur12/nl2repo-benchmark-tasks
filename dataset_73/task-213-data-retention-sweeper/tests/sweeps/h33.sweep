@@ -1,0 +1,28 @@
+{
+  "now": 100,
+  "tables": [
+    {
+      "name": "a",
+      "retain_days": 30,
+      "parent": "ghost"
+    },
+    {
+      "name": "b",
+      "retain_days": 30,
+      "parent": "a"
+    }
+  ],
+  "rows": [
+    {
+      "table": "a",
+      "id": 1,
+      "created": 10
+    },
+    {
+      "table": "b",
+      "id": 2,
+      "created": 10,
+      "parent_id": 1
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "2.0.0", "sections": [{"title": "Features", "type": "feat"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "a000003", "subject": "feat(cli): read the profile from the environment"}
+{"op": "end"}

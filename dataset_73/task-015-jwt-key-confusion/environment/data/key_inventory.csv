@@ -1,0 +1,16 @@
+# key inventory - truth table for detect_key_confusion(header_alg, key_type)
+# flag_* columns give the expected return value when the key described by
+# key_type is presented against a token whose header alg is that column.
+# See ../docs/key-confusion-policy.md.
+kid,kty,key_type,flag_HS256,flag_HS384,flag_HS512,flag_RS256
+k-01,RSA,RSA public key,True,True,True,False
+k-02,RSA,rsa,True,True,True,False
+k-03,RSA,RSA-PSS public key (rotated 2025-11),True,True,True,False
+k-04,EC,EC P-256 verification key,True,True,True,False
+k-05,EC,ec secp384r1 public key,True,True,True,False
+k-06,OKP,OKP Ed25519 public key,True,True,True,False
+k-07,oct,oct secret,False,False,False,False
+k-08,oct,HMAC key wrapped by RSA KEK,False,False,False,False
+k-09,oct,oct session key; transported under RSA-OAEP,False,False,False,False
+k-10,oct,octet-sequence secret,False,False,False,False
+k-11,oct,oct,False,False,False,False

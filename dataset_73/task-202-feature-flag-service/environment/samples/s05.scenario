@@ -1,0 +1,4 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "dark-mode", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "segment", "operator": "in", "values": ["staff"], "variant": "on"}], "salt": "s-dark-mode", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "dark-mode", "op": "evaluate", "t": 2, "user": {"key": "alice", "segment": "staff"}}
+{"flag": "dark-mode", "op": "evaluate", "t": 3, "user": {"key": "bob", "segment": "customer"}}
+{"op": "end", "t": 4}

@@ -1,0 +1,64 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/x",
+      "fixtures": [
+        {
+          "status": 201,
+          "body": {
+            "x": 1
+          },
+          "times": 1
+        },
+        {
+          "status": 200,
+          "body": {
+            "x": 2
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/y",
+      "fixtures": [
+        {
+          "status": 201,
+          "body": {
+            "y": 1
+          },
+          "times": 1
+        },
+        {
+          "status": 200,
+          "body": {
+            "y": 2
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/x",
+      "seq": 12
+    },
+    {
+      "method": "GET",
+      "path": "/y",
+      "seq": 11
+    },
+    {
+      "method": "GET",
+      "path": "/x",
+      "seq": 10
+    },
+    {
+      "method": "GET",
+      "path": "/y",
+      "seq": 13
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "tiers": [
+    {
+      "name": "1m",
+      "seconds": 60
+    },
+    {
+      "name": "90s",
+      "seconds": 90
+    }
+  ],
+  "samples": [
+    {
+      "t": 0,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 10
+    },
+    {
+      "t": 95,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 30
+    },
+    {
+      "t": 130,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 60
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "s01": {
+    "accepted": [
+      "evt_1"
+    ],
+    "attempts": [
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_1",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [
+      1
+    ],
+    "dlq": [],
+    "rejected": []
+  },
+  "s02": {
+    "accepted": [
+      "evt_1"
+    ],
+    "attempts": [
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_1",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 2,
+        "event_id": "evt_1",
+        "subscriber": "beta"
+      }
+    ],
+    "completed": [
+      1,
+      2
+    ],
+    "dlq": [],
+    "rejected": []
+  },
+  "s03": {
+    "accepted": [
+      "evt_1",
+      "evt_2"
+    ],
+    "attempts": [
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_1",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 2000,
+        "attempt": 1,
+        "delivery": 2,
+        "event_id": "evt_2",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [
+      1,
+      2
+    ],
+    "dlq": [],
+    "rejected": []
+  },
+  "s04": {
+    "accepted": [
+      "evt_1"
+    ],
+    "attempts": [
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_1",
+        "subscriber": "beta"
+      }
+    ],
+    "completed": [
+      1
+    ],
+    "dlq": [],
+    "rejected": []
+  },
+  "s05": {
+    "accepted": [
+      "evt_1"
+    ],
+    "attempts": [],
+    "completed": [],
+    "dlq": [],
+    "rejected": []
+  },
+  "s06": {
+    "accepted": [
+      "evt_1",
+      "evt_2"
+    ],
+    "attempts": [
+      {
+        "at": 1000,
+        "attempt": 1,
+        "delivery": 1,
+        "event_id": "evt_1",
+        "subscriber": "alpha"
+      },
+      {
+        "at": 2000,
+        "attempt": 1,
+        "delivery": 2,
+        "event_id": "evt_2",
+        "subscriber": "alpha"
+      }
+    ],
+    "completed": [
+      1,
+      2
+    ],
+    "dlq": [],
+    "rejected": []
+  }
+}

@@ -1,0 +1,12 @@
+{"op": "config", "salt": "2026-Q1"}
+{"experiment": "ghost-one", "op": "assign", "user": "u-0001"}
+{"experiment": "ghost-two", "op": "assign", "user": "u-0001"}
+{"experiment": "ghost-one", "op": "assign", "user": "u-0002"}
+{"experiment": "ghost-two", "op": "assign", "user": "u-0002"}
+{"experiment": "ghost-one", "op": "assign", "user": "u-0003"}
+{"experiment": "ghost-two", "op": "assign", "user": "u-0003"}
+{"experiment": "ghost-one", "op": "assign", "user": "u-0004"}
+{"experiment": "ghost-two", "op": "assign", "user": "u-0004"}
+{"experiment": "ghost-one", "op": "assign", "user": "u-0005"}
+{"experiment": "ghost-two", "op": "assign", "user": "u-0005"}
+{"op": "end"}

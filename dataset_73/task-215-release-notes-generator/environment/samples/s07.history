@@ -1,0 +1,3 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "10.0.3", "sections": [{"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "a00000a", "subject": "fix(build): pin the toolchain"}
+{"op": "end"}

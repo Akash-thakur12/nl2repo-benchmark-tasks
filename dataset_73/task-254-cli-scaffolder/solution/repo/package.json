@@ -1,0 +1,7 @@
+{
+  "name": "scaffolder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline renderer for project scaffolding plans"
+}

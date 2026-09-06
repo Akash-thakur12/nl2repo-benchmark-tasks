@@ -1,0 +1,11 @@
+{"environments": ["dev", "staging", "prod"], "grace_seconds": 300, "op": "config"}
+{"env": "dev", "id": "d", "op": "consumer", "t": 10}
+{"env": "staging", "id": "s", "op": "consumer", "t": 11}
+{"env": "prod", "id": "p", "op": "consumer", "t": 12}
+{"op": "rotate", "t": 100}
+{"op": "tick", "t": 500}
+{"consumer": "d", "op": "ack", "t": 200, "version": 2}
+{"consumer": "s", "op": "ack", "t": 450, "version": 2}
+{"env": "prod", "ok": false, "op": "health", "t": 600}
+{"op": "tick", "t": 900}
+{"op": "end", "t": 1000}

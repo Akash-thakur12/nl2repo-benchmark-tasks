@@ -1,0 +1,60 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/ab-experiment-service"
+version = "1.0.0"
+description = "Build an A/B assignment service from a prose brief: stable bucketing of the author's choosing, experiment states, a traffic gate, exclusion lists, mutually exclusive experiments and a summary that has to agree with itself."
+keywords = [
+    "hard",
+    "experimentation",
+    "ab-testing",
+    "open-brief",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "ambiguous"
+difficulty = "hard"
+category = "experimentation"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Open source. The assignment logic lived in three places that did not agree: one quarter an experiment reported a nine per cent lift that was the same two thousand people being re-bucketed every deploy, and the quarter before a staff-excluded experiment shipped a broken checkout to the support team for a day and a half."
+differentiation_notes = "This is an open brief, so there is no expected.json and no single correct report: the hash, the bucketing, the evaluation order and the repository layout are all the author's to choose. The verifier grades the properties the brief actually states. tools/check_variants.py is the evidence that this is neither over-specified nor vacuous: ten legitimately different implementations - another hash, a hundred buckets, a million buckets, exclusivity weighed before the traffic gate, the salt ignored, the weights walked backwards - pass every check on all thirty-one captures, while sixteen implementations that break something the brief does state each fail at least one."
+relevance = "Every experimentation platform is judged on exactly these properties, and they are the ones that quietly break: an assignment that moves under a user, a staff exclusion that does not hold, two experiments that were meant to be mutually exclusive overlapping, and a dashboard whose numbers do not add up to the assignments underneath them."
+failure_cruxes = [
+    "Bucketing on something that is not stable across processes - Python's own hash(), a random draw, or the order the requests happen to arrive in.",
+    "Drawing the traffic gate and the variant from the same number, so an experiment at fifty per cent traffic puts everybody it admits into one variant.",
+    "Letting a stopped or draft experiment assign anybody, or reporting the two as the same situation.",
+    "Applying the exclusion list after the traffic gate has already decided, so an excluded user is reported as merely unlucky.",
+    "Enforcing an exclusion group per experiment rather than across the capture, so a user ends up in two of them.",
+    "Treating an experiment at a hundred per cent traffic as still needing a gate, or one at zero as still needing a variant.",
+    "Putting somebody in a variant weighted zero.",
+    "Counting the summary as the run goes rather than deriving it from the assignments, so the two drift apart.",
+    "Dropping a repeated request instead of answering it again, or reordering the assignments away from request order.",
+    "Treating a request for an experiment nobody declared as fatal, or as silently unassigned.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/time-series"
+version = "1.0.0"
+description = "Real bit-packed Gorilla XOR float compression: control bit 0 (repeat) / 10 (reuse prev leading/trailing window) / 11 (new 5-bit-lead + 6-bit-len window). BitWriter/BitReader. Lossless incl. NaN/inf/-0.0. 4-byte count header."
+keywords = [
+    "hard",
+    "time-series-compression",
+    "gorilla-encoding",
+    "bit-packing",
+]
+
+[metadata]
+benchmark_style = "RepoZero"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct implementation of the real Facebook Gorilla time-series compression algorithm."
+differentiation_notes = "The three XOR-window control-bit cases (repeat/reuse/new) are easy to conflate, and a wrong choice only produces incorrect output on values that don't reuse the previous window."
+relevance = "Gorilla-style compression is used in real production time-series databases."
+failure_cruxes = [
+    "Reusing the previous XOR window's leading/trailing zero-count under control-bit 10 when the new value actually needs a fresh 11 window.",
+    "Not round-tripping NaN / inf / -0.0 bit patterns losslessly through the XOR-compression path.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

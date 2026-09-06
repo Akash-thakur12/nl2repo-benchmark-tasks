@@ -1,0 +1,5 @@
+{"default_compatibility": "BACKWARD", "op": "config"}
+{"op": "register", "schema": [{"name": "id", "type": "int"}, {"name": "total", "type": "long"}], "subject": "t"}
+{"level": "SIDEWAYS", "op": "set_compatibility", "subject": "t"}
+{"op": "register", "schema": [{"name": "id", "type": "int"}, {"name": "total", "type": "long"}, {"name": "note", "type": "string"}], "subject": "t"}
+{"op": "end"}

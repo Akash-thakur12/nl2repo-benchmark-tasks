@@ -1,0 +1,13 @@
+{"default_compatibility": "BACKWARD", "op": "config"}
+{"op": "register", "schema": [{"name": "id", "type": "int"}], "subject": "orders"}
+{"level": "FULL_TRANSITIVE", "op": "set_compatibility", "subject": "orders"}
+{"op": "register", "schema": [{"name": "id", "type": "long"}], "subject": "orders"}
+{"op": "register", "schema": [{"name": "id", "type": "int"}, {"default": "", "name": "note", "type": "string"}], "subject": "orders"}
+{"op": "register", "schema": [{"name": "id", "type": "int"}], "subject": "shipments"}
+{"op": "delete_version", "subject": "orders", "version": 1}
+{"op": "register", "schema": [{"name": "id", "type": "int"}], "subject": "orders"}
+{"op": "lookup", "schema": [{"name": "id", "type": "int"}], "subject": "orders"}
+{"op": "check", "schema": [{"name": "id", "type": "boolean"}], "subject": "orders"}
+{"level": "NOPE", "op": "set_compatibility", "subject": "orders"}
+{"op": "delete_version", "subject": "shipments", "version": 4}
+{"op": "end"}

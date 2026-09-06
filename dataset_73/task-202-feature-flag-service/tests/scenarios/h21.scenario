@@ -1,0 +1,5 @@
+{"flag": {"default_variant": "on", "enabled": true, "key": "p1", "off_variant": "off", "prerequisites": [], "rules": [], "salt": "s-p1", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": {"default_variant": "off", "enabled": true, "key": "p2", "off_variant": "off", "prerequisites": [], "rules": [], "salt": "s-p2", "variants": ["on", "off"]}, "op": "define", "t": 2}
+{"flag": {"default_variant": "on", "enabled": true, "key": "dep", "off_variant": "off", "prerequisites": [{"flag": "p1", "variant": "on"}, {"flag": "p2", "variant": "on"}], "rules": [], "salt": "s-dep", "variants": ["on", "off"]}, "op": "define", "t": 3}
+{"flag": "dep", "op": "evaluate", "t": 4, "user": {"key": "u1"}}
+{"op": "end", "t": 5}

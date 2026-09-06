@@ -1,0 +1,47 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "zeta"
+  ],
+  "lines": [
+    {
+      "id": "h1",
+      "kind": "shared",
+      "day": 3,
+      "cents": 3
+    },
+    {
+      "id": "h2",
+      "kind": "shared",
+      "day": 25,
+      "cents": 3
+    }
+  ],
+  "shared_weights": {
+    "alpha": 3,
+    "aardvark": 1
+  },
+  "weight_changes": [
+    {
+      "day": 20,
+      "weights": {
+        "aardvark": 1,
+        "alpha": 1
+      }
+    },
+    {
+      "day": 10,
+      "weights": {
+        "alpha": 1,
+        "zeta": 5
+      }
+    }
+  ],
+  "renamed_from": {
+    "aardvark": "zeta"
+  }
+}

@@ -1,0 +1,14 @@
+{"record": "header", "gateway_version": "4.3", "trace": "trace-03-clock-step", "config": {"capacity": 6, "rate": 1.0}, "note": "host clock corrected backwards mid-capture (see README changelog)"}
+{"record": "decision", "op": "allow", "t": 2000.0, "key": "svc:a", "cost": 4, "decision": true, "tokens_after": 2.0}
+{"record": "probe", "op": "tokens", "t": 2000.0, "key": "svc:a", "tokens_after": 2.0}
+{"record": "probe", "op": "tokens", "t": 1998.0, "key": "svc:a", "tokens_after": 2.0}
+{"record": "probe", "op": "tokens", "t": 1999.5, "key": "svc:a", "tokens_after": 2.0}
+{"record": "probe", "op": "tokens", "t": 2002.0, "key": "svc:a", "tokens_after": 4.0}
+{"record": "decision", "op": "window", "t": 1000.0, "key": "svc:b", "window_sec": 10, "max_reqs": 3, "decision": true}
+{"record": "decision", "op": "window", "t": 1001.0, "key": "svc:b", "window_sec": 10, "max_reqs": 3, "decision": true}
+{"record": "decision", "op": "window", "t": 995.0, "key": "svc:b", "window_sec": 10, "max_reqs": 3, "decision": true}
+{"record": "decision", "op": "window", "t": 1005.5, "key": "svc:b", "window_sec": 10, "max_reqs": 3, "decision": true}
+{"record": "decision", "op": "window", "t": 1000.0, "key": "svc:c", "window_sec": 10, "max_reqs": 3, "decision": true}
+{"record": "decision", "op": "window", "t": 1004.0, "key": "svc:c", "window_sec": 10, "max_reqs": 3, "decision": true}
+{"record": "decision", "op": "window", "t": 996.0, "key": "svc:c", "window_sec": 10, "max_reqs": 3, "decision": true}
+{"record": "decision", "op": "window", "t": 1006.0, "key": "svc:c", "window_sec": 10, "max_reqs": 3, "decision": true}

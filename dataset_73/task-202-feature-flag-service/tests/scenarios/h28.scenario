@@ -1,0 +1,4 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "f", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "region", "operator": "starts_with", "values": ["1"], "variant": "on"}], "salt": "s-f", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "f", "op": "evaluate", "t": 2, "user": {"key": "u1", "region": 123}}
+{"flag": "f", "op": "evaluate", "t": 3, "user": {"key": "u2", "region": "123"}}
+{"op": "end", "t": 4}

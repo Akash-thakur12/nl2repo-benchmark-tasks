@@ -1,0 +1,66 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/find",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "hits": 0
+          }
+        }
+      ],
+      "query": [
+        {
+          "name": "n",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/pick/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          },
+          "when": {
+            "id": "1"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "HEAD",
+      "path": "/find",
+      "seq": 1000,
+      "query": {
+        "n": "zz"
+      }
+    },
+    {
+      "method": "HEAD",
+      "path": "/find",
+      "seq": 1001
+    },
+    {
+      "method": "HEAD",
+      "path": "/pick/9",
+      "seq": 1002
+    },
+    {
+      "method": "GET",
+      "path": "/find",
+      "seq": 1003,
+      "query": {
+        "n": "zz"
+      }
+    }
+  ]
+}

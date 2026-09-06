@@ -1,0 +1,31 @@
+{
+  "tiers": [
+    {
+      "name": "1m",
+      "seconds": 60
+    }
+  ],
+  "samples": [
+    {
+      "t": 0,
+      "name": "zebra",
+      "labels": {},
+      "type": "gauge",
+      "value": 1
+    },
+    {
+      "t": 0,
+      "name": "alpha",
+      "labels": {},
+      "type": "gauge",
+      "value": 2
+    },
+    {
+      "t": 0,
+      "name": "middle",
+      "labels": {},
+      "type": "gauge",
+      "value": 3
+    }
+  ]
+}

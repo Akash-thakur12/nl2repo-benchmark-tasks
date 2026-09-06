@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/json-parser"
+version = "1.0.0"
+description = "From-scratch RFC 8259 JSON parser (no json module): recursive descent over a hand-rolled lexer. Objects, arrays, strings (all escapes + XXXX + surrogate pairs), numbers (int/float/exp, rejects 01/1./.1/+1), true/false/null. Depth-limited. Rejects trailing data. tokens() exposes the lexer stream."
+keywords = [
+    "hard",
+    "json-parsing",
+    "rfc8259",
+    "unicode-handling",
+]
+
+[metadata]
+benchmark_style = "RepoZero"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct implementation of the RFC 8259 JSON grammar, including its stricter-than-permissive number and string rules."
+differentiation_notes = "Rejecting malformed numbers and correctly combining surrogate pairs are both easy to under-implement while still parsing every well-formed document correctly."
+relevance = "JSON parser leniency bugs are a real class of security and interoperability issues in production parsers."
+failure_cruxes = [
+    "Accepting a number with a leading zero (`01`) or a bare leading/trailing decimal point (`1.` / `.1`), which RFC 8259 forbids.",
+    "Decoding a UTF-16 surrogate pair (`\\uD83D\\uDE00`) as two separate codepoints instead of combining them into one character.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

@@ -1,0 +1,40 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/feed",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "page": 1
+          },
+          "times": 1
+        },
+        {
+          "status": 200,
+          "body": {
+            "page": 2
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "HEAD",
+      "path": "/feed",
+      "seq": 20
+    },
+    {
+      "method": "GET",
+      "path": "/feed",
+      "seq": 21
+    },
+    {
+      "method": "HEAD",
+      "path": "/feed",
+      "seq": 22
+    }
+  ]
+}

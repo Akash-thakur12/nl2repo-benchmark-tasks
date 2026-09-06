@@ -1,0 +1,21 @@
+{"config": {"memtable_limit": 4, "level0_max": 3}, "note": "session captured against the reference engine on a fresh directory; each entry is one API call and the observations taken immediately after it"}
+{"call": "put", "args": ["a", "1"], "result": null, "segment_count": 0, "stats": {"segments": 0, "memtable_entries": 1, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["a", "2"], "result": null, "segment_count": 0, "stats": {"segments": 0, "memtable_entries": 1, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["b", "2"], "result": null, "segment_count": 0, "stats": {"segments": 0, "memtable_entries": 2, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["c", "3"], "result": null, "segment_count": 1, "stats": {"segments": 1, "memtable_entries": 0, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "get", "args": ["a"], "result": "2", "segment_count": 1, "stats": {"segments": 1, "memtable_entries": 0, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "size", "args": [], "result": 3, "segment_count": 1, "stats": {"segments": 1, "memtable_entries": 0, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["d", "D"], "result": null, "segment_count": 1, "stats": {"segments": 1, "memtable_entries": 1, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["e", "E"], "result": null, "segment_count": 1, "stats": {"segments": 1, "memtable_entries": 2, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["f", "F"], "result": null, "segment_count": 1, "stats": {"segments": 1, "memtable_entries": 3, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["g", "G"], "result": null, "segment_count": 2, "stats": {"segments": 2, "memtable_entries": 0, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["h", "H"], "result": null, "segment_count": 2, "stats": {"segments": 2, "memtable_entries": 1, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["i", "I"], "result": null, "segment_count": 2, "stats": {"segments": 2, "memtable_entries": 2, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["j", "J"], "result": null, "segment_count": 2, "stats": {"segments": 2, "memtable_entries": 3, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["k", "K"], "result": null, "segment_count": 3, "stats": {"segments": 3, "memtable_entries": 0, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["l", "L"], "result": null, "segment_count": 3, "stats": {"segments": 3, "memtable_entries": 1, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["m", "M"], "result": null, "segment_count": 3, "stats": {"segments": 3, "memtable_entries": 2, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["n", "N"], "result": null, "segment_count": 3, "stats": {"segments": 3, "memtable_entries": 3, "compactions": 0, "memtable_limit": 4, "level0_max": 3}}
+{"call": "put", "args": ["o", "O"], "result": null, "segment_count": 1, "stats": {"segments": 1, "memtable_entries": 0, "compactions": 1, "memtable_limit": 4, "level0_max": 3}}
+{"call": "get", "args": ["a"], "result": "2", "segment_count": 1, "stats": {"segments": 1, "memtable_entries": 0, "compactions": 1, "memtable_limit": 4, "level0_max": 3}}
+{"call": "size", "args": [], "result": 15, "segment_count": 1, "stats": {"segments": 1, "memtable_entries": 0, "compactions": 1, "memtable_limit": 4, "level0_max": 3}}

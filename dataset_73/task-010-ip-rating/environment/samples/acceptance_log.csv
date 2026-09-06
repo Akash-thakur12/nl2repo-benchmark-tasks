@@ -1,0 +1,33 @@
+requirement,part_mark,decision,reviewer_note
+IP44,IP66,accepted,6 covers 4 in both positions
+IP33,IP55,accepted,cumulative up to 6
+IP20,IP65,accepted,cumulative up to 6
+IP65,IP65,accepted,exact match
+IPX5,IPX7,rejected,immersion rating - not jet-tested - needs dual code
+IPX6,IPX7,rejected,immersion rating - not jet-tested - needs dual code
+IP65,IP68,rejected,immersion rating - not jet-tested - needs dual code
+IP66,IP68,rejected,immersion rating - not jet-tested - needs dual code
+IPX7,IP68,accepted,8 is the same immersion test taken deeper
+IPX4,IPX7,accepted,the 0-4 series is on file
+IPX3,IP68,accepted,the 0-4 series is on file
+IPX5,IPX9,rejected,high-pressure apparatus - the 12.5 l/min jet test is not on file
+IPX6,IPX9,rejected,high-pressure apparatus - the 100 l/min jet test is not on file
+IPX7,IPX9,rejected,high-pressure jet is not an immersion test
+IPX8,IPX9,rejected,high-pressure jet is not an immersion test
+IPX4,IPX9,accepted,the 0-4 series is on file
+IP65,IP65/IP68,accepted,dual coded - both tests on file
+IP68,IP65/IP68,accepted,dual coded - both tests on file
+IP67,IP65/IPX7,accepted,dual coded - both tests on file
+IP66,IP65/IP68,rejected,neither code carries the 100 l/min jet test
+IP6X,IP65,accepted,first characteristic only
+IP65,IP6X,rejected,second characteristic not stated on the nameplate
+IP20,IP2X,rejected,second characteristic not stated on the nameplate
+IPXX,IP00,accepted,no requirement stated in either position
+IPXXB,IP2X,accepted,finger-safe by numeral
+IP2X,IPXXB,rejected,access letter only - 12.5 mm object test not on file
+IPXXD,IP4X,accepted,wire probe excluded by the numeral
+IPXXD,IP2X,rejected,finger-safe only - wire probe not on file
+IPXXB,IPXXD,accepted,D covers B on the access ladder
+IPXXD,IPXXB,rejected,B does not reach D
+IP54,IP54W,accepted,supplementary letter records test conditions and is not compared
+IP54W,IP54,accepted,supplementary letter records test conditions and is not compared

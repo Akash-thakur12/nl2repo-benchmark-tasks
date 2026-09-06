@@ -1,0 +1,4 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "f", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "account", "operator": "contains", "values": ["2"], "variant": "on"}], "salt": "s-f", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "f", "op": "evaluate", "t": 2, "user": {"account": 42, "key": "u1"}}
+{"flag": "f", "op": "evaluate", "t": 3, "user": {"account": "42", "key": "u2"}}
+{"op": "end", "t": 4}

@@ -1,0 +1,5 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000120", "subject": "feat(api): add pagination"}
+{"author": "Bo Lindqvist", "body": "", "op": "commit", "sha": "b000121", "subject": "fix(api): stop double counting"}
+{"author": "Cai Wen", "body": "Reverts: b000120", "op": "commit", "sha": "b000122", "subject": "revert: add pagination"}
+{"op": "end"}

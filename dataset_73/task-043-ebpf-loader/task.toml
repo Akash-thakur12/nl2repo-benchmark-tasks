@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/ebpf-loader"
+version = "1.0.0"
+description = "Static eBPF verifier: CFG construction + back-edge loop analysis (loop must contain a decrementing bound register), per-path register init lattice (r0 set before exit, no uninitialised reads), forbidden helper set, 1M insn ceiling, GPL licence, map allow-list. Returns {safe, issues}. Legacy count-only bundles still handled."
+keywords = [
+    "hard",
+    "ebpf",
+    "static-analysis",
+    "control-flow-graph",
+]
+
+[metadata]
+benchmark_style = "Doc2Repo"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models real eBPF verifier loop-bound and register-initialization checks."
+differentiation_notes = "Treating add with a negative immediate as a valid decrementing bound (not just sub) is an easy asymmetry to miss since both are semantically equivalent decrements."
+relevance = "eBPF verifier soundness is a real production kernel-security requirement."
+failure_cruxes = [
+    "An `add` instruction with a negative immediate not being recognised as a decrementing loop bound (only `sub` checked), flagging a safe loop unbounded.",
+    "r1 and r10 not being treated as pre-initialised registers, producing a false uninitialised-read finding on every function entry.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

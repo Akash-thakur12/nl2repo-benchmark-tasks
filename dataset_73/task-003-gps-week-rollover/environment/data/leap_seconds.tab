@@ -1,0 +1,38 @@
+# IERS TAI-UTC history, as distributed with the receiver firmware.
+#
+# GPS time was set coincident with UTC at the GPS epoch 1980-01-06,
+# at which instant TAI-UTC was 19 s. GPS time has not stepped since.
+#
+# utc_effective   the UTC instant at which this TAI-UTC value took effect
+# tai_utc         TAI minus UTC, whole seconds
+# gps_effective   the same step expressed on the GPS time scale; it is
+#                 later than utc_effective by the offset that was in
+#                 force immediately before the step, because GPS time
+#                 does not step when UTC does
+# bulletin        issuing IERS bulletin
+#
+# A lookup MUST compare a UTC argument against utc_effective and a GPS
+# argument against gps_effective. The two columns differ by up to 18 s,
+# which is exactly the width of the window in which the wrong column
+# yields the wrong answer.
+#
+utc_effective          tai_utc  gps_effective          bulletin
+1980-01-01T00:00:00    19       1980-01-01T00:00:00    IERS Bulletin C -- GPS epoch reference
+1981-07-01T00:00:00    20       1981-07-01T00:00:00    Bulletin C 1
+1982-07-01T00:00:00    21       1982-07-01T00:00:01    Bulletin C 2
+1983-07-01T00:00:00    22       1983-07-01T00:00:02    Bulletin C 3
+1985-07-01T00:00:00    23       1985-07-01T00:00:03    Bulletin C 5
+1988-01-01T00:00:00    24       1988-01-01T00:00:04    Bulletin C 8
+1990-01-01T00:00:00    25       1990-01-01T00:00:05    Bulletin C 10
+1991-01-01T00:00:00    26       1991-01-01T00:00:06    Bulletin C 11
+1992-07-01T00:00:00    27       1992-07-01T00:00:07    Bulletin C 12
+1993-07-01T00:00:00    28       1993-07-01T00:00:08    Bulletin C 13
+1994-07-01T00:00:00    29       1994-07-01T00:00:09    Bulletin C 14
+1996-01-01T00:00:00    30       1996-01-01T00:00:10    Bulletin C 15
+1997-07-01T00:00:00    31       1997-07-01T00:00:11    Bulletin C 16
+1999-01-01T00:00:00    32       1999-01-01T00:00:12    Bulletin C 17
+2006-01-01T00:00:00    33       2006-01-01T00:00:13    Bulletin C 30
+2009-01-01T00:00:00    34       2009-01-01T00:00:14    Bulletin C 36
+2012-07-01T00:00:00    35       2012-07-01T00:00:15    Bulletin C 43
+2015-07-01T00:00:00    36       2015-07-01T00:00:16    Bulletin C 49
+2017-01-01T00:00:00    37       2017-01-01T00:00:17    Bulletin C 52

@@ -1,0 +1,5 @@
+{"allow_out_of_order": false, "baseline": 0, "op": "config"}
+{"down": "DOWN 2", "fails": false, "name": "m2", "op": "define", "transactional": true, "up": "UP 2", "version": 2}
+{"down": "DOWN 10", "fails": false, "name": "m10", "op": "define", "transactional": true, "up": "UP 10", "version": 10}
+{"cmd": "up", "op": "command", "steps": 1}
+{"op": "end"}

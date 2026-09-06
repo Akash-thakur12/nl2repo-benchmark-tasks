@@ -1,0 +1,7 @@
+{"default_compatibility": "BACKWARD", "op": "config"}
+{"op": "register", "schema": [{"name": "n", "type": "string"}], "subject": "t"}
+{"level": "NONE", "op": "set_compatibility", "subject": "t"}
+{"op": "register", "schema": [{"name": "n", "type": "boolean"}], "subject": "t"}
+{"level": "BACKWARD", "op": "set_compatibility", "subject": "t"}
+{"op": "register", "schema": [{"name": "n", "type": "int"}], "subject": "t"}
+{"op": "end"}

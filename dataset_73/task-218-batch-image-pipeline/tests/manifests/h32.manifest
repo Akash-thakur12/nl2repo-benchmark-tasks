@@ -1,0 +1,3 @@
+{"op": "config", "pipeline": [{"format": "png", "op": "convert", "quality": 80}]}
+{"alpha": false, "format": "jpeg", "frames": 1, "height": 600, "name": "a.jpeg", "op": "source", "orientation": 1, "width": 800}
+{"op": "end"}

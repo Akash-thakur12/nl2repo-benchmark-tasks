@@ -1,0 +1,20 @@
+{
+  "declared": [
+    {
+      "id": "web-1",
+      "body": {
+        "size": "m5.large",
+        "zone": "eu-1"
+      }
+    }
+  ],
+  "live": [
+    {
+      "id": "web-1",
+      "body": {
+        "size": "m5.large",
+        "zone": "eu-1"
+      }
+    }
+  ]
+}

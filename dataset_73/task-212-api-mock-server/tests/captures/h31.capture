@@ -1,0 +1,51 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/users/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "who": "one"
+          },
+          "when": {
+            "id": "1"
+          }
+        },
+        {
+          "status": 200,
+          "body": {
+            "who": "two"
+          },
+          "when": {
+            "id": "2"
+          }
+        },
+        {
+          "status": 404,
+          "body": {
+            "error": "not_found"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/users/1",
+      "seq": 1000
+    },
+    {
+      "method": "GET",
+      "path": "/users/2",
+      "seq": 1001
+    },
+    {
+      "method": "GET",
+      "path": "/users/9",
+      "seq": 1002
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "f", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "email", "operator": "contains", "values": ["@acme."], "variant": "on"}], "salt": "s-f", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "f", "op": "evaluate", "t": 2, "user": {"email": "a@acme.com", "key": "u1"}}
+{"flag": "f", "op": "evaluate", "t": 3, "user": {"email": 42, "key": "u2"}}
+{"op": "end", "t": 4}

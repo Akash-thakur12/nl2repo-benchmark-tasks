@@ -1,0 +1,40 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/a",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          },
+          "times": 1
+        }
+      ],
+      "query": [
+        {
+          "name": "page",
+          "type": "int",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/a",
+      "seq": 1000,
+      "query": {}
+    },
+    {
+      "method": "GET",
+      "path": "/a",
+      "seq": 1001,
+      "query": {
+        "page": "1"
+      }
+    }
+  ]
+}

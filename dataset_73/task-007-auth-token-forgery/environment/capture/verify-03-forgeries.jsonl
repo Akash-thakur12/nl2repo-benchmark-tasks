@@ -1,0 +1,8 @@
+{"kid": "tokend-2021h", "captured_at": 1612137600, "msg_b64": "UE9TVCAvdjEvdHJhbnNmZXIAYWNjdD04ODExAGFtdD0yNTA=", "tag_hex": "68ad8d0000000000", "verdict": "bad-tag", "note": "incident 4417 frame: 3 correct octets, the rest zeroed to look like padding"}
+{"kid": "tokend-2021h", "captured_at": 1612137600, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9MzY1", "tag_hex": "66eedf0000000000", "verdict": "ok", "note": "genuine 4-octet tag whose last octet really is 0x00"}
+{"kid": "tokend-2021h", "captured_at": 1612137600, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9MTAwMQ==", "tag_hex": "864c8726deadbeef", "verdict": "malformed", "note": "correct MAC, pad region filled"}
+{"kid": "tokend-2021h", "captured_at": 1667260800, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9Nzc=", "tag_hex": "d65572ea2081", "verdict": "malformed", "note": "frame is 6 octets, not 8"}
+{"kid": "tokend-2021h", "captured_at": 1667260800, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9Nzc=", "tag_hex": "d65572ea2081535f0000", "verdict": "malformed", "note": "frame is 10 octets, not 8"}
+{"kid": "tokend-2021h", "captured_at": 1667260800, "msg_b64": "R0VUIC92MS9iYWxhbmNlP2FjY3Q9Nzg=", "tag_hex": "not-hex-at-all", "verdict": "malformed", "note": "unparsable frame"}
+{"kid": "tokend-2019m", "captured_at": 1560000000, "msg_b64": "TVRSIDAwMzEgcmVhZD05MDI=", "tag_hex": "6be81122334455aa", "verdict": "malformed", "note": "2-octet era; correct MAC then a filled pad"}
+{"kid": "tokend-2021h", "captured_at": 1667260800, "msg_b64": "UE9TVCAvdjEvdHJhbnNmZXIAYWNjdD05OQBhbXQ9NQ==", "tag_hex": "127ec212b8849a23", "verdict": "bad-tag", "note": "8-octet era; only the leading 4 octets are right"}

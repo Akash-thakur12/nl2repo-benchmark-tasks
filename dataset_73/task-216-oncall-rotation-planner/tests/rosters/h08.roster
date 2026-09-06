@@ -1,0 +1,2 @@
+{"days": 8, "engineers": [{"max_shifts": 2, "name": "Ada", "unavailable": []}, {"name": "Bo", "unavailable": []}], "op": "config", "start": "2026-03-02"}
+{"op": "end"}

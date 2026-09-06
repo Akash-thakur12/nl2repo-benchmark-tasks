@@ -1,0 +1,228 @@
+{
+  "_comment": "Captured from the production front end. `ast` is exactly what parse(query) returns. Normative; see docs/README.md.",
+  "cases": [
+    {
+      "query": "SELECT a FROM t",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT * FROM users",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": "*",
+        "from": {
+          "table": "users",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a, b, c FROM t1",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          },
+          {
+            "expr": {
+              "type": "column",
+              "name": "b",
+              "table": null
+            },
+            "alias": null
+          },
+          {
+            "expr": {
+              "type": "column",
+              "name": "c",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t1",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT DISTINCT a FROM t",
+      "ast": {
+        "type": "select",
+        "distinct": true,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t;",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT u.id AS uid, name n FROM users AS u",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "id",
+              "table": "u"
+            },
+            "alias": "uid"
+          },
+          {
+            "expr": {
+              "type": "column",
+              "name": "name",
+              "table": null
+            },
+            "alias": "n"
+          }
+        ],
+        "from": {
+          "table": "users",
+          "alias": "u"
+        },
+        "joins": [],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "select a from t where a > 1",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": ">",
+          "left": {
+            "type": "column",
+            "name": "a",
+            "table": null
+          },
+          "right": {
+            "type": "literal",
+            "value": 1
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    }
+  ]
+}

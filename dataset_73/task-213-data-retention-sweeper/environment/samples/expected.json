@@ -1,0 +1,82 @@
+{
+  "s01": {
+    "applied": true,
+    "blocked": [],
+    "deleted": [
+      {
+        "id": 1,
+        "table": "orders"
+      }
+    ],
+    "errors": [],
+    "held": [],
+    "pending": 0
+  },
+  "s02": {
+    "applied": true,
+    "blocked": [],
+    "deleted": [],
+    "errors": [],
+    "held": [],
+    "pending": 0
+  },
+  "s03": {
+    "applied": true,
+    "blocked": [],
+    "deleted": [
+      {
+        "id": 1,
+        "table": "orders"
+      }
+    ],
+    "errors": [],
+    "held": [],
+    "pending": 0
+  },
+  "s04": {
+    "applied": true,
+    "blocked": [],
+    "deleted": [
+      {
+        "id": 1,
+        "table": "orders"
+      },
+      {
+        "id": 2,
+        "table": "orders"
+      },
+      {
+        "id": 3,
+        "table": "orders"
+      }
+    ],
+    "errors": [],
+    "held": [],
+    "pending": 0
+  },
+  "s05": {
+    "applied": true,
+    "blocked": [],
+    "deleted": [
+      {
+        "id": 1,
+        "table": "events"
+      },
+      {
+        "id": 1,
+        "table": "orders"
+      }
+    ],
+    "errors": [],
+    "held": [],
+    "pending": 0
+  },
+  "s06": {
+    "applied": true,
+    "blocked": [],
+    "deleted": [],
+    "errors": [],
+    "held": [],
+    "pending": 0
+  }
+}

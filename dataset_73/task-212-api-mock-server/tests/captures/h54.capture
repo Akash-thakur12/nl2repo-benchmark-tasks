@@ -1,0 +1,76 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/a",
+      "fixtures": [
+        {
+          "status": 201,
+          "body": {
+            "g": "a-old"
+          }
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/b",
+      "fixtures": [
+        {
+          "status": 201,
+          "body": {
+            "g": "b-old"
+          }
+        }
+      ]
+    }
+  ],
+  "reloads": [
+    {
+      "at": 9001,
+      "routes": [
+        {
+          "method": "POST",
+          "path": "/b",
+          "fixtures": [
+            {
+              "status": 201,
+              "body": {
+                "g": "b-new"
+              }
+            }
+          ]
+        },
+        {
+          "method": "POST",
+          "path": "/a",
+          "fixtures": [
+            {
+              "status": 201,
+              "body": {
+                "g": "a-new"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/a",
+      "seq": 9002
+    },
+    {
+      "method": "POST",
+      "path": "/b",
+      "seq": 9000
+    },
+    {
+      "method": "POST",
+      "path": "/b",
+      "seq": 9001
+    }
+  ]
+}

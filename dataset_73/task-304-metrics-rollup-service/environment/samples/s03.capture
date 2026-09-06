@@ -1,0 +1,42 @@
+{
+  "tiers": [
+    {
+      "name": "1m",
+      "seconds": 60
+    }
+  ],
+  "samples": [
+    {
+      "t": 0,
+      "name": "latency",
+      "labels": {},
+      "type": "histogram",
+      "boundaries": [
+        10,
+        50,
+        100
+      ],
+      "counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "t": 30,
+      "name": "latency",
+      "labels": {},
+      "type": "histogram",
+      "boundaries": [
+        10,
+        50,
+        100
+      ],
+      "counts": [
+        4,
+        0,
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{"default_compatibility": "FULL_TRANSITIVE", "op": "config"}
+{"op": "register", "schema": [{"name": "n", "type": "int"}], "subject": "t"}
+{"op": "register", "schema": [{"name": "n", "type": "int"}, {"default": 0, "name": "m", "type": "int"}], "subject": "t"}
+{"op": "register", "schema": [{"name": "n", "type": "int"}, {"default": 0, "name": "m", "type": "int"}, {"default": 0, "name": "p", "type": "int"}], "subject": "t"}
+{"op": "register", "schema": [{"name": "n", "type": "long"}, {"default": 0, "name": "m", "type": "int"}, {"default": 0, "name": "p", "type": "int"}], "subject": "t"}
+{"op": "end"}

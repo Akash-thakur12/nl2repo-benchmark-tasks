@@ -1,0 +1,27 @@
+{
+  "now": 100,
+  "tables": [
+    {
+      "name": "orders",
+      "retain_days": 30
+    },
+    {
+      "name": "order_lines",
+      "retain_days": 30,
+      "parent": "orders"
+    }
+  ],
+  "rows": [
+    {
+      "table": "orders",
+      "id": 1,
+      "created": 10
+    },
+    {
+      "table": "order_lines",
+      "id": 5,
+      "created": 10,
+      "parent_id": 1
+    }
+  ]
+}

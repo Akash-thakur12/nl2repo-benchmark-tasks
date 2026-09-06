@@ -1,0 +1,7 @@
+{"default_revoke": false, "op": "config", "separation_of_duties": []}
+{"entitlements": ["e.a"], "members": ["b", "c"], "name": "a", "op": "group"}
+{"entitlements": ["e.b"], "members": ["d"], "name": "b", "op": "group"}
+{"entitlements": ["e.c"], "members": [], "name": "c", "op": "group"}
+{"entitlements": ["e.d"], "members": [], "name": "d", "op": "group"}
+{"entitlements": [], "groups": ["a"], "name": "ada", "op": "user", "terminated": false}
+{"op": "end"}

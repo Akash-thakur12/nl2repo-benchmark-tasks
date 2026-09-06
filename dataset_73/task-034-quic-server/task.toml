@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/quic-server"
+version = "1.0.0"
+description = "QUIC (RFC 9000/9002) transport model: client-initiated bidi/uni stream-id allocation, per-stream + connection flow control (FlowControlError), datagram frames, sent-packet tracking, and NewReno congestion control (slow start / congestion avoidance / recovery)."
+keywords = [
+    "hard",
+    "quic",
+    "congestion-control",
+    "flow-control",
+]
+
+[metadata]
+benchmark_style = "RepoZero"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models the real RFC 9000/9002 QUIC transport and NewReno congestion-control algorithm."
+differentiation_notes = "Congestion-window behavior on loss is only observable across a multi-packet loss sequence, not a single request/response test."
+relevance = "QUIC congestion control underlies real production HTTP/3 transport performance."
+failure_cruxes = [
+    "The congestion window never halving on a detected loss, staying in slow-start indefinitely instead of entering recovery.",
+    "Not enforcing stream-id parity (client-initiated bidi vs uni) when allocating a new stream.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

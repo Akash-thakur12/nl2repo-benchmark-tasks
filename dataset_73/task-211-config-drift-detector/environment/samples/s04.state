@@ -1,0 +1,24 @@
+{
+  "declared": [
+    {
+      "id": "api",
+      "body": {
+        "count": 3,
+        "enabled": true,
+        "note": null,
+        "name": "api"
+      }
+    }
+  ],
+  "live": [
+    {
+      "id": "api",
+      "body": {
+        "count": 3,
+        "enabled": true,
+        "note": null,
+        "name": "api"
+      }
+    }
+  ]
+}

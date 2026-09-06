@@ -1,0 +1,22 @@
+{
+  "answers": {
+    "name": "acme"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "first",
+        "path": "{{name}}.txt"
+      },
+      {
+        "content": "second",
+        "path": "acme.txt"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      }
+    ]
+  }
+}

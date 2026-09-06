@@ -1,0 +1,5 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "BREAKING CHANGE: everything moved", "op": "commit", "sha": "b000210", "subject": "chore(deps)!: bump everything"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000211", "subject": "docs(readme): tidy the intro"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000212", "subject": "fix(api): stop double counting"}
+{"op": "end"}

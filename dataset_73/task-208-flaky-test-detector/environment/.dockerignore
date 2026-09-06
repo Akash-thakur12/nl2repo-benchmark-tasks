@@ -1,0 +1,8 @@
+# Keep the build context to what the agent is meant to see.
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/*.log
+**/*.tmp
+Dockerfile
+.dockerignore

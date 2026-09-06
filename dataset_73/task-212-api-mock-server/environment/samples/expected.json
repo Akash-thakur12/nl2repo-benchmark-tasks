@@ -1,0 +1,118 @@
+{
+  "s01": {
+    "matched": [
+      0
+    ],
+    "responses": [
+      {
+        "body": {
+          "ok": true
+        },
+        "headers": {},
+        "status": 200
+      }
+    ]
+  },
+  "s02": {
+    "matched": [
+      0,
+      0
+    ],
+    "responses": [
+      {
+        "body": {
+          "name": "ada"
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "name": "ada"
+        },
+        "headers": {},
+        "status": 200
+      }
+    ]
+  },
+  "s03": {
+    "matched": [
+      0,
+      1
+    ],
+    "responses": [
+      {
+        "body": {
+          "which": "a"
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "which": "b"
+        },
+        "headers": {},
+        "status": 200
+      }
+    ]
+  },
+  "s04": {
+    "matched": [
+      0
+    ],
+    "responses": [
+      {
+        "body": {
+          "created": true
+        },
+        "headers": {},
+        "status": 201
+      }
+    ]
+  },
+  "s05": {
+    "matched": [
+      0
+    ],
+    "responses": [
+      {
+        "body": {
+          "line": 1
+        },
+        "headers": {},
+        "status": 200
+      }
+    ]
+  },
+  "s06": {
+    "matched": [
+      0,
+      0,
+      0
+    ],
+    "responses": [
+      {
+        "body": {
+          "ok": true
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "ok": true
+        },
+        "headers": {},
+        "status": 200
+      },
+      {
+        "body": {
+          "ok": true
+        },
+        "headers": {},
+        "status": 200
+      }
+    ]
+  }
+}

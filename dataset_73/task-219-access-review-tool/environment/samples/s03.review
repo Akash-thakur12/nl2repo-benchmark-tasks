@@ -1,0 +1,4 @@
+{"default_revoke": false, "op": "config", "separation_of_duties": []}
+{"entitlements": ["billing.read"], "groups": [], "name": "bo", "op": "user", "terminated": false}
+{"entitlement": "billing.read", "op": "decision", "user": "bo", "verdict": "approve"}
+{"op": "end"}

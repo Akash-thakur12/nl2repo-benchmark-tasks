@@ -1,0 +1,5 @@
+{"op": "config", "pipeline": [{"fit": "fill", "height": 100, "op": "resize", "upscale": true, "width": 100}]}
+{"alpha": false, "format": "webp", "frames": 1, "height": 600, "name": "same.webp", "op": "source", "orientation": 1, "width": 800}
+{"alpha": false, "format": "webp", "frames": 1, "height": 300, "name": "same.webp", "op": "source", "orientation": 1, "width": 400}
+{"alpha": false, "format": "webp", "frames": 1, "height": 300, "name": "other.webp", "op": "source", "orientation": 1, "width": 400}
+{"op": "end"}

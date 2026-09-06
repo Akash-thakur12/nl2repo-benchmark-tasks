@@ -1,0 +1,42 @@
+{
+  "tiers": [
+    {
+      "name": "1m",
+      "seconds": 60
+    },
+    {
+      "name": "5m",
+      "seconds": 300
+    }
+  ],
+  "samples": [
+    {
+      "t": 0,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 10
+    },
+    {
+      "t": 70,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 30
+    },
+    {
+      "t": 130,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 60
+    },
+    {
+      "t": 310,
+      "name": "http_requests",
+      "labels": {},
+      "type": "counter",
+      "value": 100
+    }
+  ]
+}

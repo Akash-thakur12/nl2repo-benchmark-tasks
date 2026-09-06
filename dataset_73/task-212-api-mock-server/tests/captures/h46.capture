@@ -1,0 +1,57 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/{a}/items/{c}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 0
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/shop/{b}/{c}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 1
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/{a}/items/{c}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 2
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/shop/items/7",
+      "seq": 1000
+    },
+    {
+      "method": "GET",
+      "path": "/other/items/7",
+      "seq": 1001
+    },
+    {
+      "method": "POST",
+      "path": "/shop/items/7",
+      "seq": 1002
+    }
+  ]
+}

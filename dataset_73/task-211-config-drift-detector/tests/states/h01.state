@@ -1,0 +1,11 @@
+{
+  "declared": [
+    {
+      "id": "web-1",
+      "body": {
+        "size": "a"
+      }
+    }
+  ],
+  "live": []
+}

@@ -1,0 +1,3 @@
+{"op": "config", "pipeline": [{"format": "jpeg", "op": "convert"}, {"height": 10, "op": "crop", "width": 10, "x": 900, "y": 0}]}
+{"alpha": true, "format": "png", "frames": 1, "height": 600, "name": "logo.png", "op": "source", "orientation": 1, "width": 800}
+{"op": "end"}

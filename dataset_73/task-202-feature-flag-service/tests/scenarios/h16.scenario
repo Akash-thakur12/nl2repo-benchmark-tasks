@@ -1,0 +1,7 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "flag-one", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "plan", "operator": "in", "rollout": [{"variant": "on", "weight": 5000}, {"variant": "off", "weight": 5000}], "values": ["pro"]}], "salt": "s-flag-one", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": {"default_variant": "off", "enabled": true, "key": "flag-two", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "plan", "operator": "in", "rollout": [{"variant": "on", "weight": 5000}, {"variant": "off", "weight": 5000}], "values": ["pro"]}], "salt": "s-flag-two", "variants": ["on", "off"]}, "op": "define", "t": 2}
+{"flag": "flag-one", "op": "evaluate", "t": 3, "user": {"key": "user0", "plan": "pro"}}
+{"flag": "flag-two", "op": "evaluate", "t": 4, "user": {"key": "user0", "plan": "pro"}}
+{"flag": "flag-one", "op": "evaluate", "t": 5, "user": {"key": "user4", "plan": "pro"}}
+{"flag": "flag-two", "op": "evaluate", "t": 6, "user": {"key": "user4", "plan": "pro"}}
+{"op": "end", "t": 7}

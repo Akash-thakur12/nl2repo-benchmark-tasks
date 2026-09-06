@@ -1,0 +1,15 @@
+{
+  "now": 100,
+  "tables": [
+    {
+      "name": "audit"
+    }
+  ],
+  "rows": [
+    {
+      "table": "audit",
+      "id": 1,
+      "created": 0
+    }
+  ]
+}

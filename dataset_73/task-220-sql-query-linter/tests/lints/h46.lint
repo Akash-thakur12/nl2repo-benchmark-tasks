@@ -1,0 +1,5 @@
+{"op": "config"}
+{"name": "one", "op": "query", "sql": "SELECT * FROM t"}
+{"name": "two", "op": "query", "sql": "select a from u where a > 0"}
+{"name": "three", "op": "query", "sql": "SELECT a FROM v WHERE a > 0"}
+{"op": "end"}

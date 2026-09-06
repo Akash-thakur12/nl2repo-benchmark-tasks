@@ -1,0 +1,6 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "1.4.2", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000080", "subject": "feat(api): add pagination (#412)"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000081", "subject": "feat(api): add (#7) sorting"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000082", "subject": "fix(api): repair (#8) counting (#9)"}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000083", "subject": "fix(api): trailing not a reference (#)"}
+{"op": "end"}

@@ -1,0 +1,209 @@
+{
+  "s01": {
+    "access": [
+      {
+        "effective": true,
+        "entitlement": "ledger.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "ada",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "ledger.write",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "ada",
+        "via": null
+      }
+    ],
+    "errors": [],
+    "violations": []
+  },
+  "s02": {
+    "access": [
+      {
+        "effective": true,
+        "entitlement": "ledger.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "ada",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "ledger.write",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "ada",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "billing.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "bo",
+        "via": null
+      }
+    ],
+    "errors": [],
+    "violations": []
+  },
+  "s03": {
+    "access": [
+      {
+        "effective": true,
+        "entitlement": "billing.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "bo",
+        "via": null
+      }
+    ],
+    "errors": [],
+    "violations": []
+  },
+  "s04": {
+    "access": [
+      {
+        "effective": true,
+        "entitlement": "audit.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "cai",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "billing.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "cai",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "ledger.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "cai",
+        "via": null
+      }
+    ],
+    "errors": [],
+    "violations": []
+  },
+  "s05": {
+    "access": [
+      {
+        "effective": true,
+        "entitlement": "ledger.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "ada",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "ledger.write",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "ada",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "billing.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "bo",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "audit.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "cai",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "billing.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "cai",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "ledger.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "cai",
+        "via": null
+      }
+    ],
+    "errors": [],
+    "violations": []
+  },
+  "s06": {
+    "access": [],
+    "errors": [],
+    "violations": []
+  },
+  "s07": {
+    "access": [
+      {
+        "effective": true,
+        "entitlement": "billing.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "bo",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "audit.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "cai",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "billing.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "cai",
+        "via": null
+      },
+      {
+        "effective": true,
+        "entitlement": "ledger.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "cai",
+        "via": null
+      }
+    ],
+    "errors": [],
+    "violations": []
+  },
+  "s08": {
+    "access": [
+      {
+        "effective": true,
+        "entitlement": "reports.read",
+        "source": "DIRECT",
+        "state": "APPROVED",
+        "user": "eli",
+        "via": null
+      }
+    ],
+    "errors": [],
+    "violations": []
+  }
+}

@@ -1,0 +1,6 @@
+{"flag": {"default_variant": "grey", "enabled": true, "key": "ramp", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "plan", "operator": "in", "rollout": [{"variant": "on", "weight": 2000}, {"variant": "off", "weight": 1000}], "values": ["pro"]}], "salt": "s-ramp", "variants": ["on", "off", "grey"]}, "op": "define", "t": 1}
+{"flag": "ramp", "op": "evaluate", "t": 2, "user": {"key": "u2", "plan": "pro"}}
+{"flag": "ramp", "op": "evaluate", "t": 3, "user": {"key": "u5", "plan": "pro"}}
+{"flag": "ramp", "op": "evaluate", "t": 4, "user": {"key": "u3", "plan": "pro"}}
+{"flag": "ramp", "op": "evaluate", "t": 5, "user": {"key": "u1", "plan": "pro"}}
+{"op": "end", "t": 6}

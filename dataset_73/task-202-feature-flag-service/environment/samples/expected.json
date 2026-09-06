@@ -1,0 +1,104 @@
+{
+  "s01": {
+    "evaluations": [
+      {
+        "flag": "checkout-v2",
+        "reason": "RULE_MATCH",
+        "user": "u1",
+        "variant": "on"
+      }
+    ],
+    "flags": [
+      "checkout-v2"
+    ]
+  },
+  "s02": {
+    "evaluations": [
+      {
+        "flag": "checkout-v2",
+        "reason": "DEFAULT",
+        "user": "u1",
+        "variant": "off"
+      }
+    ],
+    "flags": [
+      "checkout-v2"
+    ]
+  },
+  "s03": {
+    "evaluations": [
+      {
+        "flag": "new-nav",
+        "reason": "RULE_MATCH",
+        "user": "u1",
+        "variant": "on"
+      },
+      {
+        "flag": "new-nav",
+        "reason": "RULE_MATCH",
+        "user": "u2",
+        "variant": "on"
+      },
+      {
+        "flag": "new-nav",
+        "reason": "DEFAULT",
+        "user": "u3",
+        "variant": "off"
+      }
+    ],
+    "flags": [
+      "new-nav"
+    ]
+  },
+  "s04": {
+    "evaluations": [
+      {
+        "flag": "beta-banner",
+        "reason": "DEFAULT",
+        "user": "u1",
+        "variant": "off"
+      }
+    ],
+    "flags": [
+      "beta-banner"
+    ]
+  },
+  "s05": {
+    "evaluations": [
+      {
+        "flag": "dark-mode",
+        "reason": "RULE_MATCH",
+        "user": "alice",
+        "variant": "on"
+      },
+      {
+        "flag": "dark-mode",
+        "reason": "DEFAULT",
+        "user": "bob",
+        "variant": "off"
+      }
+    ],
+    "flags": [
+      "dark-mode"
+    ]
+  },
+  "s06": {
+    "evaluations": [
+      {
+        "flag": "search-v3",
+        "reason": "RULE_MATCH",
+        "user": "u9",
+        "variant": "on"
+      },
+      {
+        "flag": "search-v3",
+        "reason": "RULE_MATCH",
+        "user": "u9",
+        "variant": "on"
+      }
+    ],
+    "flags": [
+      "search-v3"
+    ]
+  }
+}

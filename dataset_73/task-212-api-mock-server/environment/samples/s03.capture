@@ -1,0 +1,40 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/a",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "which": "a"
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/b",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "which": "b"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/a",
+      "seq": 3072
+    },
+    {
+      "method": "GET",
+      "path": "/b",
+      "seq": 3073
+    }
+  ]
+}

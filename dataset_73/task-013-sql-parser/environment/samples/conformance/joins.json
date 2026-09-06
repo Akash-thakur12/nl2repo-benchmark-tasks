@@ -1,0 +1,298 @@
+{
+  "_comment": "Captured from the production front end. `ast` is exactly what parse(query) returns. Normative; see docs/README.md.",
+  "cases": [
+    {
+      "query": "SELECT a FROM t1 INNER JOIN t2 ON t1.id = t2.tid",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t1",
+          "alias": null
+        },
+        "joins": [
+          {
+            "kind": "INNER",
+            "table": "t2",
+            "alias": null,
+            "on": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "id",
+                "table": "t1"
+              },
+              "right": {
+                "type": "column",
+                "name": "tid",
+                "table": "t2"
+              }
+            }
+          }
+        ],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t1 JOIN t2 ON t1.id = t2.tid",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t1",
+          "alias": null
+        },
+        "joins": [
+          {
+            "kind": "INNER",
+            "table": "t2",
+            "alias": null,
+            "on": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "id",
+                "table": "t1"
+              },
+              "right": {
+                "type": "column",
+                "name": "tid",
+                "table": "t2"
+              }
+            }
+          }
+        ],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t1 LEFT JOIN t2 ON t1.id = t2.id",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t1",
+          "alias": null
+        },
+        "joins": [
+          {
+            "kind": "LEFT",
+            "table": "t2",
+            "alias": null,
+            "on": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "id",
+                "table": "t1"
+              },
+              "right": {
+                "type": "column",
+                "name": "id",
+                "table": "t2"
+              }
+            }
+          }
+        ],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t1 RIGHT JOIN t2 ON t1.id = t2.tid",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t1",
+          "alias": null
+        },
+        "joins": [
+          {
+            "kind": "RIGHT",
+            "table": "t2",
+            "alias": null,
+            "on": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "id",
+                "table": "t1"
+              },
+              "right": {
+                "type": "column",
+                "name": "tid",
+                "table": "t2"
+              }
+            }
+          }
+        ],
+        "where": null,
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT DISTINCT u.id AS uid FROM users u LEFT JOIN orders o ON u.id = o.uid WHERE u.age >= 21 AND o.total IN (10, 20) GROUP BY u.id HAVING u.id > 0 ORDER BY u.id DESC LIMIT 5 OFFSET 2",
+      "ast": {
+        "type": "select",
+        "distinct": true,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "id",
+              "table": "u"
+            },
+            "alias": "uid"
+          }
+        ],
+        "from": {
+          "table": "users",
+          "alias": "u"
+        },
+        "joins": [
+          {
+            "kind": "LEFT",
+            "table": "orders",
+            "alias": "o",
+            "on": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "id",
+                "table": "u"
+              },
+              "right": {
+                "type": "column",
+                "name": "uid",
+                "table": "o"
+              }
+            }
+          }
+        ],
+        "where": {
+          "type": "binary",
+          "op": "AND",
+          "left": {
+            "type": "binary",
+            "op": ">=",
+            "left": {
+              "type": "column",
+              "name": "age",
+              "table": "u"
+            },
+            "right": {
+              "type": "literal",
+              "value": 21
+            }
+          },
+          "right": {
+            "type": "in",
+            "operand": {
+              "type": "column",
+              "name": "total",
+              "table": "o"
+            },
+            "values": [
+              {
+                "type": "literal",
+                "value": 10
+              },
+              {
+                "type": "literal",
+                "value": 20
+              }
+            ]
+          }
+        },
+        "group_by": [
+          "u.id"
+        ],
+        "having": {
+          "type": "binary",
+          "op": ">",
+          "left": {
+            "type": "column",
+            "name": "id",
+            "table": "u"
+          },
+          "right": {
+            "type": "literal",
+            "value": 0
+          }
+        },
+        "order_by": [
+          {
+            "column": "u.id",
+            "direction": "DESC"
+          }
+        ],
+        "limit": 5,
+        "offset": 2
+      }
+    }
+  ]
+}

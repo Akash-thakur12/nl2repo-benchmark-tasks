@@ -1,0 +1,170 @@
+{
+  "s01": {
+    "attempts": [
+      {
+        "from": 0,
+        "outcome": "ok",
+        "t": 10,
+        "to": 100
+      },
+      {
+        "from": 100,
+        "outcome": "ok",
+        "t": 20,
+        "to": 200
+      },
+      {
+        "from": 200,
+        "outcome": "ok",
+        "t": 30,
+        "to": 300
+      }
+    ],
+    "state": {
+      "checkpoint": 300,
+      "done": 300,
+      "halted": false,
+      "paused": false,
+      "percent": 100,
+      "total": 300
+    },
+    "waits": 0
+  },
+  "s02": {
+    "attempts": [
+      {
+        "from": 0,
+        "outcome": "ok",
+        "t": 10,
+        "to": 100
+      }
+    ],
+    "state": {
+      "checkpoint": 100,
+      "done": 100,
+      "halted": false,
+      "paused": false,
+      "percent": 100,
+      "total": 100
+    },
+    "waits": 0
+  },
+  "s03": {
+    "attempts": [
+      {
+        "from": 0,
+        "outcome": "ok",
+        "t": 10,
+        "to": 100
+      }
+    ],
+    "state": {
+      "checkpoint": 100,
+      "done": 100,
+      "halted": false,
+      "paused": false,
+      "percent": 50,
+      "total": 200
+    },
+    "waits": 0
+  },
+  "s04": {
+    "attempts": [
+      {
+        "from": 0,
+        "outcome": "ok",
+        "t": 10,
+        "to": 50
+      },
+      {
+        "from": 50,
+        "outcome": "ok",
+        "t": 20,
+        "to": 100
+      },
+      {
+        "from": 100,
+        "outcome": "ok",
+        "t": 30,
+        "to": 150
+      },
+      {
+        "from": 150,
+        "outcome": "ok",
+        "t": 40,
+        "to": 200
+      }
+    ],
+    "state": {
+      "checkpoint": 200,
+      "done": 200,
+      "halted": false,
+      "paused": false,
+      "percent": 100,
+      "total": 200
+    },
+    "waits": 0
+  },
+  "s05": {
+    "attempts": [
+      {
+        "from": 0,
+        "outcome": "ok",
+        "t": 10,
+        "to": 100
+      },
+      {
+        "from": 100,
+        "outcome": "ok",
+        "t": 20,
+        "to": 200
+      },
+      {
+        "from": 200,
+        "outcome": "ok",
+        "t": 30,
+        "to": 300
+      }
+    ],
+    "state": {
+      "checkpoint": 300,
+      "done": 300,
+      "halted": false,
+      "paused": false,
+      "percent": 100,
+      "total": 300
+    },
+    "waits": 0
+  },
+  "s06": {
+    "attempts": [
+      {
+        "from": 1000,
+        "outcome": "ok",
+        "t": 10,
+        "to": 1100
+      },
+      {
+        "from": 1100,
+        "outcome": "ok",
+        "t": 20,
+        "to": 1200
+      },
+      {
+        "from": 1200,
+        "outcome": "ok",
+        "t": 30,
+        "to": 1300
+      }
+    ],
+    "state": {
+      "checkpoint": 1300,
+      "done": 300,
+      "halted": false,
+      "paused": false,
+      "percent": 100,
+      "total": 300
+    },
+    "waits": 0
+  }
+}

@@ -1,0 +1,8 @@
+{"backoff_ms": [500, 9000], "heartbeat_timeout_ms": 1000000, "max_restarts": 9, "op": "config", "reset_after_ms": 20000, "restart_window_ms": 300000, "workers": ["a"]}
+{"op": "crash", "t": 1000, "worker": "a"}
+{"op": "tick", "t": 2000}
+{"op": "tick", "t": 19000}
+{"op": "tick", "t": 21000}
+{"op": "crash", "t": 22000, "worker": "a"}
+{"op": "tick", "t": 22600}
+{"op": "end", "t": 40000}

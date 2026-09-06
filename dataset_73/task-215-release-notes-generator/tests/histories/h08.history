@@ -1,0 +1,3 @@
+{"include_types": ["feat", "fix", "revert"], "op": "config", "previous_version": "0.4.1", "sections": [{"title": "Features", "type": "feat"}, {"title": "Bug Fixes", "type": "fix"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "b000060", "subject": "feat(api)!: remove the v1 endpoints"}
+{"op": "end"}

@@ -1,0 +1,51 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/tls-fingerprint"
+version = "1.0.0"
+description = "Parse a TLS handshake record carrying a ClientHello; extract version, cipher suites, extension list, elliptic curves and EC point formats; emit a simplified JA3 string and its md5 hash."
+keywords = [
+    "hard",
+    "tls",
+    "fingerprinting",
+    "network-protocol-parsing",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models the real JA3 TLS-fingerprinting technique used in network security tooling."
+differentiation_notes = "GREASE-value filtering is a documented JA3 requirement that's easy to omit, silently changing every fingerprint that includes a GREASE-enabled client."
+relevance = "JA3 fingerprinting is a real technique used in production network intrusion detection."
+failure_cruxes = [
+    "Taking fingerprint field 1 from the record-layer version at blob[1:3] instead of the client_version inside the handshake body -- the two differ on nearly every modern client.",
+    "Including RFC 8701 reserved (GREASE) values in the fingerprint instead of excluding them from the 16-bit list fields -- or approximating the reserved set with a low-byte test, which also deletes extension 0x000A and empties the supported-groups field.",
+    "Sorting the extension type list instead of keeping wire order, and trusting the superseded v1 dissector document, the stale parser.py comment and ja3_diff.py's wrong root-cause guess that are all still on disk.",
+    "Assuming one record carries one complete handshake message -- a ClientHello fragmented across two records is silently truncated, yielding a well-formed but wrong fingerprint.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

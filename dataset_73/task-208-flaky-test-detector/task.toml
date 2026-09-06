@@ -1,0 +1,63 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/flaky-test-detector"
+version = "1.0.0"
+description = "Build a flaky-test detector: per-commit disagreement rather than per-run, retries and skips handled correctly, floored rates, a three-key ranking order and sticky quarantine."
+keywords = [
+    "hard",
+    "ci",
+    "flaky-tests",
+    "quarantine",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "developer-tooling"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 5
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Every engineering organisation past a certain size builds one of these, usually after an argument about which failures are real."
+differentiation_notes = "The six visible samples come from a week in which nothing was flaky: every test either always passed or always failed, one run per commit, one result per run, no skips, no unknown statuses, nothing quarantined, and every test in a capture seen in the same number of commits. Seventeen plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all seventeen and asserts each still reproduces the samples and is still caught by at least one held-out capture, so the difficulty is demonstrated rather than asserted."
+relevance = "Mirrors the distinction every flaky-test dashboard has to draw and most get wrong: a test that failed on one commit and passed on the next is a regression somebody fixed, while a test that did both on the same commit is the thing worth quarantining."
+failure_cruxes = [
+    "Measuring history per run rather than per commit, so a retried build looks like two data points.",
+    "Calling a test flaky because it passed somewhere and failed somewhere else, rather than within one commit.",
+    "Treating an error as something other than a failure.",
+    "Counting a skipped result toward its commit, or counting a commit in which the test was only ever skipped.",
+    "Discarding an unrecognised status without recording it, or letting it count as a failure.",
+    "Rounding the rate instead of flooring it.",
+    "Treating the minimum commit count or the threshold as exclusive.",
+    "Breaking a tie on rate by name alone instead of by commit count first.",
+    "Sorting by commits before rate, or sorting the rate ascending.",
+    "Recomputing quarantine from scratch instead of keeping an existing one sticky.",
+    "Adding a quarantined test that never ran to the ranking.",
+    "Sorting the recommendation list by name rather than leaving it in ranking order.",
+    "Counting retries inside a single run only once, which erases the disagreement they exist to reveal.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

@@ -1,0 +1,2 @@
+{"days": 6, "engineers": [{"name": "Ada", "unavailable": []}], "max_consecutive": 2, "op": "config", "start": "2026-03-02"}
+{"op": "end"}

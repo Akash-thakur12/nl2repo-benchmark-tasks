@@ -1,0 +1,49 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/websocket-server"
+version = "1.0.0"
+description = "RFC 6455 WebSocket: parse/build frames (FIN, RSV, opcode, mask, ext lengths), Sec-WebSocket-Accept handshake, close code/reason, control-frame rules, and feed() fragment reassembly with interleaved control frames + partial delivery."
+keywords = [
+    "hard",
+    "websocket",
+    "rfc6455",
+    "frame-reassembly",
+]
+
+[metadata]
+benchmark_style = "RepoZero"
+spec_kind = "clear"
+language = "python"
+tier = "systems"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Direct implementation of RFC 6455 WebSocket framing and handshake."
+differentiation_notes = "Header-name case-sensitivity and control-frame interleaving during reassembly are both easy to get right in isolation but wrong together."
+relevance = "WebSocket framing bugs directly affect real production real-time messaging infrastructure."
+failure_cruxes = [
+    "Looking up the `Sec-WebSocket-Key` header case-sensitively instead of per-RFC case-insensitively during the handshake.",
+    "Losing an interleaved control frame (e.g. a Ping) that arrives between two fragments of a larger data message during reassembly.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

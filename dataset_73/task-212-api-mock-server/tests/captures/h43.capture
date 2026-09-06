@@ -1,0 +1,35 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/{a}/{b}/keep",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 0
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/{x}/{y}/keep",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 1
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/m/n/keep",
+      "seq": 1000
+    }
+  ]
+}

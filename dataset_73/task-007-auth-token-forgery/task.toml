@@ -1,0 +1,53 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/auth-token-forgery"
+version = "1.0.0"
+description = "Offline audit engine for tokend's truncated-HMAC request tags: reproduce per-epoch tags, replay a capture corpus, and identify which KMS key signed observed tags."
+keywords = [
+    "hard",
+    "hmac",
+    "truncated-mac",
+    "key-recovery",
+    "audit",
+    "as-of-time",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models a real class of truncated-MAC authentication weaknesses and the audit tooling built around them."
+differentiation_notes = "The tag width is the width in force at the event's instant (from a non-monotonic, out-of-file-order width_history), not the key's current width; the wire tag field is a fixed 8 octets zero-padded, so trailing zeros are not a length signal and a filled pad is malformed; and a non-unique key recovery is a non-answer while duplicate key material is not non-unique. All three are recoverable only by replaying the shipped capture corpus."
+relevance = "Truncated-MAC schemes and their offline audit tooling are a documented real-world authentication weakness."
+failure_cruxes = [
+    "Resolving the tag width from the export's current top-level mac_bytes (or a legacy fixed trunc) instead of the width in force at the capture instant, taken from width_history sorted by `from` with inclusive boundaries and a non-monotonic rollback week.",
+    "Treating the fixed 8-octet zero-padded tag field as length-significant: stripping trailing zeros before comparing (which waves the INC-4417 forgery through) instead of comparing over exactly mac_bytes octets and rejecting any non-zero pad as malformed.",
+    "Returning the first matching candidate key rather than requiring the match be unique by key material, and conversely rejecting a unique identification just because the same material is listed under two kids.",
+    "Checking every recovery sample at one width instead of each at its own epoch, and counting width-unresolvable samples as mismatches instead of dropping them from the evidence set.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

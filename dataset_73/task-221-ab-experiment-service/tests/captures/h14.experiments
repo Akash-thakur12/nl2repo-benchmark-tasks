@@ -1,0 +1,23 @@
+{"op": "config", "salt": "2026-Q1"}
+{"key": "real-one", "op": "experiment", "state": "running", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"experiment": "real-one", "op": "assign", "user": "u-0001"}
+{"experiment": "ghost", "op": "assign", "user": "u-0001"}
+{"experiment": "real-one", "op": "assign", "user": "u-0002"}
+{"experiment": "ghost", "op": "assign", "user": "u-0002"}
+{"experiment": "real-one", "op": "assign", "user": "u-0003"}
+{"experiment": "ghost", "op": "assign", "user": "u-0003"}
+{"experiment": "real-one", "op": "assign", "user": "u-0004"}
+{"experiment": "ghost", "op": "assign", "user": "u-0004"}
+{"experiment": "real-one", "op": "assign", "user": "u-0005"}
+{"experiment": "ghost", "op": "assign", "user": "u-0005"}
+{"experiment": "real-one", "op": "assign", "user": "u-0006"}
+{"experiment": "ghost", "op": "assign", "user": "u-0006"}
+{"experiment": "real-one", "op": "assign", "user": "u-0007"}
+{"experiment": "ghost", "op": "assign", "user": "u-0007"}
+{"experiment": "real-one", "op": "assign", "user": "u-0008"}
+{"experiment": "ghost", "op": "assign", "user": "u-0008"}
+{"experiment": "real-one", "op": "assign", "user": "u-0009"}
+{"experiment": "ghost", "op": "assign", "user": "u-0009"}
+{"experiment": "real-one", "op": "assign", "user": "u-0010"}
+{"experiment": "ghost", "op": "assign", "user": "u-0010"}
+{"op": "end"}

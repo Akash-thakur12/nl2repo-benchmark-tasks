@@ -1,0 +1,33 @@
+# SQL front-end lexicon. Two columns, tab separated: word, class.
+#
+# class=reserved    the word is a keyword wherever it appears
+# class=contextual  the word is a keyword only in the grammar position that
+#                   needs it, and an ordinary identifier everywhere else
+#
+# Exported from the front-end word table. Keep sorted by class, then word.
+word	class
+AND	reserved
+AS	reserved
+BY	reserved
+DISTINCT	reserved
+FROM	reserved
+GROUP	reserved
+HAVING	reserved
+IN	reserved
+IS	reserved
+JOIN	reserved
+LIKE	reserved
+LIMIT	reserved
+NOT	reserved
+NULL	reserved
+ON	reserved
+OR	reserved
+ORDER	reserved
+SELECT	reserved
+WHERE	reserved
+ASC	contextual
+DESC	contextual
+INNER	contextual
+LEFT	contextual
+OFFSET	contextual
+RIGHT	contextual

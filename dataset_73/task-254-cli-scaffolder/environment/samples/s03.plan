@@ -1,0 +1,23 @@
+{
+  "answers": {
+    "name": "acme"
+  },
+  "template": {
+    "files": [
+      {
+        "content": "export const n = \"{{name}}\";\n",
+        "path": "src/index.js"
+      }
+    ],
+    "hooks": [
+      {
+        "run": "npm install"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "name"
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/users/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "who": "one"
+          },
+          "when": {
+            "id": "1"
+          },
+          "times": 1
+        },
+        {
+          "status": 200,
+          "body": {
+            "who": "fallback"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/users/1",
+      "seq": 205
+    },
+    {
+      "method": "GET",
+      "path": "/users/1",
+      "seq": 203
+    },
+    {
+      "method": "GET",
+      "path": "/users/2",
+      "seq": 204
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"op": "config", "pipeline": [{"height": 10, "op": "crop", "width": 10, "x": 0, "y": 300}]}
+{"alpha": false, "format": "webp", "frames": 1, "height": 300, "name": "a.webp", "op": "source", "orientation": 1, "width": 400}
+{"op": "end"}

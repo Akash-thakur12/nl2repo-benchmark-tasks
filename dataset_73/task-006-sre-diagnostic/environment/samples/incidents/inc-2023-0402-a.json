@@ -1,0 +1,29 @@
+{
+  "incident_id": "inc-2023-0402-a",
+  "host": "web-07",
+  "note": "Textbook disk/GC cascade. Clean 60-second window, samples arrived in time order, no agent restart.",
+  "collector_note": "nothing unusual about this collection",
+  "samples_in_arrival_order": [
+    {
+      "t": 1680393600,
+      "cpu_util_pct": 22,
+      "mem_util_pct": 55,
+      "disk_io_ops_total": 1000,
+      "net_bytes_total": 4000,
+      "gc_pause_ms_total": 500
+    },
+    {
+      "t": 1680393660,
+      "cpu_util_pct": 91,
+      "mem_util_pct": 60,
+      "disk_io_ops_total": 1190,
+      "net_bytes_total": 4100,
+      "gc_pause_ms_total": 900
+    }
+  ],
+  "recorded_verdict": {
+    "cause": "DISK_IO_SATURATION",
+    "secondary": "GC_PRESSURE",
+    "cpu_suspect": false
+  }
+}

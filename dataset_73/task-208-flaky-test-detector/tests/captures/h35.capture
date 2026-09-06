@@ -1,0 +1,58 @@
+{
+  "captured_at": "2026-04-14T09:00:00Z",
+  "min_commits": 2,
+  "threshold_percent": 50,
+  "policy_history": [
+    {
+      "effective_at": "2025-11-02T00:00:00Z",
+      "min_commits": 2,
+      "threshold_percent": 50
+    }
+  ],
+  "runs": [
+    {
+      "id": "r1",
+      "commit": "3e0ffbe8ab63f632f68b5161434201398961dea4",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "commit": "3e0ffbe",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t",
+          "status": "failed"
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "commit": "31db91f100facb3352ca913a32ce5f529348e423",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "commit": "31db91f",
+      "outcome": "completed",
+      "results": [
+        {
+          "test": "t",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

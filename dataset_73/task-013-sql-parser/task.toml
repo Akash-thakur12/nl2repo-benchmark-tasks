@@ -1,0 +1,51 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/sql-parser"
+version = "1.0.0"
+description = "Parse SELECT [DISTINCT] cols FROM t [WHERE cond] [GROUP BY] [HAVING] [ORDER BY] [LIMIT]. Produce AST."
+keywords = [
+    "hard",
+    "sql",
+    "recursive-descent-parsing",
+    "ast-construction",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+difficulty = "hard"
+category = "systems-programming"
+
+[metadata.difficulty_explanation]
+provenance = "Models standard SQL SELECT-statement grammar and operator precedence."
+differentiation_notes = "The AST schema and every lexical rule are recoverable only from environment/samples/conformance/*.json, environment/samples/rejects.txt and environment/data/lexicon.tsv; instruction.md states scope, not answers. The obvious parser (flat keyword set, verbatim identifiers, unsigned numbers, expect('num') for LIMIT) fails a graded slice of the suite, and a stale triage note in environment/docs/notes/ argues for two further wrong shapes that the corpus refutes."
+relevance = "SQL parser precedence bugs are a real, recurring class of database front-end defects."
+failure_cruxes = [
+    "Treating the lexicon's contextual words (INNER/LEFT/RIGHT/ASC/DESC/OFFSET) as reserved, so `SELECT left FROM t`, `FROM orders inner`, `ORDER BY desc DESC` and a column named `offset` all fail to parse.",
+    "Preserving the source spelling of unquoted identifiers instead of folding column names, table names, qualifiers and aliases to lower case (string literals must keep their case).",
+    "Treating a leading `-` as a unary operator (or rejecting it) instead of folding the sign into the numeric literal, and accepting a float or a negative count for LIMIT/OFFSET.",
+    "Believing environment/docs/notes/2024-11-triage.md: building `a IS NOT NULL` as a unary NOT over a non-negated is_null, and reducing OR below AND.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

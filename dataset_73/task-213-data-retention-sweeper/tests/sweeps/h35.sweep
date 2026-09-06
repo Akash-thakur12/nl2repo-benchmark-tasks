@@ -1,0 +1,71 @@
+{
+  "now": 100,
+  "tables": [
+    {
+      "name": "orders",
+      "retain_days": 30
+    },
+    {
+      "name": "order_lines",
+      "retain_days": 30,
+      "parent": "orders"
+    },
+    {
+      "name": "audit"
+    },
+    {
+      "name": "ghosts",
+      "retain_days": 30,
+      "parent": "nowhere"
+    }
+  ],
+  "rows": [
+    {
+      "table": "orders",
+      "id": 1,
+      "created": 10
+    },
+    {
+      "table": "orders",
+      "id": 2,
+      "created": 10
+    },
+    {
+      "table": "orders",
+      "id": 3,
+      "created": 10
+    },
+    {
+      "table": "order_lines",
+      "id": 5,
+      "created": 10,
+      "parent_id": 1
+    },
+    {
+      "table": "order_lines",
+      "id": 6,
+      "created": 95,
+      "parent_id": 2
+    },
+    {
+      "table": "audit",
+      "id": 1,
+      "created": 0
+    },
+    {
+      "table": "ghosts",
+      "id": 1,
+      "created": 10
+    }
+  ],
+  "batch_limit": 3,
+  "holds": [
+    {
+      "table": "orders",
+      "ids": [
+        3
+      ],
+      "until": 200
+    }
+  ]
+}

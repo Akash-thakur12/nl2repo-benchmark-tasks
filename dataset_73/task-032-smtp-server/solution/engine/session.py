@@ -1,0 +1,8 @@
+from __future__ import annotations
+
+STATE_INIT = "INIT"
+STATE_GREETED = "GREETED"
+STATE_MAIL = "MAIL"
+STATE_RCPT = "RCPT"
+STATE_DATA = "DATA"
+STATE_QUIT = "QUIT"

@@ -1,0 +1,59 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/feature-flag-service"
+version = "1.0.0"
+description = "Build an offline feature-flag evaluator: resolve targeting rules, prerequisites, cycles and percentage rollouts from a captured scenario, reporting the variant and the reason for every evaluation."
+keywords = [
+    "hard",
+    "feature-flags",
+    "targeting",
+    "percentage-rollout",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "backend-services"
+language = "python"
+tier = "backend"
+origin = "oss-initial"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Open-source project initial requirement. Every flag platform ships an offline evaluator so a rollout incident can be replayed from a capture instead of argued about from screenshots."
+differentiation_notes = "The six visible samples come from a service in its simplest configuration: one enabled flag, a single `in` rule on an attribute that is always present, no prerequisites and no rollouts. Nineteen plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all nineteen and asserts each still reproduces the samples and is still caught by at least one held-out scenario, so the difficulty is demonstrated rather than asserted."
+relevance = "Mirrors the semantics every flag platform has to get right: evaluation order, first-match rule precedence, prerequisite chains and cycles, type-strict targeting, and a stable per-flag hash so one user is not correlated across every rollout."
+failure_cruxes = [
+    "Serving default_variant instead of off_variant when a flag is disabled or a prerequisite fails.",
+    "Letting the last matching rule win instead of the first.",
+    "Treating a missing attribute as null, so a not_in rule matches a user who has no such attribute.",
+    "Comparing targeting values without type strictness, so the string \"1\" matches the number 1 or a bool matches a number.",
+    "Stringifying a non-string attribute for starts_with and contains instead of declining to match.",
+    "Bucketing from the user key alone, or omitting the salt, so one user lands in the same bucket for every flag.",
+    "Comparing rollout weights individually rather than as running totals, or using an inclusive boundary.",
+    "Consulting rules before prerequisites, checking only the first prerequisite, or treating a prerequisite on an undefined flag as satisfied.",
+    "Reporting a rollout result as RULE_MATCH rather than RULE_ROLLOUT, or an undefined flag as DEFAULT rather than FLAG_NOT_FOUND.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

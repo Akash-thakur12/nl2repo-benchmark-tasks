@@ -1,0 +1,5 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "f", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "host", "operator": "starts_with", "values": ["eu-"], "variant": "on"}], "salt": "s-f", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "f", "op": "evaluate", "t": 2, "user": {"host": "eu-west-1", "key": "u1"}}
+{"flag": "f", "op": "evaluate", "t": 3, "user": {"host": "us-east-1", "key": "u2"}}
+{"flag": "f", "op": "evaluate", "t": 4, "user": {"host": ["eu-west-1"], "key": "u3"}}
+{"op": "end", "t": 5}

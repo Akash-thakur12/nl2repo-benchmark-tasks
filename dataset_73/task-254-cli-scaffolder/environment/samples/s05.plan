@@ -1,0 +1,12 @@
+{
+  "answers": {},
+  "template": {
+    "files": [
+      {
+        "content": "no variables here",
+        "path": "static.txt"
+      }
+    ],
+    "prompts": []
+  }
+}

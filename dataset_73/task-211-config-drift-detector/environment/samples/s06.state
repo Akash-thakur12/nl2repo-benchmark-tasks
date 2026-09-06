@@ -1,0 +1,72 @@
+{
+  "declared": [
+    {
+      "id": "a",
+      "body": {
+        "ports": [
+          80,
+          443
+        ],
+        "disks": [
+          {
+            "size": 10
+          },
+          {
+            "size": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "b",
+      "body": {
+        "count": 3,
+        "enabled": true,
+        "note": null,
+        "name": "api"
+      }
+    },
+    {
+      "id": "c",
+      "body": {
+        "size": "m5.large",
+        "zone": "eu-1"
+      }
+    }
+  ],
+  "live": [
+    {
+      "id": "a",
+      "body": {
+        "ports": [
+          80,
+          443
+        ],
+        "disks": [
+          {
+            "size": 10
+          },
+          {
+            "size": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "b",
+      "body": {
+        "count": 3,
+        "enabled": true,
+        "note": null,
+        "name": "api"
+      }
+    },
+    {
+      "id": "c",
+      "body": {
+        "size": "m5.large",
+        "zone": "eu-1"
+      }
+    }
+  ]
+}

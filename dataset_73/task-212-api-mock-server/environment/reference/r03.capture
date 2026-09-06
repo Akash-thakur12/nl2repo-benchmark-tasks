@@ -1,0 +1,81 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/old",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "era": "old"
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/both",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "era": "before"
+          }
+        }
+      ]
+    }
+  ],
+  "reloads": [
+    {
+      "at": 502,
+      "routes": [
+        {
+          "method": "GET",
+          "path": "/both",
+          "fixtures": [
+            {
+              "status": 200,
+              "body": {
+                "era": "after"
+              }
+            }
+          ]
+        },
+        {
+          "method": "GET",
+          "path": "/new",
+          "fixtures": [
+            {
+              "status": 200,
+              "body": {
+                "era": "new"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/old",
+      "seq": 500
+    },
+    {
+      "method": "GET",
+      "path": "/new",
+      "seq": 501
+    },
+    {
+      "method": "GET",
+      "path": "/old",
+      "seq": 502
+    },
+    {
+      "method": "GET",
+      "path": "/new",
+      "seq": 503
+    }
+  ]
+}

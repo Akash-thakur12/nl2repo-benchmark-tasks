@@ -1,0 +1,176 @@
+{
+  "s01": {
+    "errors": [],
+    "events": [
+      {
+        "env": "prod",
+        "kind": "stage",
+        "t": 100,
+        "version": 2
+      },
+      {
+        "env": "prod",
+        "kind": "complete",
+        "t": 110,
+        "version": 2
+      },
+      {
+        "kind": "rotated",
+        "t": 110,
+        "version": 2
+      }
+    ],
+    "state": {
+      "current": 2,
+      "live": [
+        1,
+        2
+      ]
+    }
+  },
+  "s02": {
+    "errors": [],
+    "events": [
+      {
+        "env": "prod",
+        "kind": "stage",
+        "t": 100,
+        "version": 2
+      },
+      {
+        "env": "prod",
+        "kind": "complete",
+        "t": 120,
+        "version": 2
+      },
+      {
+        "kind": "rotated",
+        "t": 120,
+        "version": 2
+      }
+    ],
+    "state": {
+      "current": 2,
+      "live": [
+        1,
+        2
+      ]
+    }
+  },
+  "s03": {
+    "errors": [],
+    "events": [
+      {
+        "env": "prod",
+        "kind": "stage",
+        "t": 100,
+        "version": 2
+      },
+      {
+        "env": "prod",
+        "kind": "complete",
+        "t": 110,
+        "version": 2
+      },
+      {
+        "kind": "rotated",
+        "t": 110,
+        "version": 2
+      }
+    ],
+    "state": {
+      "current": 2,
+      "live": [
+        1,
+        2
+      ]
+    }
+  },
+  "s04": {
+    "errors": [],
+    "events": [
+      {
+        "env": "prod",
+        "kind": "stage",
+        "t": 100,
+        "version": 2
+      },
+      {
+        "env": "prod",
+        "kind": "complete",
+        "t": 120,
+        "version": 2
+      },
+      {
+        "kind": "rotated",
+        "t": 120,
+        "version": 2
+      }
+    ],
+    "state": {
+      "current": 2,
+      "live": [
+        1,
+        2
+      ]
+    }
+  },
+  "s05": {
+    "errors": [],
+    "events": [
+      {
+        "env": "prod",
+        "kind": "stage",
+        "t": 100,
+        "version": 2
+      },
+      {
+        "env": "prod",
+        "kind": "complete",
+        "t": 150,
+        "version": 2
+      },
+      {
+        "kind": "rotated",
+        "t": 150,
+        "version": 2
+      }
+    ],
+    "state": {
+      "current": 2,
+      "live": [
+        1,
+        2
+      ]
+    }
+  },
+  "s06": {
+    "errors": [],
+    "events": [
+      {
+        "env": "prod",
+        "kind": "stage",
+        "t": 100,
+        "version": 2
+      },
+      {
+        "env": "prod",
+        "kind": "complete",
+        "t": 110,
+        "version": 2
+      },
+      {
+        "kind": "rotated",
+        "t": 110,
+        "version": 2
+      }
+    ],
+    "state": {
+      "current": 2,
+      "live": [
+        1,
+        2
+      ]
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/search",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "hits": 0
+          }
+        }
+      ],
+      "query": [
+        {
+          "name": "q",
+          "type": "int",
+          "required": true
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/item/{id}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "ok": true
+          },
+          "when": {
+            "id": "1"
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "HEAD",
+      "path": "/missing",
+      "seq": 900
+    },
+    {
+      "method": "HEAD",
+      "path": "/search",
+      "seq": 901,
+      "query": {
+        "q": "abc"
+      }
+    },
+    {
+      "method": "HEAD",
+      "path": "/search",
+      "seq": 902
+    },
+    {
+      "method": "HEAD",
+      "path": "/item/9",
+      "seq": 903
+    }
+  ]
+}

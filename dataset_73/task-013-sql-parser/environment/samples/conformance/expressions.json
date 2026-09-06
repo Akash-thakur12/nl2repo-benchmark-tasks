@@ -1,0 +1,732 @@
+{
+  "_comment": "Captured from the production front end. `ast` is exactly what parse(query) returns. Normative; see docs/README.md.",
+  "cases": [
+    {
+      "query": "SELECT a FROM t WHERE age >= 21",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": ">=",
+          "left": {
+            "type": "column",
+            "name": "age",
+            "table": null
+          },
+          "right": {
+            "type": "literal",
+            "value": 21
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE a = 1 OR b = 2 AND c = 3",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": "OR",
+          "left": {
+            "type": "binary",
+            "op": "=",
+            "left": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "right": {
+              "type": "literal",
+              "value": 1
+            }
+          },
+          "right": {
+            "type": "binary",
+            "op": "AND",
+            "left": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "b",
+                "table": null
+              },
+              "right": {
+                "type": "literal",
+                "value": 2
+              }
+            },
+            "right": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "c",
+                "table": null
+              },
+              "right": {
+                "type": "literal",
+                "value": 3
+              }
+            }
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE a = 1 OR b = 2 AND c = 3 OR d = 4",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": "OR",
+          "left": {
+            "type": "binary",
+            "op": "OR",
+            "left": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "a",
+                "table": null
+              },
+              "right": {
+                "type": "literal",
+                "value": 1
+              }
+            },
+            "right": {
+              "type": "binary",
+              "op": "AND",
+              "left": {
+                "type": "binary",
+                "op": "=",
+                "left": {
+                  "type": "column",
+                  "name": "b",
+                  "table": null
+                },
+                "right": {
+                  "type": "literal",
+                  "value": 2
+                }
+              },
+              "right": {
+                "type": "binary",
+                "op": "=",
+                "left": {
+                  "type": "column",
+                  "name": "c",
+                  "table": null
+                },
+                "right": {
+                  "type": "literal",
+                  "value": 3
+                }
+              }
+            }
+          },
+          "right": {
+            "type": "binary",
+            "op": "=",
+            "left": {
+              "type": "column",
+              "name": "d",
+              "table": null
+            },
+            "right": {
+              "type": "literal",
+              "value": 4
+            }
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE a = 1 AND b = 2 AND c = 3",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": "AND",
+          "left": {
+            "type": "binary",
+            "op": "AND",
+            "left": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "a",
+                "table": null
+              },
+              "right": {
+                "type": "literal",
+                "value": 1
+              }
+            },
+            "right": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "b",
+                "table": null
+              },
+              "right": {
+                "type": "literal",
+                "value": 2
+              }
+            }
+          },
+          "right": {
+            "type": "binary",
+            "op": "=",
+            "left": {
+              "type": "column",
+              "name": "c",
+              "table": null
+            },
+            "right": {
+              "type": "literal",
+              "value": 3
+            }
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE (a = 1 OR b = 2) AND c = 3",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": "AND",
+          "left": {
+            "type": "binary",
+            "op": "OR",
+            "left": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "a",
+                "table": null
+              },
+              "right": {
+                "type": "literal",
+                "value": 1
+              }
+            },
+            "right": {
+              "type": "binary",
+              "op": "=",
+              "left": {
+                "type": "column",
+                "name": "b",
+                "table": null
+              },
+              "right": {
+                "type": "literal",
+                "value": 2
+              }
+            }
+          },
+          "right": {
+            "type": "binary",
+            "op": "=",
+            "left": {
+              "type": "column",
+              "name": "c",
+              "table": null
+            },
+            "right": {
+              "type": "literal",
+              "value": 3
+            }
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE NOT a IS NULL",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "unary",
+          "op": "NOT",
+          "operand": {
+            "type": "is_null",
+            "operand": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "negated": false
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE a IS NOT NULL",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "is_null",
+          "operand": {
+            "type": "column",
+            "name": "a",
+            "table": null
+          },
+          "negated": true
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE NOT a IS NOT NULL",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "unary",
+          "op": "NOT",
+          "operand": {
+            "type": "is_null",
+            "operand": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "negated": true
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE x IN (1, 2, 3)",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "in",
+          "operand": {
+            "type": "column",
+            "name": "x",
+            "table": null
+          },
+          "values": [
+            {
+              "type": "literal",
+              "value": 1
+            },
+            {
+              "type": "literal",
+              "value": 2
+            },
+            {
+              "type": "literal",
+              "value": 3
+            }
+          ]
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE x IN (-1, 0, 1)",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "in",
+          "operand": {
+            "type": "column",
+            "name": "x",
+            "table": null
+          },
+          "values": [
+            {
+              "type": "literal",
+              "value": -1
+            },
+            {
+              "type": "literal",
+              "value": 0
+            },
+            {
+              "type": "literal",
+              "value": 1
+            }
+          ]
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE balance > -100",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": ">",
+          "left": {
+            "type": "column",
+            "name": "balance",
+            "table": null
+          },
+          "right": {
+            "type": "literal",
+            "value": -100
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE ratio = 2.0",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": "=",
+          "left": {
+            "type": "column",
+            "name": "ratio",
+            "table": null
+          },
+          "right": {
+            "type": "literal",
+            "value": 2.0
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE n = 2",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": "=",
+          "left": {
+            "type": "column",
+            "name": "n",
+            "table": null
+          },
+          "right": {
+            "type": "literal",
+            "value": 2
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    },
+    {
+      "query": "SELECT a FROM t WHERE a = NULL",
+      "ast": {
+        "type": "select",
+        "distinct": false,
+        "columns": [
+          {
+            "expr": {
+              "type": "column",
+              "name": "a",
+              "table": null
+            },
+            "alias": null
+          }
+        ],
+        "from": {
+          "table": "t",
+          "alias": null
+        },
+        "joins": [],
+        "where": {
+          "type": "binary",
+          "op": "=",
+          "left": {
+            "type": "column",
+            "name": "a",
+            "table": null
+          },
+          "right": {
+            "type": "literal",
+            "value": null
+          }
+        },
+        "group_by": [],
+        "having": null,
+        "order_by": [],
+        "limit": null,
+        "offset": null
+      }
+    }
+  ]
+}

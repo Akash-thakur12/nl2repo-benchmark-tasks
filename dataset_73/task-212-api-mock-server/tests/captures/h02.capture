@@ -1,0 +1,10 @@
+{
+  "routes": [],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/a",
+      "seq": 1000
+    }
+  ]
+}

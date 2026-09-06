@@ -1,0 +1,4 @@
+{"include_types": ["feat", "fix", "perf", "revert"], "op": "config", "previous_version": "1.4.0", "sections": [{"title": "Features", "type": "feat"}, {"title": "Performance", "type": "perf"}]}
+{"author": "Ana Ruiz", "body": "", "op": "commit", "sha": "a00000b", "subject": "feat(search): match on the tenant prefix"}
+{"author": "Bo Lindqvist", "body": "", "op": "commit", "sha": "a00000c", "subject": "perf(search): cache the compiled matcher"}
+{"op": "end"}

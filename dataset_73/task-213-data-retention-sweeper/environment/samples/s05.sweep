@@ -1,0 +1,25 @@
+{
+  "now": 100,
+  "tables": [
+    {
+      "name": "events",
+      "retain_days": 10
+    },
+    {
+      "name": "orders",
+      "retain_days": 30
+    }
+  ],
+  "rows": [
+    {
+      "table": "events",
+      "id": 1,
+      "created": 10
+    },
+    {
+      "table": "orders",
+      "id": 1,
+      "created": 10
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"op": "config", "salt": "2026-Q1"}
+{"key": "nobody-asks", "op": "experiment", "state": "running", "traffic": 100, "variants": [{"name": "control", "weight": 50}, {"name": "treatment", "weight": 50}]}
+{"op": "end"}

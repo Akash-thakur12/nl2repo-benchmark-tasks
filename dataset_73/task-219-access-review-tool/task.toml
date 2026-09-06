@@ -1,0 +1,66 @@
+schema_version = "1.4"
+
+[task]
+name = "benchmark/access-review-tool"
+version = "1.0.0"
+description = "Build an access review resolver: nested groups reached breadth first, membership cycles reported without stopping resolution, revocations that cannot reach what a group grants, a default-revoke switch, terminated users, and separation of duties judged on what survives."
+keywords = [
+    "hard",
+    "access-review",
+    "rbac",
+    "audit",
+    "python",
+]
+
+[metadata]
+benchmark_style = "NL2RepoBench"
+spec_kind = "clear"
+difficulty = "hard"
+category = "security"
+language = "python"
+tier = "backend"
+origin = "internal-tool"
+artifact_type = ["repository"]
+task_objective = ["implement"]
+expert_time_estimate_hours = 6
+
+[metadata.difficulty_explanation]
+provenance = "Internal tool. Every quarter the auditors find access the review said had been removed but had not: the reviewer revoked it and the person kept it, because a group they were in granted it anyway, and the spreadsheet still said revoked."
+differentiation_notes = "The eight visible samples come from a tidy directory: nobody is in a group, nobody has left, every entitlement is reviewed exactly once and approved, no separation-of-duties pairs are configured and nothing is revoked by default. Twenty-nine plausible readings of the specification reproduce expected.json exactly under those conditions. tools/check_shortcuts.py enumerates all twenty-nine and asserts each still reproduces the samples and is still caught by at least one of the thirty-seven held-out captures, so the difficulty is demonstrated rather than asserted."
+relevance = "This is the finding that matters in an access review and the one spreadsheets get wrong: the difference between access a reviewer removed and access a reviewer only thought they had removed, and what that difference does to a separation-of-duties check run afterwards."
+failure_cruxes = [
+    "Walking nested groups depth first, or in name order, which changes which group an entitlement is attributed to.",
+    "Calling an entitlement a group grant whenever a group also grants it, rather than direct whenever the user holds it directly.",
+    "Listing what the groups grant before what the user holds directly, or sorting either.",
+    "Ignoring a group nobody defined, or reporting it once for every membership that names it.",
+    "Not noticing a membership cycle, noticing only a group that names itself, or reporting the cycles after the other errors.",
+    "Taking a direct grant away even though a group grants it too, so the review claims to have removed access that is still there.",
+    "Letting a reviewer take away what a group grants.",
+    "Ignoring the default-revoke switch, or applying it whatever the configuration says.",
+    "Not distinguishing what a reviewer revoked from what the default revoked, or applying the default without noticing the inheritance.",
+    "Treating access nobody looked at, or access that survived a revocation, as already gone.",
+    "Accepting a decision for somebody who has left, or leaving a leaver's access effective.",
+    "Checking what a user holds before checking whether they have left, which changes which error a decision produces.",
+    "Counting a decision as made before checking that it makes sense, or letting a later decision replace the one already made.",
+    "Reporting only the entitlement a decision could not find rather than the user and entitlement together.",
+    "Looking for separation-of-duties conflicts in everything a user is listed with rather than in what survives.",
+    "Reporting a conflicting pair in name order, or the violations by user name rather than in directory order.",
+]
+
+[metadata.scoring]
+type = "continuous"
+min_score = 0.0
+max_score = 1.0
+pass_threshold = 0.5
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "public"
+cpus = 2
+memory_mb = 2048

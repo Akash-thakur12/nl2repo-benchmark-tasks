@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "segments": [
+    {
+      "file": "sst_999998.json",
+      "level": 1
+    },
+    {
+      "file": "sst_999999.json",
+      "level": 1
+    },
+    {
+      "file": "sst_000000.json",
+      "level": 0
+    },
+    {
+      "file": "sst_000001.json",
+      "level": 0
+    }
+  ]
+}

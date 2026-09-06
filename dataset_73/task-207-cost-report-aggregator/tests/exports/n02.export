@@ -1,0 +1,30 @@
+{
+  "period": {
+    "start": 0,
+    "end": 29
+  },
+  "teams": [
+    "alpha",
+    "beta"
+  ],
+  "lines": [
+    {
+      "id": "r1",
+      "kind": "reservation",
+      "day": 0,
+      "term_days": 10,
+      "team": "bravo",
+      "cents": 1000
+    },
+    {
+      "id": "c1",
+      "kind": "credit",
+      "day": 5,
+      "team": "bravo",
+      "cents": 300
+    }
+  ],
+  "renamed_from": {
+    "bravo": "beta"
+  }
+}

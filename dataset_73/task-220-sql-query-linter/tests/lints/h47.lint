@@ -1,0 +1,3 @@
+{"op": "config", "rules": {"L005": "off", "L009": "error", "L999": "warning"}}
+{"name": "messy", "op": "query", "sql": "select *, count(*)  \n\tfrom orders, customers\njoin items -- noqa: L003\ngroup by 1\norder by 1, 2 -- noqa\nlimit 10;\nSELECT id FROM t WHERE id = 'a -- b' LIMIT 1"}
+{"op": "end"}

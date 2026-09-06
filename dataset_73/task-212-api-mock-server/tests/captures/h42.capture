@@ -1,0 +1,40 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/{c}/{d}/end",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 0
+          }
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/{a}/edge/{b}",
+      "fixtures": [
+        {
+          "status": 200,
+          "body": {
+            "win": 1
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/q/edge/end",
+      "seq": 1000
+    },
+    {
+      "method": "GET",
+      "path": "/api/q/rim/end",
+      "seq": 1001
+    }
+  ]
+}

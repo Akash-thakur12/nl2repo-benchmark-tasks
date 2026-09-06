@@ -1,0 +1,14 @@
+{
+  "declared": [
+    {
+      "id": "w",
+      "body": "plain"
+    }
+  ],
+  "live": [
+    {
+      "id": "w",
+      "body": "other"
+    }
+  ]
+}

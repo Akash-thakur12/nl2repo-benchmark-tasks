@@ -1,0 +1,7 @@
+{"flag": {"default_variant": "off", "enabled": true, "key": "rollout-half", "off_variant": "off", "prerequisites": [], "rules": [{"attribute": "plan", "operator": "in", "rollout": [{"variant": "on", "weight": 5000}, {"variant": "off", "weight": 5000}], "values": ["pro"]}], "salt": "s-rollout-half", "variants": ["on", "off"]}, "op": "define", "t": 1}
+{"flag": "rollout-half", "op": "evaluate", "t": 2, "user": {"key": "u1", "plan": "pro"}}
+{"flag": "rollout-half", "op": "evaluate", "t": 3, "user": {"key": "u2", "plan": "pro"}}
+{"flag": "rollout-half", "op": "evaluate", "t": 4, "user": {"key": "u3", "plan": "pro"}}
+{"flag": "rollout-half", "op": "evaluate", "t": 5, "user": {"key": "u4", "plan": "pro"}}
+{"flag": "rollout-half", "op": "evaluate", "t": 6, "user": {"key": "u5", "plan": "pro"}}
+{"op": "end", "t": 7}

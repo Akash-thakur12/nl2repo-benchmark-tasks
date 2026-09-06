@@ -1,0 +1,106 @@
+{
+  "q1": {
+    "accepted": [
+      "a1",
+      "b1",
+      "m1",
+      "a2",
+      "a3",
+      "c1",
+      "c2",
+      "d1",
+      "d2",
+      "i2",
+      "j1",
+      "j2",
+      "k1",
+      "e1",
+      "n1",
+      "n3",
+      "e3",
+      "e4",
+      "b2",
+      "m2",
+      "j3",
+      "f1",
+      "f2",
+      "b3",
+      "m3",
+      "k2",
+      "g1",
+      "g2",
+      "g3",
+      "h1",
+      "h2"
+    ],
+    "duplicates": [
+      "n2",
+      "e2",
+      "f3"
+    ],
+    "errors": [
+      {
+        "code": "UNKNOWN_LOCATION",
+        "detail": "atlantis"
+      }
+    ],
+    "impossible": [
+      {
+        "from": "london",
+        "id": "a2",
+        "km": 14,
+        "seconds": 10,
+        "to": "annexe",
+        "user": "alice"
+      },
+      {
+        "from": "annexe",
+        "id": "a3",
+        "km": 1793,
+        "seconds": 70,
+        "to": "cairo",
+        "user": "alice"
+      },
+      {
+        "from": "london",
+        "id": "c2",
+        "km": 1800,
+        "seconds": 0,
+        "to": "cairo",
+        "user": "carol"
+      },
+      {
+        "from": "london",
+        "id": "j3",
+        "km": 900,
+        "seconds": 3500,
+        "to": "berlin",
+        "user": "jane"
+      },
+      {
+        "from": "berlin",
+        "id": "b3",
+        "km": 900,
+        "seconds": 3599,
+        "to": "cairo",
+        "user": "bob"
+      },
+      {
+        "from": "harbour",
+        "id": "g2",
+        "km": 1800,
+        "seconds": 60,
+        "to": "cairo",
+        "user": "gina"
+      },
+      {
+        "from": "london",
+        "id": "h2",
+        "km": 900,
+        "seconds": 40000,
+        "to": "berlin",
+        "user": "hank"
+      }
+    ]
+  }
+}
